@@ -10,6 +10,21 @@
 <p>Chart 2. Dollar breakdown rebuilt from consistent subset</p>
 <img src="{{url_for('static',filename=file3)}}"/>
 
+<h2>Hypothesis 4 (Cameron): Public health-related NIH research areas experience higher grant termination rates than many other NIH research areas</h2>
+
+<p>Figure 1. Distribution of grant termination rates across NIH research areas</p>
+<img src="{{url_for('static',filename=hist)}}" alt="Distribution of grant termination rates across NIH research areas" style="width:700px; max-width:100%; height:auto;"/>
+
+<p>Figure 2. Relationship between research area size and grant termination rate</p>
+<img src="{{url_for('static',filename=scatter)}}" alt="Relationship between research area size and grant termination rate" style="width:700px; max-width:100%; height:auto;"/>
+
+<p>Figure 3. NIH research areas with the highest grant termination rates</p>
+<img src="{{url_for('static',filename=bar)}}" alt="NIH research areas with the highest grant termination rates" style="width:700px; max-width:100%; height:auto;"/>
+
+<p>What's informative about this view: Grant termination rates vary across NIH research areas, and there does not appear to be a strong relationship between research area size and termination rate. Many of the highest termination rates appear in public health-related areas, including rural health, health disparities, minority health, infectious diseases, and vaccine-related research.</p>
+
+<p>What could be improved about this view: These visualizations show which research areas have higher termination rates, but they do not explain why those grants were terminated. Other factors, such as funding institute, grant size, project length, or overlap between research categories, could also influence the observed termination rates.</p>
+
 <h2>Hypothesis 5 (Juliana): The grants that are being cut are from research are mature ongoing projects</h2>
 <p>Chart 1. Distribution of how far along grants were when terminated</p>
 <img src="{{url_for('static',filename=file2)}}" alt = "Distribution of how far along grants were when terminated"/>
