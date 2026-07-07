@@ -8,8 +8,13 @@ def w209():
     file3='dollar_breakdown.png'
     file4='region_termin_count.png'
     file5='region_termin_rates.png'
+
+    hist='termination_histogram.png'
+    scatter='termination_scatter.png'
+    bar='termination_bar.png'
+
     return render_template('w209.html',file=file,file2=file2, 
-                           file3=file3,file4=file4, file5=file5)
+                           file3=file3,file4=file4, file5=file5, hist=hist,scatter=scatter, bar=bar)
 
 if __name__ == '__main__':
     app.run()
