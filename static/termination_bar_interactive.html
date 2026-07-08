@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-f143271653b953a3e0384663aaad18c0"}, "mark": {"type": "bar"}, "encoding": {"tooltip": [{"field": "Topic", "title": "Research Area", "type": "nominal"}, {"field": "Termination Rate (%)", "format": ".1f", "title": "Termination Rate (%)", "type": "quantitative"}, {"field": "Total_Grants", "title": "Total Grants", "type": "quantitative"}], "x": {"field": "Termination Rate (%)", "title": "Termination Rate (%)", "type": "quantitative"}, "y": {"field": "Topic", "sort": "-x", "title": "Research Area", "type": "nominal"}}, "height": 500, "title": "Grant Termination Rates by NIH Research Area", "width": 700, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-f143271653b953a3e0384663aaad18c0": [{"Topic": "Rural Health", "Total_Grants": 152, "Termination_Rate": 0.8355263157894737, "Termination Rate (%)": 83.55263157894737}, {"Topic": "Coronaviruses Disparities and At-Risk Populations", "Total_Grants": 101, "Termination_Rate": 0.8316831683168316, "Termination Rate (%)": 83.16831683168317}, {"Topic": "Vaccine Related", "Total_Grants": 159, "Termination_Rate": 0.7861635220125787, "Termination Rate (%)": 78.61635220125787}, {"Topic": "Immunization", "Total_Grants": 191, "Termination_Rate": 0.7853403141361257, "Termination Rate (%)": 78.53403141361257}, {"Topic": "Coronaviruses", "Total_Grants": 175, "Termination_Rate": 0.7657142857142857, "Termination Rate (%)": 76.57142857142857}, {"Topic": "Racial and Ethnic Minority Health Research", "Total_Grants": 627, "Termination_Rate": 0.7623604465709729, "Termination Rate (%)": 76.2360446570973}, {"Topic": "Violence Research", "Total_Grants": 105, "Termination_Rate": 0.7428571428571429, "Termination Rate (%)": 74.28571428571429}, {"Topic": "Building Research Capacity at Institutions with Limited NIH Funding", "Total_Grants": 567, "Termination_Rate": 0.7372134038800705, "Termination Rate (%)": 73.72134038800705}, {"Topic": "Social Determinants of Health", "Total_Grants": 1335, "Termination_Rate": 0.7280898876404495, "Termination Rate (%)": 72.80898876404494}, {"Topic": "Health Disparities Research", "Total_Grants": 1225, "Termination_Rate": 0.7273469387755102, "Termination Rate (%)": 72.73469387755101}, {"Topic": "Drug Abuse (NIDA only)", "Total_Grants": 240, "Termination_Rate": 0.725, "Termination Rate (%)": 72.5}, {"Topic": "Health Disparities and Racial or Ethnic Minority Health Research", "Total_Grants": 1295, "Termination_Rate": 0.7204633204633205, "Termination Rate (%)": 72.04633204633205}, {"Topic": "Sexually Transmitted Infections", "Total_Grants": 110, "Termination_Rate": 0.6909090909090909, "Termination Rate (%)": 69.0909090909091}, {"Topic": "HIV/AIDS", "Total_Grants": 361, "Termination_Rate": 0.6897506925207756, "Termination Rate (%)": 68.97506925207756}, {"Topic": "Substance Misuse", "Total_Grants": 368, "Termination_Rate": 0.6875, "Termination Rate (%)": 68.75}, {"Topic": "Basic Behavioral and Social Science", "Total_Grants": 970, "Termination_Rate": 0.6752577319587629, "Termination Rate (%)": 67.5257731958763}, {"Topic": "Women's Health Research", "Total_Grants": 387, "Termination_Rate": 0.6718346253229974, "Termination Rate (%)": 67.18346253229974}, {"Topic": "Behavioral and Social Science", "Total_Grants": 1933, "Termination_Rate": 0.6627004655975168, "Termination Rate (%)": 66.27004655975168}, {"Topic": "Emerging Infectious Diseases", "Total_Grants": 432, "Termination_Rate": 0.6574074074074074, "Termination Rate (%)": 65.74074074074075}, {"Topic": "Biodefense and Related Countermeasures", "Total_Grants": 361, "Termination_Rate": 0.6537396121883656, "Termination Rate (%)": 65.37396121883657}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
