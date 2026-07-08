@@ -1,15 +1,30 @@
 <!DOCTYPE html>
-<html><head><title>w209 site</title></head>
+<html>
+    <head>
+        <title>w209 site</title>
+         <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    </head>
 <body>
 <h1>Team Research NIH Grants</h1>
+<section>
+    <img src="{{url_for('static',filename=file)}}" alt = "NIH Grant image"/>
+    <h2>
+        Summary
+    </h2>
+    <p>Over the course of 2025, more than 7,800 research grants were terminated or frozen (specifically 5,844 at the NIH and 1,996 at the NSF with roughly 2,600 grants still unresolved as of January 2026). This represents $1.4 billion in unspent funding. The NIH issued 24% fewer new grants in 2025 compared to the previous ten-year average, and the NSF issued 25% fewer. These cuts initially targeted grants containing topics like “vaccine hesitancy”, “misinformation”, “infectious diseases” and research on people from under-represented groups. This expanded to affect research on Alzheimer's, cancer, drug discovery, and global health across institutions nationwide.</p>
+</section>
 
-<img src="{{url_for('static',filename=file)}}" alt = "NIH Grant image"/>
-<h2>Hypothesis 3 (Teresa): Grants are being cut disproportionately in certain areas like the Northeast</h2>
-<p>Chart 1. Distribution of how far along grants were when terminated</p>
-<img src="{{url_for('static',filename=file2)}}" alt = "Distribution of how far along grants were when terminated"/>
-<p>Chart 2. Dollar breakdown rebuilt from consistent subset</p>
-<img src="{{url_for('static',filename=file3)}}"/>
+<section>
+    <div id="sector_shares_of_grants"></div>
+    <script>
+        vegaEmbed('#sector_shares_of_grants', {{ charts['sector_shares_of_grants'] | safe }})
+    </script>    
+</section>
 
+<<<<<<< HEAD
+=======
 <h2>Hypothesis 4 (Cameron): Public health-related NIH research areas experience higher grant termination rates than many other NIH research areas</h2>
 
 <p>Figure 1. Distribution of grant termination rates across NIH research areas</p>
@@ -32,6 +47,24 @@
 <img src="{{url_for('static',filename=file3)}}"/>
 <p>What's informative about this view: The median amount of grants being cut are 60% through their project period so they are more than halfway to completion.  The projects that are getting defunded are not new research concepts, it is studies that have a lot of time and money dedicated to them.  Then for the amount of money that has gone into those studies it is $622,673,368 that is a sunk cost.  The money ($462,631,105) from those projects is frozen and unspendable until it can be reclaimed by the treasury in the next year.</p>
 <p>What could be improved about this view:  I want to know more about the time invested in the studies that are getting defunded.  I would like to know how much was defunded out of the total budget.  I would like to know how much was defunded in comparison to the total budget.  Of that $622,673,368 in terminations, what is the maturity of the grants in that cohort?</p>
+>>>>>>> origin/main
 
+<section>
+    <h2>Hypothesis 3 (Teresa): Grants are being cut disproportionately in certain areas like the Northeast</h2>
+    <p>Chart 1. Region termination rates</p>
+    <img src="{{url_for('static',filename=file4)}}" alt = "Distribution of how far along grants were when terminated"/>
+    <p>Chart 2. Region termination counts</p>
+    <img src="{{url_for('static',filename=file5)}}"/>
+</section>
+
+<section>
+    <h2>Hypothesis 5 (Juliana): The grants that are being cut are from research are mature ongoing projects</h2>
+    <p>Chart 1. Distribution of how far along grants were when terminated</p>
+    <img src="{{url_for('static',filename=file2)}}" alt = "Distribution of how far along grants were when terminated"/>
+    <p>Chart 2. Dollar breakdown rebuilt from consistent subset</p>
+    <img src="{{url_for('static',filename=file3)}}"/>
+    <p>What's informative about this view: The median amount of grants being cut are 60% through their project period so they are more than halfway to completion.  The projects that are getting defunded are not new research concepts, it is studies that have a lot of time and money dedicated to them.  Then for the amount of money that has gone into those studies it is $622,673,368 that is a sunk cost.  The money ($462,631,105) from those projects is frozen and unspendable until it can be reclaimed by the treasury in the next year.</p>
+    <p>What could be improved about this view:  I want to know more about the time invested in the studies that are getting defunded.  I would like to know how much was defunded out of the total budget.  I would like to know how much was defunded in comparison to the total budget.  Of that $622,673,368 in terminations, what is the maturity of the grants in that cohort?</p>
+</section>
 
 </body></html>
