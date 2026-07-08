@@ -11,7 +11,6 @@ def w209():
     file4='region_termin_count.png'
     file5='region_termin_rates.png'
 
-<<<<<<< HEAD
     sector_status = pd.read_csv('data_files/sector_status.csv')
 
     sectors = alt.Chart(sector_status).mark_bar().encode(
@@ -23,17 +22,13 @@ def w209():
     charts = {
         'sector_shares_of_grants': sectors.to_json()
     }
-    
-    return render_template('w209.html',file=file,file2=file2, 
-                           file3=file3,file4=file4, file5=file5, charts=charts)
-=======
+   
     hist='termination_histogram.png'
     scatter='termination_scatter.png'
     bar='termination_bar.png'
 
     return render_template('w209.html',file=file,file2=file2, 
-                           file3=file3,file4=file4, file5=file5, hist=hist,scatter=scatter, bar=bar)
->>>>>>> origin/main
+                           file3=file3,file4=file4, file5=file5, hist=hist,scatter=scatter, charts=charts,bar=bar)
 
 if __name__ == '__main__':
     app.run()
