@@ -19,7 +19,7 @@
 <img src="{{url_for('static',filename=scatter)}}" alt="Relationship between research area size and grant termination rate" style="width:700px; max-width:100%; height:auto;"/>
 
 <p>Figure 3. NIH research areas with the highest grant termination rates</p>
-<img src="{{url_for('static',filename=bar)}}" alt="NIH research areas with the highest grant termination rates" style="width:700px; max-width:100%; height:auto;"/>
+<iframe src="{{url_for('static', filename='termination_bar_interactive.html')}}" width="800" height="600" style="border:none;"></iframe>
 
 <p>What's informative about this view: Grant termination rates vary across NIH research areas, and there does not appear to be a strong relationship between research area size and termination rate. Many of the highest termination rates appear in public health-related areas, including rural health, health disparities, minority health, infectious diseases, and vaccine-related research.</p>
 
