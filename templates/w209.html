@@ -95,6 +95,10 @@
     <img src="{{url_for('static',filename=file4)}}" alt = "Distribution of how far along grants were when terminated"/>
     <p>Chart 2. Region termination counts</p>
     <img src="{{url_for('static',filename=file5)}}"/>
+    <div id="regions_on_map"></div>
+    <script>
+        vegaEmbed('#regions_on_map', {{ charts['regions_on_map'] | safe }})
+    </script>  
 </section>
 
 <section>
