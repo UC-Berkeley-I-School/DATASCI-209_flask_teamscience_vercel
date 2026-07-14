@@ -5,8 +5,56 @@
          <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
         <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
         <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Slab:wght@500;700&display=swap" rel="stylesheet">
+        <style>
+            body {
+                background-color: #0b1f44;   /* navy blue */
+                color: #ffffff;              /* white text */
+                font-family: 'Roboto', Arial, Helvetica, sans-serif;   /* paragraphs */
+                line-height: 1.6;
+                margin: 0;
+                padding: 40px max(40px, 8vw);
+            }
+
+            h1, h2 {
+                color: #ffffff;
+                font-family: 'Roboto Slab', Georgia, serif;   /* I am trying to use the font we had on the powerpoint*/
+            }
+
+            a {
+                color: #9ec5ff;   /* I'm making this light blue */
+            }
+
+            /* I'm making the background white so the charts show up */
+            img,
+            iframe,
+            #sector_shares_of_grants {
+                background-color: #ffffff;
+                border-radius: 8px;
+                padding: 8px;
+                box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+            }
+
+            /* Scrolling fade effect */
+            .fade-item {
+                opacity: 0;
+                transform: translateY(30px);
+                transition: opacity 0.8s ease, transform 0.8s ease;
+            }
+            .fade-item.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            /* debugging for js disabled */
+            .no-js .fade-item {
+                opacity: 1;
+                transform: none;
+            }
+        </style>
     </head>
-<body>
+<body class="no-js">
 <h1>Team Research NIH Grants</h1>
 <section>
     <img src="{{url_for('static',filename=file)}}" alt = "NIH Grant image"/>
@@ -49,13 +97,72 @@
 </section>
 
 <section>
-    <h2>Hypothesis 5 (Juliana): The grants that are being cut are from research are mature ongoing projects</h2>
-    <p>Chart 1. Distribution of how far along grants were when terminated</p>
-    <img src="{{url_for('static',filename=file2)}}" alt = "Distribution of how far along grants were when terminated"/>
-    <p>Chart 2. Dollar breakdown rebuilt from consistent subset</p>
-    <img src="{{url_for('static',filename=file3)}}"/>
-    <p>What's informative about this view: The median amount of grants being cut are 60% through their project period so they are more than halfway to completion.  The projects that are getting defunded are not new research concepts, it is studies that have a lot of time and money dedicated to them.  Then for the amount of money that has gone into those studies it is $622,673,368 that is a sunk cost.  The money ($462,631,105) from those projects is frozen and unspendable until it can be reclaimed by the treasury in the next year.</p>
+    <h2>Wasted Time and Money</h2>
+    <p>Chart 1. Total Monetary Waste</p>
+    <iframe
+      src="{{ url_for('static', filename='5_total_waste.html') }}"
+      width="100%" height="500" frameborder="0">
+    </iframe>
+    <p>Chart 2. Grant Maturity</p>
+     <iframe
+      src="{{ url_for('static', filename='5_terminated_grant_maturity.html') }}"
+      width="100%" height="500" frameborder="0">
+    </iframe>
+     <p>Chart 3. Terminations: Money Wasted Time Invested</p>
+     <iframe
+      src="{{ url_for('static', filename='5_grant_breakdown_money_time.html') }}"
+      width="100%" height="500" frameborder="0">
+    </iframe>
+    
+    <p>Across the 801 disrupted grants with both a recorded spending amount and a computable project timeline, NIH had already outlaid roughly $606 million (which is money spent on research that was then abandoned), which is a floor not a ceiling.   434 of the 1,249 disrupted grants have no recorded outlay in NIH RePORTER despite being fully terminated, so the true total already spent is higher by an unknown amount.   The 801 grants carried about $1.04 billion in total committed value, of which the ~$606 million in recorded funds spent on work now halted.  The remaining committed value was either frozen before disbursement or never recorded.</p>
     <p>What could be improved about this view:  I want to know more about the time invested in the studies that are getting defunded.  I would like to know how much was defunded out of the total budget.  I would like to know how much was defunded in comparison to the total budget.  Of that $622,673,368 in terminations, what is the maturity of the grants in that cohort?</p>
 </section>
+
+<script>
+    // Turn off the "no-js" fallback so the fade styles take effect
+    document.body.classList.remove('no-js');
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var STEP = 0.12;   // these are seconds between each item in a cascade 
+        // increase number if the fade is too fast, decrease if too slow
+
+        // this is a fade unit
+        var faders = document.querySelectorAll(
+            'h1, h2, p, img, iframe, #sector_shares_of_grants'
+        );
+        faders.forEach(function (el) {
+            el.classList.add('fade-item');
+        });
+
+        // give each item a "position within its section" so we can cascade it
+        // items not inside a section (like the top h1) just get position 0
+        document.querySelectorAll('section').forEach(function (section) {
+            var items = section.querySelectorAll('.fade-item');
+            items.forEach(function (el, i) {
+                el.dataset.cascadeIndex = i;
+            });
+        });
+
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                var el = entry.target;
+                var i = parseInt(el.dataset.cascadeIndex || 0, 10);
+                if (entry.isIntersecting) {
+                    // stagger the fade-in so the section cascades
+                    el.style.transitionDelay = (i * STEP) + 's';
+                    el.classList.add('visible');
+                } else {
+                    // fade out promptly, no cascade delay
+                    el.style.transitionDelay = '0s';
+                    el.classList.remove('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        faders.forEach(function (el) {
+            observer.observe(el);
+        });
+    });
+</script>
 
 </body></html>
