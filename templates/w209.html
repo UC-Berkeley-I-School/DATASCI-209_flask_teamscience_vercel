@@ -89,16 +89,44 @@
     </script>    
 </section>
 
-<section>
-    <h2>Hypothesis 2 (Roe): The distribution of cuts favored special interest groups.</h2>
-        </p>    2a).Private research institituions were less affected than public research institutions.</p>
-        </p>    2b).Grants supporting marginalized groups were more affected than others.</p>
 
-    <p>Chart 1. Grant termination durations of Public and Private research institutions by scaled count and funding amount.</p>
-    <img src="{{url_for('static',filename=file6)}}"/>
-    <p>Chart 1. Grant termination durations of Public and Private research institutions by actual count and funding amount.</p>
-    <img src="{{url_for('static',filename=file7)}}"/>
+<br><br> <br><br><br><br> <br><br> 
+<section>
+    <h2>
+        <strong>Hypothesis 2 (Roe):</strong> The distribution of cuts favored political allies.</h2>
+        <div style="text-indent: 40px">
+            <p>2a).Private research organizations were less affected than public research institutions.</p>
+            <p>2b).Grants supporting marginalized groups were more affected than others.</p>
+        </div>
+    <br><br> 
+    <p>Chart 1a. Percentage of Total Grant Value Witheld for both Private and Public research organizations over the duration of disruptions.</p>
+    <iframe
+        src="{{ url_for('static', filename='Sector Disruption Percentages.html') }}"
+        style="width:110%; height:950px; border: none; transform: scale(0.9);transform-origin: top left;"
+        frameborder="0">
+    </iframe>
+    <p>Chart 1b. Total grant dollar value that was witheld for both Private and Public research oragnizations over the duration of disruptions.</p>
+    <img
+        src="{{url_for('static',filename=file7)}}"
+        style="width:110%; height:500px; border: none; transform: scale(0.9);transform-origin: top left;"
+        frameborder="0">
+    </img>
+    <p>Chart 2. Percentage of Total Grant Value Witheld for Minority Serving Organizations compared ot others over the duration of disruptions.</p>
+    <iframe
+        src="{{ url_for('static', filename='Marginalized Group Disruption Percentages.html') }}"
+        style="width:110%; height:950px; border: none; transform: scale(0.9);transform-origin: top left;"
+        frameborder="0">
+    </iframe>
+
+    <p>Chart 3. Percentage of Total Grant Value Witheld separated by whether the grants contained language that was flagged by the administrations over the duration of disruptions.</p>
+    <img 
+        src="{{url_for('static',filename=file6)}}"
+        style="width:110%; height:540px; border: none; transform: scale(0.9);transform-origin: top left;"
+        frameborder="0">
+    </img>
 </section>
+<br><br> <br><br><br><br> <br><br> 
+
 
 
 <section>

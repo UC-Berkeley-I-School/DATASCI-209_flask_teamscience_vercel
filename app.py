@@ -11,8 +11,8 @@ def w209():
     file3='dollar_breakdown.png'
     file4='region_termin_count.png'
     file5='region_termin_rates.png'
-    file6='NIH_Termination_Percentages_by_Sector.png'
-    file7='NIH_Terminations_by_Sector.png'
+    file6='NIH Terminations by Flagged Language Status.png'
+    file7='NIH Terminations by Sector.png'
 
 #------------------Teresa's Interactuve Graphs-------------------------------------------------
     sector_status = pd.read_csv('data_files/sector_status.csv')
