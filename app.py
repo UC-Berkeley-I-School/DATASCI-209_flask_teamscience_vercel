@@ -11,6 +11,8 @@ def w209():
     file3='dollar_breakdown.png'
     file4='region_termin_count.png'
     file5='region_termin_rates.png'
+    file6='NIH_Termination_Percentages_by_Sector.png'
+    file7='NIH_Terminations_by_Sector.png'
 
 #------------------Teresa's Interactuve Graphs-------------------------------------------------
     sector_status = pd.read_csv('data_files/sector_status.csv')
@@ -84,7 +86,7 @@ def w209():
     bar='termination_bar.png'
 
     return render_template('w209.html',file=file,file2=file2, 
-                           file3=file3,file4=file4, file5=file5, hist=hist,scatter=scatter, charts=charts,bar=bar)
+                           file3=file3,file4=file4, file5=file5, file6=file6, file7=file7, hist=hist,scatter=scatter, charts=charts,bar=bar)
 
 if __name__ == '__main__':
     app.run()
