@@ -1,0 +1,14 @@
+org_sector,detailed_status,count,pct
+Private,Frozen,14,0.003796095444685466
+Private,Non-renewal,1,0.00027114967462039046
+Private,Reinstated (confirmed),843,0.22857917570498915
+Private,Reinstated (unconfirmed),97,0.026301518438177875
+Private,Terminated,542,0.14696312364425163
+Private,Unfrozen (confirmed),2148,0.5824295010845987
+Private,Unfrozen (unconfirmed),43,0.011659436008676789
+Public,Frozen,1,0.0005966587112171838
+Public,Reinstated (confirmed),932,0.5560859188544153
+Public,Reinstated (unconfirmed),225,0.13424821002386636
+Public,Terminated,491,0.29295942720763724
+Public,Unfrozen (confirmed),24,0.014319809069212411
+Public,Unfrozen (unconfirmed),3,0.0017899761336515514

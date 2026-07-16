@@ -1,2 +1,12 @@
 __pycache__
 *.pyc
+
+# virtual environments
+.venv/
+venv/
+
+# OS/editor junk
+.DS_Store
+.vscode/
+data/
+notebooks/.DS_Store
