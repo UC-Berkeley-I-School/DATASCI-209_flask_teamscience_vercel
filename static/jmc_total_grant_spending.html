@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"mark": {"type": "bar"}, "encoding": {"color": {"field": "Category", "legend": {"columns": 1, "labelLimit": 320, "orient": "bottom", "title": null}, "scale": {"domain": ["Spent before the grant was halted (irrecoverable)", "Committed but unspent, not recovered", "Formally deobligated (recovered)"], "range": ["#08306b", "#4292c6", "#c6dbef"]}, "sort": ["Spent before the grant was halted (irrecoverable)", "Committed but unspent, not recovered", "Formally deobligated (recovered)"], "type": "nominal"}, "tooltip": [{"field": "Category", "title": "Fate of the dollar", "type": "nominal"}, {"field": "Amount_M", "format": "$,.1f", "title": "Amount ($M)", "type": "quantitative"}, {"field": "Share", "format": ".1%", "title": "Share of committed", "type": "quantitative"}], "x": {"axis": {"format": "$,.0f"}, "field": "start", "title": "Millions of dollars", "type": "quantitative"}, "x2": {"field": "end"}, "y": {"axis": {"labels": false, "ticks": false}, "field": "bar", "title": null, "type": "nominal"}}}, {"mark": {"type": "text", "dy": -8, "fontSize": 14, "fontWeight": "bold"}, "encoding": {"color": {"field": "label_color", "scale": null, "type": "nominal"}, "text": {"field": "pct_lab", "type": "nominal"}, "x": {"field": "mid", "type": "quantitative"}, "y": {"field": "bar", "type": "nominal"}}}, {"mark": {"type": "text", "dy": 9, "fontSize": 11}, "encoding": {"color": {"field": "label_color", "scale": null, "type": "nominal"}, "text": {"field": "amt_lab", "type": "nominal"}, "x": {"field": "mid", "type": "quantitative"}, "y": {"field": "bar", "type": "nominal"}}}], "data": {"name": "data-5dafcb74da103ad870fd6a2277d7a722"}, "height": 110, "title": {"text": "$1.09B committed to 815 disrupted grants; $620M of it was already spent when the work stopped", "anchor": "start", "subtitle": ["815 of 1,249 disrupted grants have spending data on record.", "The other 434 have none, and they tend to be older grants with more money behind them, so the true total is higher than shown."], "subtitleFontSize": 11}, "width": 560, "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json", "datasets": {"data-5dafcb74da103ad870fd6a2277d7a722": [{"Category": "Spent before the grant was halted (irrecoverable)", "Amount_M": 620.1661220999999, "bar": "all", "label_color": "white", "Share": 0.5714213268808941, "end": 620.1661220999999, "start": 0.0, "mid": 310.08306104999997, "pct_lab": "57%", "amt_lab": "$620M"}, {"Category": "Committed but unspent, not recovered", "Amount_M": 314.20733043, "bar": "all", "label_color": "white", "Share": 0.28951076698940204, "end": 934.3734525299999, "start": 620.1661220999999, "mid": 777.2697873149999, "pct_lab": "29%", "amt_lab": "$314M"}, {"Category": "Formally deobligated (recovered)", "Amount_M": 150.93102058999997, "bar": "all", "label_color": "#08306b", "Share": 0.139067906129704, "end": 1085.3044731199998, "start": 934.3734525299998, "mid": 1009.8389628249997, "pct_lab": "14%", "amt_lab": "$151M"}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
