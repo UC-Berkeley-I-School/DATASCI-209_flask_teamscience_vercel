@@ -2,3 +2,4 @@ flask
 pandas
 altair
 openpyxl
+vega_datasets
