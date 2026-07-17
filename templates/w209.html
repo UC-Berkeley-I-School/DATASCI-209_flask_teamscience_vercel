@@ -160,7 +160,14 @@
 <section>
     <h2>Hypothesis 3 (Teresa): Grants are being cut disproportionately in certain areas like the Northeast</h2>
     <p>Chart 1. Region termination rates</p>
-    <img src="{{url_for('static',filename=file4)}}" alt = "Distribution of how far along grants were when terminated"/>
+
+    <iframe 
+        src="{{ url_for('static', filename='region_map.html') }}"
+        width="100%"
+        height="650"
+        frameborder="0">
+    </iframe>
+    
     <p>Chart 2. Region termination counts</p>
     <img src="{{url_for('static',filename=file5)}}"/>
     <div id="regions_on_map"></div>
