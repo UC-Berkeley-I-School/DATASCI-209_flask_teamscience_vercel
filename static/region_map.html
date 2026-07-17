@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/us-10m.json", "format": {"feature": "states", "type": "topojson"}}, "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.5}, "encoding": {"color": {"field": "rate", "scale": {"scheme": "reds"}, "title": "Termination Rate", "type": "quantitative"}, "tooltip": [{"field": "region", "type": "nominal"}, {"field": "rate", "format": ".1%", "type": "quantitative"}]}, "height": 400, "projection": {"type": "albersUsa"}, "title": "NIH Grant Termination Rate by Region", "transform": [{"lookup": "id", "from": {"data": {"name": "data-868f025c177dcc798e8fd5d75ee3812f"}, "key": "id", "fields": ["region", "rate"]}}], "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json", "datasets": {"data-868f025c177dcc798e8fd5d75ee3812f": [{"id": 1, "state": "AL", "region": "South", "rate": 0.95}, {"id": 2, "state": "AK", "region": "West", "rate": 0.926}, {"id": 4, "state": "AZ", "region": "West", "rate": 0.926}, {"id": 5, "state": "AR", "region": "South", "rate": 0.95}, {"id": 6, "state": "CA", "region": "West", "rate": 0.926}, {"id": 8, "state": "CO", "region": "West", "rate": 0.926}, {"id": 9, "state": "CT", "region": "Northeast", "rate": 0.483}, {"id": 10, "state": "DE", "region": "South", "rate": 0.95}, {"id": 11, "state": "DC", "region": "South", "rate": 0.95}, {"id": 12, "state": "FL", "region": "South", "rate": 0.95}, {"id": 13, "state": "GA", "region": "South", "rate": 0.95}, {"id": 15, "state": "HI", "region": "West", "rate": 0.926}, {"id": 16, "state": "ID", "region": "West", "rate": 0.926}, {"id": 17, "state": "IL", "region": "Midwest", "rate": 0.308}, {"id": 18, "state": "IN", "region": "Midwest", "rate": 0.308}, {"id": 19, "state": "IA", "region": "Midwest", "rate": 0.308}, {"id": 20, "state": "KS", "region": "Midwest", "rate": 0.308}, {"id": 21, "state": "KY", "region": "South", "rate": 0.95}, {"id": 22, "state": "LA", "region": "South", "rate": 0.95}, {"id": 23, "state": "ME", "region": "Northeast", "rate": 0.483}, {"id": 24, "state": "MD", "region": "South", "rate": 0.95}, {"id": 25, "state": "MA", "region": "Northeast", "rate": 0.483}, {"id": 26, "state": "MI", "region": "Midwest", "rate": 0.308}, {"id": 27, "state": "MN", "region": "Midwest", "rate": 0.308}, {"id": 28, "state": "MS", "region": "South", "rate": 0.95}, {"id": 29, "state": "MO", "region": "Midwest", "rate": 0.308}, {"id": 30, "state": "MT", "region": "West", "rate": 0.926}, {"id": 31, "state": "NE", "region": "Midwest", "rate": 0.308}, {"id": 32, "state": "NV", "region": "West", "rate": 0.926}, {"id": 33, "state": "NH", "region": "Northeast", "rate": 0.483}, {"id": 34, "state": "NJ", "region": "Northeast", "rate": 0.483}, {"id": 35, "state": "NM", "region": "West", "rate": 0.926}, {"id": 36, "state": "NY", "region": "Northeast", "rate": 0.483}, {"id": 37, "state": "NC", "region": "South", "rate": 0.95}, {"id": 38, "state": "ND", "region": "Midwest", "rate": 0.308}, {"id": 39, "state": "OH", "region": "Midwest", "rate": 0.308}, {"id": 40, "state": "OK", "region": "South", "rate": 0.95}, {"id": 41, "state": "OR", "region": "West", "rate": 0.926}, {"id": 42, "state": "PA", "region": "Northeast", "rate": 0.483}, {"id": 44, "state": "RI", "region": "Northeast", "rate": 0.483}, {"id": 45, "state": "SC", "region": "South", "rate": 0.95}, {"id": 46, "state": "SD", "region": "Midwest", "rate": 0.308}, {"id": 47, "state": "TN", "region": "South", "rate": 0.95}, {"id": 48, "state": "TX", "region": "South", "rate": 0.95}, {"id": 49, "state": "UT", "region": "West", "rate": 0.926}, {"id": 50, "state": "VT", "region": "Northeast", "rate": 0.483}, {"id": 51, "state": "VA", "region": "South", "rate": 0.95}, {"id": 53, "state": "WA", "region": "West", "rate": 0.926}, {"id": 54, "state": "WV", "region": "South", "rate": 0.95}, {"id": 55, "state": "WI", "region": "Midwest", "rate": 0.308}, {"id": 56, "state": "WY", "region": "West", "rate": 0.926}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
