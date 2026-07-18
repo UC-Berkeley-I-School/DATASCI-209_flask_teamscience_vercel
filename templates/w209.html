@@ -501,12 +501,24 @@
     <h2>Hypothesis 3 (Teresa): Grants are being cut disproportionately in certain areas like the Northeast</h2>
     <p>Chart 1. Region termination rates</p>
 
-    <iframe 
-        src="{{ url_for('static', filename='region_map.html') }}"
-        width="100%"
-        height="650"
-        frameborder="0">
-    </iframe>
+    <button id="clear-btn">Clear selection</button>
+    <div id="vis"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+    <script>
+    fetch("{{ url_for('static', filename='region_map_chart.json') }}")
+    .then(res => res.json())
+    .then(spec => {
+        vegaEmbed('#vis', spec).then(result => {
+        document.getElementById('clear-btn').addEventListener('click', () => {
+            result.view.data('region_select_store', []).runAsync();
+        });
+        });
+    });
+    </script>
     
     <p>Chart 2. Region termination counts</p>
     <img src="{{url_for('static',filename=file5)}}"/>
