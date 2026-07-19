@@ -355,7 +355,7 @@
       </span>
     </div>
 
-    <h2>What the NIH Does</h2>
+    <h2>What Do NIH Grants Do?</h2>
 
 <div class="body-section">
   <p class="lead">The National Institutes of Health is the largest public funder of
@@ -488,35 +488,7 @@
   <p class="impact-source">Source: National Institutes of Health. Figures reflect NIH's
      own published estimates of the impact of research it funds.</p>
 
-  <!-- Bridge sentence: hands the reader into the next section -->
-  <p class="section-bridge">In early 2025, something happened to that institution
-     that had not happened in its modern history. This is the data record of what
-     followed.</p>
 </div>
-
-</section>
-
-
-<!-- ===== SEAN'S FUNDING FLOWCHART START ===== -->
-<section>
-    <h2>How NIH Grant Funding Works</h2>
-        <p>
-            NIH grants typically follow a structured lifecycle. Researchers submit proposals, which undergo rigorous peer review before funding decisions are made. Once awarded, grants receive funding over multiple years as research milestones are completed. Under normal circumstances, projects continue until their planned completion date.
-        </p>
-
-        <p>
-            The disruption events analyzed in this project represent departures from this normal funding process. Grants may be frozen, terminated, reinstated, or restored after review, creating interruptions to ongoing research activities. The visualizations below explore when these disruptions occurred, how frequently grants were restored, and the magnitude of funding affected.
-        </p>
-        <section class="flowchart-section">
-            <figure>
-                <img
-                    src="{{ url_for('static', filename='NIH Funding Flowchart.png') }}"
-                    alt="NIH Grant Funding Process Flowchart"
-                    class="flowchart-image">
-            </figure>
-        </section>
-</section>
-<!-- ===== SEAN'S FUNDING FLOWCHART END ===== -->
 
 <!-- ===== SEAN'S HISTORIC BACKGROUND START ===== -->
 <section class="historical-shift-section">
@@ -641,7 +613,7 @@
             </text>
 
             <text x="920" y="480" text-anchor="middle" class="disruption-subcaption">
-                including terminations, freezes, and repeated disruption cycles
+                (grant freezes that were restored, and terminations that were never restored)
             </text>
         </svg>
 
@@ -655,9 +627,32 @@
 </section>
 <!-- ===== SEAN'S HISTORIC BACKGROUND END ===== -->
 
+<!-- ===== SEAN'S FUNDING FLOWCHART START ===== -->
+<section>
+    <h2>How NIH Grant Funding Works</h2>
+        <section class="flowchart-section">
+            <figure>
+                <img
+                    src="{{ url_for('static', filename='NIH Funding Flowchart.png') }}"
+                    alt="NIH Grant Funding Process Flowchart"
+                    class="flowchart-image">
+            </figure>
+        </section>
+        <p>
+            NIH grants typically follow a structured lifecycle. Researchers submit proposals, which undergo rigorous peer review before funding decisions are made. Once awarded, grants receive funding over multiple years as research milestones are completed. Under normal circumstances, projects continue until their planned completion date.
+        </p>
+
+        <p>
+            The disruption events analyzed in this project represent departures from this normal funding process. Grants may be frozen, terminated, reinstated, or restored after review, creating interruptions to ongoing research activities. The visualizations below explore when these disruptions occurred, how frequently grants were restored, and the magnitude of funding affected.
+        </p>
+</section>
+<!-- ===== SEAN'S FUNDING FLOWCHART END ===== -->
+
+
+
 <!-- ===== SEAN'S SECTION START (Tableau embeds) ===== -->
 <section>
-    <h2>Hypothesis 1 (Sean): NIH Grants are being Disrupted (and Restored) rather than just being terminated during the Trump Administration</h2>
+    <h2>NIH Grants are being Disrupted (and Restored) rather than just being terminated during the Trump Administration</h2>
     <p> The interactive figures below show how many grants and how much funding
             was <span class="termination-text">disrupted</span> and later
             <span class="restoration-text">restored</span> during 2025 and 2026.
