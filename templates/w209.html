@@ -1,4 +1,4 @@
-<html>
+<!DOCTYPE html>
     <head>
         <title>w209 site</title>
          <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
@@ -339,6 +339,77 @@
                 color: #4009f6;   /* Tableau red */
                 font-weight: bold;
             }
+            .grantflow{
+                --ink:#12326e; --blue:#1b4fa0; --blue-bg:#eef4fc; --blue-br:#cdddf3; --blue-ic:#dbe8fb;
+                --red:#d12b2b; --red-bg:#fdecec; --red-br:#f4c6c6;
+                --green:#1f8a4c; --green-bg:#e8f6ee; --green-br:#bfe6cd;
+                --gray:#5b6b85;
+                background:#ffffff; border-radius:16px; padding:28px clamp(16px,3vw,34px);
+                box-shadow:0 6px 22px rgba(0,0,0,.28); color:var(--ink); max-width:760px; margin:0 auto;
+            }
+            .grantflow h3{ font-family:'Roboto Slab',Georgia,serif; font-size:1.7rem; margin:0 0 4px; color:var(--ink);}
+            .grantflow .gf-sub{ margin:0 0 22px; color:#43567a; font-size:1rem; max-width:640px;}
+
+            .gf-stage-label{ font-size:.74rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase;
+                color:var(--gray); margin:6px 0 10px; }
+            .gf-stage-label.red{ color:var(--red); }
+
+            .gf-node{
+                width:100%; text-align:left; background:var(--blue-bg); border:1.5px solid var(--blue-br);
+                border-radius:12px; padding:12px 14px; display:flex; gap:13px; align-items:center;
+                cursor:pointer; font-family:inherit; color:var(--ink);
+                transition:transform .12s, box-shadow .12s, border-color .12s;
+            }
+            .gf-node:hover{ transform:translateY(-1px); box-shadow:0 4px 12px rgba(27,79,160,.16); }
+            .gf-node:focus-visible{ outline:3px solid #9ec5ff; outline-offset:2px; }
+            .gf-item.open > .gf-node{ border-color:var(--blue); box-shadow:0 0 0 2px var(--blue) inset; }
+            .gf-node .ic{
+                flex:0 0 auto; width:42px; height:42px; border-radius:50%; background:var(--blue-ic);
+                display:flex; align-items:center; justify-content:center; color:var(--blue);
+            }
+            .gf-node .ic svg{ width:23px; height:23px; }
+            .gf-node .tx{ flex:1; }
+            .gf-node .tx b{ display:block; font-size:1rem; line-height:1.2; }
+            .gf-node .tx span{ display:block; font-size:.82rem; color:#43567a; margin-top:2px; }
+            .gf-caret{ flex:0 0 auto; color:currentColor; opacity:.6; transition:transform .2s ease; }
+            .gf-item.open > .gf-node .gf-caret{ transform:rotate(180deg); opacity:1; }
+
+            .gf-node.red{ background:var(--red-bg); border-color:var(--red-br); color:var(--red); }
+            .gf-item.open > .gf-node.red{ border-color:var(--red); box-shadow:0 0 0 2px var(--red) inset; }
+            .gf-node.red .ic{ background:var(--red); color:#fff; }
+            .gf-node.green{ background:var(--green-bg); border-color:var(--green-br); color:var(--green); }
+            .gf-item.open > .gf-node.green{ border-color:var(--green); box-shadow:0 0 0 2px var(--green) inset; }
+            .gf-node.green .ic{ background:var(--green); color:#fff; }
+            .gf-node.red .tx span, .gf-node.green .tx span{ color:#5a6478; }
+
+            /* inline detail that expands below the node */
+            .gf-detail{ max-height:0; overflow:hidden; opacity:0;
+                transition:max-height .3s ease, opacity .22s ease; }
+            .gf-item.open > .gf-detail{ max-height:520px; opacity:1; }
+            .gf-detail-inner{ margin:8px 0 2px; background:#f3f7fd; border:1px solid #dbe6f6;
+                border-left:5px solid var(--blue); border-radius:10px; padding:14px 16px; }
+            .gf-detail-inner.red{ border-left-color:var(--red); }
+            .gf-detail-inner.green{ border-left-color:var(--green); }
+            .gf-detail-inner p{ margin:0 0 8px; font-size:.94rem; line-height:1.6; color:#2c3a56; }
+            .gf-detail-inner p:last-child{ margin-bottom:0; }
+
+            .gf-arrow{ display:flex; justify-content:center; color:var(--ink); font-size:1.1rem; line-height:1; margin:5px 0; }
+            .gf-arrow.red{ color:var(--red); }
+            .gf-loop{ text-align:center; font-size:.8rem; color:var(--blue); font-style:italic; margin:2px 0 4px; }
+            .gf-loop.red{ color:var(--red); }
+
+            .gf-fork{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:8px; }
+            @media (max-width:560px){ .gf-fork{ grid-template-columns:1fr; } }
+            .gf-branch-label{ text-align:center; font-size:.82rem; color:#43567a; margin-bottom:6px; }
+            .gf-disrupt{ border:1.6px dashed var(--red-br); border-radius:12px; padding:12px; background:#fffafa; }
+
+            .gf-key{ display:flex; flex-wrap:wrap; gap:14px 22px; margin-top:22px; padding-top:16px;
+                border-top:1px solid #e6edf7; font-size:.82rem; color:#43567a; }
+            .gf-key i{ display:inline-block; width:26px; height:0; border-top-width:3px; border-top-style:solid;
+                vertical-align:middle; margin-right:7px; }
+
+            @media (prefers-reduced-motion: reduce){ .gf-node,.gf-caret,.gf-detail{ transition:none; } }
+        
         </style>
     </head>
 <body>
@@ -629,22 +700,189 @@
 
 <!-- ===== SEAN'S FUNDING FLOWCHART START ===== -->
 <section>
-    <h2>How NIH Grant Funding Works</h2>
-        <section class="flowchart-section">
-            <figure>
-                <img
-                    src="{{ url_for('static', filename='NIH Funding Flowchart.png') }}"
-                    alt="NIH Grant Funding Process Flowchart"
-                    class="flowchart-image">
-            </figure>
-        </section>
-        <p>
-            NIH grants typically follow a structured lifecycle. Researchers submit proposals, which undergo rigorous peer review before funding decisions are made. Once awarded, grants receive funding over multiple years as research milestones are completed. Under normal circumstances, projects continue until their planned completion date.
-        </p>
 
-        <p>
-            The disruption events analyzed in this project represent departures from this normal funding process. Grants may be frozen, terminated, reinstated, or restored after review, creating interruptions to ongoing research activities. The visualizations below explore when these disruptions occurred, how frequently grants were restored, and the magnitude of funding affected.
-        </p>
+<div class="grantflow">
+  <h3>How NIH Grant Funding Works</h3>
+  <p class="gf-sub">A grant is not one lump sum with a tidy ending. It moves through a cycle, and that
+     cycle can be interrupted. Tap any step to open its explanation.</p>
+
+  <div class="gf-flow">
+
+    <div class="gf-stage-label">The normal cycle</div>
+
+    <div class="gf-item">
+      <button class="gf-node" aria-expanded="false">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.4 1 2.5h6c0-1.1.3-1.8 1-2.5A6 6 0 0 0 12 3Z"/></svg></span>
+        <span class="tx"><b>A new idea, and a request for funding</b><span>Often building on work already underway</span></span>
+        <span class="gf-caret"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="gf-detail"><div class="gf-detail-inner">
+        <p>A researcher, often already working in the area, proposes a new direction and applies to NIH for funding to pursue it.</p>
+        <p>The application lays out the question, the plan, and a multi-year budget.</p>
+      </div></div>
+    </div>
+
+    <div class="gf-arrow">&#8595;</div>
+
+    <div class="gf-item">
+      <button class="gf-node" aria-expanded="false">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="3"/><circle cx="16.5" cy="10" r="2.2"/><path d="M4 19c0-3 2.4-4.6 5-4.6s5 1.6 5 4.6"/><path d="M14.6 19c0-2 1.2-3.3 3-3.3"/></svg></span>
+        <span class="tx"><b>Peer review: accepted or declined</b><span>Experts score merit; most are not funded</span></span>
+        <span class="gf-caret"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="gf-detail"><div class="gf-detail-inner">
+        <p>Panels of outside scientists score the proposal for merit, impact, and feasibility.</p>
+        <p>Most applications are not funded. Only a minority make it through to an award.</p>
+      </div></div>
+    </div>
+
+    <div class="gf-arrow">&#8595;</div>
+
+    <div class="gf-item">
+      <button class="gf-node" aria-expanded="false">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="m3 13 9 5 9-5"/></svg></span>
+        <span class="tx"><b>The award is broken into pieces</b><span>Committed one budget period at a time</span></span>
+        <span class="gf-caret"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="gf-detail"><div class="gf-detail-inner">
+        <p>A funded project usually spans several years, but the money is committed one budget period, typically one year, at a time rather than all at once.</p>
+        <p>So a five-year grant is really a series of yearly commitments.</p>
+      </div></div>
+    </div>
+
+    <div class="gf-arrow">&#8595;</div>
+
+    <div class="gf-item">
+      <button class="gf-node" aria-expanded="false">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6"/><path d="M10 3v6l-5 8a2 2 0 0 0 1.8 3h10.4A2 2 0 0 0 19 17l-5-8V3"/><path d="M7.5 14h9"/></svg></span>
+        <span class="tx"><b>The project starts</b><span>Staff hired, multi-year research begins</span></span>
+        <span class="gf-caret"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="gf-detail"><div class="gf-detail-inner">
+        <p>With the first year's funds, the team hires staff, sets up, and begins the multi-year research.</p>
+      </div></div>
+    </div>
+
+    <div class="gf-arrow">&#8595;</div>
+
+    <div class="gf-item">
+      <button class="gf-node" aria-expanded="false">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="16" rx="2"/><path d="M9.5 4h5v2.5h-5z"/><path d="m9 13 2 2 4-4"/></svg></span>
+        <span class="tx"><b>Progress is reviewed each year</b><span>A progress report shows what got done</span></span>
+        <span class="gf-caret"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="gf-detail"><div class="gf-detail-inner">
+        <p>Each year the team files a progress report describing what it accomplished.</p>
+        <p>Continued funding depends on satisfactory progress and on money being available.</p>
+      </div></div>
+    </div>
+
+    <div class="gf-loop">&#8635; steps repeat each year</div>
+
+    <div class="gf-item">
+      <button class="gf-node" aria-expanded="false">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="9" cy="7" rx="5" ry="2.4"/><path d="M4 7v4c0 1.3 2.2 2.4 5 2.4s5-1.1 5-2.4V7"/><ellipse cx="15" cy="15" rx="5" ry="2.4"/><path d="M10 15v2c0 1.3 2.2 2.4 5 2.4s5-1.1 5-2.4v-2"/></svg></span>
+        <span class="tx"><b>Funding continues in installments</b><span>Next year's money follows proven progress</span></span>
+        <span class="gf-caret"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="gf-detail"><div class="gf-detail-inner">
+        <p>Once the team shows the work is getting done, NIH releases the next year's funding.</p>
+        <p>Steps 5 and 6 repeat, year after year, until the project is finished.</p>
+      </div></div>
+    </div>
+
+    <div class="gf-arrow">&#8595;</div>
+
+    <div class="gf-fork">
+      <div>
+        <div class="gf-branch-label">runs to completion</div>
+        <div class="gf-item">
+          <button class="gf-node green" aria-expanded="false">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20h14"/><path d="M7 20v-7M12 20V5M17 20v-10"/></svg></span>
+            <span class="tx"><b>Project completed</b><span>Results shared with the field</span></span>
+            <span class="gf-caret"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+          </button>
+          <div class="gf-detail"><div class="gf-detail-inner green">
+            <p>The research concludes and the results are shared with the field.</p>
+            <p>This is where the cycle is supposed to end.</p>
+          </div></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="gf-branch-label">or the cycle is interrupted</div>
+        <div class="gf-disrupt">
+          <div class="gf-stage-label red">Disruption events</div>
+
+          <div class="gf-item">
+            <button class="gf-node red" aria-expanded="false">
+              <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7M14 8.5v7"/></svg></span>
+              <span class="tx"><b>Funding frozen</b><span>Paused; work usually stops</span></span>
+              <span class="gf-caret"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+            </button>
+            <div class="gf-detail"><div class="gf-detail-inner red">
+              <p>Funds are held and no new costs can be charged, so the work usually stops, whether or not the science is sound.</p>
+              <p>A grant can be frozen and unfrozen more than once.</p>
+            </div></div>
+          </div>
+          <div class="gf-loop red">&#8635; can be frozen again</div>
+
+          <div class="gf-item">
+            <button class="gf-node green" aria-expanded="false">
+              <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v4h-4"/></svg></span>
+              <span class="tx"><b>Grant restored</b><span>Work resumes, back to the project</span></span>
+              <span class="gf-caret"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+            </button>
+            <div class="gf-detail"><div class="gf-detail-inner green">
+              <p>Funding resumes, sometimes with changed terms. The work returns to the active project.</p>
+              <p>A restored grant goes back into the cycle. It does not jump straight to completion.</p>
+            </div></div>
+          </div>
+
+          <div class="gf-arrow red">&#8595;</div>
+
+          <div class="gf-item">
+            <button class="gf-node red" aria-expanded="false">
+              <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m9 9 6 6M15 9l-6 6"/></svg></span>
+              <span class="tx"><b>Grant terminated</b><span>Ended early; can be reinstated, then cut again</span></span>
+              <span class="gf-caret"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+            </button>
+            <div class="gf-detail"><div class="gf-detail-inner red">
+              <p>The award is ended before its planned completion, and the remaining work can't continue under it.</p>
+              <p>In 2025 many terminations were challenged in court and reinstated, then in some cases terminated again. Termination is not always final, and not always permanent.</p>
+            </div></div>
+          </div>
+          <div class="gf-loop red">&#8635; reinstated, then sometimes terminated again</div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="gf-key">
+      <span><i style="border-top-color:#1b4fa0"></i>Normal path</span>
+      <span><i style="border-top-color:#d12b2b;border-top-style:dashed"></i>Disruption</span>
+      <span><i style="border-top-color:#1f8a4c"></i>Restoration</span>
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function(){
+  var flow = document.querySelector('.grantflow .gf-flow');
+  flow.addEventListener('click', function(e){
+    var btn = e.target.closest('.gf-node'); if(!btn) return;
+    var item = btn.closest('.gf-item');
+    var isOpen = item.classList.contains('open');
+    flow.querySelectorAll('.gf-item.open').forEach(function(o){
+      if(o !== item){ o.classList.remove('open'); o.querySelector('.gf-node').setAttribute('aria-expanded','false'); }
+    });
+    item.classList.toggle('open', !isOpen);
+    btn.setAttribute('aria-expanded', String(!isOpen));
+  });
+})();
+</script>
+
 </section>
 <!-- ===== SEAN'S FUNDING FLOWCHART END ===== -->
 
@@ -665,7 +903,7 @@
         
         <p> The graph below show how much funding was <span class="Funding-FY2025-text">allocated in FY2025</span> compared to the previous 5 fiscal years. As you can see, 
             there was an initial drop in funding, but after courts had determined the terminations were illegal, the funding amounts were restored to near-
-            previous year amounts. It looks as if <span class=".Funding-FY2026-text">FY2026</span> is following similar trends.
+            previous year amounts. It looks as if <span class="Funding-FY2026-text">FY2026</span> is following similar trends.
         </p>
         <img src="{{ url_for('static', filename='nih_extramural_awards_by_month.png') }}"
          alt="Value of NIH Extramural Awards by Month"
@@ -886,50 +1124,7 @@
 </div>
 </section>
 <script>
-    // Turn off the "no-js" fallback so the fade styles take effect
-    document.body.classList.remove('no-js');
-
-    document.addEventListener('DOMContentLoaded', function () {
-        var STEP = 0.12;   // these are seconds between each item in a cascade 
-        // increase number if the fade is too fast, decrease if too slow
-
-        // this is a fade unit
-        var faders = document.querySelectorAll(
-            'h1, h2, p, img, iframe, #sector_shares_of_grants'
-        );
-        faders.forEach(function (el) {
-            el.classList.add('fade-item');
-        });
-
-        // give each item a "position within its section" so we can cascade it
-        // items not inside a section (like the top h1) just get position 0
-        document.querySelectorAll('section').forEach(function (section) {
-            var items = section.querySelectorAll('.fade-item');
-            items.forEach(function (el, i) {
-                el.dataset.cascadeIndex = i;
-            });
-        });
-
-        var observer = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-                var el = entry.target;
-                var i = parseInt(el.dataset.cascadeIndex || 0, 10);
-                if (entry.isIntersecting) {
-                    // stagger the fade-in so the section cascades
-                    el.style.transitionDelay = (i * STEP) + 's';
-                    el.classList.add('visible');
-                } else {
-                    // fade out promptly, no cascade delay
-                    el.style.transitionDelay = '0s';
-                    el.classList.remove('visible');
-                }
-            });
-        }, { threshold: 0.15 });
-
-        faders.forEach(function (el) {
-            observer.observe(el);
-        });
-    });
+    // will put scrollama here
 </script>
 
 </body></html>
