@@ -1,0 +1,489 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json",
+  "config": {
+    "view": {
+      "continuousHeight": 300,
+      "continuousWidth": 300
+    }
+  },
+  "datasets": {
+    "data-00838f6eb0da660dd1e2d7b68c861225": [
+      {
+        "n_grants": 1096,
+        "n_terminated": 338,
+        "rate": 0.3083941605839416,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 2810,
+        "n_terminated": 1356,
+        "rate": 0.4825622775800712,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 721,
+        "n_terminated": 685,
+        "rate": 0.9500693481276006,
+        "region": "South"
+      },
+      {
+        "n_grants": 1102,
+        "n_terminated": 1020,
+        "rate": 0.925589836660617,
+        "region": "West"
+      }
+    ],
+    "data-868f025c177dcc798e8fd5d75ee3812f": [
+      {
+        "id": 1,
+        "rate": 0.95,
+        "region": "South",
+        "state": "AL"
+      },
+      {
+        "id": 2,
+        "rate": 0.926,
+        "region": "West",
+        "state": "AK"
+      },
+      {
+        "id": 4,
+        "rate": 0.926,
+        "region": "West",
+        "state": "AZ"
+      },
+      {
+        "id": 5,
+        "rate": 0.95,
+        "region": "South",
+        "state": "AR"
+      },
+      {
+        "id": 6,
+        "rate": 0.926,
+        "region": "West",
+        "state": "CA"
+      },
+      {
+        "id": 8,
+        "rate": 0.926,
+        "region": "West",
+        "state": "CO"
+      },
+      {
+        "id": 9,
+        "rate": 0.483,
+        "region": "Northeast",
+        "state": "CT"
+      },
+      {
+        "id": 10,
+        "rate": 0.95,
+        "region": "South",
+        "state": "DE"
+      },
+      {
+        "id": 11,
+        "rate": 0.95,
+        "region": "South",
+        "state": "DC"
+      },
+      {
+        "id": 12,
+        "rate": 0.95,
+        "region": "South",
+        "state": "FL"
+      },
+      {
+        "id": 13,
+        "rate": 0.95,
+        "region": "South",
+        "state": "GA"
+      },
+      {
+        "id": 15,
+        "rate": 0.926,
+        "region": "West",
+        "state": "HI"
+      },
+      {
+        "id": 16,
+        "rate": 0.926,
+        "region": "West",
+        "state": "ID"
+      },
+      {
+        "id": 17,
+        "rate": 0.308,
+        "region": "Midwest",
+        "state": "IL"
+      },
+      {
+        "id": 18,
+        "rate": 0.308,
+        "region": "Midwest",
+        "state": "IN"
+      },
+      {
+        "id": 19,
+        "rate": 0.308,
+        "region": "Midwest",
+        "state": "IA"
+      },
+      {
+        "id": 20,
+        "rate": 0.308,
+        "region": "Midwest",
+        "state": "KS"
+      },
+      {
+        "id": 21,
+        "rate": 0.95,
+        "region": "South",
+        "state": "KY"
+      },
+      {
+        "id": 22,
+        "rate": 0.95,
+        "region": "South",
+        "state": "LA"
+      },
+      {
+        "id": 23,
+        "rate": 0.483,
+        "region": "Northeast",
+        "state": "ME"
+      },
+      {
+        "id": 24,
+        "rate": 0.95,
+        "region": "South",
+        "state": "MD"
+      },
+      {
+        "id": 25,
+        "rate": 0.483,
+        "region": "Northeast",
+        "state": "MA"
+      },
+      {
+        "id": 26,
+        "rate": 0.308,
+        "region": "Midwest",
+        "state": "MI"
+      },
+      {
+        "id": 27,
+        "rate": 0.308,
+        "region": "Midwest",
+        "state": "MN"
+      },
+      {
+        "id": 28,
+        "rate": 0.95,
+        "region": "South",
+        "state": "MS"
+      },
+      {
+        "id": 29,
+        "rate": 0.308,
+        "region": "Midwest",
+        "state": "MO"
+      },
+      {
+        "id": 30,
+        "rate": 0.926,
+        "region": "West",
+        "state": "MT"
+      },
+      {
+        "id": 31,
+        "rate": 0.308,
+        "region": "Midwest",
+        "state": "NE"
+      },
+      {
+        "id": 32,
+        "rate": 0.926,
+        "region": "West",
+        "state": "NV"
+      },
+      {
+        "id": 33,
+        "rate": 0.483,
+        "region": "Northeast",
+        "state": "NH"
+      },
+      {
+        "id": 34,
+        "rate": 0.483,
+        "region": "Northeast",
+        "state": "NJ"
+      },
+      {
+        "id": 35,
+        "rate": 0.926,
+        "region": "West",
+        "state": "NM"
+      },
+      {
+        "id": 36,
+        "rate": 0.483,
+        "region": "Northeast",
+        "state": "NY"
+      },
+      {
+        "id": 37,
+        "rate": 0.95,
+        "region": "South",
+        "state": "NC"
+      },
+      {
+        "id": 38,
+        "rate": 0.308,
+        "region": "Midwest",
+        "state": "ND"
+      },
+      {
+        "id": 39,
+        "rate": 0.308,
+        "region": "Midwest",
+        "state": "OH"
+      },
+      {
+        "id": 40,
+        "rate": 0.95,
+        "region": "South",
+        "state": "OK"
+      },
+      {
+        "id": 41,
+        "rate": 0.926,
+        "region": "West",
+        "state": "OR"
+      },
+      {
+        "id": 42,
+        "rate": 0.483,
+        "region": "Northeast",
+        "state": "PA"
+      },
+      {
+        "id": 44,
+        "rate": 0.483,
+        "region": "Northeast",
+        "state": "RI"
+      },
+      {
+        "id": 45,
+        "rate": 0.95,
+        "region": "South",
+        "state": "SC"
+      },
+      {
+        "id": 46,
+        "rate": 0.308,
+        "region": "Midwest",
+        "state": "SD"
+      },
+      {
+        "id": 47,
+        "rate": 0.95,
+        "region": "South",
+        "state": "TN"
+      },
+      {
+        "id": 48,
+        "rate": 0.95,
+        "region": "South",
+        "state": "TX"
+      },
+      {
+        "id": 49,
+        "rate": 0.926,
+        "region": "West",
+        "state": "UT"
+      },
+      {
+        "id": 50,
+        "rate": 0.483,
+        "region": "Northeast",
+        "state": "VT"
+      },
+      {
+        "id": 51,
+        "rate": 0.95,
+        "region": "South",
+        "state": "VA"
+      },
+      {
+        "id": 53,
+        "rate": 0.926,
+        "region": "West",
+        "state": "WA"
+      },
+      {
+        "id": 54,
+        "rate": 0.95,
+        "region": "South",
+        "state": "WV"
+      },
+      {
+        "id": 55,
+        "rate": 0.308,
+        "region": "Midwest",
+        "state": "WI"
+      },
+      {
+        "id": 56,
+        "rate": 0.926,
+        "region": "West",
+        "state": "WY"
+      }
+    ]
+  },
+  "hconcat": [
+    {
+      "data": {
+        "format": {
+          "feature": "states",
+          "type": "topojson"
+        },
+        "url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/us-10m.json"
+      },
+      "encoding": {
+        "color": {
+          "field": "rate",
+          "scale": {
+            "scheme": "reds"
+          },
+          "title": "Termination Rate",
+          "type": "quantitative"
+        },
+        "opacity": {
+          "condition": [
+            {
+              "param": "region_select",
+              "value": 1
+            }
+          ],
+          "value": 0.35
+        },
+        "tooltip": [
+          {
+            "field": "region",
+            "type": "nominal"
+          },
+          {
+            "field": "rate",
+            "format": ".1%",
+            "type": "quantitative"
+          }
+        ]
+      },
+      "height": 400,
+      "mark": {
+        "stroke": "white",
+        "strokeWidth": 0.5,
+        "type": "geoshape"
+      },
+      "name": "view_dc4f02e223cd77c1_0",
+      "projection": {
+        "type": "albersUsa"
+      },
+      "title": "NIH Grant Termination Rate by Region",
+      "transform": [
+        {
+          "from": {
+            "data": {
+              "name": "data-868f025c177dcc798e8fd5d75ee3812f"
+            },
+            "fields": [
+              "region",
+              "rate"
+            ],
+            "key": "id"
+          },
+          "lookup": "id"
+        }
+      ],
+      "width": 600
+    },
+    {
+      "data": {
+        "name": "data-00838f6eb0da660dd1e2d7b68c861225"
+      },
+      "encoding": {
+        "color": {
+          "field": "region",
+          "scale": {
+            "scheme": "reds"
+          },
+          "type": "nominal"
+        },
+        "opacity": {
+          "condition": [
+            {
+              "param": "region_select",
+              "value": 1
+            }
+          ],
+          "value": 0.35
+        },
+        "tooltip": [
+          {
+            "field": "region",
+            "type": "nominal"
+          },
+          {
+            "field": "n_grants",
+            "type": "quantitative"
+          },
+          {
+            "field": "n_terminated",
+            "type": "quantitative"
+          },
+          {
+            "field": "rate",
+            "format": ".1%",
+            "type": "quantitative"
+          }
+        ],
+        "x": {
+          "field": "region",
+          "sort": "-y",
+          "title": "Region",
+          "type": "nominal"
+        },
+        "y": {
+          "axis": {
+            "format": "%"
+          },
+          "field": "rate",
+          "title": "Termination Rate",
+          "type": "quantitative"
+        }
+      },
+      "mark": {
+        "type": "bar"
+      },
+      "name": "view_c19d84d1604fc298_1",
+      "title": "Region Termination Rates"
+    }
+  ],
+  "params": [
+    {
+      "name": "region_select",
+      "select": {
+        "fields": [
+          "region"
+        ],
+        "type": "point"
+      },
+      "views": [
+        "view_dc4f02e223cd77c1_0",
+        "view_c19d84d1604fc298_1"
+      ]
+    }
+  ]
+}
