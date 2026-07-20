@@ -1059,12 +1059,16 @@ spread evenly across the country, so the disruptions also had a geography.</h2>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
     <script>
-    fetch("{{ url_for('static', filename='region_map_chart.json') }}")
+    fetch("{{ url_for('static', filename='dashboard.json') }}")
     .then(res => res.json())
     .then(spec => {
         vegaEmbed('#vis', spec).then(result => {
         document.getElementById('clear-btn').addEventListener('click', () => {
-            result.view.data('region_select_store', []).runAsync();
+            const stores = ['region_select_store', 'state_select_store', 'inst_select_store'];
+            stores.forEach(store => {
+            result.view.data(store, []);
+            });
+            result.view.runAsync();
         });
         });
     });
@@ -1078,7 +1082,7 @@ spread evenly across the country, so the disruptions also had a geography.</h2>
         vegaEmbed('#regions_on_map', {{ charts['regions_on_map'] | safe }})
     </script>  
 </section>
-<!-- ===== Teresa's SECTION START ===== -->
+<!-- ===== Teresa's SECTION END ===== -->
 <br><br> <br><br><br><br> <br><br> 
 
 <h2>Whichever region or institution a grant belonged to, a disruption carried the same underlying cost: work already paid for, and work that would now never be finished. Setting aside who was cut and where, this final section asks what
