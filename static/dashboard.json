@@ -1,0 +1,4636 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json",
+  "config": {
+    "view": {
+      "continuousHeight": 300,
+      "continuousWidth": 300,
+      "stroke": null
+    }
+  },
+  "datasets": {
+    "data-00838f6eb0da660dd1e2d7b68c861225": [
+      {
+        "n_grants": 1096,
+        "n_terminated": 338,
+        "rate": 0.3083941605839416,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 2810,
+        "n_terminated": 1356,
+        "rate": 0.4825622775800712,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 721,
+        "n_terminated": 685,
+        "rate": 0.9500693481276006,
+        "region": "South"
+      },
+      {
+        "n_grants": 1102,
+        "n_terminated": 1020,
+        "rate": 0.925589836660617,
+        "region": "West"
+      }
+    ],
+    "data-3ad09e6e98c384cfa8eb521c70f5d6f7": [
+      {
+        "id": 19,
+        "n_grants": 9,
+        "n_terminated": 9,
+        "org_state": "IA",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "id": 17,
+        "n_grants": 820,
+        "n_terminated": 71,
+        "org_state": "IL",
+        "rate": 0.08658536585365853,
+        "region": "Midwest"
+      },
+      {
+        "id": 18,
+        "n_grants": 22,
+        "n_terminated": 21,
+        "org_state": "IN",
+        "rate": 0.9545454545454546,
+        "region": "Midwest"
+      },
+      {
+        "id": 20,
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_state": "KS",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "id": 26,
+        "n_grants": 69,
+        "n_terminated": 68,
+        "org_state": "MI",
+        "rate": 0.9855072463768116,
+        "region": "Midwest"
+      },
+      {
+        "id": 27,
+        "n_grants": 30,
+        "n_terminated": 29,
+        "org_state": "MN",
+        "rate": 0.9666666666666667,
+        "region": "Midwest"
+      },
+      {
+        "id": 29,
+        "n_grants": 42,
+        "n_terminated": 40,
+        "org_state": "MO",
+        "rate": 0.9523809523809523,
+        "region": "Midwest"
+      },
+      {
+        "id": 38,
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_state": "ND",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "id": 31,
+        "n_grants": 14,
+        "n_terminated": 14,
+        "org_state": "NE",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "id": 39,
+        "n_grants": 47,
+        "n_terminated": 43,
+        "org_state": "OH",
+        "rate": 0.9148936170212766,
+        "region": "Midwest"
+      },
+      {
+        "id": 46,
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_state": "SD",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "id": 55,
+        "n_grants": 37,
+        "n_terminated": 37,
+        "org_state": "WI",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "id": 9,
+        "n_grants": 56,
+        "n_terminated": 53,
+        "org_state": "CT",
+        "rate": 0.9464285714285714,
+        "region": "Northeast"
+      },
+      {
+        "id": 25,
+        "n_grants": 818,
+        "n_terminated": 762,
+        "org_state": "MA",
+        "rate": 0.9315403422982885,
+        "region": "Northeast"
+      },
+      {
+        "id": 23,
+        "n_grants": 5,
+        "n_terminated": 5,
+        "org_state": "ME",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "id": 33,
+        "n_grants": 5,
+        "n_terminated": 5,
+        "org_state": "NH",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "id": 34,
+        "n_grants": 35,
+        "n_terminated": 31,
+        "org_state": "NJ",
+        "rate": 0.8857142857142857,
+        "region": "Northeast"
+      },
+      {
+        "id": 36,
+        "n_grants": 1471,
+        "n_terminated": 359,
+        "org_state": "NY",
+        "rate": 0.24405166553365057,
+        "region": "Northeast"
+      },
+      {
+        "id": 42,
+        "n_grants": 138,
+        "n_terminated": 108,
+        "org_state": "PA",
+        "rate": 0.782608695652174,
+        "region": "Northeast"
+      },
+      {
+        "id": 44,
+        "n_grants": 279,
+        "n_terminated": 31,
+        "org_state": "RI",
+        "rate": 0.1111111111111111,
+        "region": "Northeast"
+      },
+      {
+        "id": 50,
+        "n_grants": 3,
+        "n_terminated": 2,
+        "org_state": "VT",
+        "rate": 0.6666666666666666,
+        "region": "Northeast"
+      },
+      {
+        "id": 1,
+        "n_grants": 27,
+        "n_terminated": 26,
+        "org_state": "AL",
+        "rate": 0.9629629629629629,
+        "region": "South"
+      },
+      {
+        "id": 5,
+        "n_grants": 9,
+        "n_terminated": 9,
+        "org_state": "AR",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "id": 11,
+        "n_grants": 24,
+        "n_terminated": 23,
+        "org_state": "DC",
+        "rate": 0.9583333333333334,
+        "region": "South"
+      },
+      {
+        "id": 10,
+        "n_grants": 7,
+        "n_terminated": 7,
+        "org_state": "DE",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "id": 12,
+        "n_grants": 89,
+        "n_terminated": 81,
+        "org_state": "FL",
+        "rate": 0.9101123595505618,
+        "region": "South"
+      },
+      {
+        "id": 13,
+        "n_grants": 69,
+        "n_terminated": 67,
+        "org_state": "GA",
+        "rate": 0.9710144927536232,
+        "region": "South"
+      },
+      {
+        "id": 21,
+        "n_grants": 22,
+        "n_terminated": 20,
+        "org_state": "KY",
+        "rate": 0.9090909090909091,
+        "region": "South"
+      },
+      {
+        "id": 22,
+        "n_grants": 18,
+        "n_terminated": 17,
+        "org_state": "LA",
+        "rate": 0.9444444444444444,
+        "region": "South"
+      },
+      {
+        "id": 24,
+        "n_grants": 85,
+        "n_terminated": 85,
+        "org_state": "MD",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "id": 28,
+        "n_grants": 12,
+        "n_terminated": 12,
+        "org_state": "MS",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "id": 37,
+        "n_grants": 118,
+        "n_terminated": 102,
+        "org_state": "NC",
+        "rate": 0.864406779661017,
+        "region": "South"
+      },
+      {
+        "id": 40,
+        "n_grants": 16,
+        "n_terminated": 16,
+        "org_state": "OK",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "id": 45,
+        "n_grants": 25,
+        "n_terminated": 24,
+        "org_state": "SC",
+        "rate": 0.96,
+        "region": "South"
+      },
+      {
+        "id": 47,
+        "n_grants": 35,
+        "n_terminated": 34,
+        "org_state": "TN",
+        "rate": 0.9714285714285714,
+        "region": "South"
+      },
+      {
+        "id": 48,
+        "n_grants": 125,
+        "n_terminated": 122,
+        "org_state": "TX",
+        "rate": 0.976,
+        "region": "South"
+      },
+      {
+        "id": 51,
+        "n_grants": 40,
+        "n_terminated": 40,
+        "org_state": "VA",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "id": 2,
+        "n_grants": 3,
+        "n_terminated": 3,
+        "org_state": "AK",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "id": 4,
+        "n_grants": 29,
+        "n_terminated": 29,
+        "org_state": "AZ",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "id": 6,
+        "n_grants": 863,
+        "n_terminated": 808,
+        "org_state": "CA",
+        "rate": 0.936268829663963,
+        "region": "West"
+      },
+      {
+        "id": 8,
+        "n_grants": 51,
+        "n_terminated": 51,
+        "org_state": "CO",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "id": 15,
+        "n_grants": 11,
+        "n_terminated": 11,
+        "org_state": "HI",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "id": 16,
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_state": "ID",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "id": 30,
+        "n_grants": 6,
+        "n_terminated": 6,
+        "org_state": "MT",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "id": 35,
+        "n_grants": 10,
+        "n_terminated": 10,
+        "org_state": "NM",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "id": 32,
+        "n_grants": 8,
+        "n_terminated": 8,
+        "org_state": "NV",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "id": 41,
+        "n_grants": 22,
+        "n_terminated": 22,
+        "org_state": "OR",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "id": 49,
+        "n_grants": 14,
+        "n_terminated": 14,
+        "org_state": "UT",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "id": 53,
+        "n_grants": 84,
+        "n_terminated": 57,
+        "org_state": "WA",
+        "rate": 0.6785714285714286,
+        "region": "West"
+      }
+    ],
+    "data-93330251385e2cdc141d4fe550bd30cf": [
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "THE UNIVERSITY OF IOWA",
+        "org_state": "IA",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 8,
+        "n_terminated": 8,
+        "org_name": "UNIVERSITY OF IOWA",
+        "org_state": "IA",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "ENDEAVOR HEALTH CLINICAL OPERATIONS",
+        "org_state": "IL",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "ILLINOIS INSTITUTE OF TECHNOLOGY",
+        "org_state": "IL",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "LOYOLA UNIVERSITY CHICAGO",
+        "org_state": "IL",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "LOYOLA UNIVERSITY OF CHICAGO",
+        "org_state": "IL",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "LURIE CHILDREN'S HOSPITAL OF CHICAGO",
+        "org_state": "IL",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "NATIONAL OPINION RESEARCH CENTER",
+        "org_state": "IL",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 778,
+        "n_terminated": 32,
+        "org_name": "NORTHWESTERN UNIVERSITY",
+        "org_state": "IL",
+        "rate": 0.04113110539845758,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "RESILIENT GAMES STUDIO, LLC",
+        "org_state": "IL",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "ROSALIND FRANKLIN UNIV OF MEDICINE & SCI",
+        "org_state": "IL",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 3,
+        "org_name": "RUSH UNIVERSITY MEDICAL CENTER",
+        "org_state": "IL",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "SOUTHERN ILLINOIS UNIV AT EDWARDSVILLE",
+        "org_state": "IL",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 0,
+        "org_name": "UNIV OF SCIENCES, TECH & TECH OF BAMAKO",
+        "org_state": "IL",
+        "rate": 0.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 19,
+        "n_terminated": 17,
+        "org_name": "UNIVERSITY OF CHICAGO",
+        "org_state": "IL",
+        "rate": 0.8947368421052632,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "UNIVERSITY OF ILLINOIS",
+        "org_state": "IL",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 6,
+        "n_terminated": 6,
+        "org_name": "UNIVERSITY OF ILLINOIS AT CHICAGO",
+        "org_state": "IL",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "UNIVERSITY OF ILLINOIS AT URBANA-CHAMPAIGN",
+        "org_state": "IL",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 10,
+        "n_terminated": 10,
+        "org_name": "INDIANA UNIVERSITY INDIANAPOLIS",
+        "org_state": "IN",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 6,
+        "n_terminated": 6,
+        "org_name": "PURDUE UNIVERSITY",
+        "org_state": "IN",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 2,
+        "org_name": "TRUSTEES OF INDIANA UNIVERSITY",
+        "org_state": "IN",
+        "rate": 0.6666666666666666,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "UNIVERSITY OF NOTRE DAME",
+        "org_state": "IN",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "UNIVERSITY OF NOTRE DAME DU LAC",
+        "org_state": "IN",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "UNIVERSITY OF KANSAS LAWRENCE",
+        "org_state": "KS",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "UNIVERSITY OF KANSAS MEDICAL CENTER",
+        "org_state": "KS",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "ACCESS HEALTH INC",
+        "org_state": "MI",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "CENTRAL MICHIGAN UNIVERSITY",
+        "org_state": "MI",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "EASTERN MICHIGAN UNIVERSITY",
+        "org_state": "MI",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "FAMILIES AGAINST NARCOTICS, INC. D/B/A FACE ADDICTION NOW",
+        "org_state": "MI",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "GENETOBE INC.",
+        "org_state": "MI",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 3,
+        "org_name": "HENRY FORD HEALTH + MICHIGAN STATE UNIVERSITY HEALTH SCIENCES",
+        "org_state": "MI",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 8,
+        "n_terminated": 8,
+        "org_name": "MICHIGAN STATE UNIVERSITY",
+        "org_state": "MI",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "REGENTS OF THE UNIVERSITY OF MICHIGAN",
+        "org_state": "MI",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "UNIVERSITY OF DETROIT MERCY",
+        "org_state": "MI",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 40,
+        "n_terminated": 39,
+        "org_name": "UNIVERSITY OF MICHIGAN AT ANN ARBOR",
+        "org_state": "MI",
+        "rate": 0.975,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "VAN ANDEL RESEARCH INSTITUTE",
+        "org_state": "MI",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 6,
+        "n_terminated": 6,
+        "org_name": "WAYNE STATE UNIVERSITY",
+        "org_state": "MI",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "HEALTHPARTNERS INSTITUTE",
+        "org_state": "MN",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "HENNEPIN HEALTHCARE RESEARCH INSTITUTE",
+        "org_state": "MN",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "MAYO CLINIC",
+        "org_state": "MN",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 4,
+        "n_terminated": 3,
+        "org_name": "MAYO CLINIC ROCHESTER",
+        "org_state": "MN",
+        "rate": 0.75,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "PRIOGEN CORP",
+        "org_state": "MN",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 3,
+        "org_name": "REGENTS OF THE UNIVERSITY OF MINNESOTA",
+        "org_state": "MN",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "ST. CATHERINE UNIVERSITY",
+        "org_state": "MN",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 17,
+        "n_terminated": 17,
+        "org_name": "UNIVERSITY OF MINNESOTA",
+        "org_state": "MN",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "UNIVERSITY OF MISSOURI KANSAS CITY",
+        "org_state": "MO",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 8,
+        "n_terminated": 8,
+        "org_name": "UNIVERSITY OF MISSOURI-COLUMBIA",
+        "org_state": "MO",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 29,
+        "n_terminated": 28,
+        "org_name": "WASHINGTON UNIVERSITY",
+        "org_state": "MO",
+        "rate": 0.9655172413793104,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 4,
+        "n_terminated": 3,
+        "org_name": "WASHINGTON UNIVERSITY, THE",
+        "org_state": "MO",
+        "rate": 0.75,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "UNIVERSITY OF NORTH DAKOTA",
+        "org_state": "ND",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "BOARD OF REGENTS OF THE UNIVERSITY OF NEBRASKA",
+        "org_state": "NE",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "CREIGHTON UNIVERSITY",
+        "org_state": "NE",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "FATHER FLANAGAN'S BOYS' HOME",
+        "org_state": "NE",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "FEONIX - MOBILITY RISING",
+        "org_state": "NE",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "UNIVERSITY OF NEBRASKA LINCOLN",
+        "org_state": "NE",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 5,
+        "n_terminated": 5,
+        "org_name": "UNIVERSITY OF NEBRASKA MEDICAL CENTER",
+        "org_state": "NE",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 11,
+        "n_terminated": 11,
+        "org_name": "CASE WESTERN RESERVE UNIVERSITY",
+        "org_state": "OH",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "CINCINNATI CHILDRENS HOSP MED CTR",
+        "org_state": "OH",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 1,
+        "org_name": "CLEVELAND CLINIC LERNER COM-CWRU",
+        "org_state": "OH",
+        "rate": 0.3333333333333333,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "KENT STATE UNIVERSITY",
+        "org_state": "OH",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 18,
+        "n_terminated": 17,
+        "org_name": "OHIO STATE UNIVERSITY",
+        "org_state": "OH",
+        "rate": 0.9444444444444444,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "OHIO STATE UNIVERSITY, THE",
+        "org_state": "OH",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 3,
+        "org_name": "RESEARCH INST NATIONWIDE CHILDREN'S HOSP",
+        "org_state": "OH",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 7,
+        "n_terminated": 6,
+        "org_name": "UNIVERSITY OF CINCINNATI",
+        "org_state": "OH",
+        "rate": 0.8571428571428571,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "UNIVERSITY OF TOLEDO HEALTH SCI CAMPUS",
+        "org_state": "OH",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "MISSOURI BREAKS RESEARCH, INC.",
+        "org_state": "SD",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "UNIVERSITY OF SOUTH DAKOTA",
+        "org_state": "SD",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "MARQUETTE UNIVERSITY",
+        "org_state": "WI",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 10,
+        "n_terminated": 10,
+        "org_name": "MEDICAL COLLEGE OF WISCONSIN",
+        "org_state": "WI",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "SOCIETY OF BEHAVIORAL MEDICINE",
+        "org_state": "WI",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "THE MEDICAL COLLEGE OF WISCONSIN, INC.",
+        "org_state": "WI",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 5,
+        "n_terminated": 5,
+        "org_name": "UNIVERSITY OF WISCONSIN MILWAUKEE",
+        "org_state": "WI",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "UNIVERSITY OF WISCONSIN SYSTEM",
+        "org_state": "WI",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 16,
+        "n_terminated": 16,
+        "org_name": "UNIVERSITY OF WISCONSIN-MADISON",
+        "org_state": "WI",
+        "rate": 1.0,
+        "region": "Midwest"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 0,
+        "org_name": "HARTFORD HOSPITAL",
+        "org_state": "CT",
+        "rate": 0.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "UNIVERSITY OF CONNECTICUT HEALTH CENTER",
+        "org_state": "CT",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "UNIVERSITY OF CONNECTICUT SCH OF MED/DNT",
+        "org_state": "CT",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 8,
+        "n_terminated": 7,
+        "org_name": "UNIVERSITY OF CONNECTICUT STORRS",
+        "org_state": "CT",
+        "rate": 0.875,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "UNIVERSITY OF HARTFORD",
+        "org_state": "CT",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 44,
+        "n_terminated": 43,
+        "org_name": "YALE UNIVERSITY",
+        "org_state": "CT",
+        "rate": 0.9772727272727273,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "ACCURIUS THERAPEUTICS, INC.",
+        "org_state": "MA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "BENTLEY UNIVERSITY",
+        "org_state": "MA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 5,
+        "n_terminated": 4,
+        "org_name": "BETH ISRAEL DEACONESS MEDICAL CENTER",
+        "org_state": "MA",
+        "rate": 0.8,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 10,
+        "n_terminated": 9,
+        "org_name": "BOSTON CHILDREN'S HOSPITAL",
+        "org_state": "MA",
+        "rate": 0.9,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 5,
+        "n_terminated": 5,
+        "org_name": "BOSTON COLLEGE",
+        "org_state": "MA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 3,
+        "org_name": "BOSTON MEDICAL CENTER",
+        "org_state": "MA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 4,
+        "n_terminated": 4,
+        "org_name": "BOSTON UNIVERSITY (CHARLES RIVER CAMPUS)",
+        "org_state": "MA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 14,
+        "n_terminated": 13,
+        "org_name": "BOSTON UNIVERSITY MEDICAL CAMPUS",
+        "org_state": "MA",
+        "rate": 0.9285714285714286,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "BRANDEIS UNIVERSITY",
+        "org_state": "MA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "BRIGHAM & WOMENS HOSPITAL INC",
+        "org_state": "MA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 15,
+        "n_terminated": 14,
+        "org_name": "BRIGHAM AND WOMEN'S HOSPITAL",
+        "org_state": "MA",
+        "rate": 0.9333333333333333,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "BROAD INSTITUTE, INC.",
+        "org_state": "MA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "CAMBRIDGE HEALTH ALLIANCE",
+        "org_state": "MA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "CHILDREN'S HOSPITAL CORPORATION, THE",
+        "org_state": "MA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "DANA-FARBER CANCER INST",
+        "org_state": "MA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "FENWAY COMMUNITY HEALTH CENTER, INC.",
+        "org_state": "MA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "FUNCTION PROMOTING THERAPIES, LLC",
+        "org_state": "MA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 3,
+        "org_name": "HARVARD COLLEGE PRESIDENT & FELLOWS OF",
+        "org_state": "MA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 342,
+        "n_terminated": 320,
+        "org_name": "HARVARD MEDICAL SCHOOL",
+        "org_state": "MA",
+        "rate": 0.935672514619883,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 6,
+        "n_terminated": 6,
+        "org_name": "HARVARD PILGRIM HEALTH CARE, INC.",
+        "org_state": "MA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 139,
+        "n_terminated": 130,
+        "org_name": "HARVARD UNIVERSITY",
+        "org_state": "MA",
+        "rate": 0.935251798561151,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 149,
+        "n_terminated": 135,
+        "org_name": "HARVARD UNIVERSITY D/B/A HARVARD SCHOOL OF PUBLIC HEALTH",
+        "org_state": "MA",
+        "rate": 0.9060402684563759,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "HEBREW REHABILITATION CENTER FOR AGED",
+        "org_state": "MA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "IBIS REPRODUCTIVE HEALTH",
+        "org_state": "MA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "JUDGE BAKER CHILDREN'S CENTER",
+        "org_state": "MA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 1,
+        "org_name": "MASSACHUSETTS EYE AND EAR INFIRMARY",
+        "org_state": "MA",
+        "rate": 0.5,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 18,
+        "n_terminated": 18,
+        "org_name": "MASSACHUSETTS GENERAL HOSPITAL",
+        "org_state": "MA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 3,
+        "org_name": "MCLEAN HOSPITAL",
+        "org_state": "MA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "MGH INSTITUTE OF HEALTH PROFESSIONS",
+        "org_state": "MA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 4,
+        "n_terminated": 4,
+        "org_name": "NORTHEASTERN UNIVERSITY",
+        "org_state": "MA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 42,
+        "n_terminated": 38,
+        "org_name": "PRESIDENT AND FELLOWS OF HARVARD COLLEGE",
+        "org_state": "MA",
+        "rate": 0.9047619047619048,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "SPAULDING REHABILITATION HOSPITAL",
+        "org_state": "MA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 2,
+        "org_name": "THE BOTSWANA HARVARD HEALTH PARTNERSHIP",
+        "org_state": "MA",
+        "rate": 0.6666666666666666,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "THE BROAD INSTITUTE, INC",
+        "org_state": "MA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 5,
+        "n_terminated": 5,
+        "org_name": "THE GENERAL HOSPITAL CORPORATION",
+        "org_state": "MA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "TRUSTEES OF TUFTS COLLEGE",
+        "org_state": "MA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 3,
+        "org_name": "TUFTS MEDICAL CENTER",
+        "org_state": "MA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 6,
+        "n_terminated": 6,
+        "org_name": "TUFTS UNIVERSITY BOSTON",
+        "org_state": "MA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "TUFTS UNIVERSITY MEDFORD",
+        "org_state": "MA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 10,
+        "n_terminated": 10,
+        "org_name": "UNIV OF MASSACHUSETTS MED SCH WORCESTER",
+        "org_state": "MA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 1,
+        "org_name": "UNIVERSITY OF MASSACHUSETTS AMHERST",
+        "org_state": "MA",
+        "rate": 0.5,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "UNIVERSITY OF MASSACHUSETTS BOSTON",
+        "org_state": "MA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "WORCESTER POLYTECHNIC INSTITUTE",
+        "org_state": "MA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 3,
+        "org_name": "JACKSON LABORATORY",
+        "org_state": "ME",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "MAINEHEALTH",
+        "org_state": "ME",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "MOUNT DESERT ISLAND BIOLOGICAL LAB",
+        "org_state": "ME",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 3,
+        "org_name": "DARTMOUTH COLLEGE",
+        "org_state": "NH",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "DARTMOUTH-HITCHCOCK CLINIC",
+        "org_state": "NH",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "TRUSTEES OF DARTMOUTH COLLEGE",
+        "org_state": "NH",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "HACKENSACK UNIVERSITY MEDICAL CENTER",
+        "org_state": "NJ",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "HMH HOSPITALS CORPORATION",
+        "org_state": "NJ",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "KEAN UNIVERSITY",
+        "org_state": "NJ",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "NEW JERSEY INSTITUTE OF TECHNOLOGY",
+        "org_state": "NJ",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 6,
+        "n_terminated": 5,
+        "org_name": "PRINCETON UNIVERSITY",
+        "org_state": "NJ",
+        "rate": 0.8333333333333334,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "ROWAN UNIVERSITY",
+        "org_state": "NJ",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 15,
+        "n_terminated": 12,
+        "org_name": "RUTGERS BIOMEDICAL AND HEALTH SCIENCES",
+        "org_state": "NJ",
+        "rate": 0.8,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "RUTGERS THE STATE UNIV OF NJ CAMDEN",
+        "org_state": "NJ",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "RUTGERS THE STATE UNIV OF NJ NEWARK",
+        "org_state": "NJ",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "RUTGERS THE STATE UNIVERSITY OF NEW JERSEY",
+        "org_state": "NJ",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 3,
+        "org_name": "RUTGERS, THE STATE UNIV OF N.J.",
+        "org_state": "NJ",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 14,
+        "n_terminated": 13,
+        "org_name": "ALBERT EINSTEIN COLLEGE OF MEDICINE",
+        "org_state": "NY",
+        "rate": 0.9285714285714286,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "BELLAGE, INC.",
+        "org_state": "NY",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "BRONXWORKS, INC.",
+        "org_state": "NY",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "BROOKLYN COLLEGE",
+        "org_state": "NY",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "CITY COLLEGE OF NEW YORK",
+        "org_state": "NY",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "CLARKSON UNIVERSITY",
+        "org_state": "NY",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "COLD SPRING HARBOR LABORATORY",
+        "org_state": "NY",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 99,
+        "n_terminated": 22,
+        "org_name": "COLUMBIA UNIV NEW YORK MORNINGSIDE",
+        "org_state": "NY",
+        "rate": 0.2222222222222222,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 913,
+        "n_terminated": 164,
+        "org_name": "COLUMBIA UNIVERSITY HEALTH SCIENCES",
+        "org_state": "NY",
+        "rate": 0.1796276013143483,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 5,
+        "n_terminated": 1,
+        "org_name": "COLUMBIA UNIVERSITY TEACHERS COLLEGE",
+        "org_state": "NY",
+        "rate": 0.2,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 195,
+        "n_terminated": 4,
+        "org_name": "CORNELL UNIVERSITY",
+        "org_state": "NY",
+        "rate": 0.020512820512820513,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 3,
+        "org_name": "ECOHEALTH ALLIANCE INC",
+        "org_state": "NY",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "ECOHEALTH ALLIANCE, INC.",
+        "org_state": "NY",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "FORDHAM UNIVERSITY",
+        "org_state": "NY",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "HERBERT H. LEHMAN COLLEGE",
+        "org_state": "NY",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "HOSPITAL FOR SPECIAL SURGERY",
+        "org_state": "NY",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 5,
+        "n_terminated": 5,
+        "org_name": "HUNTER COLLEGE",
+        "org_state": "NY",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 23,
+        "n_terminated": 19,
+        "org_name": "ICAHN SCHOOL OF MEDICINE AT MOUNT SINAI",
+        "org_state": "NY",
+        "rate": 0.8260869565217391,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "MEDGAR EVERS COLLEGE",
+        "org_state": "NY",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "NDRI-USA, INC.",
+        "org_state": "NY",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "NEW SCHOOL UNIVERSITY",
+        "org_state": "NY",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "NEW YORK BLOOD CENTER",
+        "org_state": "NY",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "NEW YORK HALL OF SCIENCE",
+        "org_state": "NY",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "NEW YORK MEDICAL COLLEGE",
+        "org_state": "NY",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 6,
+        "n_terminated": 5,
+        "org_name": "NEW YORK STATE PSYCHIATRIC INSTITUTE DBA RESEARCH FOUNDATION FOR MENTAL HYGIENE, INC",
+        "org_state": "NY",
+        "rate": 0.8333333333333334,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 10,
+        "n_terminated": 9,
+        "org_name": "NEW YORK UNIVERSITY",
+        "org_state": "NY",
+        "rate": 0.9,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "NEW YORK UNIVERSITY D/B/A NYU LONG ISLAND SCHOOL OF MEDICINE",
+        "org_state": "NY",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 15,
+        "n_terminated": 12,
+        "org_name": "NEW YORK UNIVERSITY SCHOOL OF MEDICINE",
+        "org_state": "NY",
+        "rate": 0.8,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "QUEENS COLLEGE",
+        "org_state": "NY",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "RENSSELAER POLYTECHNIC INSTITUTE",
+        "org_state": "NY",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "RESEARCH FOUNDATION FOR MENTAL HYGIENE, INC.",
+        "org_state": "NY",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "RESEARCH FOUNDATION OF THE CITY UNIVERSITY OF NEW YORK",
+        "org_state": "NY",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "ROCHESTER INSTITUTE OF TECHNOLOGY",
+        "org_state": "NY",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "ROCKEFELLER UNIVERSITY",
+        "org_state": "NY",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "ROSWELL PARK CANCER INSTITUTE CORP",
+        "org_state": "NY",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "SILVERBILLS INC.",
+        "org_state": "NY",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 4,
+        "n_terminated": 4,
+        "org_name": "SLOAN-KETTERING INST CAN RESEARCH",
+        "org_state": "NY",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 5,
+        "n_terminated": 5,
+        "org_name": "STATE UNIVERSITY NEW YORK STONY BROOK",
+        "org_state": "NY",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "STATE UNIVERSITY OF NEW YORK AT ALBANY",
+        "org_state": "NY",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 8,
+        "n_terminated": 8,
+        "org_name": "STATE UNIVERSITY OF NEW YORK AT BUFFALO",
+        "org_state": "NY",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "STATE UNIVERSITY OF NY,BINGHAMTON",
+        "org_state": "NY",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 1,
+        "org_name": "SUNY DOWNSTATE MEDICAL CENTER",
+        "org_state": "NY",
+        "rate": 0.5,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "SYRACUSE UNIVERSITY",
+        "org_state": "NY",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 0,
+        "org_name": "TEACHERS COLLEGE COLUMBIA UNIVERSITY",
+        "org_state": "NY",
+        "rate": 0.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 84,
+        "n_terminated": 14,
+        "org_name": "THE TRUSTEES OF COLUMBIA UNIVERSITY IN THE CITY OF NEW YORK",
+        "org_state": "NY",
+        "rate": 0.16666666666666666,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 16,
+        "n_terminated": 16,
+        "org_name": "UNIVERSITY OF ROCHESTER",
+        "org_state": "NY",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "UPSTATE MEDICAL UNIVERSITY",
+        "org_state": "NY",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "WADSWORTH CENTER",
+        "org_state": "NY",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 19,
+        "n_terminated": 11,
+        "org_name": "WEILL MEDICAL COLL OF CORNELL UNIV",
+        "org_state": "NY",
+        "rate": 0.5789473684210527,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "WEILL MEDICAL COLLEGE OF CORNELL UNIVERSITY",
+        "org_state": "NY",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 0,
+        "org_name": "WINIFRED MASTERSON BURKE MED RES INST",
+        "org_state": "NY",
+        "rate": 0.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "ASIAN COMMUNITY HEALTH COALITION",
+        "org_state": "PA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "CARNEGIE-MELLON UNIVERSITY",
+        "org_state": "PA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 11,
+        "n_terminated": 7,
+        "org_name": "CHILDREN'S HOSP OF PHILADELPHIA",
+        "org_state": "PA",
+        "rate": 0.6363636363636364,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 7,
+        "n_terminated": 7,
+        "org_name": "DREXEL UNIVERSITY",
+        "org_state": "PA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "DUQUESNE UNIVERSITY",
+        "org_state": "PA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "MAGEE-WOMEN'S RES INST AND FOUNDATION",
+        "org_state": "PA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "MONELL CHEMICAL SENSES CENTER",
+        "org_state": "PA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 6,
+        "n_terminated": 6,
+        "org_name": "PENNSYLVANIA STATE UNIV HERSHEY MED CTR",
+        "org_state": "PA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 9,
+        "n_terminated": 9,
+        "org_name": "PENNSYLVANIA STATE UNIVERSITY, THE",
+        "org_state": "PA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 7,
+        "n_terminated": 6,
+        "org_name": "TEMPLE UNIV OF THE COMMONWEALTH",
+        "org_state": "PA",
+        "rate": 0.8571428571428571,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "TEMPLE UNIVERSITY-OF THE COMMONWEALTH SYSTEM OF HIGHER EDUCATION",
+        "org_state": "PA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 2,
+        "org_name": "THOMAS JEFFERSON UNIVERSITY",
+        "org_state": "PA",
+        "rate": 0.6666666666666666,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 9,
+        "n_terminated": 3,
+        "org_name": "TRUSTEES OF THE UNIVERSITY OF PENNSYLVANIA, THE",
+        "org_state": "PA",
+        "rate": 0.3333333333333333,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 41,
+        "n_terminated": 26,
+        "org_name": "UNIVERSITY OF PENNSYLVANIA",
+        "org_state": "PA",
+        "rate": 0.6341463414634146,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "UNIVERSITY OF PITTSBURGH - OF THE COMMONWEALTH SYSTEM OF HIGHER EDUCATION",
+        "org_state": "PA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 33,
+        "n_terminated": 30,
+        "org_name": "UNIVERSITY OF PITTSBURGH AT PITTSBURGH",
+        "org_state": "PA",
+        "rate": 0.9090909090909091,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "WISTAR INSTITUTE",
+        "org_state": "PA",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 267,
+        "n_terminated": 19,
+        "org_name": "BROWN UNIVERSITY",
+        "org_state": "RI",
+        "rate": 0.07116104868913857,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "BUTLER HOSPITAL",
+        "org_state": "RI",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "EMMA PENDLETON BRADLEY HOSPITAL",
+        "org_state": "RI",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "GORDON RESEARCH CONFERENCES",
+        "org_state": "RI",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "PRO-CHANGE BEHAVIOR SYSTEMS, INC.",
+        "org_state": "RI",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 4,
+        "n_terminated": 4,
+        "org_name": "RHODE ISLAND HOSPITAL",
+        "org_state": "RI",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "UNIVERSITY OF RHODE ISLAND",
+        "org_state": "RI",
+        "rate": 1.0,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 2,
+        "org_name": "UNIVERSITY OF VERMONT & ST AGRIC COLLEGE",
+        "org_state": "VT",
+        "rate": 0.6666666666666666,
+        "region": "Northeast"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "ALABAMA STATE UNIVERSITY",
+        "org_state": "AL",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "AUBURN UNIVERSITY AT AUBURN",
+        "org_state": "AL",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 23,
+        "n_terminated": 22,
+        "org_name": "UNIVERSITY OF ALABAMA AT BIRMINGHAM",
+        "org_state": "AL",
+        "rate": 0.9565217391304348,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "UNIVERSITY OF ALABAMA IN TUSCALOOSA",
+        "org_state": "AL",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "ARKANSAS CANCER COALITION",
+        "org_state": "AR",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 6,
+        "n_terminated": 6,
+        "org_name": "UNIV OF ARKANSAS FOR MED SCIS",
+        "org_state": "AR",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "UNIVERSITY OF ARKANSAS AT FAYETTEVILLE",
+        "org_state": "AR",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "AMERICAN PSYCHOLOGICAL ASSOCIATION",
+        "org_state": "DC",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "AMERICAN SOCIETY FOR BONE & MINERAL RES",
+        "org_state": "DC",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "AMERICAN SOCIETY OF NEPHROLOGY, INC.",
+        "org_state": "DC",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "AMERICAN UNIVERSITY",
+        "org_state": "DC",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 3,
+        "org_name": "CHILDREN'S RESEARCH INSTITUTE",
+        "org_state": "DC",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "ENDOCRINE SOCIETY",
+        "org_state": "DC",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 5,
+        "n_terminated": 5,
+        "org_name": "GEORGE WASHINGTON UNIVERSITY",
+        "org_state": "DC",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "GEORGE WASHINGTON UNIVERSITY (THE)",
+        "org_state": "DC",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "GEORGETOWN UNIVERSITY",
+        "org_state": "DC",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "GERONTOLOGICAL SOCIETY OF AMERICA",
+        "org_state": "DC",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 2,
+        "org_name": "HOWARD UNIVERSITY",
+        "org_state": "DC",
+        "rate": 0.6666666666666666,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "UNIVERSITY OF THE DISTRICT OF COLUMBIA",
+        "org_state": "DC",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "US HELPING US, PEOPLE INTO LIVING, INC.",
+        "org_state": "DC",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "WHITMAN-WALKER INSTITUTE INC",
+        "org_state": "DC",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 3,
+        "org_name": "DELAWARE STATE UNIVERSITY",
+        "org_state": "DE",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "OLIPHA INC",
+        "org_state": "DE",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 3,
+        "org_name": "UNIVERSITY OF DELAWARE",
+        "org_state": "DE",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "FLORIDA AGRICULTURAL AND MECHANICAL UNIV",
+        "org_state": "FL",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 0,
+        "org_name": "FLORIDA ATLANTIC UNIVERSITY",
+        "org_state": "FL",
+        "rate": 0.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 6,
+        "n_terminated": 6,
+        "org_name": "FLORIDA INTERNATIONAL UNIVERSITY",
+        "org_state": "FL",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 12,
+        "n_terminated": 11,
+        "org_name": "FLORIDA STATE UNIVERSITY",
+        "org_state": "FL",
+        "rate": 0.9166666666666666,
+        "region": "South"
+      },
+      {
+        "n_grants": 4,
+        "n_terminated": 1,
+        "org_name": "H. LEE MOFFITT CANCER CTR & RES INST",
+        "org_state": "FL",
+        "rate": 0.25,
+        "region": "South"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "HEALTH CHOICE NETWORK INC",
+        "org_state": "FL",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 1,
+        "org_name": "MAYO CLINIC  JACKSONVILLE",
+        "org_state": "FL",
+        "rate": 0.3333333333333333,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "NOVA SOUTHEASTERN UNIVERSITY",
+        "org_state": "FL",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "THE UNIVERSITY OF CENTRAL FLORIDA BOARD OF TRUSTEES",
+        "org_state": "FL",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 5,
+        "n_terminated": 5,
+        "org_name": "UNIVERSITY OF CENTRAL FLORIDA",
+        "org_state": "FL",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 22,
+        "n_terminated": 21,
+        "org_name": "UNIVERSITY OF FLORIDA",
+        "org_state": "FL",
+        "rate": 0.9545454545454546,
+        "region": "South"
+      },
+      {
+        "n_grants": 4,
+        "n_terminated": 4,
+        "org_name": "UNIVERSITY OF MIAMI",
+        "org_state": "FL",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 7,
+        "n_terminated": 7,
+        "org_name": "UNIVERSITY OF MIAMI CORAL GABLES",
+        "org_state": "FL",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 14,
+        "n_terminated": 14,
+        "org_name": "UNIVERSITY OF MIAMI SCHOOL OF MEDICINE",
+        "org_state": "FL",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "UNIVERSITY OF NORTH FLORIDA",
+        "org_state": "FL",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "UNIVERSITY OF SOUTH FLORIDA",
+        "org_state": "FL",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "UNIVERSITY OF WEST FLORIDA",
+        "org_state": "FL",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "URBAN HEALTH PARTNERSHIPS",
+        "org_state": "FL",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 3,
+        "org_name": "AUGUSTA UNIVERSITY",
+        "org_state": "GA",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "CLARK ATLANTA UNIVERSITY",
+        "org_state": "GA",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 39,
+        "n_terminated": 37,
+        "org_name": "EMORY UNIVERSITY",
+        "org_state": "GA",
+        "rate": 0.9487179487179487,
+        "region": "South"
+      },
+      {
+        "n_grants": 4,
+        "n_terminated": 4,
+        "org_name": "GEORGIA INSTITUTE OF TECHNOLOGY",
+        "org_state": "GA",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 4,
+        "n_terminated": 4,
+        "org_name": "GEORGIA STATE UNIVERSITY",
+        "org_state": "GA",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "GEORGIA TECH RESEARCH CORP",
+        "org_state": "GA",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "KENNESAW STATE UNIVERSITY",
+        "org_state": "GA",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 6,
+        "n_terminated": 6,
+        "org_name": "MOREHOUSE SCHOOL OF MEDICINE",
+        "org_state": "GA",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "SPELMAN COLLEGE",
+        "org_state": "GA",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 4,
+        "n_terminated": 4,
+        "org_name": "UNIVERSITY OF GEORGIA",
+        "org_state": "GA",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "UNIVERSITY OF GEORGIA RESEARCH FOUNDATION, INC.",
+        "org_state": "GA",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "POWERTECH WATER, INC.",
+        "org_state": "KY",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 11,
+        "n_terminated": 9,
+        "org_name": "UNIVERSITY OF KENTUCKY",
+        "org_state": "KY",
+        "rate": 0.8181818181818182,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "UNIVERSITY OF KENTUCKY RESEARCH FOUNDATION, THE",
+        "org_state": "KY",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 8,
+        "n_terminated": 8,
+        "org_name": "UNIVERSITY OF LOUISVILLE",
+        "org_state": "KY",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "WESTERN KENTUCKY UNIVERSITY",
+        "org_state": "KY",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "DILLARD UNIVERSITY",
+        "org_state": "LA",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 4,
+        "n_terminated": 4,
+        "org_name": "LOUISIANA STATE UNIV A&M COL BATON ROUGE",
+        "org_state": "LA",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 0,
+        "org_name": "LOUISIANA STATE UNIV HSC SHREVEPORT",
+        "org_state": "LA",
+        "rate": 0.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "LOUISIANA STATE UNIVERSITY",
+        "org_state": "LA",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "LSU HEALTH SCIENCES CENTER",
+        "org_state": "LA",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "LSU PENNINGTON BIOMEDICAL RESEARCH CTR",
+        "org_state": "LA",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 3,
+        "org_name": "THE ADMINISTRATORS OF TULANE EDUCATIONAL FUND",
+        "org_state": "LA",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 4,
+        "n_terminated": 4,
+        "org_name": "TULANE UNIVERSITY OF LOUISIANA",
+        "org_state": "LA",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "XAVIER UNIVERSITY OF LOUISIANA",
+        "org_state": "LA",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "AMERICAN GASTROENTEROLOGICAL ASSN/INST",
+        "org_state": "MD",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "FRIENDS RESEARCH INSTITUTE, INC.",
+        "org_state": "MD",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "HUGO W. MOSER RES INST KENNEDY KRIEGER",
+        "org_state": "MD",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 40,
+        "n_terminated": 40,
+        "org_name": "JOHNS HOPKINS UNIVERSITY",
+        "org_state": "MD",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "NATIONAL MEDICAL ASSOCIATION",
+        "org_state": "MD",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "PACIFIC INSTITUTE FOR RES AND EVALUATION",
+        "org_state": "MD",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "THE JOHNS HOPKINS UNIVERSITY",
+        "org_state": "MD",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 8,
+        "n_terminated": 8,
+        "org_name": "UNIV OF MARYLAND, COLLEGE PARK",
+        "org_state": "MD",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 18,
+        "n_terminated": 18,
+        "org_name": "UNIVERSITY OF MARYLAND BALTIMORE",
+        "org_state": "MD",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 4,
+        "n_terminated": 4,
+        "org_name": "UNIVERSITY OF MARYLAND BALTIMORE COUNTY",
+        "org_state": "MD",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "UNIVERSITY OF MARYLAND, BALTIMORE",
+        "org_state": "MD",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "UNIVERSITY OF MARYLAND, COLLEGE PARK",
+        "org_state": "MD",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "WESTAT, INC.",
+        "org_state": "MD",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "WHITMAN-WALKER INSTITUTE, INC.",
+        "org_state": "MD",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "DELTA HEALTH ALLIANCE, INC.",
+        "org_state": "MS",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "MY BROTHER'S KEEPER, INC.",
+        "org_state": "MS",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "THE UNIVERSITY OF MISSISSIPPI",
+        "org_state": "MS",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 3,
+        "org_name": "UNIVERSITY OF MISSISSIPPI",
+        "org_state": "MS",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 4,
+        "n_terminated": 4,
+        "org_name": "UNIVERSITY OF MISSISSIPPI MED CTR",
+        "org_state": "MS",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 47,
+        "n_terminated": 32,
+        "org_name": "DUKE UNIVERSITY",
+        "org_state": "NC",
+        "rate": 0.6808510638297872,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "EAST CAROLINA UNIVERSITY",
+        "org_state": "NC",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "EQUITI FOODS, LLC",
+        "org_state": "NC",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "FAMILY HEALTH INTERNATIONAL",
+        "org_state": "NC",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "FAYETTEVILLE STATE UNIVERSITY",
+        "org_state": "NC",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "INNOVATION RESEARCH AND TRAINING, INC.",
+        "org_state": "NC",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "NC STATE DEPT/HLTH & HUMAN SERVICES",
+        "org_state": "NC",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 3,
+        "org_name": "NORTH CAROLINA AGRI & TECH ST UNIV",
+        "org_state": "NC",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "NORTH CAROLINA CENTRAL UNIVERSITY",
+        "org_state": "NC",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "NORTH CAROLINA STATE UNIVERSITY RALEIGH",
+        "org_state": "NC",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 4,
+        "n_terminated": 4,
+        "org_name": "RESEARCH TRIANGLE INSTITUTE",
+        "org_state": "NC",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "THE UNIVERSITY OF NORTH CAROLINA AT PEMBROKE",
+        "org_state": "NC",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 31,
+        "n_terminated": 31,
+        "org_name": "UNIV OF NORTH CAROLINA CHAPEL HILL",
+        "org_state": "NC",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 8,
+        "n_terminated": 8,
+        "org_name": "UNIVERSITY OF NORTH CAROLINA AT CHAPEL HILL",
+        "org_state": "NC",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "UNIVERSITY OF NORTH CAROLINA AT CHARLOTTE",
+        "org_state": "NC",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "UNIVERSITY OF NORTH CAROLINA CHARLOTTE",
+        "org_state": "NC",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "UNIVERSITY OF NORTH CAROLINA GREENSBORO",
+        "org_state": "NC",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 0,
+        "org_name": "WAKE FOREST UNIVERSITY",
+        "org_state": "NC",
+        "rate": 0.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 9,
+        "n_terminated": 9,
+        "org_name": "WAKE FOREST UNIVERSITY HEALTH SCIENCES",
+        "org_state": "NC",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "CHEROKEE NATION",
+        "org_state": "OK",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "LAUREATE INSTITUTE FOR BRAIN RESEARCH",
+        "org_state": "OK",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "OKLAHOMA MEDICAL RESEARCH FOUNDATION",
+        "org_state": "OK",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "OKLAHOMA STATE UNIVERSITY STILLWATER",
+        "org_state": "OK",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "UNIVERSITY OF OKLAHOMA",
+        "org_state": "OK",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 7,
+        "n_terminated": 7,
+        "org_name": "UNIVERSITY OF OKLAHOMA HLTH SCIENCES CTR",
+        "org_state": "OK",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "CLAFLIN UNIVERSITY",
+        "org_state": "SC",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 3,
+        "org_name": "CLEMSON UNIVERSITY",
+        "org_state": "SC",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 10,
+        "n_terminated": 9,
+        "org_name": "MEDICAL UNIVERSITY OF SOUTH CAROLINA",
+        "org_state": "SC",
+        "rate": 0.9,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "THE MEDICAL UNIVERSITY OF SOUTH CAROLINA",
+        "org_state": "SC",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 10,
+        "n_terminated": 10,
+        "org_name": "UNIVERSITY OF SOUTH CAROLINA AT COLUMBIA",
+        "org_state": "SC",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "EAST TENNESSEE STATE UNIVERSITY",
+        "org_state": "TN",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 4,
+        "n_terminated": 4,
+        "org_name": "MEHARRY MEDICAL COLLEGE",
+        "org_state": "TN",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "ST JUDE CHILDREN'S RESEARCH HOSPITAL INC",
+        "org_state": "TN",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "ST. JUDE CHILDREN'S RESEARCH HOSPITAL GRADUATE SCHOOL OF BIOMEDICAL SCIENCES, LLC",
+        "org_state": "TN",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "TENNESSEE STATE UNIVERSITY",
+        "org_state": "TN",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "UNIVERSITY OF MEMPHIS",
+        "org_state": "TN",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "UNIVERSITY OF TENNESSEE CHATTANOOGA",
+        "org_state": "TN",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "UNIVERSITY OF TENNESSEE KNOXVILLE",
+        "org_state": "TN",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 17,
+        "n_terminated": 17,
+        "org_name": "VANDERBILT UNIVERSITY",
+        "org_state": "TN",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 6,
+        "n_terminated": 5,
+        "org_name": "VANDERBILT UNIVERSITY MEDICAL CENTER",
+        "org_state": "TN",
+        "rate": 0.8333333333333334,
+        "region": "South"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "ASIAN AMERICAN HEALTH COALITION/HOUSTON",
+        "org_state": "TX",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 17,
+        "n_terminated": 17,
+        "org_name": "BAYLOR COLLEGE OF MEDICINE",
+        "org_state": "TX",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "BAYLOR UNIVERSITY",
+        "org_state": "TX",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "COLLIGA APPS CORP.",
+        "org_state": "TX",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "HEALTHY TARRANT COUNTY COLLABORATION",
+        "org_state": "TX",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "MIGRANT CLINICIANS NETWORK, INC.",
+        "org_state": "TX",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "PRAIRIE VIEW AGRI & MECH UNIVERSITY",
+        "org_state": "TX",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 3,
+        "org_name": "RICE UNIVERSITY",
+        "org_state": "TX",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "SAM HOUSTON STATE UNIVERSITY",
+        "org_state": "TX",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "ST. MARY'S UNIVERSITY",
+        "org_state": "TX",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "TEXAS A & M UNIVERSITY SYSTEM HEALTH SCIENCE CENTER",
+        "org_state": "TX",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 4,
+        "n_terminated": 4,
+        "org_name": "TEXAS A&M UNIVERSITY",
+        "org_state": "TX",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 4,
+        "n_terminated": 4,
+        "org_name": "TEXAS A&M UNIVERSITY HEALTH SCIENCE CTR",
+        "org_state": "TX",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "TEXAS ENGINEERING EXPERIMENT STATION",
+        "org_state": "TX",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "TEXAS STATE UNIVERSITY",
+        "org_state": "TX",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "TEXAS TECH UNIVERSITY",
+        "org_state": "TX",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "TEXAS TECH UNIVERSITY HEALTH SCIENCES CENTER AT EL PASO",
+        "org_state": "TX",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "THE UNIVERSITY OF TEXAS AT EL PASO",
+        "org_state": "TX",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 5,
+        "n_terminated": 5,
+        "org_name": "UNIVERSITY OF HOUSTON",
+        "org_state": "TX",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "UNIVERSITY OF HOUSTON SYSTEM",
+        "org_state": "TX",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "UNIVERSITY OF NORTH TEXAS",
+        "org_state": "TX",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 4,
+        "n_terminated": 4,
+        "org_name": "UNIVERSITY OF NORTH TEXAS HLTH SCI CTR",
+        "org_state": "TX",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "UNIVERSITY OF TEXAS ARLINGTON",
+        "org_state": "TX",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 7,
+        "n_terminated": 7,
+        "org_name": "UNIVERSITY OF TEXAS AT AUSTIN",
+        "org_state": "TX",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 1,
+        "org_name": "UNIVERSITY OF TEXAS DALLAS",
+        "org_state": "TX",
+        "rate": 0.5,
+        "region": "South"
+      },
+      {
+        "n_grants": 4,
+        "n_terminated": 4,
+        "org_name": "UNIVERSITY OF TEXAS EL PASO",
+        "org_state": "TX",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 6,
+        "n_terminated": 6,
+        "org_name": "UNIVERSITY OF TEXAS HLTH SCI CTR HOUSTON",
+        "org_state": "TX",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 9,
+        "n_terminated": 9,
+        "org_name": "UNIVERSITY OF TEXAS HLTH SCIENCE CENTER",
+        "org_state": "TX",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 6,
+        "n_terminated": 6,
+        "org_name": "UNIVERSITY OF TEXAS MED BR GALVESTON",
+        "org_state": "TX",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 9,
+        "n_terminated": 9,
+        "org_name": "UNIVERSITY OF TEXAS SAN ANTONIO",
+        "org_state": "TX",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 7,
+        "n_terminated": 6,
+        "org_name": "UNIVERSITY OF TX MD ANDERSON CAN CTR",
+        "org_state": "TX",
+        "rate": 0.8571428571428571,
+        "region": "South"
+      },
+      {
+        "n_grants": 16,
+        "n_terminated": 15,
+        "org_name": "UT SOUTHWESTERN MEDICAL CENTER",
+        "org_state": "TX",
+        "rate": 0.9375,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "ACADEMIC PEDIATRIC ASSOCIATION",
+        "org_state": "VA",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "HAMPTON UNIVERSITY",
+        "org_state": "VA",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "ISA ASSOCIATES, INC.",
+        "org_state": "VA",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "OLD DOMINION UNIVERSITY",
+        "org_state": "VA",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 3,
+        "org_name": "RECTOR & VISITORS OF THE UNIVERSITY OF VIRGINIA",
+        "org_state": "VA",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "SOCIETY OF TOXICOLOGY",
+        "org_state": "VA",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 8,
+        "n_terminated": 8,
+        "org_name": "UNIVERSITY OF VIRGINIA",
+        "org_state": "VA",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 12,
+        "n_terminated": 12,
+        "org_name": "VIRGINIA COMMONWEALTH UNIVERSITY",
+        "org_state": "VA",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 8,
+        "n_terminated": 8,
+        "org_name": "VIRGINIA POLYTECHNIC INST AND ST UNIV",
+        "org_state": "VA",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "VIRGINIA POLYTECHNIC INSTITUTE & STATE UNIVERSITY",
+        "org_state": "VA",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "WETA TV 26",
+        "org_state": "VA",
+        "rate": 1.0,
+        "region": "South"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "SOUTHCENTRAL FOUNDATION",
+        "org_state": "AK",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "UNIVERSITY OF ALASKA ANCHORAGE",
+        "org_state": "AK",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "UNIVERSITY OF ALASKA FAIRBANKS",
+        "org_state": "AK",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 5,
+        "n_terminated": 5,
+        "org_name": "ARIZONA STATE UNIVERSITY-TEMPE CAMPUS",
+        "org_state": "AZ",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "BANNER HEALTH",
+        "org_state": "AZ",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "CAMPESINOS SIN FRONTERAS",
+        "org_state": "AZ",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "MAYO CLINIC ARIZONA",
+        "org_state": "AZ",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "SOUTHEAST ARIZONA AREA HEALTH EDUCATION CENTER",
+        "org_state": "AZ",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 17,
+        "n_terminated": 17,
+        "org_name": "UNIVERSITY OF ARIZONA",
+        "org_state": "AZ",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "BECKMAN RESEARCH INSTITUTE/CITY OF HOPE",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 2,
+        "org_name": "CALIFORNIA INSTITUTE OF TECHNOLOGY",
+        "org_state": "CA",
+        "rate": 0.6666666666666666,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "CALIFORNIA POLY STATE U SAN LUIS OBISPO",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "CALIFORNIA STATE UNIV SAN BERNARDINO",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "CALIFORNIA STATE UNIV-DOMINGUEZ HILLS",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "CALIFORNIA STATE UNIVERSITY BAKERSFIELD AUXILIARY FOR SPONSORED PROGRAMS ADMINISTRATION",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 3,
+        "org_name": "CALIFORNIA STATE UNIVERSITY FULLERTON",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "CALIFORNIA STATE UNIVERSITY LONG BEACH",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "CALIFORNIA STATE UNIVERSITY LOS ANGELES",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "CALIFORNIA STATE UNIVERSITY NORTHRIDGE",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "CALIFORNIA STATE UNIVERSITY SACRAMENTO",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "CALIFORNIA STATE UNIVERSITY SAN MARCOS",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 2,
+        "org_name": "CEDARS-SINAI MEDICAL CENTER",
+        "org_state": "CA",
+        "rate": 0.6666666666666666,
+        "region": "West"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 3,
+        "org_name": "CENTER FOR INNOVATIVE PUBLIC HEALTH RESEARCH",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 4,
+        "n_terminated": 4,
+        "org_name": "CHARLES R. DREW UNIVERSITY OF MED & SCI",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 3,
+        "org_name": "CHILDREN'S HOSPITAL OF LOS ANGELES",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "CLAREMONT GRADUATE UNIVERSITY",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "DOHENY EYE INSTITUTE",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "GENENDEAVOR LLC",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "HOUSING AUTHORITY OF THE CITY OF LOS ANGELES",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "J. DAVID GLADSTONE INSTITUTES",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "KAISER FOUNDATION RESEARCH INSTITUTE",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "KECK GRADUATE INST OF APPLIED LIFE SCIS",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "LA JOLLA INSTITUTE FOR IMMUNOLOGY",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "LOMA LINDA UNIVERSITY",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "LOYOLA MARYMOUNT UNIVERSITY",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "NEUROVATIONS",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 3,
+        "org_name": "PUBLIC HEALTH FOUNDATION ENTERPRISES",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "PUBLIC HEALTH FOUNDATION ENTERPRISES, INC.",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 3,
+        "org_name": "RAND CORPORATION",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "REGENTS OF THE UNIVERSITY OF CALIFORNIA, SAN FRANCISCO, THE",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "REGENTS OF THE UNIVERSITY OF CALIFORNIA, THE",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 12,
+        "n_terminated": 12,
+        "org_name": "SAN DIEGO STATE UNIVERSITY",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "SAN DIEGO STATE UNIVERSITY FOUNDATION",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "SAN FRANCISCO DEPARTMENT OF PUBLIC HEALTH",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 5,
+        "n_terminated": 5,
+        "org_name": "SAN FRANCISCO STATE UNIVERSITY",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "SAN JOSE STATE UNIVERSITY",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "SANFORD BURNHAM PREBYS MEDICAL DISCOVERY INSTITUTE",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "SCRIPPS HEALTH",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "SCRIPPS RESEARCH INSTITUTE",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 3,
+        "org_name": "SCRIPPS RESEARCH INSTITUTE, THE",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "SMITH-KETTLEWELL EYE RESEARCH INSTITUTE",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 26,
+        "n_terminated": 24,
+        "org_name": "STANFORD UNIVERSITY",
+        "org_state": "CA",
+        "rate": 0.9230769230769231,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "SUBTLE MEDICAL, INC.",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "TECH MUSEUM OF INNOVATION",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 3,
+        "org_name": "THE LELAND STANFORD JUNIOR UNIVERSITY",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "THE RAND CORPORATION",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 26,
+        "n_terminated": 24,
+        "org_name": "UNIVERSITY OF CALIFORNIA AT DAVIS",
+        "org_state": "CA",
+        "rate": 0.9230769230769231,
+        "region": "West"
+      },
+      {
+        "n_grants": 25,
+        "n_terminated": 16,
+        "org_name": "UNIVERSITY OF CALIFORNIA BERKELEY",
+        "org_state": "CA",
+        "rate": 0.64,
+        "region": "West"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "UNIVERSITY OF CALIFORNIA IRVINE",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 482,
+        "n_terminated": 477,
+        "org_name": "UNIVERSITY OF CALIFORNIA LOS ANGELES",
+        "org_state": "CA",
+        "rate": 0.9896265560165975,
+        "region": "West"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 2,
+        "org_name": "UNIVERSITY OF CALIFORNIA RIVERSIDE",
+        "org_state": "CA",
+        "rate": 0.6666666666666666,
+        "region": "West"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 3,
+        "org_name": "UNIVERSITY OF CALIFORNIA SANTA BARBARA",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 7,
+        "n_terminated": 7,
+        "org_name": "UNIVERSITY OF CALIFORNIA SANTA CRUZ",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 33,
+        "n_terminated": 33,
+        "org_name": "UNIVERSITY OF CALIFORNIA, LOS ANGELES",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "UNIVERSITY OF CALIFORNIA, MERCED",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 29,
+        "n_terminated": 29,
+        "org_name": "UNIVERSITY OF CALIFORNIA, SAN DIEGO",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 82,
+        "n_terminated": 49,
+        "org_name": "UNIVERSITY OF CALIFORNIA, SAN FRANCISCO",
+        "org_state": "CA",
+        "rate": 0.5975609756097561,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "UNIVERSITY OF CALIFORNIA, SANTA BARBARA",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 22,
+        "n_terminated": 21,
+        "org_name": "UNIVERSITY OF CALIFORNIA-IRVINE",
+        "org_state": "CA",
+        "rate": 0.9545454545454546,
+        "region": "West"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "UNIVERSITY OF SAN FRANCISCO",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 28,
+        "n_terminated": 28,
+        "org_name": "UNIVERSITY OF SOUTHERN CALIFORNIA",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "UNIVERSITY OF THE PACIFIC-STOCKTON",
+        "org_state": "CA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "COLORADO SCHOOL OF MINES",
+        "org_state": "CO",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 4,
+        "n_terminated": 4,
+        "org_name": "COLORADO STATE UNIVERSITY",
+        "org_state": "CO",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "DENVER HEALTH AND HOSPITAL AUTHORITY",
+        "org_state": "CO",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "FORT LEWIS COLLEGE",
+        "org_state": "CO",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "THE REGENTS OF THE UNIV. OF COLORADO",
+        "org_state": "CO",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 3,
+        "org_name": "THE REGENTS OF THE UNIVERSITY OF COLORADO",
+        "org_state": "CO",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 6,
+        "n_terminated": 6,
+        "org_name": "UNIVERSITY OF COLORADO",
+        "org_state": "CO",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 33,
+        "n_terminated": 33,
+        "org_name": "UNIVERSITY OF COLORADO DENVER",
+        "org_state": "CO",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "UNIVERSITY OF DENVER (COLORADO SEMINARY)",
+        "org_state": "CO",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 11,
+        "n_terminated": 11,
+        "org_name": "UNIVERSITY OF HAWAII AT MANOA",
+        "org_state": "HI",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "UNIVERSITY OF IDAHO",
+        "org_state": "ID",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "HOPA MOUNTAIN",
+        "org_state": "MT",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "MONTANA STATE UNIVERSITY",
+        "org_state": "MT",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "MONTANA STATE UNIVERSITY - BOZEMAN",
+        "org_state": "MT",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "UNIVERSITY OF MONTANA",
+        "org_state": "MT",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "NEW MEXICO STATE UNIVERSITY LAS CRUCES",
+        "org_state": "NM",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 3,
+        "org_name": "UNIVERSITY OF NEW MEXICO",
+        "org_state": "NM",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 5,
+        "n_terminated": 5,
+        "org_name": "UNIVERSITY OF NEW MEXICO HEALTH SCIS CTR",
+        "org_state": "NM",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "BOARD OF REGENTS OF NEVADA SYSTEM OF HIGHER EDUCATION",
+        "org_state": "NV",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "UNIVERSITY OF NEVADA LAS VEGAS",
+        "org_state": "NV",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 4,
+        "n_terminated": 4,
+        "org_name": "UNIVERSITY OF NEVADA RENO",
+        "org_state": "NV",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "IRIS MEDIA, INC.",
+        "org_state": "OR",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "OCHIN, INC",
+        "org_state": "OR",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 8,
+        "n_terminated": 8,
+        "org_name": "OREGON HEALTH & SCIENCE UNIVERSITY",
+        "org_state": "OR",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 1,
+        "n_terminated": 1,
+        "org_name": "PORTLAND STATE UNIVERSITY",
+        "org_state": "OR",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 11,
+        "n_terminated": 11,
+        "org_name": "UNIVERSITY OF OREGON",
+        "org_state": "OR",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 14,
+        "n_terminated": 14,
+        "org_name": "UTAH STATE HIGHER EDUCATION SYSTEM--UNIVERSITY OF UTAH",
+        "org_state": "UT",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 3,
+        "n_terminated": 3,
+        "org_name": "ALLEN INSTITUTE",
+        "org_state": "WA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 12,
+        "n_terminated": 11,
+        "org_name": "FRED HUTCHINSON CANCER CENTER",
+        "org_state": "WA",
+        "rate": 0.9166666666666666,
+        "region": "West"
+      },
+      {
+        "n_grants": 2,
+        "n_terminated": 2,
+        "org_name": "INSTITUTE FOR SYSTEMS BIOLOGY",
+        "org_state": "WA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 7,
+        "n_terminated": 7,
+        "org_name": "SEATTLE CHILDREN'S HOSPITAL",
+        "org_state": "WA",
+        "rate": 1.0,
+        "region": "West"
+      },
+      {
+        "n_grants": 54,
+        "n_terminated": 28,
+        "org_name": "UNIVERSITY OF WASHINGTON",
+        "org_state": "WA",
+        "rate": 0.5185185185185185,
+        "region": "West"
+      },
+      {
+        "n_grants": 6,
+        "n_terminated": 6,
+        "org_name": "WASHINGTON STATE UNIVERSITY",
+        "org_state": "WA",
+        "rate": 1.0,
+        "region": "West"
+      }
+    ]
+  },
+  "params": [
+    {
+      "name": "region_select",
+      "select": {
+        "fields": [
+          "region"
+        ],
+        "type": "point"
+      },
+      "views": [
+        "view_c19d84d1604fc298_0",
+        "view_8fe3232b7450b574_1"
+      ]
+    },
+    {
+      "name": "state_select",
+      "select": {
+        "fields": [
+          "region",
+          "org_state"
+        ],
+        "type": "point"
+      },
+      "views": [
+        "view_b62c84b830bd1cf3_1",
+        "view_8fe3232b7450b574_1"
+      ]
+    },
+    {
+      "name": "inst_select",
+      "select": {
+        "fields": [
+          "org_name",
+          "org_state",
+          "region"
+        ],
+        "type": "point"
+      },
+      "views": [
+        "view_8fe3232b7450b574_1"
+      ]
+    }
+  ],
+  "resolve": {
+    "scale": {
+      "color": "independent"
+    }
+  },
+  "vconcat": [
+    {
+      "hconcat": [
+        {
+          "data": {
+            "name": "data-00838f6eb0da660dd1e2d7b68c861225"
+          },
+          "encoding": {
+            "color": {
+              "field": "region",
+              "scale": {
+                "scheme": "reds"
+              },
+              "type": "nominal"
+            },
+            "opacity": {
+              "condition": [
+                {
+                  "param": "region_select",
+                  "value": 1
+                }
+              ],
+              "value": 0.35
+            },
+            "tooltip": [
+              {
+                "field": "region",
+                "type": "nominal"
+              },
+              {
+                "field": "n_grants",
+                "type": "quantitative"
+              },
+              {
+                "field": "n_terminated",
+                "type": "quantitative"
+              },
+              {
+                "field": "rate",
+                "format": ".1%",
+                "type": "quantitative"
+              }
+            ],
+            "x": {
+              "field": "region",
+              "sort": "-y",
+              "title": "Region",
+              "type": "nominal"
+            },
+            "y": {
+              "axis": {
+                "format": "%"
+              },
+              "field": "rate",
+              "title": "Termination Rate",
+              "type": "quantitative"
+            }
+          },
+          "mark": {
+            "type": "bar"
+          },
+          "name": "view_c19d84d1604fc298_0",
+          "title": "Region Termination Rates"
+        },
+        {
+          "data": {
+            "format": {
+              "feature": "states",
+              "type": "topojson"
+            },
+            "url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/us-10m.json"
+          },
+          "height": 300,
+          "layer": [
+            {
+              "mark": {
+                "fill": "#eeeeee",
+                "stroke": "white",
+                "strokeWidth": 0.5,
+                "type": "geoshape"
+              },
+              "projection": {
+                "type": "albersUsa"
+              }
+            },
+            {
+              "encoding": {
+                "color": {
+                  "field": "rate",
+                  "legend": {
+                    "format": ".0%",
+                    "title": "Termination rate"
+                  },
+                  "scale": {
+                    "scheme": "reds"
+                  },
+                  "type": "quantitative"
+                },
+                "opacity": {
+                  "condition": [
+                    {
+                      "param": "state_select",
+                      "value": 1
+                    }
+                  ],
+                  "value": 0.35
+                },
+                "stroke": {
+                  "condition": {
+                    "param": "state_select",
+                    "value": "black"
+                  },
+                  "value": "white"
+                },
+                "tooltip": [
+                  {
+                    "field": "org_state",
+                    "type": "nominal"
+                  },
+                  {
+                    "field": "rate",
+                    "format": ".1%",
+                    "type": "quantitative"
+                  },
+                  {
+                    "field": "n_grants",
+                    "type": "quantitative"
+                  }
+                ]
+              },
+              "mark": {
+                "stroke": "white",
+                "strokeWidth": 0.5,
+                "type": "geoshape"
+              },
+              "name": "view_b62c84b830bd1cf3_1",
+              "projection": {
+                "type": "albersUsa"
+              },
+              "transform": [
+                {
+                  "from": {
+                    "data": {
+                      "name": "data-3ad09e6e98c384cfa8eb521c70f5d6f7"
+                    },
+                    "fields": [
+                      "region",
+                      "org_state",
+                      "rate",
+                      "n_grants",
+                      "n_terminated"
+                    ],
+                    "key": "id"
+                  },
+                  "lookup": "id"
+                },
+                {
+                  "filter": {
+                    "param": "region_select"
+                  }
+                }
+              ]
+            }
+          ],
+          "width": 480
+        }
+      ]
+    },
+    {
+      "data": {
+        "name": "data-93330251385e2cdc141d4fe550bd30cf"
+      },
+      "encoding": {
+        "color": {
+          "field": "org_name",
+          "scale": {
+            "scheme": "reds"
+          },
+          "type": "nominal"
+        },
+        "tooltip": [
+          {
+            "field": "org_name",
+            "type": "nominal"
+          },
+          {
+            "field": "n_grants",
+            "type": "quantitative"
+          },
+          {
+            "field": "rate",
+            "format": ".1%",
+            "type": "quantitative"
+          }
+        ],
+        "x": {
+          "field": "n_grants",
+          "scale": {
+            "type": "log"
+          },
+          "title": "Number of grants (log)",
+          "type": "quantitative"
+        },
+        "y": {
+          "axis": {
+            "format": ".0%"
+          },
+          "field": "rate",
+          "title": "Termination rate",
+          "type": "quantitative"
+        }
+      },
+      "mark": {
+        "opacity": 0.6,
+        "size": 60,
+        "type": "circle"
+      },
+      "name": "view_8fe3232b7450b574_1",
+      "transform": [
+        {
+          "filter": {
+            "and": [
+              {
+                "param": "region_select"
+              },
+              {
+                "param": "state_select"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
