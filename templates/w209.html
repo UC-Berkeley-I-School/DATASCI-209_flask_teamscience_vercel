@@ -433,289 +433,293 @@
         </style>
     </head>
 <body>
-<h1>Defunding the NIH</h1>
-<section>
-    <img src="https://datasci-209-flask-teamscience-verce.vercel.app/static/nih_grant.png" alt = "NIH Grant image"/>
+    <section>
+        <div style="display: flex; justify-content: flex-start; align-items: flex-start">
+            <img src="https://datasci-209-flask-teamscience-verce.vercel.app/static/nih_grant.png" width="200" height="70"  alt = "NIH Grant image"/>
+            <h1 style="font-size: 70px; padding-left: 40px"> Defunding the NIH</h1>
+        </div>
+    </section>
 
-    <!-- leading with the strongest number -->
-    <div class="stat-hero">
-      <span class="number">99.4%</span>
-      <span class="label">
-        of drugs approved by the FDA between 2010 and 2019 had NIH
-        funding somewhere in their development history: 354 out of 356.
-      </span>
+    <section>
+        <!-- leading with the strongest number -->
+        <div class="stat-hero">
+        <span class="number">99.4%</span>
+        <span class="label">
+            of drugs approved by the FDA between 2010 and 2019 had NIH
+            funding somewhere in their development history: 354 out of 356.
+        </span>
+        </div>
+
+        <h2>What Do NIH Grants Do?</h2>
+
+    <div class="body-section">
+    <p class="lead">The National Institutes of Health is the largest public funder of
+        biomedical and behavioral research in the world. Its work doesn't stay in the
+        lab. It becomes the treatments people depend on.</p>
+
+    <p>As part of the U.S. Department of Health and Human Services, the NIH invests
+        tens of billions of dollars annually to support research at universities,
+        hospitals, and research institutions across the country. Its history traces
+        back to 1887 (NIH, 2025a).</p>
+
+    <p class="impact-intro">Its reach goes well beyond any single breakthrough. Tap any
+        area below to see what the research it funds delivers. Except where noted, every
+        figure comes from the NIH's own public accounting.</p>
+
+    <div class="impact-cards">
+
+        <!-- Tile: landmark discoveries (folds the old bullet list in here) -->
+        <details class="impact-card">
+        <summary>
+            <span class="headline">
+            <span class="topic">Landmark discoveries</span>
+            <span class="claim">Decades of NIH-funded science behind treatments people use today.</span>
+            </span>
+            <span class="toggle" aria-hidden="true">+</span>
+        </summary>
+        <div class="detail">
+            <ul>
+            <li>Cracked the genetic code</li>
+            <li>Led the public Human Genome Project (NIH, 2025b)</li>
+            <li>Ran the studies that established fluoride prevents tooth decay (NIH, 2024)</li>
+            <li>Helped discover mRNA vaccine technology</li>
+            <li>Funded the basic science behind gene therapy and gene editing over decades (NIH, 2025b)</li>
+            </ul>
+        </div>
+        </details>
+
+        <!-- Tile: cancer -->
+        <details class="impact-card">
+        <summary>
+            <span class="headline">
+            <span class="topic">Cancer</span>
+            <span class="claim">Cancer death rates have fallen more than 1.5% a year for 15 years.</span>
+            </span>
+            <span class="toggle" aria-hidden="true">+</span>
+        </summary>
+        <div class="detail">
+            <p>The NIH puts a dollar value on that progress: each 1% reduction in cancer
+            deaths carries a present value of nearly $500 billion to current and future
+            generations of Americans.</p>
+        </div>
+        </details>
+
+        <!-- Tile: addiction treatment -->
+        <details class="impact-card">
+        <summary>
+            <span class="headline">
+            <span class="topic">Addiction treatment</span>
+            <span class="claim">Every $1 spent treating substance use disorder saves $4 in health care and $7 in criminal justice costs.</span>
+            </span>
+            <span class="toggle" aria-hidden="true">+</span>
+        </summary>
+        <div class="detail">
+            <p>Broader evidence-based addiction programs can return more than $58 for every
+            $1 spent, thanks in part to NIH-supported work connecting the science of
+            treatment to real-world practice. In one example, NIH-supported research
+            showed that giving medications for opioid use disorder to people in prison
+            lowers overdose risk after release, and helped drive policy changes such as
+            Medicaid coverage in the 90 days before release.</p>
+        </div>
+        </details>
+
+        <!-- Tile: children's health -->
+        <details class="impact-card">
+        <summary>
+            <span class="headline">
+            <span class="topic">Children's health</span>
+            <span class="claim">Vaccinating a single year of U.S. newborns is projected to save tens of billions over their lifetimes.</span>
+            </span>
+            <span class="toggle" aria-hidden="true">+</span>
+        </summary>
+        <div class="detail">
+            <p>For children born in 2009, the CDC estimates childhood vaccination will cut
+            direct health care costs by $13.5 billion and save $68.8 billion in indirect
+            costs over their lifetimes. NIH supported the Hib vaccine alone, estimated to
+            save more than $1.8 billion for that single birth year, and early cochlear
+            implants developed in part from NIH-supported research can save more than
+            $30,000 per child.</p>
+        </div>
+        </details>
+
+        <!-- Tile: environment -->
+        <details class="impact-card">
+        <summary>
+            <span class="headline">
+            <span class="topic">Environment</span>
+            <span class="claim">Lead exposure in the U.S. has dropped dramatically over 45 years.</span>
+            </span>
+            <span class="toggle" aria-hidden="true">+</span>
+        </summary>
+        <div class="detail">
+            <p>Lead early in life irreversibly disrupts brain development. The decline was
+            achieved through control of lead sources, emission reductions, federal
+            regulation, and applied public health work. NIH-funded environmental research
+            has also produced remediation technologies estimated to save over $100 million
+            in cleanup costs.</p>
+        </div>
+        </details>
+
+        <!-- Tile: prevention -->
+        <details class="impact-card">
+        <summary>
+            <span class="headline">
+            <span class="topic">Prevention</span>
+            <span class="claim">School-based prevention programs could save $18 for every $1 invested.</span>
+            </span>
+            <span class="toggle" aria-hidden="true">+</span>
+        </summary>
+        <div class="detail">
+            <p>NIH-funded research identified adolescence as a period of increased
+            vulnerability to the harms of drug use, and a key window for prevention. If
+            implemented nationwide, school-based substance use prevention programs are
+            estimated to save $18 per $1 invested, with 1.5 million fewer youth starting
+            substance use and, on average, a two-year delay for those who do.</p>
+        </div>
+        </details>
+
     </div>
 
-    <h2>What Do NIH Grants Do?</h2>
+    <p class="impact-source">Source: National Institutes of Health. Figures reflect NIH's
+        own published estimates of the impact of research it funds.</p>
 
-<div class="body-section">
-  <p class="lead">The National Institutes of Health is the largest public funder of
-     biomedical and behavioral research in the world. Its work doesn't stay in the
-     lab. It becomes the treatments people depend on.</p>
-
-  <p>As part of the U.S. Department of Health and Human Services, the NIH invests
-     tens of billions of dollars annually to support research at universities,
-     hospitals, and research institutions across the country. Its history traces
-     back to 1887 (NIH, 2025a).</p>
-
-  <p class="impact-intro">Its reach goes well beyond any single breakthrough. Tap any
-     area below to see what the research it funds delivers. Except where noted, every
-     figure comes from the NIH's own public accounting.</p>
-
-  <div class="impact-cards">
-
-    <!-- Tile: landmark discoveries (folds the old bullet list in here) -->
-    <details class="impact-card">
-      <summary>
-        <span class="headline">
-          <span class="topic">Landmark discoveries</span>
-          <span class="claim">Decades of NIH-funded science behind treatments people use today.</span>
-        </span>
-        <span class="toggle" aria-hidden="true">+</span>
-      </summary>
-      <div class="detail">
-        <ul>
-          <li>Cracked the genetic code</li>
-          <li>Led the public Human Genome Project (NIH, 2025b)</li>
-          <li>Ran the studies that established fluoride prevents tooth decay (NIH, 2024)</li>
-          <li>Helped discover mRNA vaccine technology</li>
-          <li>Funded the basic science behind gene therapy and gene editing over decades (NIH, 2025b)</li>
-        </ul>
-      </div>
-    </details>
-
-    <!-- Tile: cancer -->
-    <details class="impact-card">
-      <summary>
-        <span class="headline">
-          <span class="topic">Cancer</span>
-          <span class="claim">Cancer death rates have fallen more than 1.5% a year for 15 years.</span>
-        </span>
-        <span class="toggle" aria-hidden="true">+</span>
-      </summary>
-      <div class="detail">
-        <p>The NIH puts a dollar value on that progress: each 1% reduction in cancer
-           deaths carries a present value of nearly $500 billion to current and future
-           generations of Americans.</p>
-      </div>
-    </details>
-
-    <!-- Tile: addiction treatment -->
-    <details class="impact-card">
-      <summary>
-        <span class="headline">
-          <span class="topic">Addiction treatment</span>
-          <span class="claim">Every $1 spent treating substance use disorder saves $4 in health care and $7 in criminal justice costs.</span>
-        </span>
-        <span class="toggle" aria-hidden="true">+</span>
-      </summary>
-      <div class="detail">
-        <p>Broader evidence-based addiction programs can return more than $58 for every
-           $1 spent, thanks in part to NIH-supported work connecting the science of
-           treatment to real-world practice. In one example, NIH-supported research
-           showed that giving medications for opioid use disorder to people in prison
-           lowers overdose risk after release, and helped drive policy changes such as
-           Medicaid coverage in the 90 days before release.</p>
-      </div>
-    </details>
-
-    <!-- Tile: children's health -->
-    <details class="impact-card">
-      <summary>
-        <span class="headline">
-          <span class="topic">Children's health</span>
-          <span class="claim">Vaccinating a single year of U.S. newborns is projected to save tens of billions over their lifetimes.</span>
-        </span>
-        <span class="toggle" aria-hidden="true">+</span>
-      </summary>
-      <div class="detail">
-        <p>For children born in 2009, the CDC estimates childhood vaccination will cut
-           direct health care costs by $13.5 billion and save $68.8 billion in indirect
-           costs over their lifetimes. NIH supported the Hib vaccine alone, estimated to
-           save more than $1.8 billion for that single birth year, and early cochlear
-           implants developed in part from NIH-supported research can save more than
-           $30,000 per child.</p>
-      </div>
-    </details>
-
-    <!-- Tile: environment -->
-    <details class="impact-card">
-      <summary>
-        <span class="headline">
-          <span class="topic">Environment</span>
-          <span class="claim">Lead exposure in the U.S. has dropped dramatically over 45 years.</span>
-        </span>
-        <span class="toggle" aria-hidden="true">+</span>
-      </summary>
-      <div class="detail">
-        <p>Lead early in life irreversibly disrupts brain development. The decline was
-           achieved through control of lead sources, emission reductions, federal
-           regulation, and applied public health work. NIH-funded environmental research
-           has also produced remediation technologies estimated to save over $100 million
-           in cleanup costs.</p>
-      </div>
-    </details>
-
-    <!-- Tile: prevention -->
-    <details class="impact-card">
-      <summary>
-        <span class="headline">
-          <span class="topic">Prevention</span>
-          <span class="claim">School-based prevention programs could save $18 for every $1 invested.</span>
-        </span>
-        <span class="toggle" aria-hidden="true">+</span>
-      </summary>
-      <div class="detail">
-        <p>NIH-funded research identified adolescence as a period of increased
-           vulnerability to the harms of drug use, and a key window for prevention. If
-           implemented nationwide, school-based substance use prevention programs are
-           estimated to save $18 per $1 invested, with 1.5 million fewer youth starting
-           substance use and, on average, a two-year delay for those who do.</p>
-      </div>
-    </details>
-
-  </div>
-
-  <p class="impact-source">Source: National Institutes of Health. Figures reflect NIH's
-     own published estimates of the impact of research it funds.</p>
-
-</div>
-
-<!-- ===== SEAN'S HISTORIC BACKGROUND START ===== -->
-<section class="historical-shift-section">
-    <div class="historical-shift-heading">
-        <h2>NIH Grant Terminations Were Historically Rare Until 2025</h2>
-
-        <p>
-            From 2012 through January 20, 2025, NIH terminated fewer than six
-            grants midstream. Beginning in 2025, thousands of grant disruption
-            events were recorded within a matter of months.
-        </p>
     </div>
 
-    <figure class="historical-shift-figure">
-        <svg
-            class="historical-shift-svg"
-            viewBox="0 0 1200 520"
-            role="img"
-            aria-labelledby="shift-title shift-description"
-        >
-            <title id="shift-title">
-                Contrast between historical NIH grant terminations and 2025 grant disruptions
-            </title>
+    <!-- ===== SEAN'S HISTORIC BACKGROUND START ===== -->
+    <section class="historical-shift-section">
+        <div class="historical-shift-heading">
+            <h2>NIH Grant Terminations Were Historically Rare Until 2025</h2>
 
-            <desc id="shift-description">
-                From 2012 through January 20, 2025, fewer than six NIH grants
-                were terminated midstream. In 2025, 6,096 disruption events
-                were recorded.
-            </desc>
+            <p>
+                From 2012 through January 20, 2025, NIH terminated fewer than six
+                grants midstream. Beginning in 2025, thousands of grant disruption
+                events were recorded within a matter of months.
+            </p>
+        </div>
 
-            <!-- Historical period label -->
-            <text x="80" y="78" class="period-label">
-                Historical period
-            </text>
+        <figure class="historical-shift-figure">
+            <svg
+                class="historical-shift-svg"
+                viewBox="0 0 1200 520"
+                role="img"
+                aria-labelledby="shift-title shift-description"
+            >
+                <title id="shift-title">
+                    Contrast between historical NIH grant terminations and 2025 grant disruptions
+                </title>
 
-            <text x="80" y="112" class="period-range">
-                2012 – January 20, 2025
-            </text>
+                <desc id="shift-description">
+                    From 2012 through January 20, 2025, fewer than six NIH grants
+                    were terminated midstream. In 2025, 6,096 disruption events
+                    were recorded.
+                </desc>
 
-            <!-- Historical timeline -->
-            <line
-                x1="80"
-                y1="190"
-                x2="790"
-                y2="190"
-                class="historical-line"
-            />
+                <!-- Historical period label -->
+                <text x="80" y="78" class="period-label">
+                    Historical period
+                </text>
 
-            <!-- Timeline tick marks -->
-            <line x1="80" y1="178" x2="80" y2="202" class="tick-line" />
-            <line x1="300" y1="178" x2="300" y2="202" class="tick-line" />
-            <line x1="520" y1="178" x2="520" y2="202" class="tick-line" />
-            <line x1="790" y1="178" x2="790" y2="202" class="tick-line" />
+                <text x="80" y="112" class="period-range">
+                    2012 – January 20, 2025
+                </text>
 
-            <text x="80" y="230" text-anchor="middle" class="tick-label">
-                2012
-            </text>
+                <!-- Historical timeline -->
+                <line
+                    x1="80"
+                    y1="190"
+                    x2="790"
+                    y2="190"
+                    class="historical-line"
+                />
 
-            <text x="300" y="230" text-anchor="middle" class="tick-label">
-                2016
-            </text>
+                <!-- Timeline tick marks -->
+                <line x1="80" y1="178" x2="80" y2="202" class="tick-line" />
+                <line x1="300" y1="178" x2="300" y2="202" class="tick-line" />
+                <line x1="520" y1="178" x2="520" y2="202" class="tick-line" />
+                <line x1="790" y1="178" x2="790" y2="202" class="tick-line" />
 
-            <text x="520" y="230" text-anchor="middle" class="tick-label">
-                2020
-            </text>
+                <text x="80" y="230" text-anchor="middle" class="tick-label">
+                    2012
+                </text>
 
-            <text x="790" y="230" text-anchor="middle" class="tick-label">
-                Jan. 2025
-            </text>
+                <text x="300" y="230" text-anchor="middle" class="tick-label">
+                    2016
+                </text>
 
-            <!-- Historical count -->
-            <circle cx="410" cy="190" r="10" class="historical-dot" />
+                <text x="520" y="230" text-anchor="middle" class="tick-label">
+                    2020
+                </text>
 
-            <text x="410" y="145" text-anchor="middle" class="historical-value">
-                &lt;6
-            </text>
+                <text x="790" y="230" text-anchor="middle" class="tick-label">
+                    Jan. 2025
+                </text>
 
-            <text x="410" y="270" text-anchor="middle" class="historical-caption">
-                midstream terminations over approximately 13 years
-            </text>
+                <!-- Historical count -->
+                <circle cx="410" cy="190" r="10" class="historical-dot" />
 
-            <!-- Break between eras -->
-            <line x1="815" y1="173" x2="830" y2="207" class="break-mark" />
-            <line x1="837" y1="173" x2="852" y2="207" class="break-mark" />
+                <text x="410" y="145" text-anchor="middle" class="historical-value">
+                    &lt;6
+                </text>
 
-            <!-- 2025 transition -->
-            <path
-                d="M875 190 L875 285"
-                class="transition-line"
-            />
+                <text x="410" y="270" text-anchor="middle" class="historical-caption">
+                    midstream terminations over approximately 13 years
+                </text>
 
-            <polygon
-                points="875,300 864,280 886,280"
-                class="transition-arrow"
-            />
+                <!-- Break between eras -->
+                <line x1="815" y1="173" x2="830" y2="207" class="break-mark" />
+                <line x1="837" y1="173" x2="852" y2="207" class="break-mark" />
 
-            <text x="905" y="224" class="transition-label">
-                Beginning in 2025
-            </text>
+                <!-- 2025 transition -->
+                <path
+                    d="M875 190 L875 285"
+                    class="transition-line"
+                />
 
-            <!-- 2025 disruption wall -->
-            <rect
-                x="720"
-                y="320"
-                width="400"
-                height="92"
-                rx="8"
-                class="disruption-wall"
-            />
+                <polygon
+                    points="875,300 864,280 886,280"
+                    class="transition-arrow"
+                />
 
-            <!-- subtle internal lines -->
-            <line x1="720" y1="343" x2="1120" y2="343" class="wall-line" />
-            <line x1="720" y1="366" x2="1120" y2="366" class="wall-line" />
-            <line x1="720" y1="389" x2="1120" y2="389" class="wall-line" />
+                <text x="905" y="224" class="transition-label">
+                    Beginning in 2025
+                </text>
 
-            <text x="920" y="363" text-anchor="middle" class="disruption-value">
-                6,096
-            </text>
+                <!-- 2025 disruption wall -->
+                <rect
+                    x="720"
+                    y="320"
+                    width="400"
+                    height="92"
+                    rx="8"
+                    class="disruption-wall"
+                />
 
-            <text x="920" y="448" text-anchor="middle" class="disruption-caption">
-                grant disruption events recorded
-            </text>
+                <!-- subtle internal lines -->
+                <line x1="720" y1="343" x2="1120" y2="343" class="wall-line" />
+                <line x1="720" y1="366" x2="1120" y2="366" class="wall-line" />
+                <line x1="720" y1="389" x2="1120" y2="389" class="wall-line" />
 
-            <text x="920" y="480" text-anchor="middle" class="disruption-subcaption">
-                (grant freezes that were restored, and terminations that were never restored)
-            </text>
-        </svg>
+                <text x="920" y="363" text-anchor="middle" class="disruption-value">
+                    6,096
+                </text>
 
-        <figcaption>
-            Historical comparison uses the court's finding of
-            <strong>fewer than six</strong> midstream terminations—not an exact
-            count of six. The 2025 total represents disruption events and may
-            include more than one event affecting the same grant.
-        </figcaption>
-    </figure>
-</section>
+                <text x="920" y="448" text-anchor="middle" class="disruption-caption">
+                    grant disruption events recorded
+                </text>
+
+                <text x="920" y="480" text-anchor="middle" class="disruption-subcaption">
+                    (grant freezes that were restored, and terminations that were never restored)
+                </text>
+            </svg>
+
+            <figcaption>
+                Historical comparison uses the court's finding of
+                <strong>fewer than six</strong> midstream terminations—not an exact
+                count of six. The 2025 total represents disruption events and may
+                include more than one event affecting the same grant.
+            </figcaption>
+        </figure>
+    </section>
 <!-- ===== SEAN'S HISTORIC BACKGROUND END ===== -->
 
 <!-- ===== SEAN'S FUNDING FLOWCHART START JMC EDITS===== -->
