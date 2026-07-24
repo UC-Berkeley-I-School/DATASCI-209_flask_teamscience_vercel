@@ -1150,41 +1150,41 @@ sooner at the long end.</p>
  <h2>Institution type is only part of the picture. These organizations are not
 spread evenly across the country, so the disruptions also had a geography.</h2>
 <!-- ===== Teresa's SECTION START ===== -->
+
 <section>
-    <h2>The Northeast saw the highest disruption rates</h2>
-    <p>Share of affected grants disrupted, by region. Darker regions lost
-    a larger share of their flagged grants.</p>
 
-    <button id="clear-btn">Clear selection</button>
-    <div id="vis"></div>
+    <h2>Map Overview of Terminated NIH Grants (Version 1).</h2>
+    <p>The <strong>South</strong> saw the highest disruption rates.<br />
+        Interact with the map:
+    </p>
 
-    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <ul>
+        <li>Click to select.</li>
+        <li>Hover to see the statistics. (Region, Region Grant Termination Rate, State, State Grant Termination Rates, Count of Grants per State)</li>
+    </ul>
 
-    <script>
-    fetch("{{ url_for('static', filename='dashboard.json') }}")
-    .then(res => res.json())
-    .then(spec => {
-        vegaEmbed('#vis', spec).then(result => {
-        document.getElementById('clear-btn').addEventListener('click', () => {
-            const stores = ['region_select_store', 'state_select_store', 'inst_select_store'];
-            stores.forEach(store => {
-            result.view.data(store, []);
-            });
-            result.view.runAsync();
-        });
-        });
-    });
-    </script>
+   <iframe
+      src="{{ url_for('static',filename='termination_map_v1.html') }}"
+      width="750" height="650" frameborder="0"
+      title="Map Overview of Terminations by Region (Version 1)">
+    </iframe>
     
-    <h2>Number of Disrupted Grants by Region.</h2>
-    <p>Counts partly track where research institutions concentrate, so this map is best read alongside the rate map above rather than on its own.</p>
-    <img src="{{url_for('static',filename=file5)}}"/>
-    <div id="regions_on_map"></div>
-    <script>
-        vegaEmbed('#regions_on_map', {{ charts['regions_on_map'] | safe }})
-    </script>  
+    <h2>Map Overview of Terminated NIH Grants (Version 2).</h2>
+    <p>
+        Interact with the map:
+    </p>
+
+    <ul>
+        <li>Click to select.</li>
+        <li>Hover to see the statistics. (State, State Grant Termination Rates, Count of Grants per State)</li>
+    </ul>
+
+    <iframe
+      src="{{ url_for('static',filename='termination_map_v2.html') }}"
+      width="750" height="650" frameborder="0"
+      title="Map Overview of Terminations by Region (Version 2)">
+    </iframe>
+
 </section>
 <!-- ===== Teresa's SECTION END ===== -->
 <br><br> <br><br><br><br> <br><br> 
