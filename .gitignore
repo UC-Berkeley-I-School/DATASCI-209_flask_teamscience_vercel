@@ -10,3 +10,4 @@ venv/
 .vscode/
 data/
 notebooks/.DS_Store
+notebooks/teresa_eda.ipynb
