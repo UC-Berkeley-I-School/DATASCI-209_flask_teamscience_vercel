@@ -440,8 +440,8 @@
     <div class="stat-hero">
       <span class="number">99.4%</span>
       <span class="heading">
-        of drugs approved by the FDA between 2010 and 2019 used NIH
-        funding during development: 354 out of 356.
+        of drugs approved by the FDA between 2010 and 2019 had NIH
+        funding somewhere in their development history: 354 out of 356.
       </span>
     </div>
 </section>
@@ -995,7 +995,7 @@
 
     <p>Ranked termination rates across NIH research areas</p>
     <iframe
-        src="{{ url_for('static', filename='nih_research_area_termination_rankings.html') }}"
+        src="{{ url_for('static', filename='research_area_rankings.html') }}"
         width="100%"
         height="650"
         frameborder="0">
@@ -1003,7 +1003,7 @@
 
     <p>Research areas ranked by the share of their affected grants that were disrupted rather than restored</p>
     <iframe
-        src="{{ url_for('static', filename='nih_research_area_size_vs_termination.html') }}"
+        src="{{ url_for('static', filename='research_area_size_vs_termination.html') }}"
         width="100%"
         height="650"
         frameborder="0">
@@ -1011,7 +1011,7 @@
 
     <p>Research area size versus disruption share (larger areas were not more likely to be disrupted)</p>
     <iframe
-        src="{{ url_for('static', filename='nih_research_group_comparison.html') }}"
+        src="{{ url_for('static', filename='public_health_comparison.html') }}"
         width="100%"
         height="650"
         frameborder="0">
@@ -1072,40 +1072,35 @@
  <h2>Institution type is only part of the picture. These organizations are not
 spread evenly across the country, so the disruptions also had a geography.</h2>
 <!-- ===== Teresa's SECTION START ===== -->
-
 <section>
+    <h2>Southern states saw the highest disruption rates</h2>
+     <h2>Number of Disrupted Grants by Region</h2>
+    <p>Share of affected grants disrupted, by region. Darker regions lost
+    a larger share of their flagged grants.</p>
 
-    <h2>Map Overview of Terminated NIH Grants (Version 1).</h2>
-    <p>The <strong>South</strong> saw the highest disruption rates.<br />
-        Interact with the map:
-    </p>
+    <button id="clear-btn">Clear selection</button>
+    <div id="vis"></div>
 
-    <ul>
-        <li>Click to select.</li>
-        <li>Hover to see the statistics. (Region, Region Grant Termination Rate, State, State Grant Termination Rates, Count of Grants per State)</li>
-    </ul>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
-   <iframe
-      src="{{ url_for('static',filename='termination_map_v1.html') }}"
-      width="750" height="650" frameborder="0"
-      title="Map Overview of Terminations by Region (Version 1)">
-    </iframe>
+    <script>
+    fetch("{{ url_for('static', filename='dashboard.json') }}")
+    .then(res => res.json())
+    .then(spec => {
+        vegaEmbed('#vis', spec).then(result => {
+        document.getElementById('clear-btn').addEventListener('click', () => {
+            const stores = ['region_select_store', 'state_select_store', 'inst_select_store'];
+            stores.forEach(store => {
+            result.view.data(store, []);
+            });
+            result.view.runAsync();
+        });
+        });
+    });
+    </script>
     
-    <h2>Map Overview of Terminated NIH Grants (Version 2).</h2>
-    <p>
-        Interact with the map:
-    </p>
-
-    <ul>
-        <li>Click to select.</li>
-        <li>Hover to see the statistics. (State, State Grant Termination Rates, Count of Grants per State)</li>
-    </ul>
-
-    <iframe
-      src="{{ url_for('static',filename='termination_map_v2.html') }}"
-      width="750" height="650" frameborder="0"
-      title="Map Overview of Terminations by Region (Version 2)">
-    </iframe>
 
 </section>
 <!-- ===== Teresa's SECTION END ===== -->
