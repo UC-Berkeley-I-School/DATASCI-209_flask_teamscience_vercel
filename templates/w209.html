@@ -1,6 +1,6 @@
 <!DOCTYPE html>
     <head>
-        <title>w209 site</title>
+        <title>DATASCI-209 Team NIH</title>
          <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
         <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
         <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
@@ -14,13 +14,20 @@
                 font-family: 'Roboto', Arial, Helvetica, sans-serif;   /* paragraphs */
                 font-size: 18px;             /* bigger body text (was browser default 16px) */
                 line-height: 1.7;
-                margin: 0;
+                margin: 0 auto;
+                max-width: 1200px;
                 padding: 40px max(40px, 8vw);
             }
 
             h1, h2 {
                 color: #ffffff;
                 font-family: 'Roboto Slab', Georgia, serif;   /* I am trying to use the font we had on the powerpoint*/
+            }
+
+            .subclass{
+                text-align: center;
+                font-size: 20px;
+                color:  #96acd0;
             }
 
             a {
@@ -38,13 +45,19 @@
             }
 
             /* ===== Expandable tiles (pure CSS + HTML, no JS needed) ===== */
-            .impact-intro { color: #cde0ff; max-width: 640px; margin: 0 0 1.5rem 0; }
+            .impact-intro {
+                color: #cde0ff; 
+                max-width: 1200; 
+                margin: 0 0 1.25rem 0;
+
+             }
 
             .impact-cards {
                 display: flex;
                 flex-direction: column;
                 gap: 0.75rem;
-                margin: 0 0 1.25rem 0;
+                text-align: center;
+                margin: 0 0 1.25rem 50px;
                 max-width: 720px;
             }
             .impact-card {
@@ -106,21 +119,55 @@
             .impact-card .detail p { margin: 0; }
             .impact-card .detail ul { margin: 0; padding-left: 1.2rem; }
             .impact-card .detail li { margin-bottom: 0.35rem; }
-            .impact-source { font-size: 0.85rem; color: #8ba6cf; font-style: italic; max-width: 640px; }
+            .impact-source { 
+                font-size: 0.85rem; 
+                color: #8ba6cf; 
+                font-style: italic; 
+                margin: 0 auto;
+                max-width: 640px; 
+            }
             @media (prefers-reduced-motion: reduce) {
                 .impact-card, .impact-card .toggle { transition: none; }
             }
 
             /* ===== Intro enhancements (added) ===== */
             /* Bigger, tighter headings */
-            h1 { font-size: 2.75rem; line-height: 1.15; }
-            h2 { font-size: 1.7rem; }
+            h1 {
+                font-size: 3.5rem; 
+                line-height: 1.15; 
+                margin: 0 auto;
+            }
+            h2 { 
+                font-size: 2.75rem;
+                margin: 15 auto; 
+                line-height: 1.25;
+            }
+            
+            h3{
+                font-size: 1.7rem;
+                margin: 10 auto;
+                line-height: 1;
+            }
+
+            .centered-heading{
+                text-align: center;
+                margin 0 auto;
+                margin-bottom: 0;
+            }
 
             /* Opening paragraph: larger, softer blue */
             p.lead {
+
                 font-size: 1.2rem;
                 font-weight: 500;
                 color: #cde0ff;
+
+            }
+
+             /* NIH Logo image */
+            .centered-img {
+                display: block;
+                margin: 0 auto 24px;
             }
 
             /* Hero stat block: leads with the strongest number */
@@ -128,7 +175,8 @@
                 display: flex;
                 align-items: baseline;
                 gap: 1.25rem;
-                margin: 1.5rem 0 2.25rem 0;
+                /*margin: 1.5rem 0 2.25rem 0;*/
+                margin: 0 auto;
                 padding-left: 1.5rem;
                 border-left: 4px solid #9ec5ff;
                 max-width: 640px;
@@ -165,6 +213,7 @@
             }
 
             .historical-shift-heading {
+                margin: 0 auto;
                 max-width: 850px;
                 margin-bottom: 2rem;
             }
@@ -194,6 +243,12 @@
                 display: block;
                 width: 100%;
                 height: auto;
+            }
+
+            .topics-section{
+                margin: 0 auto;
+                max-width: 850px;
+                margin-bottom: 2rem;
             }
 
             .period-label,
@@ -434,8 +489,8 @@
     </head>
 <body>
 <section>
-    <img src="https://datasci-209-flask-teamscience-verce.vercel.app/static/nih_grant.png" alt = "NIH Grant image"/>
-
+    <img class="centered-img" src="https://datasci-209-flask-teamscience-verce.vercel.app/static/nih_grant.png" alt="NIH Grant image"/>
+   
     <!-- leading with the strongest number -->
     <div class="stat-hero">
       <span class="number">99.4%</span>
@@ -449,8 +504,8 @@
 <!-- ===== SEAN'S HISTORIC BACKGROUND START ===== -->
 <section class="historical-shift-section">
     <div class="historical-shift-heading">
-        <h2>NIH Grant Terminations Were Historically Rare Until 2025</h2>
-        <p>
+        <h2 class="centered-heading">NIH Grant Terminations Were Historically Rare Until 2025</h2>
+        <p class="lead">
             From 2012 to 2025, NIH terminated fewer than six grants midstream. Beginning in 2025, thousands of grant disruption events were recorded within a matter of months.
         </p>
     </div>
@@ -580,9 +635,9 @@
 </section>
 <!-- ===== SEAN'S HISTORIC BACKGROUND END ===== -->
 <!-- ===== JMC NIH Intro Part ===== -->
-<h2>What Do NIH Grants Do?</h2>
+<h2 class="centered-heading">What Do NIH Grants Do?</h2>
 
-<div class="body-section">
+<div class="topics-section">
   <p class="lead">The National Institutes of Health is the largest public funder of
      biomedical and behavioral research in the world. Its work doesn't stay in the
      lab. It becomes the treatments people depend on.</p>
@@ -917,94 +972,111 @@
 </section>
 <!-- ===== SEAN'S FUNDING FLOWCHART END ===== -->
 <!-- ===== Juliana's Wasted Money FLOWCHART Start ===== -->
-   <h2>Wasted Time and Money</h2>
+<section>
+    <div class="topics-section">
+        <h2 class="centered-heading">Wasted Time and Money</h2>
 
-    <p>In 2025, NIH terminated 1,249 research grants and did not restore them. This section
-       asks the question: How much time and money was spent on the projects that were completely terminated?</p>
+        <p>In 2025, NIH terminated 1,249 research grants and did not restore them. This section
+        asks the question: How much time and money was spent on the projects that were completely terminated?</p>
+        
+        <h3 class="centered-heading">Where the money stood when the work stopped (815 grants)</h3>
 
-    
-    <h3>Where the money stood when the work stopped (815 grants)</h3>
-
-    <p>Every dollar NIH commits to a grant ends up in one of three places once the grant is
-       cut: already spent, still sitting there, or formally taken back.</p>
-
-    <iframe
-      src="{{ url_for('static', filename='5_money.html') }}"
-      width="100%" height="330" frameborder="0"
-      title="Fate of committed dollars">
-    </iframe>
-
-    <p><strong>$1.09 billion </strong> was committed to these grants. $620 million
-       of it had already been paid out for work that then stopped and that money is gone
-       regardless of what happens next.  The government formally reclaimed $151 million, about
-       14 cents of every dollar it had committed.</p>
-
-    <p>These are the 815 grants with spending on record. The 434 without it skew
-    older and would have spent more, so <strong>$1.09 billion is a floor, not a
-    ceiling</strong>: the real total is higher, not lower.</p>
-    <details class="chart-note">
-    <summary>How the 434 were excluded</summary>
-    <div class="note-body">
-        The 434 excluded grants have no spending figures on record at all. They
-        aren't a random sample: they had been funded for a median of 5 years,
-        against 2 years for the grants shown here. Because older grants have spent
-        more, leaving them out pulls the recorded total down, which is why
-        $1.09 billion understates the true figure.
+        <p>Every dollar NIH commits to a grant ends up in one of three places once the grant is
+        cut: already spent, still sitting there, or formally taken back.</p>
     </div>
-    </details>
+        <iframe
+        src="{{ url_for('static', filename='5_money.html') }}"
+        width="100%" height="330" frameborder="0"
+        title="Fate of committed dollars">
+        </iframe>
+    <div class="topics-section">
+        <p><strong>$1.09 billion </strong> was committed to these grants. $620 million
+        of it had already been paid out for work that then stopped and that money is gone
+        regardless of what happens next.  The government formally reclaimed $151 million, about
+        14 cents of every dollar it had committed.</p>
 
-    <p><strong>On 294 grants, NIH stopped the work and then never reclaimed the money.</strong>
-        $182.6 million remains formally committed to research that isn't happening (neither
-       spent nor recovered).</p>
+        <p>These are the 815 grants with spending on record. The 434 without it skew
+        older and would have spent more, so <strong>$1.09 billion is a floor, not a
+        ceiling</strong>: the real total is higher, not lower.</p>
+        <details class="chart-note">
+        <summary>How the 434 were excluded (click me)</summary>
+        <div class="note-body">
+            The 434 excluded grants have no spending figures on record at all. They
+            aren't a random sample: they had been funded for a median of 5 years,
+            against 2 years for the grants shown here. Because older grants have spent
+            more, leaving them out pulls the recorded total down, which is why
+            $1.09 billion understates the true figure.
+        </div>
+        </details>
+    </div>
 
-
-    <h2>What did the complete terminations cost in time and money?  Whichever region or institution a grant belonged to, a disruption carried the same underlying cost: 
-    work already paid for, and work that would now never be finished.</h2>
-
-    <p>Every disrupted grant sits somewhere on a spectrum. Some were frozen only
-briefly before funding resumed, others were cut off for good. But even a grant
-that is eventually restored can leave real waste behind: salaries already paid,
-experiments half-run, and labor lost. The amounts calculated cover the roughly
-800 disrupted grants with complete spending records, and should be read as a
-floor rather than a full accounting, because the grants missing spending data
-tend to be the oldest and most established.</p>
+</section>
 
 <!-- Julianas SEction for Time and Money -->
 <section>
-    <h3>Most of the Grants Were Cut Mid-stream (1,126 grants)</h3>
+    <div class="topics-section">
+        <h2 class="centered-heading">What did the complete terminations cost in time and money? </h2>
 
-    <p>A grant has a scheduled start and end. This chart asks how far through that schedule each
-       grant had gotten when it was terminated.</p>
+        <p class="subclass">
+            Whichever region or institution a grant belonged to, a disruption carried the same underlying cost: 
+        work already paid for, and work that would now never be finished.
+        </p>
+
+        <p>
+            Every disrupted grant sits somewhere on a spectrum. Some were frozen only
+            briefly before funding resumed, others were cut off for good. But even a grant
+            that is eventually restored can leave real waste behind: salaries already paid,
+            experiments half-run, and labor lost. The amounts calculated cover the roughly
+            800 disrupted grants with complete spending records, and should be read as a
+            floor rather than a full accounting, because the grants missing spending data
+            tend to be the oldest and most established.
+        </p>
+
+        <h3 class="centered-heading">Most of the Grants Were Cut Mid-stream (1,126 grants)</h3>
+
+        <p>A grant has a scheduled start and end. This chart asks how far through that schedule each
+        grant had gotten when it was terminated.</p>
+    </div>
 
     <iframe
       src="{{ url_for('static', filename='5_maturity.html') }}"
-      width="100%" height="420" frameborder="0"
+      width="100%" height="450" frameborder="0"
       title="How far along grants were when terminated">
     </iframe>
+    <div class="topics-section">
+        <p><strong>What it says.</strong> Half the grants that were cut were more than 59% of the way
+        through their scheduled work.  These weren't proposals being declined. They were projects
+        with staff hired, patients enrolled, and years of work behind them.</p>
 
-    <p><strong>What it says.</strong> Half the grants that were cut were more than 59% of the way
-       through their scheduled work.  These weren't proposals being declined. They were projects
-       with staff hired, patients enrolled, and years of work behind them.</p>
-
-    <details class="chart-note">
-    <summary>Notes and limitations</summary>
-    <div class="note-body">
-        123 of the 1,249 grants are left out because their recorded dates don't
-        support the calculation. The largest group, 71 grants, had their project
-        end date rewritten to the termination date, which makes a grant look 100%
-        finished no matter how far along it actually was.
+        <details class="chart-note">
+        <summary>Notes and limitations (click me)</summary>
+        <div class="note-body">
+            123 of the 1,249 grants are left out because their recorded dates don't
+            support the calculation. The largest group, 71 grants, had their project
+            end date rewritten to the termination date, which makes a grant look 100%
+            finished no matter how far along it actually was.
+        </div>
+        </details>
     </div>
-    </details>
 
-
+</section>
 <!-- ===== Sean's SECTION One Graph START ===== -->
 <section>
-    <h2>Most of the grants frozen by president Trump in early 2025, were slowly restored due to the courts fighting back.  
-    But some were not.  The graph below shows the number of grants frozen and restored over time.
-</h2>
-    <p> Beginning in February 2025, the Trump administration began terminating active NIH research grants, cutting off researchers mid-project. 
-        Over the following months, more than 6,000 grants were <span class="termination-text">disrupted</span>. Some were <span class="restoration-text">restored</span> after courts intervened. Others were not.
-        After courts ruled the terminations illegal, funding levels slowly recovered</p>
+    <div class="topics-section">
+        <h2 class="centered-heading">Most of the grants frozen by president Trump in early 2025 were slowly restored due to the courts fighting back.  
+        But some were not.
+        </h2>
+
+        <p class="subclass">
+            The graph below shows the number of grants frozen and restored over time.
+        </p>
+
+        <p> Beginning in February 2025, the Trump administration began terminating active NIH research grants, cutting off researchers mid-project. 
+            Over the following months, more than 6,000 grants were <span class="termination-text">disrupted</span>. Some were <span class="restoration-text">restored</span> after courts intervened. Others were not.
+            After courts ruled the terminations illegal, funding levels slowly recovered
+        </p>
+    </div>
+
     <!-- ===== Overlapping Timeline ===== -->
     <div style="display: flex; gap: 20px; flex-wrap: wrap; align-items: flex-start;">
         <div style="flex: 0 0 1000px; max-width: 1000px;">
@@ -1012,137 +1084,210 @@ tend to be the oldest and most established.</p>
         </div>
 </section>
 <!-- ===== Sean's SECTION One Graph END ===== -->
-<h2>What about the grants that were never restored?  The graph below shows the number of grants that were 
-    terminated and never restored over large geographic regions of the United States.  
-    The South was hit the hardest, with the highest number of grants terminated and never restored.
-</h2>
+
 <!-- ===== Teresa's SECTION START ===== -->
-</section>
- <h2>Institution type is only part of the picture. These organizations are not
-spread evenly across the country, so the disruptions also had a geography.</h2>
 <section>
+    <div class="topics-section">
+        <h2 class="centered-heading">
+            What about the grants that were never restored?
+        </h2>
 
-    <h2>Map Overview of Terminated NIH Grants out of All grants frozen and terminated.</h2>
-    <p>The <strong>South</strong> saw the highest disruption rates.<br />
-        Interact with the map:
-    </p>
+        <p class="subclass">
+            The graph below shows the number of grants that were 
+            terminated and never restored over large geographic regions of the United States.  
+        </h3>
 
-    <ul>
-        <li>Click to select.</li>
-        <li>Hover to see the statistics. (Region, Region Grant Termination Rate, State, State Grant Termination Rates, Count of Grants per State)</li>
-    </ul>
+        <p class=>
+            The South was hit the hardest, with the highest number of grants terminated and never restored. Institution type is only part of the picture. These organizations are not
+            spread evenly across the country, so the disruptions also had a geography.
+        </p>
 
-   <iframe
-      src="{{ url_for('static',filename='termination_map_v1.html') }}"
-      width="750" height="650" frameborder="0"
-      title="Map Overview of Terminations by Region (Version 1)">
-    </iframe>
-    
+        <h3 class="centered-heading">
+            Map Overview of Terminated NIH Grants out of All grants frozen and terminated.
+        </h3>
+
+        <p>The <strong>South</strong> saw the highest disruption rates.
+            <br/>
+            Hover to see the statistics. (Region, Region Grant Termination Rate, State, State Grant Termination Rates, Count of Grants per State)
+        </p>
+
+    <iframe
+        src="{{ url_for('static',filename='termination_map_v1.html') }}"
+        width="750" height="650" frameborder="0"
+        title="Map Overview of Terminations by Region (Version 1)">
+        </iframe>
+
+        <p>Certain regions were hit harder than others. What were they working on?
+        The graphs below show that public health research areas were hit hardest.</p>
+    </div>
 </section>
 <!-- ===== Teresa's SECTION END ===== -->
-<h2>Certain regions were hit harder than others. What were they working on?
-    The graphs below show that public health research areas were hit hardest.</h2>
+
 <!-- ===== Cameron's SECTION START ===== -->
 
 <section>
-    <h2>Public health research areas saw the highest share of grants disrupted rather than restored</h2>
+    <div class="topics-section">
+        <h2 class="centered-heading">
+            Public health research areas saw the highest share of grants disrupted rather than restored
+        </h2>
 
-    <p>Research areas ranked by the share of their affected grants that were disrupted rather than restored</p>
-    <iframe
-        src="{{ url_for('static', filename='nih_research_area_size_vs_termination.html') }}"
-        width="100%"
-        height="650"
-        frameborder="0">
-    </iframe>
+        <p>
+            Research areas ranked by the share of their affected grants that were disrupted rather than restored.
+        </p>
 
-    <p>Ranked termination rates across NIH research areas</p>
-    <iframe
-        src="{{ url_for('static', filename='nih_research_area_termination_rankings.html') }}"
-        width="100%"
-        height="650"
-        frameborder="0">
-    </iframe>
+        <iframe
+            src="{{ url_for('static', filename='nih_research_area_size_vs_termination.html') }}"
+            width="100%"
+            height="700"
+            frameborder="0">
+        </iframe>
 
-    <p>Research area size versus disruption share (larger areas were not more likely to be disrupted)</p>
-    <iframe
-        src="{{ url_for('static', filename='nih_research_group_comparison.html') }}"
-        width="100%"
-        height="650"
-        frameborder="0">
-    </iframe>
+        <h3 class="centered-heading">
+            Ranked termination rates across NIH research areas
+        </h3>
+    </br>
+        <iframe
+            src="{{ url_for('static', filename='nih_research_area_termination_rankings.html') }}"
+            width="100%"
+            height="750"
+            frameborder="0">
+        </iframe>
 
-    <p>
-       Among grants flagged in this dataset, public health related research areas consistently saw the largest share end in disruption rather than restoration. The size of a research area was not strongly associated with that share, so the pattern is not simply an artifact of big fields having more grants. Instead, specific topics stand out: health disparities, minority health, rural health, infectious diseases, and vaccine related research were disproportionately affected.
-    <p>
+        <h3 class="centered-heading">
+            Research area size versus disruption share
+        </h3>
+        
+        <p class="subclass">
+            (larger areas were not more likely to be disrupted)
+        </p>
+    
+
+        <iframe
+            src="{{ url_for('static', filename='nih_research_group_comparison.html') }}"
+            width="100%"
+            height="650"
+            frameborder="0">
+        </iframe>
+
+        <p>
+        Among grants flagged in this dataset, public health related research areas consistently saw the largest share end in disruption rather than restoration. The size of a research area was not strongly associated with that share, so the pattern is not simply an artifact of big fields having more grants. Instead, specific topics stand out: health disparities, minority health, rural health, infectious diseases, and vaccine related research were disproportionately affected.
+        </p>
+    </div>
 </section>
 <!-- ===== Cameron's SECTION END ===== -->
-    <h2>Who was doing the work. Sorting the same terminations and freezes by the kind of institution that held the
-    grant shows the cuts were hit the public and private sectors differently.</h2>
-<br><br> <br><br><br><br> <br><br> 
+<section>
+    <div class="topics-section">
+        <h2 class="centered-heading">
+            Who was doing the work? 
+        </h2>
+
+        <p class="lead">
+            Sorting the same terminations and freezes by the kind of institution that held the grant shows the cuts were hit the public and private sectors differently.
+        </p>
+    </div>
+</section>
+
 <!-- ===== SEAN'S INTERACTIVE GRAPH 2 SECTION START (Tableau embeds) ===== -->
 <section>
-    <h2> No Research Area was spared, but some areas were hit harder than others</h2>
-    <p> This interactive graphic shows the number of grants disrupted in the different research areas. There are fluctuations in disruptions as courts restored funding to the grants.</p>
+    <div class="topics-section">
+        <h2 class="centered-heading"> 
+            No Research Area was spared, but some areas were hit harder than others
+        </h2>
+        <p> This interactive graphic shows the number of grants disrupted in the different research areas. There are fluctuations in disruptions as courts restored funding to the grants.</p>
+    </div>  
         <div class='tableauPlaceholder' id='viz1785471877398' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;Final-HeatmapTimeline&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Final-HeatmapTimeline&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;Final-HeatmapTimeline&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1785471877398');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1200px';vizElement.style.height='977px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1200px';vizElement.style.height='977px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
 </section>
 <!-- ===== SEAN'S INTERACTIVE GRAPH 2 SECTION ENDS (Tableau embeds) ===== -->
 
-<h2>Of the grants not just terminated but also frozen, who was affected the most? Sorting the same disruptions by the kind of institution that held the
-    grant shows the cuts were just as uneven across organizations.</h2>
+<section>
+    <div class="topics-section">
+        <h2 class="centered-heading">
+            Of the grants not just terminated but also frozen, who was affected the most? 
+        </h2>
+
+        <p class="lead">
+            Sorting the same disruptions by the kind of institution that held the
+            grant shows the cuts were just as uneven across organizations.
+        </p>
+    </div>
+
+</section>
+
 <!-- ===== ROE's SECTION START ===== -->
 <section>
-    <h2>The freezes hit some groups longer than others</h2>
-    <div style="text-indent: 40px">
-        <p>Private organizations lost more total dollars, but public
-        institutions' funding tended to stay frozen longer.</p>
-        <p>Funding at minority-serving organizations also stayed frozen
-        longer than funding at other institutions.</p>
+    <div class="topics-section">
+        <h2 class="centered-heading">
+            The freezes hit some groups longer than others
+        </h2>
+        <div class="topics-section">
+            <p>Private organizations lost more total dollars, but public
+            institutions' funding tended to stay frozen longer.</p>
+            <p>Funding at minority-serving organizations also stayed frozen
+            longer than funding at other institutions.</p>
+        </div>
+        <h3 class="centered-heading">
+            Share of each sector's frozen grant value that was still withheld over the course of the first disruption. 
+        </h3>
     </div>
-    <br><br> 
-    <h2>Share of each sector's frozen grant value that was still withheld over the course of the first disruption. </h3>
-    <iframe
-        src="{{ url_for('static', filename='Sector Disruption Percentages.html') }}"
-        style="width:110%; height:950px; border: none; transform: scale(0.9);transform-origin: top left;"
-        frameborder="0">
-    </iframe>
-    <p>The public curve stays
-    above the private curve for most of the timeline, meaning public funding
-    stayed frozen longer before it was released.</p> 
 
-    <h2>Total dollar value frozen at private versus public organizations during the first disruption. </h2>
-    <img
-        src="{{url_for('static',filename=file7)}}"
-        style="width:110%; height:500px; border: none; transform: scale(0.9);transform-origin: top left;"
-        frameborder="0">
-    </img>
-    <p>Private organizations account
-    for the large majority of the dollars, reflecting how much more NIH grant
-    money private institutions hold overall.</p>
+        <iframe
+            src="{{ url_for('static', filename='Sector Disruption Percentages.html') }}"
+            style="width:110%; height:950px; border: none; transform: scale(0.9);transform-origin: top left;"
+            frameborder="0">
+        </iframe>
+    <div class="topics-section">
+        <p>The public curve stays
+        above the private curve for most of the timeline, meaning public funding
+        stayed frozen longer before it was released.</p> 
 
-    <p>Share of frozen grant value still withheld over the first disruption, comparing minority-serving organizations with all others.</p>
+        <h2>Total dollar value frozen at private versus public organizations during the first disruption. </h2>
+        <img
+            src="{{url_for('static',filename=file7)}}"
+            style="width:110%; height:500px; border: none; transform: scale(0.9);transform-origin: top left;"
+            frameborder="0">
+        </img>
+        <p>Private organizations account
+        for the large majority of the dollars, reflecting how much more NIH grant
+        money private institutions hold overall.</p>
+
+        <p>Share of frozen grant value still withheld over the first disruption, comparing minority-serving organizations with all others.</p>
+    </div>
+
     <iframe
         src="{{ url_for('static', filename='Marginalized Group Disruption Percentages.html') }}"
         style="width:110%; height:950px; border: none; transform: scale(0.9);transform-origin: top left;"
         frameborder="0">
     </iframe>
-    <p>
-    The minority-serving curve stays higher for most of the timeline, meaning
-    that funding stayed frozen longer.</p>
 
+    <div class="topics-section">
+        <p>
+        The minority-serving curve stays higher for most of the timeline, meaning
+        that funding stayed frozen longer.
+        </p>
+    </div>
 </section>
 
 <!-- ===== Roe's SECTION END ===== -->
 
-<h2>Whichever region or institution a grant belonged to, a disruption carried the same underlying cost: work already paid for, and work that would now never be finished. Setting aside who was cut and where, this final section asks what
-the disruptions actually cost, in both money and time.</h2>
+<section>
+    <div class="topics-section">
+        <h2>
+            Not sure if this section is still needed...?
+        </h2>
+        <p class="lead">
+            Whichever region or institution a grant belonged to, a disruption carried the same underlying cost: work already paid for, and work that would now never be finished. Setting aside who was cut and where, this final section asks what
+            the disruptions actually cost, in both money and time.
+        </p>
 
-<p>Every disrupted grant sits somewhere on a spectrum. Some were frozen only
-briefly before funding resumed, others were cut off for good. But even a grant
-that is eventually restored can leave real waste behind: salaries already paid,
-experiments half-run, and labor lost. The figures below cover the roughly
-800 disrupted grants with complete spending records, and should be read as a
-floor rather than a full accounting, because the grants missing spending data
-tend to be the oldest and most established.</p>
+        <p>Every disrupted grant sits somewhere on a spectrum. Some were frozen only
+        briefly before funding resumed, others were cut off for good. But even a grant
+        that is eventually restored can leave real waste behind: salaries already paid,
+        experiments half-run, and labor lost. The figures below cover the roughly
+        800 disrupted grants with complete spending records, and should be read as a
+        floor rather than a full accounting, because the grants missing spending data
+        tend to be the oldest and most established.</p>
+    </div>
+</section>
 
 <!-- Julianas SEction for Time and Money -->
 <section>
@@ -1205,53 +1350,54 @@ tend to be the oldest and most established.</p>
 </section>
 
 </section>
+    <div class="topics-section">
+        <h1 class="centered-heading">Conclusion</h1>
+            <h2 class="centered-heading">The NIH is experiencing a time of unprecedented defunding</h2>
+        
+            <p>This analysis summarizes key patterns in NIH grant disruptions:</p>
 
-<h1>Conclusion</h1>
-<div class="body-section">
-  <p>The NIH is experiencing a time of unprecedented defunding</p>
- 
-    <p>This analysis summarizes key patterns in NIH grant disruptions:</p>
+        <ul>
+            <li>Time and money wasted in complete terminations</li>
+            <li>A lot of grants were frozen and then reinstated repeatedly</li>
+            <li>Termination rates varied by region</li>
+            <li>Public health research was disproportionately affected</li>
+            <li>Many terminated grants were already well underway </li>
+            <li>Private institutions had their funding reinstated faster</li>
+        </ul>
 
-  <ul>
-    <li>Time and money wasted in complete terminations</li>
-    <li>A lot of grants were frozen and then reinstated repeatedly</li>
-    <li>Termination rates varied by region</li>
-    <li>Public health research was disproportionately affected</li>
-    <li>Many terminated grants were already well underway </li>
-    <li>Private institutions had their funding reinstated faster</li>
-  </ul>
+        <section>
+            <h2 class="centered-heading">What the disruptions really cost</h2>
 
-   <section>
-    <h2>What the disruptions really cost</h2>
+            <p>Beginning in early 2025, thousands of active NIH grants were abruptly
+            frozen or terminated, cutting off research already underway. The courts
+            later forced much of that funding to be restored, but restoration was not
+            the same as prevention: by the time money flowed again, the disruption had
+            already done its damage.</p>
 
-    <p>Beginning in early 2025, thousands of active NIH grants were abruptly
-    frozen or terminated, cutting off research already underway. The courts
-    later forced much of that funding to be restored, but restoration was not
-    the same as prevention: by the time money flowed again, the disruption had
-    already done its damage.</p>
+            <p>That damage did not land evenly. Public health research, minority-serving
+            institutions, and grants containing certain flagged language were disrupted
+            at higher rates and, once frozen, stayed frozen longer. Whatever the intent
+            behind the cuts, the burden fell hardest on a specific and identifiable set
+            of the affected grants rather than being spread across the research
+            enterprise as a whole.</p>
 
-    <p>That damage did not land evenly. Public health research, minority-serving
-    institutions, and grants containing certain flagged language were disrupted
-    at higher rates and, once frozen, stayed frozen longer. Whatever the intent
-    behind the cuts, the burden fell hardest on a specific and identifiable set
-    of the affected grants rather than being spread across the research
-    enterprise as a whole.</p>
+            <p>And the disruptions were expensive in a way that a reversal cannot fix.
+            Grants were not cut at their start, before resources had been committed;
+            terminated grants had typically passed the 60% mark of their project period.
+            The government had already paid for most of the work and stood to lose the
+            payoff of finishing it. Cutting a grant this late is the difference between
+            canceling a house before construction and abandoning it with the roof half
+            on: over $600 million had already been spent on work that no termination
+            can un-spend.</p>
 
-    <p>And the disruptions were expensive in a way that a reversal cannot fix.
-    Grants were not cut at their start, before resources had been committed;
-    terminated grants had typically passed the 60% mark of their project period.
-    The government had already paid for most of the work and stood to lose the
-    payoff of finishing it. Cutting a grant this late is the difference between
-    canceling a house before construction and abandoning it with the roof half
-    on: over $600 million had already been spent on work that no termination
-    can un-spend.</p>
-
-    <p>Even that figure understates the loss. It captures money, but not the
-    years of training interrupted, the patient studies halted mid-course, or
-    the research questions left unanswered. And it is a conservative floor,
-    drawn only from grants with complete records, with the oldest and most
-    established grants missing entirely. The full cost of stopping science
-    midway is larger than any single number in this piece can show.</p>
+            <p>Even that figure understates the loss. It captures money, but not the
+            years of training interrupted, the patient studies halted mid-course, or
+            the research questions left unanswered. And it is a conservative floor,
+            drawn only from grants with complete records, with the oldest and most
+            established grants missing entirely. The full cost of stopping science
+            midway is larger than any single number in this piece can show.</p>
+        </section>  
+    </div>
 </section>
 </div>
 </section>
