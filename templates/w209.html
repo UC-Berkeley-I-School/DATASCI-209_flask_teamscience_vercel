@@ -12,7 +12,7 @@
                 background-color: #0b1f44;   /* navy blue */
                 color: #ffffff;              /* white text */
                 font-family: 'Roboto', Arial, Helvetica, sans-serif;   /* paragraphs */
-                font-size: 18px;             /* bigger body text (was browser default 16px) */
+                font-size: 20px;             /* bigger body text (was browser default 16px) */
                 line-height: 1.7;
                 margin: 0 auto;
                 max-width: 1200px;
@@ -158,7 +158,7 @@
             /* Opening paragraph: larger, softer blue */
             p.lead {
 
-                font-size: 1.2rem;
+                font-size: 22px;
                 font-weight: 500;
                 color: #cde0ff;
 
@@ -226,7 +226,7 @@
 
             .historical-shift-heading p {
                 margin: 0;
-                font-size: 1.05rem;
+                font-size: 20px;
                 line-height: 1.7;
             }
 
@@ -402,8 +402,19 @@
                 background:#ffffff; border-radius:16px; padding:28px clamp(16px,3vw,34px);
                 box-shadow:0 6px 22px rgba(0,0,0,.28); color:var(--ink); max-width:760px; margin:0 auto;
             }
-            .grantflow h3{ font-family:'Roboto Slab',Georgia,serif; font-size:1.7rem; margin:0 0 4px; color:var(--ink);}
-            .grantflow .gf-sub{ margin:0 0 22px; color:#43567a; font-size:1rem; max-width:640px;}
+            .grantflow h3{
+                 font-family:'Roboto Slab',Georgia,serif; 
+                 font-size:1.7rem; 
+                 margin:0 0 4px; 
+                 color:var(--ink); 
+                 text-align: center;
+                }
+            .grantflow .gf-sub{ 
+                text-align: center;
+                margin:0 0 22px;
+                color:#43567a;
+                font-size:1rem;
+                max-width:640px;}
 
             .gf-stage-label{ font-size:.74rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase;
                 color:var(--gray); margin:6px 0 10px; }
@@ -490,7 +501,159 @@
 <body>
 <section>
     <img class="centered-img" src="https://datasci-209-flask-teamscience-verce.vercel.app/static/nih_grant.png" alt="NIH Grant image"/>
-   
+</section>
+<!-- ===== JMC NIH Intro Part ===== -->
+
+<section>
+    <h2 class="centered-heading">What Do NIH Grants Do?</h2>
+
+    <div class="topics-section">
+    <p class="lead">The National Institutes of Health is the largest public funder of
+        biomedical and behavioral research in the world. Its work doesn't stay in the
+        lab. It becomes the treatments people depend on.</p>
+
+    <p>As part of the U.S. Department of Health and Human Services, the NIH invests
+        tens of billions of dollars annually to support research at universities,
+        hospitals, and research institutions across the country. Its history traces
+        back to 1887 (NIH, 2025a).</p>
+
+    <p class="impact-intro">Its reach goes well beyond any single breakthrough. Tap any
+        area below to see what the research it funds delivers. Except where noted, every
+        figure comes from the NIH's own public accounting.</p>
+
+    <div class="impact-cards">
+
+        <!-- Tile: landmark discoveries (folds the old bullet list in here) -->
+        <details class="impact-card">
+        <summary>
+            <span class="headline">
+            <span class="topic">Landmark discoveries</span>
+            <span class="claim">Decades of NIH-funded science behind treatments people use today.</span>
+            </span>
+            <span class="toggle" aria-hidden="true">+</span>
+        </summary>
+        <div class="detail">
+            <ul>
+            <li>Cracked the genetic code</li>
+            <li>Led the public Human Genome Project (NIH, 2025b)</li>
+            <li>Ran the studies that established fluoride prevents tooth decay (NIH, 2024)</li>
+            <li>Helped discover mRNA vaccine technology</li>
+            <li>Funded the basic science behind gene therapy and gene editing over decades (NIH, 2025b)</li>
+            </ul>
+            <a href="https://www.nih.gov/about-nih/impact-nih-research/serving-society/societal-benefits-improved-health" target="_blank">NIH Impact Summary Click to Open</a>
+        </div>
+        </details>
+
+        <!-- Tile: cancer -->
+        <details class="impact-card">
+        <summary>
+            <span class="headline">
+            <span class="topic">Cancer</span>
+            <span class="claim">Cancer death rates have fallen more than 1.5% a year for 15 years.</span>
+            </span>
+            <span class="toggle" aria-hidden="true">+</span>
+        </summary>
+        <div class="detail">
+            <p>The NIH puts a dollar value on that progress: each 1% reduction in cancer
+            deaths carries a present value of nearly $500 billion to current and future
+            generations of Americans.</p>
+            <a href="https://www.nih.gov/about-nih/impact-nih-research/improving-health/substance-use" target="_blank">NIH Cancer Research Click to Open in New Tab</a>
+        </div>
+        </details>
+
+        <!-- Tile: addiction treatment -->
+        <details class="impact-card">
+        <summary>
+            <span class="headline">
+            <span class="topic">Addiction treatment</span>
+            <span class="claim">Every $1 spent treating substance use disorder saves $4 in health care and $7 in criminal justice costs.</span>
+            </span>
+            <span class="toggle" aria-hidden="true">+</span>
+        </summary>
+        <div class="detail">
+            <p>Broader evidence-based addiction programs can return more than $58 for every
+            $1 spent, thanks in part to NIH-supported work connecting the science of
+            treatment to real-world practice. In one example, NIH-supported research
+            showed that giving medications for opioid use disorder to people in prison
+            lowers overdose risk after release, and helped drive policy changes such as
+            Medicaid coverage in the 90 days before release.</p>
+            <a href="https://www.nih.gov/about-nih/impact-nih-research/improving-health/substance-use" target="_blank">Addiction Treatment Click to Open in New Tab</a>
+            <a href="https://www.ojp.gov/ncjrs/virtual-library/abstracts/substance-abuse-prevention-dollars-and-cents-cost-benefit-analysis" target="_blank">Cost Benefits of Substance Abuse Prevention, Click to Open in New Tab</a>
+        </div>
+        </details>
+
+        <!-- Tile: children's health -->
+        <details class="impact-card">
+        <summary>
+            <span class="headline">
+            <span class="topic">Children's health</span>
+            <span class="claim">Vaccinating a single year of U.S. newborns is projected to save tens of billions over their lifetimes.</span>
+            </span>
+            <span class="toggle" aria-hidden="true">+</span>
+        </summary>
+        <div class="detail">
+            <p>For children born in 2009, the CDC estimates childhood vaccination will cut
+            direct health care costs by $13.5 billion and save $68.8 billion in indirect
+            costs over their lifetimes. NIH supported the Hib vaccine alone, estimated to
+            save more than $1.8 billion for that single birth year, and early cochlear
+            implants developed in part from NIH-supported research can save more than
+            $30,000 per child.</p>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/24590750/" target="_blank">Economic Review of Childhood Vaccination, Click Open in New Tab</a>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/23558665/" target="_blank">Cochlear Impants in Children, Click to Open in New Tab</a>
+        </div>
+        </details>
+
+        <!-- Tile: environment -->
+        <details class="impact-card">
+        <summary>
+            <span class="headline">
+            <span class="topic">Environment</span>
+            <span class="claim">Lead exposure in the U.S. has dropped dramatically over 45 years.</span>
+            </span>
+            <span class="toggle" aria-hidden="true">+</span>
+        </summary>
+        <div class="detail">
+            <p>Lead early in life irreversibly disrupts brain development. The decline was
+            achieved through control of lead sources, emission reductions, federal
+            regulation, and applied public health work. NIH-funded environmental research
+            has also produced remediation technologies estimated to save over $100 million
+            in cleanup costs.</p>
+            <a href="https://www.niehs.nih.gov/health/topics/agents/lead" target="_blank">NIH Lead Exposure Research Click to Open in New Tab</a>
+        </div>
+        </details>
+
+        <!-- Tile: prevention -->
+        <details class="impact-card">
+        <summary>
+            <span class="headline">
+            <span class="topic">Prevention</span>
+            <span class="claim">School-based prevention programs could save $18 for every $1 invested.</span>
+            </span>
+            <span class="toggle" aria-hidden="true">+</span>
+        </summary>
+        <div class="detail">
+            <p>NIH-funded research identified adolescence as a period of increased
+            vulnerability to the harms of drug use, and a key window for prevention. If
+            implemented nationwide, school-based substance use prevention programs are
+            estimated to save $18 per $1 invested, with 1.5 million fewer youth starting
+            substance use and, on average, a two-year delay for those who do.</p>
+            <a href="https://www.ojp.gov/ncjrs/virtual-library/abstracts/substance-abuse-prevention-dollars-and-cents-cost-benefit-analysis" target="_blank">Cost Benefits of Substance Abuse Prevention, Click to Open in New Tab</a>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/20682218/" target="_blank">Research on Drug Use Prevention in Children, Click Open in New Tab</a>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/27840157/" target="_blank">Research on Adolescent Drug Use Risks, Click to Open in New Tab</a>
+            
+        </div>
+        </details>
+
+    </div>
+
+    <p class="impact-source">Source: National Institutes of Health. Figures reflect NIH's
+        own published estimates of the impact of research it funds.</p>
+
+    </div>
+</section>
+
+
+<section>
     <!-- leading with the strongest number -->
     <div class="stat-hero">
       <span class="number">99.4%</span>
@@ -503,11 +666,12 @@
 
 <!-- ===== SEAN'S HISTORIC BACKGROUND START ===== -->
 <section class="historical-shift-section">
+   
     <div class="historical-shift-heading">
         <h2 class="centered-heading">NIH Grant Terminations Were Historically Rare Until 2025</h2>
-        <p class="lead">
-            From 2012 to 2025, NIH terminated fewer than six grants midstream. Beginning in 2025, thousands of grant disruption events were recorded within a matter of months.
-        </p>
+            <p>
+                From 2012 to 2025, NIH terminated fewer than six grants midstream. Beginning in 2025, thousands of grant disruption events were recorded within a matter of months.
+            </p>
     </div>
 
     <figure class="historical-shift-figure">
@@ -634,161 +798,16 @@
     </figure>
 </section>
 <!-- ===== SEAN'S HISTORIC BACKGROUND END ===== -->
-<!-- ===== JMC NIH Intro Part ===== -->
-<h2 class="centered-heading">What Do NIH Grants Do?</h2>
-
-<div class="topics-section">
-  <p class="lead">The National Institutes of Health is the largest public funder of
-     biomedical and behavioral research in the world. Its work doesn't stay in the
-     lab. It becomes the treatments people depend on.</p>
-
-  <p>As part of the U.S. Department of Health and Human Services, the NIH invests
-     tens of billions of dollars annually to support research at universities,
-     hospitals, and research institutions across the country. Its history traces
-     back to 1887 (NIH, 2025a).</p>
-
-  <p class="impact-intro">Its reach goes well beyond any single breakthrough. Tap any
-     area below to see what the research it funds delivers. Except where noted, every
-     figure comes from the NIH's own public accounting.</p>
-
-  <div class="impact-cards">
-
-    <!-- Tile: landmark discoveries (folds the old bullet list in here) -->
-    <details class="impact-card">
-      <summary>
-        <span class="headline">
-          <span class="topic">Landmark discoveries</span>
-          <span class="claim">Decades of NIH-funded science behind treatments people use today.</span>
-        </span>
-        <span class="toggle" aria-hidden="true">+</span>
-      </summary>
-      <div class="detail">
-        <ul>
-          <li>Cracked the genetic code</li>
-          <li>Led the public Human Genome Project (NIH, 2025b)</li>
-          <li>Ran the studies that established fluoride prevents tooth decay (NIH, 2024)</li>
-          <li>Helped discover mRNA vaccine technology</li>
-          <li>Funded the basic science behind gene therapy and gene editing over decades (NIH, 2025b)</li>
-        </ul>
-        <a href="https://www.nih.gov/about-nih/impact-nih-research/serving-society/societal-benefits-improved-health" target="_blank">NIH Impact Summary Click to Open</a>
-      </div>
-    </details>
-
-    <!-- Tile: cancer -->
-    <details class="impact-card">
-      <summary>
-        <span class="headline">
-          <span class="topic">Cancer</span>
-          <span class="claim">Cancer death rates have fallen more than 1.5% a year for 15 years.</span>
-        </span>
-        <span class="toggle" aria-hidden="true">+</span>
-      </summary>
-      <div class="detail">
-        <p>The NIH puts a dollar value on that progress: each 1% reduction in cancer
-           deaths carries a present value of nearly $500 billion to current and future
-           generations of Americans.</p>
-        <a href="https://www.nih.gov/about-nih/impact-nih-research/improving-health/substance-use" target="_blank">NIH Cancer Research Click to Open in New Tab</a>
-      </div>
-    </details>
-
-    <!-- Tile: addiction treatment -->
-    <details class="impact-card">
-      <summary>
-        <span class="headline">
-          <span class="topic">Addiction treatment</span>
-          <span class="claim">Every $1 spent treating substance use disorder saves $4 in health care and $7 in criminal justice costs.</span>
-        </span>
-        <span class="toggle" aria-hidden="true">+</span>
-      </summary>
-      <div class="detail">
-        <p>Broader evidence-based addiction programs can return more than $58 for every
-           $1 spent, thanks in part to NIH-supported work connecting the science of
-           treatment to real-world practice. In one example, NIH-supported research
-           showed that giving medications for opioid use disorder to people in prison
-           lowers overdose risk after release, and helped drive policy changes such as
-           Medicaid coverage in the 90 days before release.</p>
-        <a href="https://www.nih.gov/about-nih/impact-nih-research/improving-health/substance-use" target="_blank">Addiction Treatment Click to Open in New Tab</a>
-          <a href="https://www.ojp.gov/ncjrs/virtual-library/abstracts/substance-abuse-prevention-dollars-and-cents-cost-benefit-analysis" target="_blank">Cost Benefits of Substance Abuse Prevention, Click to Open in New Tab</a>
-      </div>
-    </details>
-
-    <!-- Tile: children's health -->
-    <details class="impact-card">
-      <summary>
-        <span class="headline">
-          <span class="topic">Children's health</span>
-          <span class="claim">Vaccinating a single year of U.S. newborns is projected to save tens of billions over their lifetimes.</span>
-        </span>
-        <span class="toggle" aria-hidden="true">+</span>
-      </summary>
-      <div class="detail">
-        <p>For children born in 2009, the CDC estimates childhood vaccination will cut
-           direct health care costs by $13.5 billion and save $68.8 billion in indirect
-           costs over their lifetimes. NIH supported the Hib vaccine alone, estimated to
-           save more than $1.8 billion for that single birth year, and early cochlear
-           implants developed in part from NIH-supported research can save more than
-           $30,000 per child.</p>
-        <a href="https://pubmed.ncbi.nlm.nih.gov/24590750/" target="_blank">Economic Review of Childhood Vaccination, Click Open in New Tab</a>
-        <a href="https://pubmed.ncbi.nlm.nih.gov/23558665/" target="_blank">Cochlear Impants in Children, Click to Open in New Tab</a>
-      </div>
-    </details>
-
-    <!-- Tile: environment -->
-    <details class="impact-card">
-      <summary>
-        <span class="headline">
-          <span class="topic">Environment</span>
-          <span class="claim">Lead exposure in the U.S. has dropped dramatically over 45 years.</span>
-        </span>
-        <span class="toggle" aria-hidden="true">+</span>
-      </summary>
-      <div class="detail">
-        <p>Lead early in life irreversibly disrupts brain development. The decline was
-           achieved through control of lead sources, emission reductions, federal
-           regulation, and applied public health work. NIH-funded environmental research
-           has also produced remediation technologies estimated to save over $100 million
-           in cleanup costs.</p>
-          <a href="https://www.niehs.nih.gov/health/topics/agents/lead" target="_blank">NIH Lead Exposure Research Click to Open in New Tab</a>
-      </div>
-    </details>
-
-    <!-- Tile: prevention -->
-    <details class="impact-card">
-      <summary>
-        <span class="headline">
-          <span class="topic">Prevention</span>
-          <span class="claim">School-based prevention programs could save $18 for every $1 invested.</span>
-        </span>
-        <span class="toggle" aria-hidden="true">+</span>
-      </summary>
-      <div class="detail">
-        <p>NIH-funded research identified adolescence as a period of increased
-           vulnerability to the harms of drug use, and a key window for prevention. If
-           implemented nationwide, school-based substance use prevention programs are
-           estimated to save $18 per $1 invested, with 1.5 million fewer youth starting
-           substance use and, on average, a two-year delay for those who do.</p>
-          <a href="https://www.ojp.gov/ncjrs/virtual-library/abstracts/substance-abuse-prevention-dollars-and-cents-cost-benefit-analysis" target="_blank">Cost Benefits of Substance Abuse Prevention, Click to Open in New Tab</a>
-        <a href="https://pubmed.ncbi.nlm.nih.gov/20682218/" target="_blank">Research on Drug Use Prevention in Children, Click Open in New Tab</a>
-        <a href="https://pubmed.ncbi.nlm.nih.gov/27840157/" target="_blank">Research on Adolescent Drug Use Risks, Click to Open in New Tab</a>
-        
-      </div>
-    </details>
-
-  </div>
-
-  <p class="impact-source">Source: National Institutes of Health. Figures reflect NIH's
-     own published estimates of the impact of research it funds.</p>
-
-</div>
-
 
 <!-- ===== SEAN'S/Julianas FUNDING FLOWCHART START JMC EDITS===== -->
 <section>
       <div class="detail">
         <div class="grantflow">
-        <h3>How NIH Grant Funding Works</h3>
-        <p class="gf-sub">A grant is not one lump sum with a tidy ending. It moves through a cycle, and that
-            cycle can be interrupted. Tap any step to open its explanation.</p>
+            <h3>
+                How NIH Grant Funding Works
+            </h3>
+            <p class="gf-sub">A grant is not one lump sum with a tidy ending. It moves through a cycle, and that
+                cycle can be interrupted. Tap any step to open its explanation.</p>
 
         <div class="gf-flow">
 
@@ -973,6 +992,7 @@
 <!-- ===== SEAN'S FUNDING FLOWCHART END ===== -->
 <!-- ===== Juliana's Wasted Money FLOWCHART Start ===== -->
 <section>
+    <br>
     <div class="topics-section">
         <h2 class="centered-heading">Wasted Time and Money</h2>
 
@@ -1130,17 +1150,19 @@
         <h2 class="centered-heading">
             Public health research areas saw the highest share of grants disrupted rather than restored
         </h2>
-
-        <p>
+        <br>
+        <h3 class="centered-heading">
             Research areas ranked by the share of their affected grants that were disrupted rather than restored.
-        </p>
-
+        </h3>
+        <br>
         <iframe
             src="{{ url_for('static', filename='nih_research_area_size_vs_termination.html') }}"
             width="100%"
             height="700"
             frameborder="0">
         </iframe>
+         
+        <br>
 
         <h3 class="centered-heading">
             Ranked termination rates across NIH research areas
@@ -1152,11 +1174,11 @@
             height="750"
             frameborder="0">
         </iframe>
+    </br>
 
         <h3 class="centered-heading">
             Research area size versus disruption share
         </h3>
-        
         <p class="subclass">
             (larger areas were not more likely to be disrupted)
         </p>
@@ -1190,9 +1212,9 @@
 <!-- ===== SEAN'S INTERACTIVE GRAPH 2 SECTION START (Tableau embeds) ===== -->
 <section>
     <div class="topics-section">
-        <h2 class="centered-heading"> 
+        <h3 class="centered-heading"> 
             No Research Area was spared, but some areas were hit harder than others
-        </h2>
+        </h3>
         <p> This interactive graphic shows the number of grants disrupted in the different research areas. There are fluctuations in disruptions as courts restored funding to the grants.</p>
     </div>  
         <div class='tableauPlaceholder' id='viz1785471877398' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;Final-HeatmapTimeline&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Final-HeatmapTimeline&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;Final-HeatmapTimeline&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1785471877398');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1200px';vizElement.style.height='977px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1200px';vizElement.style.height='977px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
@@ -1205,7 +1227,7 @@
             Of the grants not just terminated but also frozen, who was affected the most? 
         </h2>
 
-        <p class="lead">
+        <p class="subclass">
             Sorting the same disruptions by the kind of institution that held the
             grant shows the cuts were just as uneven across organizations.
         </p>
@@ -1235,19 +1257,22 @@
             style="width:110%; height:950px; border: none; transform: scale(0.9);transform-origin: top left;"
             frameborder="0">
         </iframe>
+        
     <div class="topics-section">
-        <p>The public curve stays
-        above the private curve for most of the timeline, meaning public funding
+        <p>
+        The public curve staysabove the private curve for most of the timeline, meaning public funding
         stayed frozen longer before it was released.</p> 
 
         <h2>Total dollar value frozen at private versus public organizations during the first disruption. </h2>
+    </div>
         <img
             src="{{url_for('static',filename=file7)}}"
             style="width:110%; height:500px; border: none; transform: scale(0.9);transform-origin: top left;"
             frameborder="0">
         </img>
-        <p>Private organizations account
-        for the large majority of the dollars, reflecting how much more NIH grant
+    <div class="topics-section">
+        <p>
+        Private organizations account for the large majority of the dollars, reflecting how much more NIH grant
         money private institutions hold overall.</p>
 
         <p>Share of frozen grant value still withheld over the first disruption, comparing minority-serving organizations with all others.</p>
@@ -1269,53 +1294,8 @@
 
 <!-- ===== Roe's SECTION END ===== -->
 
-<section>
-    <div class="topics-section">
-        <h2>
-            Not sure if this section is still needed...?
-        </h2>
-        <p class="lead">
-            Whichever region or institution a grant belonged to, a disruption carried the same underlying cost: work already paid for, and work that would now never be finished. Setting aside who was cut and where, this final section asks what
-            the disruptions actually cost, in both money and time.
-        </p>
-
-        <p>Every disrupted grant sits somewhere on a spectrum. Some were frozen only
-        briefly before funding resumed, others were cut off for good. But even a grant
-        that is eventually restored can leave real waste behind: salaries already paid,
-        experiments half-run, and labor lost. The figures below cover the roughly
-        800 disrupted grants with complete spending records, and should be read as a
-        floor rather than a full accounting, because the grants missing spending data
-        tend to be the oldest and most established.</p>
-    </div>
-</section>
-
 <!-- Julianas SEction for Time and Money -->
 <section>
-    <h3>Most of the Grants Were Cut Mid-stream (1,126 grants)</h3>
-
-    <p>A grant has a scheduled start and end. This chart asks how far through that schedule each
-       grant had gotten when it was terminated.</p>
-
-    <iframe
-      src="{{ url_for('static', filename='5_maturity.html') }}"
-      width="100%" height="420" frameborder="0"
-      title="How far along grants were when terminated">
-    </iframe>
-
-    <p><strong>What it says.</strong> Half the grants that were cut were more than 59% of the way
-       through their scheduled work.  These weren't proposals being declined. They were projects
-       with staff hired, patients enrolled, and years of work behind them.</p>
-
-    <details class="chart-note">
-    <summary>Notes and limitations</summary>
-    <div class="note-body">
-        123 of the 1,249 grants are left out because their recorded dates don't
-        support the calculation. The largest group, 71 grants, had their project
-        end date rewritten to the termination date, which makes a grant look 100%
-        finished no matter how far along it actually was.
-    </div>
-    </details>
-
     <h3>Which grants, and whose (808 grants)</h3>
 
     <p>Money and time together. Each bar is one year of funding; the height is the total already
