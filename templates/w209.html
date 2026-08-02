@@ -496,18 +496,22 @@
                 line-height: 1.6;
                 padding: 0.4rem 0 0 1.1rem;
                 
-            /* Adds 40 pixels of space underneath every section */
-            section {
-            margin-bottom: 80px; 
             }
 
             /* ===== These are the styles for the flowchart hint/pills/act headers ===== */
-            .gf-hint{ display:inline-flex; align-items:center; gap:8px; margin:0 0 20px;
+            .gf-hint{ display:inline-flex; align-items:center; gap:8px;
+                width:fit-content;
+                margin: auto 80px;
                 font-size:.82rem; color:var(--blue); background:var(--blue-bg);
                 border:1px solid var(--blue-br); border-radius:999px; padding:6px 13px; }
-            .gf-hint svg{ width:15px; height:15px; }
-            .gf-act{ margin:0 0 6px; }
-            .gf-act + .gf-act{ margin-top:26px; }
+            .gf-hint svg{ width:15px; height:15px;
+            }
+            .gf-act{ margin:0 0 6px;
+                text-align:center; 
+            }
+            .gf-act + .gf-act{ margin-top:26px;
+                   text-align:center; 
+            }
             .gf-act-head{ display:flex; align-items:baseline; gap:10px; margin:0 0 14px;
                 padding-bottom:9px; border-bottom:2px solid #e6edf7; }
             .gf-act-num{ font-family:'Roboto Slab',Georgia,serif; font-size:.78rem; font-weight:700;
@@ -545,6 +549,7 @@
             .gf-statemap .mnode.blue:hover rect,  .gf-statemap .mnode.blue.sel rect { fill:#dcebfb; }
             .gf-statemap .mnode.red:hover rect,   .gf-statemap .mnode.red.sel rect  { fill:#f9dede; }
             .gf-statemap .mnode.green:hover rect, .gf-statemap .mnode.green.sel rect{ fill:#d7efe0; }
+            .gf-statemap .mnode.orange:hover rect, .gf-statemap .mnode.orange.sel rect { fill:#fbe4c4; }
             .gf-statemap .mnode.sel rect{ stroke-width:3; }
             .gf-map-detail{ margin-top:14px; background:#f7fafe; border:1px solid #dbe6f6;
                 border-left:5px solid var(--blue); border-radius:10px; padding:14px 16px; }
@@ -566,7 +571,7 @@
             }
         </style>
     </head>
-<body>
+
 <section>
     <img class="centered-img" src="https://datasci-209-flask-teamscience-verce.vercel.app/static/nih_grant.png" alt="NIH Grant image"/>
 </section>
@@ -874,8 +879,6 @@
 
 <!-- ===== SEAN'S/Julianas FUNDING FLOWCHART START JMC EDITS===== -->
 
-<body>
-<!-- ===== FUNDING FLOWCHART v2  (Ana / JMC) ===== -->
 <div class="grantflow" id="grantflow">
 
   <h3>How NIH grant money moves, and where it got cut</h3>
@@ -884,22 +887,23 @@
      interrupted grant so costly.</p>
 
   <span class="gf-hint">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11.5V7a2 2 0 1 1 4 0v4"/><path d="M13 11V5.5a2 2 0 1 1 4 0V13a7 7 0 0 1-7 7h-1a6 6 0 0 1-5.2-3l-1.6-2.8a2 2 0 0 1 3.4-2L7 12"/></svg>
-    The two rows below tell the whole story. Tap any step to go deeper.
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path 
+        stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12l3 0"/><path d="M12 3l0 3"/><path d="M7.8 7.8l-2.2 -2.2"/><path 
+        d="M16.2 7.8l2.2 -2.2"/><path d="M7.8 16.2l-2.2 2.2"/><path d="M12 12l9 3l-4 2l-2 4l-3 -9"/></svg>    
+        Click "More" to view a dropdown with additional details.
   </span>
 
   <!-- ============ ACT 1 ============ -->
   <div class="gf-act">
     <div class="gf-act-head">
-      <span class="gf-act-num">Part 1</span>
-      <h4 class="gf-act-title">Where the money comes from</h4>
+      <h4 class="gf-act-title">Where the Money Comes From</h4>
     </div>
 
     <div class="gf-item">
       <button class="gf-node" aria-expanded="false">
-        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21h16"/><path d="M6 21V8l6-4 6 4v13"/><path d="M10 21v-5h4v5"/></svg></span>
-        <span class="tx"><b>Congress sets the budget</b><span>Congress decides how much NIH gets each year. This is the power of the purse.</span></span>
-        <span class="gf-more">More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 21l18 0"/><path d="M3 10l18 0"/><path d="M5 6l7 -3l7 3"/><path d="M4 10l0 11"/><path d="M20 10l0 11"/><path d="M8 14l0 3"/><path d="M12 14l0 3"/><path d="M16 14l0 3"/></svg></span>
+        <span class="tx"><b>Congress Sets the Budget</b><span>Congress decides how much NIH gets each year. This is the power of the purse.</span></span>
+        <span class="gf-more">More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path </span>
       </button>
       <div class="gf-detail"><div class="gf-detail-inner">
         <p>Once a year, Congress passes a law setting how much money NIH receives. Under the Constitution, only Congress can decide federal spending.</p>
@@ -911,8 +915,8 @@
 
     <div class="gf-item">
       <button class="gf-node" aria-expanded="false">
-        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M3 10h18"/><path d="M8 3l4 4 4-4"/></svg></span>
-        <span class="tx"><b>The money waits in the Treasury</b><span>The U.S. Treasury is the government's bank account. It holds the money, it does not decide who gets it.</span></span>
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 11v.01"/><path d="M5.173 8.378a3 3 0 1 1 4.656 -1.377"/><path d="M16 4v3.803a6.019 6.019 0 0 1 2.658 3.197h1.341a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-1.342c-.336 .95 -.907 1.8 -1.658 2.473v1.527a1.5 1.5 0 0 1 -3 0v-.5h-4v.5a1.5 1.5 0 0 1 -3 0v-1.527a6 6 0 0 1 -1 -3.473h-1a1 1 0 0 1 0 -2h1c0 -1.18 .35 -2.276 .95 -3.195l-1.45 -1.455a1 1 0 1 1 1.41 -1.41l1.346 1.34a6.007 6.007 0 0 1 3.744 -1.28h.5v-3.803a1 1 0 0 1 2 0z"/></svg></span>
+        <span class="tx"><b>The Money Waits in the Treasury</b><span>The U.S. Treasury is the government's bank account. It holds the money, it does not decide who gets it.</span></span>
         <span class="gf-more">More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
       </button>
       <div class="gf-detail"><div class="gf-detail-inner">
@@ -924,8 +928,8 @@
 
     <div class="gf-item">
       <button class="gf-node" aria-expanded="false">
-        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="m3 13 9 5 9-5"/><path d="m3 18 9 5 9-5"/></svg></span>
-        <span class="tx"><b>NIH gets its share</b><span>NIH splits its budget across 27 institutes and centers, from cancer to aging to mental health.</span></span>
+        <span class="ic"><svg <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M21 17h-8l-3.5 -5h-6.5"/><path d="M21 7h-8l-3.495 5"/><path d="M18 10l3 -3l-3 -3"/><path d="M18 20l3 -3l-3 -3"/></svg></span>
+        <span class="tx"><b>NIH Gets Its Share</b><span>NIH splits its budget across 27 institutes and centers, from cancer to aging to mental health.</span></span>
         <span class="gf-more">More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
       </button>
       <div class="gf-detail"><div class="gf-detail-inner">
@@ -937,8 +941,8 @@
 
     <div class="gf-item">
       <button class="gf-node" aria-expanded="false">
-        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m4 9 8-5 8 5-8 5Z"/><path d="M6 11v5c0 1.3 2.7 2.5 6 2.5s6-1.2 6-2.5v-5"/><path d="M20 9v5"/></svg></span>
-        <span class="tx"><b>NIH awards grants to research institutions</b><span>The money goes to universities and hospitals, not to individuals. A lead scientist runs the work; the institution holds the funds.</span></span>
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9l5 5v7h-5v-4m0 4h-5v-7l5 -5m1 1v-6a1 1 0 0 1 1 -1h10a1 1 0 0 1 1 1v17h-8"/><path d="M13 7l0 .01"/><path d="M17 7l0 .01"/><path d="M17 11l0 .01"/><path d="M17 15l0 .01"/></svg></span>
+        <span class="tx"><b>NIH Awards Grants to Research Institutions</b><span>The money goes to universities and hospitals, not to individuals. A lead scientist runs the work; the institution holds the funds.</span></span>
         <span class="gf-more">More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
       </button>
       <div class="gf-detail"><div class="gf-detail-inner">
@@ -951,80 +955,94 @@
   <!-- ===== Stopping Point 1 (keeps the Impoundment Control Act in the narrative) ===== -->
   <div class="gf-arrow red">&#8595;</div>
   <div class="gf-disrupt" style="margin-bottom:6px;">
-    <div class="gf-stage-label red">Where 2025 hit, part 1</div>
     <div class="gf-item">
       <button class="gf-node red" aria-expanded="false">
-        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v7"/><path d="M5 10h14v3a7 7 0 0 1-14 0Z"/><path d="M9 21h6"/></svg></span>
-        <span class="tx"><b>Stopping Point: Money can be held back before it goes out</b><span>In 2025 the administration slowed and withheld new NIH awards. A watchdog found it broke the law.</span></span>
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-12 12"/><path d="M0 0h24v24H0z"/><path d="M9 21h6"/></svg></span>
+        <span class="tx"><b>Stopping Point: Money Was Held Back Before It Is Spent</b><span>In 2025 the administration slowed and withheld new NIH awards. A watchdog found it broke the law.</span></span>
         <span class="gf-more">More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
       </button>
       <div class="gf-detail"><div class="gf-detail-inner red">
-        <p>In early 2025 the administration paused and withheld NIH funding, releasing roughly $8 billion less than in prior years.</p>
-        <p>In August 2025 the Government Accountability Office, Congress's nonpartisan watchdog, found this broke the Impoundment Control Act of 1974, the law that says a president cannot refuse to spend money Congress has approved. The Department of Health and Human Services disputes this, and the case is still in court.</p>
+        <p>In early 2025 the Trumpadministration paused and withheld NIH funding, releasing roughly $8 billion less than in prior years.</p>
+        <p>In August 2025 the Government Accountability Office, Congress's nonpartisan watchdog, found this broke the Impoundment Control Act of 1974, the law that says a president cannot refuse to spend money Congress has approved. The Trump administration disputes this, and the case is still in court.</p>
       </div></div>
     </div>
   </div>
 
+</section>
+<div class="gf-arrow">&#8595;</div>
+<div style="height: 10px;"></div>
+<section>
   <!-- ============ part 2 ============ -->
 
 <div class="gf-statemap" id="gf-statemap">
-  <p class="gf-map-eyebrow">Part 2, at a glance</p>
-  <h4 class="gf-map-title">Where a grant ends up</h4>
+  <h4 class="gf-map-title">A Grant Is Funded</h4>
 
   <span class="gf-hint">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11.5V7a2 2 0 1 1 4 0v4"/><path d="M13 11V5.5a2 2 0 1 1 4 0V13a7 7 0 0 1-7 7h-1a6 6 0 0 1-5.2-3l-1.6-2.8a2 2 0 0 1 3.4-2L7 12"/></svg>
-    Tap any box to see what happens there.
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12l3 0"/><path d="M12 3l0 3"/><path d="M7.8 7.8l-2.2 -2.2"/><path d="M16.2 7.8l2.2 -2.2"/><path d="M7.8 16.2l-2.2 2.2"/><path d="M12 12l9 3l-4 2l-2 4l-3 -9"/></svg>    
+    Click any bubble for more detail. The arrows show the possible paths a grant can take once it is funded.
   </span>
 
-  <svg class="gf-map" viewBox="0 0 680 400" role="img" xmlns="http://www.w3.org/2000/svg">
+  <svg class="gf-map" viewBox="0 0 680 340" role="img" xmlns="http://www.w3.org/2000/svg">
     <title>Where an NIH grant ends up</title>
-    <desc>A grant sits in the yearly cycle, which finishes at completed. Frozen and terminated are reversible detours that both return to the cycle, so a restored grant can still reach completion. Tap a state for detail.</desc>
+    <desc>Once funded, a grant is ongoing research. From there it can be frozen, a reversible detour, or terminated, which is permanent, or it can finish and reach completed. Tap a state for detail.</desc>
     <defs>
+      <marker id="ahBlue2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#1b4fa0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+      <marker id="ahOrange2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#e08a1e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
       <marker id="ahRed2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#d12b2b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
       <marker id="ahGreen2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#1f8a4c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
     </defs>
 
-    <g class="mnode red" data-key="frozen" tabindex="0" role="button" aria-label="Funding frozen, tap for detail">
-      <rect x="110" y="54" width="180" height="58" rx="11" fill="#fdecec" stroke="#d12b2b" stroke-width="1.5"/>
-      <text x="200" y="83" text-anchor="middle" font-family="Roboto,sans-serif" font-size="15" font-weight="700" fill="#d12b2b">Frozen</text>
-      <text x="200" y="101" text-anchor="middle" font-family="Roboto,sans-serif" font-size="12" fill="#5a6478">funds paused</text>
+    <!-- entry: a grant is funded, blue arrow down into ongoing -->
+    <text x="340" y="30" text-anchor="middle" font-family="Roboto,sans-serif" font-size="16" fill="#43567a">A Grant is Funded</text>
+    <line x1="340" y1="42" x2="340" y2="94" stroke="#1b4fa0" stroke-width="1.6" marker-end="url(#ahBlue2)"/>
+
+    <!-- middle row: frozen (orange) | research is ongoing | terminated (red) -->
+    <g class="mnode orange" data-key="frozen" tabindex="0" role="button" aria-label="Funding frozen, tap for detail">
+      <rect x="15" y="100" width="170" height="58" rx="11" fill="#fdf1e0" stroke="#e08a1e" stroke-width="1.5"/>
+      <text x="100" y="129" text-anchor="middle" font-family="Roboto,sans-serif" font-size="15" font-weight="700" fill="#b45309">Frozen</text>
+      <text x="100" y="147" text-anchor="middle" font-family="Roboto,sans-serif" font-size="12" fill="#5a6478">funds paused</text>
     </g>
 
-    <g class="mnode blue" data-key="cycle" tabindex="0" role="button" aria-label="In the yearly cycle, tap for detail">
-      <rect x="110" y="176" width="180" height="58" rx="11" fill="#eef4fc" stroke="#1b4fa0" stroke-width="1.5"/>
-      <text x="200" y="205" text-anchor="middle" font-family="Roboto,sans-serif" font-size="15" font-weight="700" fill="#12326e">In the yearly cycle</text>
-      <text x="200" y="223" text-anchor="middle" font-family="Roboto,sans-serif" font-size="12" fill="#43567a">the normal path</text>
+    <g class="mnode blue" data-key="cycle" tabindex="0" role="button" aria-label="Research is ongoing, tap for detail">
+      <rect x="255" y="100" width="170" height="58" rx="11" fill="#eef4fc" stroke="#1b4fa0" stroke-width="1.5"/>
+      <text x="340" y="129" text-anchor="middle" font-family="Roboto,sans-serif" font-size="15" font-weight="700" fill="#12326e">Research is Ongoing</text>
+      <text x="340" y="147" text-anchor="middle" font-family="Roboto,sans-serif" font-size="12" fill="#5a6478">the normal path</text>
     </g>
 
     <g class="mnode red" data-key="terminated" tabindex="0" role="button" aria-label="Grant terminated, tap for detail">
-      <rect x="110" y="298" width="180" height="58" rx="11" fill="#fdecec" stroke="#d12b2b" stroke-width="1.5"/>
-      <text x="200" y="327" text-anchor="middle" font-family="Roboto,sans-serif" font-size="15" font-weight="700" fill="#d12b2b">Terminated</text>
-      <text x="200" y="345" text-anchor="middle" font-family="Roboto,sans-serif" font-size="12" fill="#5a6478">ended early</text>
+      <rect x="495" y="100" width="170" height="58" rx="11" fill="#fdecec" stroke="#d12b2b" stroke-width="1.5"/>
+      <text x="580" y="129" text-anchor="middle" font-family="Roboto,sans-serif" font-size="15" font-weight="700" fill="#d12b2b">Terminated</text>
+      <text x="580" y="147" text-anchor="middle" font-family="Roboto,sans-serif" font-size="12" fill="#5a6478">ended for good</text>
     </g>
+
+    <!-- frozen is reversible: orange two-way arrow -->
+    <line x1="190" y1="129" x2="250" y2="129" stroke="#e08a1e" stroke-width="1.6" marker-start="url(#ahOrange2)" marker-end="url(#ahOrange2)"/>
+    <text x="220" y="119" text-anchor="middle" font-family="Roboto,sans-serif" font-size="12" fill="#43567a">freeze</text>
+    <text x="220" y="152" text-anchor="middle" font-family="Roboto,sans-serif" font-size="12" fill="#43567a">restore</text>
+
+    <!-- terminated is permanent: red one-way arrow, no return -->
+    <line x1="430" y1="129" x2="490" y2="129" stroke="#d12b2b" stroke-width="1.6" marker-end="url(#ahRed2)"/>
+    <text x="460" y="124" text-anchor="middle" font-family="Roboto,sans-serif" font-size="12" fill="#43567a">terminate</text>
+
+    <!-- one green arrow down to completed, below everything -->
+    <line x1="340" y1="162" x2="340" y2="216" stroke="#1f8a4c" stroke-width="1.6" marker-end="url(#ahGreen2)"/>
+    <text x="350" y="192" font-family="Roboto,sans-serif" font-size="12" fill="#43567a">finishes</text>
 
     <g class="mnode green" data-key="completed" tabindex="0" role="button" aria-label="Project completed, tap for detail">
-      <rect x="430" y="176" width="180" height="58" rx="11" fill="#e8f6ee" stroke="#1f8a4c" stroke-width="1.5"/>
-      <text x="520" y="205" text-anchor="middle" font-family="Roboto,sans-serif" font-size="15" font-weight="700" fill="#1f8a4c">Completed</text>
-      <text x="520" y="223" text-anchor="middle" font-family="Roboto,sans-serif" font-size="12" fill="#5a6478">the one clean exit</text>
+      <rect x="255" y="220" width="170" height="58" rx="11" fill="#e8f6ee" stroke="#1f8a4c" stroke-width="1.5"/>
+      <text x="340" y="249" text-anchor="middle" font-family="Roboto,sans-serif" font-size="15" font-weight="700" fill="#1f8a4c">Completed</text>
+      <text x="340" y="267" text-anchor="middle" font-family="Roboto,sans-serif" font-size="12" fill="#5a6478">the one clean exit</text>
     </g>
 
-    <line x1="200" y1="120" x2="200" y2="168" stroke="#d12b2b" stroke-width="1.6" marker-start="url(#ahRed2)" marker-end="url(#ahRed2)"/>
-    <text x="214" y="141" font-family="Roboto,sans-serif" font-size="12" fill="#43567a">frozen</text>
-    <text x="214" y="159" font-family="Roboto,sans-serif" font-size="12" fill="#43567a">restored</text>
-
-    <line x1="200" y1="242" x2="200" y2="290" stroke="#d12b2b" stroke-width="1.6" marker-start="url(#ahRed2)" marker-end="url(#ahRed2)"/>
-    <text x="214" y="263" font-family="Roboto,sans-serif" font-size="12" fill="#43567a">terminated</text>
-    <text x="214" y="281" font-family="Roboto,sans-serif" font-size="12" fill="#43567a">reinstated</text>
-
-    <line x1="298" y1="205" x2="422" y2="205" stroke="#1f8a4c" stroke-width="1.6" marker-end="url(#ahGreen2)"/>
-    <text x="360" y="197" text-anchor="middle" font-family="Roboto,sans-serif" font-size="12" fill="#43567a">finishes</text>
-
-    <rect x="110" y="374" width="14" height="14" rx="3" fill="#eef4fc" stroke="#1b4fa0" stroke-width="1.2"/>
-    <text x="131" y="385" font-family="Roboto,sans-serif" font-size="12" fill="#43567a">normal path</text>
-    <rect x="250" y="374" width="14" height="14" rx="3" fill="#fdecec" stroke="#d12b2b" stroke-width="1.2"/>
-    <text x="271" y="385" font-family="Roboto,sans-serif" font-size="12" fill="#43567a">reversible detour</text>
-    <rect x="430" y="374" width="14" height="14" rx="3" fill="#e8f6ee" stroke="#1f8a4c" stroke-width="1.2"/>
-    <text x="451" y="385" font-family="Roboto,sans-serif" font-size="12" fill="#43567a">the one clean exit</text>
+    <!-- legend -->
+    <rect x="62" y="306" width="14" height="14" rx="3" fill="#eef4fc" stroke="#1b4fa0" stroke-width="1.2"/>
+    <text x="83" y="317" font-family="Roboto,sans-serif" font-size="12" fill="#43567a">normal path</text>
+    <rect x="165" y="306" width="14" height="14" rx="3" fill="#fdf1e0" stroke="#e08a1e" stroke-width="1.2"/>
+    <text x="186" y="317" font-family="Roboto,sans-serif" font-size="12" fill="#43567a">frozen (reversible)</text>
+    <rect x="324" y="306" width="14" height="14" rx="3" fill="#fdecec" stroke="#d12b2b" stroke-width="1.2"/>
+    <text x="345" y="317" font-family="Roboto,sans-serif" font-size="12" fill="#43567a">terminated (one-way)</text>
+    <rect x="493" y="306" width="14" height="14" rx="3" fill="#e8f6ee" stroke="#1f8a4c" stroke-width="1.2"/>
+    <text x="514" y="317" font-family="Roboto,sans-serif" font-size="12" fill="#43567a">the one clean exit</text>
   </svg>
 
   <div class="gf-map-detail" id="gf-map-detail" aria-live="polite">
@@ -1042,7 +1060,7 @@
     wrap.dataset.ready = '1';
 
     var DATA = {
-      cycle: { color:'#1b4fa0', title:'In the yearly cycle',
+      cycle: { color:'#1b4fa0', title:'Research Is Ongoing',
         body:'A funded grant repeats a yearly cycle: the team does the work, files a progress report, and receives the next year\u2019s installment. It stays here until it finishes, is frozen, or is terminated.' },
       frozen: { color:'#d12b2b', title:'Funding frozen',
         body:'Funds are held and no new costs can be charged, so the work usually stops, whether or not the science is sound. A grant can be frozen and unfrozen more than once. When funding resumes, the grant is restored and returns to the yearly cycle. It does not jump straight to completion.' },
