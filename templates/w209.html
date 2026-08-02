@@ -467,7 +467,7 @@
             .gf-fork{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:8px; }
             @media (max-width:560px){ .gf-fork{ grid-template-columns:1fr; } }
             .gf-branch-label{ text-align:center; font-size:.82rem; color:#43567a; margin-bottom:6px; }
-            .gf-disrupt{ border:1.6px dashed var(--red-br); border-radius:12px; padding:12px; background:#fffafa; }
+            .gf-disrupt{ border-radius:12px; padding:12px; background:#fffafa; }
 
             .gf-key{ display:flex; flex-wrap:wrap; gap:14px 22px; margin-top:22px; padding-top:16px;
                 border-top:1px solid #e6edf7; font-size:.82rem; color:#43567a; }
@@ -966,8 +966,8 @@
   <div class="gf-disrupt" style="margin-bottom:6px;">
     <div class="gf-item">
       <button class="gf-node red" aria-expanded="false">
-        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-12 12"/><path d="M0 0h24v24H0z"/><path d="M9 21h6"/></svg></span>
-        <span class="tx"><b>Stopping Point: Money Was Held Back Before It Is Spent</b><span>In 2025 the administration slowed and withheld new NIH awards. A watchdog found it broke the law.</span></span>
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M18 6L6 18"/></svg></span>
+        <span class="tx"><b>Stopping Point: Money Was Held Back Before It Is Spent</b><span>In 2025 the administration slowed and withheld new NIH awards.</span></span>
         <span class="gf-more">More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
       </button>
       <div class="gf-detail"><div class="gf-detail-inner red">
@@ -1073,7 +1073,7 @@
         body:'A funded grant repeats a yearly cycle: the team does the work, files a progress report, and receives the next year\u2019s installment. It stays here until it finishes, is frozen, or is terminated.' },
       frozen: { color:'#d12b2b', title:'Funding frozen',
         body:'Funds are held and no new costs can be charged, so the work usually stops, whether or not the science is sound. A grant can be frozen and unfrozen more than once. When funding resumes, the grant is restored and returns to the yearly cycle. It does not jump straight to completion.' },
-      terminated: { color:'#d12b2b', title:'Grant terminated (choke point 2)',
+      terminated: { color:'#d12b2b', title:'Grant terminated',
         body:'The award is ended before its planned completion, and the remaining work cannot continue under it. In 2025 NIH terminated more than 1,800 grants that were already underway. Many were challenged in court and reinstated, then in some cases terminated again, so termination was not always final. Because the money is committed year by year, ending a grant mid-stream strands work an institution has already started and staffed.' },
       completed: { color:'#1f8a4c', title:'Project completed',
         body:'The research concludes and the results are shared with the field. This is the one clean exit from the cycle, and the point every grant is meant to reach.' }
@@ -1151,15 +1151,18 @@
 
 </section>
 <!-- ===== SEAN'S FUNDING FLOWCHART END ===== -->
+ <br><br>
 <!-- ===== Juliana's Wasted Money FLOWCHART Start ===== -->
-<section>
+<section style="padding: 40px 0">
     <br>
     <div class="topics-section">
         <h2 class="centered-heading">Wasted Time and Money</h2>
 
         <p>In 2025, NIH terminated 1,249 research grants and did not restore them. This section
         asks the question: How much time and money was spent on the projects that were completely terminated?</p>
-        
+</section>
+
+<section style="padding: 40px 0">
         <h3 class="centered-heading">Where the money stood when the work stopped (815 grants)</h3>
 
         <p>Every dollar NIH commits to a grant ends up in one of three places once the grant is
@@ -1194,10 +1197,11 @@
 </section>
 
 <!-- Julianas SEction for Time and Money -->
-<section>
+<section style="padding: 20px 0">
     <div class="topics-section">
-        <h2 class="centered-heading">What did the complete terminations cost in time and money? </h2>
-
+        <h3 class="centered-heading">What did the complete terminations cost in time and money? </h3>
+</section>
+<section style="padding: 0px 0"></section>
         <p class="subclass">
             Whichever region or institution a grant belonged to, a disruption carried the same underlying cost: 
         work already paid for, and work that would now never be finished.
@@ -1213,10 +1217,41 @@
             tend to be the oldest and most established.
         </p>
 
-        <h3 class="centered-heading">Most of the Grants Were Cut Mid-stream (1,126 grants)</h3>
+
+        <p><strong>The money is concentrated in grants that had been running
+       for years.</strong>  A first-year grant that gets cut costs the public a few tens of thousands of
+       dollars; a fifth-year grant costs well over a million.  Whichever group you highlight, the
+       shape holds: the cuts landed on mature work.</p>
+</section>
+<!-- Julianas SEction for Time and Money -->
+<section style="padding: 40px 0"></section>
+    <div style="overflow-x:auto">
+      <iframe
+        src="{{ url_for('static', filename='5_readout.html') }}"
+        width="100%" height="1000" frameborder="0" style="min-width:840px"
+        title="Spending by years funded, with region, institution and research area filters">
+      </iframe>
+    </div>
+
+
+    <details class="chart-note">
+    <summary>Notes and limitations</summary>
+    <div class="note-body">
+        Shows 801 of the 1,249 grants, those with both a funding length and a
+        spending amount on record. Leaves out one record with a negative spending
+        figure (an accounting artifact) and one unusually large $48 million award
+        that would flatten everything else. Both are still counted in the dollar
+        totals above.
+    </div>
+    </details>
+
+
+</section>
+<section style="padding: 40px 0"></section>
+        <h3 class="centered-heading">Most of the grants were cut mid-stream (More than halfway through their scheduled duration)</h3>
 
         <p>A grant has a scheduled start and end. This chart asks how far through that schedule each
-        grant had gotten when it was terminated.</p>
+        grant had gotten when it was terminated. The longest running grant that was terminated by the Trump administration was 44 years long.</p>
     </div>
 
     <iframe
@@ -1242,10 +1277,14 @@
 
 </section>
 <!-- ===== Sean's SECTION One Graph START ===== -->
-<section>
+<section style="padding: 20px 0"></section>
     <div class="topics-section">
-        <h2 class="centered-heading">Most of the grants frozen by President Trump in early 2025 were slowly restored due to the courts fighting back.  
-        But some were not.
+        <h2 class="centered-heading">The courts fought back: Most of the grants frozen by president 
+            Trump in early 2025 were slowly restored.  
+            <br>
+            <br> But some were not.
+</section>
+<section style="padding: 20px 0"></section>      
         </h2>
 
         <p class="subclass">
@@ -1455,54 +1494,18 @@
 
 <!-- ===== Roe's SECTION END ===== -->
 
-<!-- Julianas SEction for Time and Money -->
-<section>
-    <h3>Which grants, and whose (808 grants)</h3>
-
-    <p>Money and time together. Each bar is one year of funding; the height is the total already
-       spent on grants that far along. Use the dropdowns to pick out a region, a type of
-       institution, or a research area.</p>
-
-    <div style="overflow-x:auto">
-      <iframe
-        src="{{ url_for('static', filename='5_money_time.html') }}"
-        width="100%" height="1000" frameborder="0" style="min-width:840px"
-        title="Spending by years funded, with region, institution and research area filters">
-      </iframe>
-    </div>
-
-    <p><strong>The money is concentrated in grants that had been running
-       for years.</strong>  A first-year grant that gets cut costs the public a few tens of thousands of
-       dollars; a fifth-year grant costs well over a million.  Whichever group you highlight, the
-       shape holds: the cuts landed on mature work.</p>
-
-    <details class="chart-note">
-    <summary>Notes and limitations</summary>
-    <div class="note-body">
-        Shows 808 of the 1,249 grants, those with both a funding length and a
-        spending amount on record. Leaves out one record with a negative spending
-        figure (an accounting artifact) and one unusually large $48 million award
-        that would flatten everything else. Both are still counted in the dollar
-        totals above.
-    </div>
-    </details>
-
-
-</section>
-
 </section>
     <div class="topics-section">
-        <h1 class="centered-heading">Conclusion</h1>
-            <h2 class="centered-heading">The NIH is experiencing a time of unprecedented defunding</h2>
+        <h1 class="centered-heading">Public Health Research is Under Fire: The NIH is experiencing a time of unprecedented defunding</h1>
+            <h2 class="centered-heading"></h2>
         
             <p>This analysis summarizes key patterns in NIH grant disruptions:</p>
 
         <ul>
-            <li>Time and money wasted in complete terminations</li>
-            <li>A lot of grants were frozen and then reinstated repeatedly</li>
+            <li>Time and money wasted in grants that were completely terminated after years of research</li>
+            <li>Legal time and money wasted even in the process of freezing and unfreezing the grants</li>
             <li>Termination rates varied by region</li>
             <li>Public health research was disproportionately affected</li>
-            <li>Many terminated grants were already well underway </li>
             <li>Private institutions had their funding reinstated faster</li>
         </ul>
 
