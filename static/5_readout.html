@@ -21,6 +21,7 @@
   /* flip to column so we can reorder chart vs. dropdowns */
   #vis.vega-embed {
     flex-direction: column !important;
+    align-items: center !important;   /* center the chart box + dropdown row horizontally */
   }
   /* pull the bindings form above the SVG */
   form.vega-bindings {
@@ -34,6 +35,7 @@
   .vega-bind-name {
     font-size: 16px;
     font-weight: 600;
+    color: #e8eefc;   /* light text so labels read on the dark navy shell */
   }
   /* bigger dropdown itself */
   .vega-bind select {
