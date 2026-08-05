@@ -3,22 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <style>
+  body {
+    margin: 0;
+    background: transparent;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  #vis {
+    position: relative;
+    width: 100%;
+  }
+
   #vis.vega-embed {
     width: 100%;
   }
 
-  /* Put the controls on one line */
+  /* Move all Vega controls to the upper-right of the chart */
   #vis .vega-bindings {
+    position: absolute;
+    top: 8px;
+    right: 18px;
+    z-index: 10;
+
     display: flex;
-    justify-content: flex-end;
     align-items: center;
-    gap: 18px;
-    margin-bottom: 15px;
-    width: 100%;
+    justify-content: flex-end;
+    gap: 16px;
+
+    color: #243746;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 8px 10px;
+    border-radius: 6px;
   }
 
-  /* Make the search box a little wider */
-  #vis .vega-bind input[type="search"] {
+  #vis .vega-bind {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #243746;
+  }
+
+  #vis .vega-bind-name {
+    color: #243746;
+    font-weight: 600;
+  }
+
+  #vis select,
+  #vis input[type="search"] {
+    color: #243746;
+    background: white;
+    border: 1px solid #b8c7d1;
+    border-radius: 4px;
+    padding: 5px 8px;
+  }
+
+  #vis input[type="search"] {
     width: 220px;
   }
 
