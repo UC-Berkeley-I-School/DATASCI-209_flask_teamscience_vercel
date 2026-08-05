@@ -12,59 +12,58 @@
   #vis {
     position: relative;
     width: 100%;
-  }
+    padding-top: 40px;
+}
 
-  #vis.vega-embed {
+#vis.vega-embed {
     width: 100%;
-  }
+}
 
-  /* Move all Vega controls to the upper-right of the chart */
-  #vis .vega-bindings {
+#vis .vega-bindings {
     position: absolute;
-    top: 8px;
-    right: 18px;
+    top: 45px;
+    right: 20px;
     z-index: 10;
 
     display: flex;
     align-items: center;
-    justify-content: flex-end;
     gap: 16px;
 
-    color: #243746;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 8px 10px;
+    background: rgba(255,255,255,0.95);
+    padding: 8px 12px;
     border-radius: 6px;
-  }
 
-  #vis .vega-bind {
+    color: #243746;
+}
+
+#vis .vega-bind {
     display: flex;
     align-items: center;
     gap: 6px;
-    color: #243746;
-  }
+}
 
-  #vis .vega-bind-name {
-    color: #243746;
+#vis .vega-bind-name {
     font-weight: 600;
-  }
-
-  #vis select,
-  #vis input[type="search"] {
     color: #243746;
-    background: white;
-    border: 1px solid #b8c7d1;
-    border-radius: 4px;
+}
+
+#vis select,
+#vis input[type="search"] {
     padding: 5px 8px;
-  }
+    border: 1px solid #cfd8df;
+    border-radius: 4px;
+    background: white;
+    color: #243746;
+}
 
-  #vis input[type="search"] {
+#vis input[type="search"] {
     width: 220px;
-  }
+}
 
-  #vis.vega-embed details,
-  #vis.vega-embed details summary {
+#vis.vega-embed details,
+#vis.vega-embed details summary {
     position: relative;
-  }
+}
 </style>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
