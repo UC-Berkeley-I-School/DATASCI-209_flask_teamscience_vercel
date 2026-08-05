@@ -496,6 +496,26 @@
                 line-height: 1.6;
                 padding: 0.4rem 0 0 1.1rem;
             }
+
+            .visualization-container {
+            margin: 0 auto;
+            max-width: 125%; /* Match Altair chart width */
+            text-align: center;
+            }
+
+            .visualization-container iframe {
+            width: 125%;
+            height: 500px; /* Match Altair chart height */
+            border: none;  /* Removes the ugly default border */
+            overflow: hidden;
+            }
+
+            figcaption {
+            font-size: 0.9rem;
+            color: #7a85f9;
+            margin-top: 0.5rem;
+            }
+
         </style>
     </head>
 <body>
@@ -1083,7 +1103,7 @@
 <!-- ===== Sean's SECTION One Graph START ===== -->
 <section>
     <div class="topics-section">
-        <h2 class="centered-heading">Most of the grants frozen by president Trump in early 2025 were slowly restored due to the courts fighting back.  
+        <h2 class="centered-heading">Most of the grants frozen by President Trump in early 2025 were slowly restored due to the courts fighting back.  
         But some were not.
         </h2>
 
@@ -1117,12 +1137,12 @@
             terminated and never restored over large geographic regions of the United States.  
         </h3>
 
-        <p class=>
+        <p>
             The South was hit the hardest, with the highest number of grants terminated and never restored. Institution type is only part of the picture. These organizations are not
             spread evenly across the country, so the disruptions also had a geography.
         </p>
 
-        <h3 class="centered-heading">
+        <h3 class="centered-heading"> 
             Map Overview of Terminated NIH Grants out of All grants frozen and terminated.
         </h3>
 
@@ -1131,15 +1151,33 @@
             Hover to see the statistics. (Region, Region Grant Termination Rate, State, State Grant Termination Rates, Count of Grants per State)
         </p>
 
-    <iframe
-        src="{{ url_for('static',filename='termination_map_v1.html') }}"
-        width="750" height="650" frameborder="0"
-        title="Map Overview of Terminations by Region (Version 1)">
-        </iframe>
 
         <p>Certain regions were hit harder than others. What were they working on?
         The graphs below show that public health research areas were hit hardest.</p>
     </div>
+</section>
+
+<section>
+    <div class="topics-section">
+        <h2 class="centered-heading">
+            What about grants that were terminated and never reinstated?
+        </h2>
+
+        <p>
+            In term  
+        </p>
+    </div>
+
+    <figure class="visualization-container">
+        <iframe 
+            src="{{ url_for('static', filename='metric_switcher.html') }}" 
+            title="NIH Disrupted Grants Status Visualization"
+            loading="lazy">
+        </iframe>
+        <figcaption>Compare Disruptions/Terminations/Reinstatements.</figcaption>
+    </figure>
+
+
 </section>
 <!-- ===== Teresa's SECTION END ===== -->
 
