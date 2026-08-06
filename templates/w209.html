@@ -8,6 +8,660 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Slab:wght@500;700&display=swap" rel="stylesheet">
+        <style>
+
+            :root{
+                --navy:       #0b1f44;
+                --ink:        #ffffff;
+                --blue:       #9ec5ff;   /* accent / links */
+                --blue-soft:  #cde0ff;   /* lead paragraphs */
+                --blue-mut:   #b3ccf5;   /* captions, notes */
+                --blue-dim:   #96acd0;   /* subclass */
+                --purple:     #7c3aed;
+
+                --maxw-page:  1200px;    /* charts / full-width blocks */
+                --maxw-text:  760px;     /* readable text column       */
+
+                /* SPACING SCALE for more space with everything increase space-section   */
+                --space-section: 7rem;   /* gap between major sections  */
+                --space-heading: 1.25rem;/* heading is first paragraph  */
+                --space-para:    1.1rem; /* paragraph is paragraph      */
+                --space-figure:  2.25rem;/* text is chart and back      */
+            }
+            html {
+                scroll-behavior: smooth;
+                scroll-padding-top: 22vh;
+            }
+
+            nav {
+                padding: 1.25rem 2rem;
+                position: fixed;
+                width: 100%;
+                top: 0;
+                z-index: 100;
+                box-sizing: border-box;
+                display: block;
+                height: 0px;
+
+            }
+
+            .nav-brand {
+                font-size: 1.1rem;
+                color: #ffffff;
+                opacity: 0;
+                height: 0px;
+            }
+
+            .sticky-toc-navigator {
+                position: absolute;
+                right: 1vw;
+                top: 1vw;
+                width: 15vw;
+                background: #404752;
+                border: 1px solid rgba(158, 197, 255, 0.25);
+                border-radius: 8px;
+                padding: 1rem;
+                box-sizing: border-box;
+                box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+                z-index: 200;
+            }
+
+            .toc-header {
+                font-size: 0.7rem;
+                text-transform: uppercase;
+                letter-spacing: 0.12rem;
+                color: #94a3b8;
+                font-weight: 700;
+                margin-bottom: 0.6rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.15)
+            }
+
+            .toc-links-wrapper {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .toc-link {
+                background-color: rgba(255, 255, 255, 0.3);
+                border-left: 3px solid #9ec5ff;
+                border-radius: 6px;
+                padding: 0.4rem 0.85rem;
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                text-decoration: none;
+                transition: background-color 0.2s ease, border-left-color 0.2s ease;
+                width: 100%;
+                box-sizing: border-box;
+                height: 1.8rem;
+                line-height:1!important;
+            }
+
+            .toc-link:hover {
+                background-color: rgba(255, 255, 255, 0.06)
+            }
+
+            .toc-link .headline {
+                flex: 1;
+                text-align: left;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                transform:translateY(-2px);
+            }
+
+            .toc-link .title-text {
+                font-size: 0.85rem;
+                font-weight: 600;
+                color: #ffffff;
+                line-height: 1.2;
+            }
+
+            .toc-link .toggle {
+                flex-shrink: 0;
+                width: 1.3rem;
+                height: 1.3rem;
+                border-radius: 50%;
+                border: 1.5px solid #9ec5ff;
+                color: #9ec5ff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                order: -1;
+                box-sizing: border-box;
+                transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), color 0.5s ease, border-color 0.5s ease;
+            }
+
+            .toc-link .toggle svg {
+                width: 0.45rem;
+                height: 0.45rem;
+                transition: stroke 0.5s ease;
+            }
+
+            .toc-link.active-toc-node .toggle {
+                transform: rotate(90deg);
+                color: #ecc94b;
+                border-color: #ecc94b;
+            }
+
+            .toc-link.active-toc-node .toggle svg{
+                fill: #ecc94b
+            }
+            
+            body {
+                background-color: #0b1f44;   /* navy blue */
+                color: #ffffff;              /* white text */
+                font-family: 'Roboto', Arial, Helvetica, sans-serif;   /* paragraphs */
+                font-size: 16px;             /* bigger body text (was browser default 16px) */
+                line-height: 1.7;
+                margin: 0;
+                max-width: 84vw;
+            }
+
+            #intro {
+                text-align: center;
+                padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+                background: #404752;
+                border-radius: 12px;
+                position: relative;
+                z-index: 2000;
+            }
+
+            .divider-headline {
+                text-align: center;
+                padding: 10vh 1rem;
+                background-color: #334155;
+                font-size: 2rem;
+                font-weight: 700;
+                margin: 0;
+                color: #fff;
+            }
+
+            .split-container {
+                --split-ratio: 50%;
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                min-height: 300px;
+                width: 100%;
+                box-sizing: border-box;              
+            }
+
+            .split-side {
+                display: flex;
+                
+                align-items: center;
+                justify-content: center;
+                box-sizing: border-box;
+            }
+
+            .left-side {
+                flex: 0 0 var(--split-ratio) !important;
+                width: var(--split-ratio) !important;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-sizing: border-box;
+                padding: 2% 2% 1% 2%;
+            }
+
+            .right-side {
+                flex: 0 0 calc(100% - var(--split-ratio)) !important;
+                width: calc(100% - var(--split-ratio)) !important;
+                align-items: center;
+                justify-content: center;
+                box-sizing: border-box;
+                padding: 2%;
+            }
+
+            @media(max-width:768px) {
+                .split-container {
+                    flex-direction: column  !important;
+                }
+                .left-side, .right-side {
+                    width: 100%;
+                    flex: 1 0 100%;
+                    padding: 40px 20px;
+                }
+            }
+
+            #outro {
+                height: 100vh;
+                background: #404752
+            }
+
+            .scrolly-section-spacer {
+                display: block;
+                width: 100%;
+                height: var(--spacer-height,40vh);
+                background: transparent !important;
+                margin: 0;
+                padding: 0;
+                pointer-events: none;
+                box-sizing: border-box;
+            }
+
+            /* Core strucutral flex colun layout (full width of page)*/
+            .scrolly-container{
+                position: relative;
+                display: flex;
+                padding: 1rem;
+                gap: 1rem;
+                align-items: flex-start;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            /* Left side step tile column*/
+            article{
+                position: relative;
+                flex: 1;
+                max-width: 25vw;
+                width: 100%;
+            }
+
+
+            /* Right side sticky tile standard*/
+            .scrolly-section:not(.is-sensor-track) figure {
+                position: -webkit-sticky;
+                position: sticky;
+                top: calc((100vh - var(--fig-height, 80vh))/2);
+                flex: 1.2;
+                margin: 0;
+                margin-top: var(--fig-margin-top, 150vh);
+                z-index: 5;
+                height: var(--fig-height, 80vh);                
+                border-radius: 12px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+                background-color: #404752 !important;
+                padding: 1rem;
+                box-sizing: border-box;
+                
+            }
+
+            /* Right side sticky tile for impact careds*/
+            .scrolly-section.is-sensor-track figure {
+                position: -webkit-sticky;
+                position: sticky;
+                margin: 0;
+                z-index: 5;
+                top: calc((100vh - var(--fig-height, 80vh))/2);
+                height: var(--fig-height, 80vh);
+                margin-top: var(--fig-margin-top, 150vh);
+                border-radius: 12px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+                background-color: #404752 !important;
+                padding: 1rem;
+                box-sizing: border-box;
+                transition: top 0.4s ease, margin-top 0.4s ease;
+            }
+
+            .scrolly-section.is-sensor-track figure.is-sticky-center {
+                position: -webkit-sticky;
+                position: sticky;
+                top: calc((100vh - var(--fig-height, 60vh))/2);
+                margin-top: 0;
+            }
+
+
+
+
+
+            .right-visual-column-wrapper {
+                flex: 1.2;
+                position: relative;
+                align-self: stretch;
+            }
+
+            .scrolly-section.is-sensor-track figure.intro-figure {
+                position: absolute !important;
+                top: 0;
+                left: 0;
+                width: 100%;
+                margin-top: 0 !important;
+                z-index: 4;
+                background-color: transparent !important;
+                box-shadow: none !important;
+                border-radius: 0;
+                padding: 0;
+            }
+
+            .stationary-text-window {
+                position: -webkit-sticky;
+                position: sticky;
+                z-index: 10;
+                top:calc((100vh - var(--step-height, 80vh))/2);
+                width: 100%;
+                height: var(--step-height, 80vh);
+                border: 1px solid rgba(158, 197, 255, 0.2);
+                border-radius: 12px;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+                background-color: #404752 !important;
+                padding: 2rem;
+                box-sizing: border-box;
+                display: none;
+            }
+
+            .scrolly-section.is-sensor-track .stationary-text-window {
+                display: block;
+            }
+
+            .scrolly-section.is-sensor-track .step {
+                height:60vh;
+                margin: 0;
+                opacity: 0 !important;
+                background: transparent !important;
+                box-shadow: none !important;
+                transform: none !important;
+                pointer-events: none;
+            }
+
+            /* Sticky Tile Step Counter*/
+            .counter-display {
+                text-align: center;
+                padding: 0;
+                margin: auto;
+                font-size: 8rem;
+                font-weight: 900;;
+                color: #ffffff;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            /* Invididual Step Tile*/
+            .step {
+                height: var(--step-height, 44vh);
+                width: 100%;       
+                color: #ffffff;
+                background-color: transparent;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.4s ease;
+                border-radius: 12px;
+                box-sizing: border-box;
+            }
+
+            
+
+            .step:last-child {
+                margin-bottom:5vh;
+            }
+
+            .step p {
+                text-align: center;
+                font-size: 2rem;
+                font-weight: 800;
+                margin: 0;
+                padding: 1rem;
+            }
+
+            .step small {
+                font-size: 1rem;
+                font-weight: 400;
+                opacity: 0.9;
+                margin-top: 0.5rem;
+            }
+
+
+            .scrolly-section[data-type="counter"] article .step {
+                position: relative;
+                opacity: 1 !important;
+                background: transparent !important;
+                box-shadow: none !important;
+                border: none !important;
+                transform: none !important;
+
+            }
+
+            .inner-scrolling-card {
+                position: relative;
+                margin: 0 auto;                
+                width: 100%;                
+                padding: 2rem;
+                color: #ffffff;
+                background-color: #404752;
+                border-radius: 12px !important;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.4) !important;
+                box-sizing: border-box;
+                z-index: 5;
+                height: auto !important;
+                opacity: 1;
+                text-align: center;
+            }
+
+            .scrolly-section[data-type="counter"] article .step.is-active .inner-scrolling-card {
+                opacity: 1 !important;
+                transform: scale(1.02) !important;
+                box-shadow: 0 12px 25px rgba(0,0,0,0.4) !important;
+            }
+
+            
+            h1, h2 {
+                color: #ffffff;
+                font-family: 'Roboto Slab', Georgia, serif;   /* I am trying to use the font we had on the powerpoint*/
+            }
+
+            .subclass{
+                text-align: center;
+                font-size: 20px;
+                color:  #96acd0;
+            }
+
+            a {
+                color: #9ec5ff;   /* I'm making this light blue */
+            }
+
+            /* I'm making the background white so the charts show up */
+            img,
+            iframe,
+            #sector_shares_of_grants {
+                background-color: #ffffff;
+                border-radius: 8px;
+                padding: 8px;
+                box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+            }
+
+            /* ===== Expandable tiles (pure CSS + HTML, no JS needed) ===== */
+            .impact-intro {
+                color: #cde0ff; 
+                max-width: 640px; 
+                margin: 0 0 1.25rem 0;
+
+             }
+
+            .impact-cards {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+                margin: 0 0 1.25rem 0;
+                width: 100%;
+                overflow-anchor: none;
+                width: 100%;
+                text-align: center;
+            }
+            .impact-card {
+                background-color: rgba(255, 255, 255, 0.05);
+                border-left: 3px solid #9ec5ff;
+                border-radius: 8px;
+                overflow: hidden;
+                transition: background-color 0.2s ease, border-left-color 0.2s ease;
+                width: 100%;
+                height:auto;
+            }
+            .impact-card[open] {
+                background-color: rgba(255, 255, 255, 0.08);
+                border-left-color: #ecc94b}
+
+            .impact-card summary {
+                list-style: none;
+                cursor: pointer;
+                padding: .6rem .6rem;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+            .impact-card summary::-webkit-details-marker { display: none; }
+            .impact-card summary:focus-visible { outline: 2px solid #9ec5ff; outline-offset: -2px; }
+            .impact-card .headline { flex: 1; text-align: left;}
+
+            .impact-card .topic {
+                display: block;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                font-size: 1.4vh;
+                font-weight: 700;
+                color: #9ec5ff;
+                margin-bottom: 0.2rem;
+            }
+            .impact-card .claim {
+                font-family: 'Roboto Slab', Georgia, serif;
+                font-size: 1.6vh;
+                font-weight: 500;
+                color: #ffffff;
+                line-height: 1.35;
+            }
+
+            @starting-style {
+                .impact-card[open] .detial {
+                    max-height: 0;
+                    opacity: 0;
+                }
+            }
+
+
+            .impact-card .toggle {
+                flex-shrink: 0;
+                width: 1.6rem;
+                height: 1.6rem;
+                border-radius: 50%;
+                border: 1.5px solid #9ec5ff;
+                color: #9ec5ff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                order: -1;
+                box-sizing: border-box;
+                transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1), color 1s ease, border-color 1s ease;
+            }
+
+            .impact-card .toggle svg{
+                width: 0.5rem;
+                height: 0.5rem;
+                transition: stroke 1s ease, tranform 1s ease;
+                transform: scale(1.3);
+                transform-origin: center center;
+            }
+
+            
+            .impact-card[open] .toggle { transform: rotate(90deg); color: #ecc94b; border-color: #ecc94b }
+            .impact-card[open] .detail { max-height: 500px; opacity: 1; padding-bottom: 1.2rem; transform: scaleY(1); padding-left:20px; padding-bottom: 20px}
+            .impact-card .detail-content { overflow: hidden;}
+
+            .impact-card .detail {
+                display: block;
+                max-height: 0;
+                overflow: hidden;
+                transform: scaleY(0);
+                transition: max-height 1s cubic-bezier(0.16, 1, 0.3, 1), padding 1s cubic-bezier(0.16, 1, 0.3, 1), opacity 1s ease, display 1s allow-discrete;
+                transform-origin: var(--origin, top center);
+                opacity: 0;
+                padding: 0 1.25rem;
+                color: #cde0ff;
+                font-size: 1.5vh;
+                line-height: 1.65;
+                text-align: left;
+            }
+            .impact-card .detail p { margin: 0; }
+            .impact-card .detail ul { margin: 0; padding-left: 1.2rem; }
+            .impact-card .detail li { margin-bottom: 0.35rem; }
+            .impact-source { 
+                font-size: 1.2vh; 
+                color: #8ba6cf; 
+                font-style: italic; 
+                margin: 0 auto;
+                max-width: 640px; 
+            }
+            @media (prefers-reduced-motion: reduce) {
+                .impact-card, .impact-card .toggle { transition: none; }
+            }
+
+            /* ===== Intro enhancements (added) ===== */
+            /* Bigger, tighter headings */
+            h1 {
+                font-size: 5vh; 
+                line-height: 1.15; 
+                margin: 0 auto;
+            }
+            h2 { 
+                font-size: 3vh;
+                margin: 15 auto; 
+                line-height: 1.25;
+            }
+            
+            h3{
+                font-size: 2vh;
+                margin: 10 auto;
+                line-height: 1;
+            }
+
+            h4{
+                font-size: 2vh;
+                margin: 10 auto;
+                line-height: 1;
+                color: #ecc94b;
+            }
+
+            .centered-heading{
+                text-align: center;
+                margin: 0 auto;
+                margin-bottom: 0;
+            }
+
+            /* Opening paragraph: larger, softer blue */
+            p.lead {
+
+                font-size: 2vh;
+                font-weight: 500;
+                color: #cde0ff;
+
+            }
+
+             /* NIH Logo image */
+            .centered-img {
+                display: block;
+                margin: 0 auto 24px;
+            }
+
+            /* Hero stat block: leads with the strongest number */
+            .stat-hero {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                gap: 1.25rem;
+                /*margin: 1.5rem 0 2.25rem 0;*/
+                margin: 0 auto;
+                padding-right: 1.5rem;
+                border-right: 4px solid #9ec5ff;                
+                width: 30vh
+            }
+            .stat-hero .number {
+                font-family: 'Roboto Slab', Georgia, serif;
+                font-size: 6rem;
+                font-weight: 700;
+                color: #9ec5ff;
+                line-height: 1;
+                flex-shrink: 0;
+            }
+            .stat-hero .label {
+                font-size: 1rem;
+                color: #cde0ff;
+                line-height: 1.5;
+                width: 40vh
+            }
 
         <style>
         /* 1. This is the spacing design section */
@@ -239,7 +893,7 @@
                 --green:#1f8a4c; --green-bg:#e8f6ee; --green-br:#bfe6cd;
                 --gray:#5b6b85;
                 background:#ffffff; border-radius:16px; padding:28px clamp(16px,3vw,34px);
-                box-shadow:0 6px 22px rgba(0,0,0,.28); color:var(--ink); max-width:760px; margin:0 auto;
+                box-shadow:0 6px 22px rgba(0,0,0,.28); color:var(--ink); margin:0 auto; height:80vh; width:auto;
             }
         .grantflow h3{ font-family:'Roboto Slab',Georgia,serif; font-size:1.7rem; margin:0 0 4px; color:var(--ink); text-align:center; }
         .grantflow .gf-sub{ text-align:center; margin:0 auto 22px; color:#43567a; font-size:1rem; max-width:640px; }
@@ -272,124 +926,114 @@
 
             .gf-arrow{ display:flex; justify-content:center; color:var(--ink); font-size:1.1rem; line-height:1; margin:5px 0; }
             .gf-arrow.red{ color:var(--red); }
-        .gf-disrupt{ border-radius:12px; padding:12px; background:#fffafa; }
-        .gf-hint{ display:inline-flex; align-items:center; gap:8px; width:fit-content; margin:0 auto 12px; font-size:.82rem; color:var(--blue); background:var(--blue-bg); border:1px solid var(--blue-br); border-radius:999px; padding:6px 13px; }
-        .gf-hint svg{ width:15px; height:15px; }
-        .gf-act{ margin:0 0 6px; }
-        .gf-act-head{ display:flex; align-items:baseline; gap:10px; margin:0 0 14px; padding-bottom:9px; border-bottom:2px solid #e6edf7; }
-        .gf-act-title{ font-family:'Roboto Slab',Georgia,serif; font-size:1.12rem; color:var(--ink); margin:0; }
-        .gf-more{ flex:0 0 auto; display:inline-flex; align-items:center; gap:5px; font-size:.72rem; font-weight:700; letter-spacing:.02em; color:var(--blue); background:#fff; border:1px solid var(--blue-br); border-radius:999px; padding:4px 9px; transition:background .12s, color .12s; }
-        .gf-more svg{ width:13px; height:13px; transition:transform .2s ease; }
-        .gf-node:hover .gf-more{ background:var(--blue); color:#fff; }
-        .gf-item.open > .gf-node .gf-more svg{ transform:rotate(180deg); }
-        .gf-node.red .gf-more{ color:var(--red); border-color:var(--red-br); }
-        .gf-node.red:hover .gf-more{ background:var(--red); color:#fff; }
-        @media (prefers-reduced-motion: reduce){ .gf-node,.gf-detail{ transition:none; } }
+            .gf-loop{ text-align:center; font-size:.8rem; color:var(--blue); font-style:italic; margin:2px 0 4px; }
+            .gf-loop.red{ color:var(--red); }
 
-        .gf-statemap{ --ink:#12326e; --blue:#1b4fa0; --red:#d12b2b; --green:#1f8a4c; border:1px solid #dbe6f6; border-radius:12px; background:#fbfdff; padding:16px 16px 14px; margin:0 auto; max-width:760px; }
-        .gf-statemap .gf-map-title{ font-family:'Roboto Slab',Georgia,serif; font-size:1.05rem; color:var(--ink); margin:0 0 10px; text-align:center; }
-        .gf-statemap .gf-hint{ margin:0 auto 12px; font-size:.8rem; color:var(--blue); background:#eef4fc; border:1px solid #cdddf3; }
-        .gf-statemap .gf-hint svg{ width:14px; height:14px; }
-        .gf-statemap svg.gf-map{ display:block; width:100%; height:auto; }
-        .gf-statemap .mnode{ cursor:pointer; }
-        .gf-statemap .mnode rect{ transition:fill .12s, stroke-width .12s; }
-        .gf-statemap .mnode:focus{ outline:none; }
-        .gf-statemap .mnode:focus-visible rect{ stroke-width:3; }
-        .gf-statemap .mnode.blue:hover rect,  .gf-statemap .mnode.blue.sel rect { fill:#dcebfb; }
-        .gf-statemap .mnode.red:hover rect,   .gf-statemap .mnode.red.sel rect  { fill:#f9dede; }
-        .gf-statemap .mnode.green:hover rect, .gf-statemap .mnode.green.sel rect{ fill:#d7efe0; }
-        .gf-statemap .mnode.orange:hover rect, .gf-statemap .mnode.orange.sel rect { fill:#fbe4c4; }
-        .gf-statemap .mnode.sel rect{ stroke-width:3; }
-        .gf-map-detail{ margin-top:14px; background:#f7fafe; border:1px solid #dbe6f6; border-left:5px solid var(--blue); border-radius:10px; padding:14px 16px; }
-        .gf-map-detail .gf-md-title{ font-weight:700; margin:0 0 6px; font-size:1rem; color:var(--blue); }
-        .gf-map-detail .gf-md-body{ margin:0; font-size:.94rem; line-height:1.6; color:#2c3a56; }
-        .gf-statemap.gf-anim{ opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease; }
-        .gf-statemap.gf-anim.is-in{ opacity:1; transform:none; }
-        @media (prefers-reduced-motion: reduce){ .gf-statemap .mnode rect{ transition:none; } .gf-statemap.gf-anim{ opacity:1; transform:none; transition:none; } }
+            .gf-fork{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:8px; }
+            @media (max-width:560px){ .gf-fork{ grid-template-columns:1fr; } }
+            .gf-branch-label{ text-align:center; font-size:.82rem; color:#43567a; margin-bottom:6px; }
+            .gf-disrupt{ border-radius:12px; padding:12px; background:#fffafa; }
 
-        /* ===== I Juliana used AI Claude to help with the formatting of this scrolling section ===== */
-        .ramp-scrolly{ position:relative; display:flex; gap:3rem; align-items:flex-start; width:100%; box-sizing:border-box; margin-top:1.5rem; }
-        .ramp-article{ position:relative; flex:1; max-width:26rem; }
-        .ramp-figure{
-            position:-webkit-sticky; position:sticky; top:16vh; flex:1.25; margin:0; height:66vh;
-            border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,.3);
-            background:#1e293b; padding:1.5rem 1.5rem 1rem; box-sizing:border-box;
-            display:flex; flex-direction:column; z-index:5;
-        }
-        .ramp-label{ text-align:center; color:#94a3b8; font-size:.95rem; letter-spacing:.02em; }
-        .ramp-count{
-            font-family:'Roboto Slab',Georgia,serif; font-weight:900;
-            font-size:clamp(3rem,7vw,5.5rem); line-height:1.05; color:#fff;
-            font-variant-numeric:tabular-nums; text-align:center;
-        }
-        .ramp-sub{ text-align:center; color:#cbd5e1; font-size:1rem; margin:.35rem auto 0; max-width:36ch; min-height:2.8em; }
-        .ramp-canvas{ flex:1; width:100%; display:block; margin-top:.6rem; min-height:0; }
+            .gf-key{ display:flex; flex-wrap:wrap; gap:14px 22px; margin-top:22px; padding-top:16px;
+                border-top:1px solid #e6edf7; font-size:.82rem; color:#43567a; }
+            .gf-key i{ display:inline-block; width:26px; height:0; border-top-width:3px; border-top-style:solid;
+                vertical-align:middle; margin-right:7px; }
 
-        .ramp-step{ min-height:66vh; display:flex; flex-direction:column; justify-content:center; opacity:.25; transform:scale(.98); transition:opacity .35s ease, transform .35s ease; }
-        .ramp-step.is-active{ opacity:1; transform:scale(1); }
-        .ramp-step p{ font-size:1.6rem; font-weight:800; margin:0; }
-        .ramp-step small{ display:block; font-weight:400; font-size:1rem; opacity:.92; margin-top:.4rem; color:#cbd5e1; }
+            @media (prefers-reduced-motion: reduce){ .gf-node,.gf-caret,.gf-detail{ transition:none; } }
+            .chart-note {
+                max-width: 640px;
+                margin: 0.5rem 0 1.75rem 0;
+                font-size: 0.9rem;
+            }
+            .chart-note summary {
+                cursor: pointer;
+                color: #ecc94b;
+                font-weight: 500;
+                list-style: none;
+                padding: 0.3rem 0;
+            }
+            .chart-note summary::-webkit-details-marker { display: none; }
+            .chart-note summary::before { content: "+ "; font-weight: 700; }
+            .chart-note[open] summary::before { content: "\2212 "; }  /* minus sign */
+            .chart-note summary:focus-visible { outline: 2px solid #9ec5ff; outline-offset: 2px; }
+            .chart-note .note-body {
+                color: #ecc94b;
+                line-height: 1.6;
+                padding: 0.4rem 0 0 1.1rem;
+                
+            }
 
-        /* The magnitude of the scroll can make longer or shorter */
-        .ramp-trigger{ min-height:320vh; opacity:1 !important; transform:none !important; justify-content:flex-start; }
-        .ramp-note{ margin:44vh 0; font-size:1.5rem; font-weight:800; }
-        .ramp-note:first-child{ margin-top:8vh; }
+            /* ===== These are the styles for the flowchart hint/pills/act headers ===== */
+            .gf-hint{ display:inline-flex; align-items:center; gap:8px;
+                width:fit-content;
+                margin: auto 80px;
+                font-size:1.1rem; color:var(--purple); background:var(--purple-bg);
+                border:1px solid var(--blue-br); border-radius:999px; padding:6px 13px;  }
+            .gf-hint svg{ width:15px; height:15px;
+            }
+            .gf-act{ margin:0 0 6px;
+                text-align:center; 
+            }
+            .gf-act + .gf-act{ margin-top:26px;
+                   text-align:center; 
+            }
+            .gf-act-head{ display:flex; align-items:baseline; gap:10px; margin:0 0 14px;
+                padding-bottom:9px; border-bottom:2px solid #e6edf7; }
+            .gf-act-num{ font-family:'Roboto Slab',Georgia,serif; font-size:.78rem; font-weight:700;
+                letter-spacing:.1em; text-transform:uppercase; color:var(--blue);
+                background:var(--blue-bg); border:1px solid var(--blue-br);
+                border-radius:6px; padding:3px 8px; flex:0 0 auto; }
+            .gf-act-title{ font-family:'Roboto Slab',Georgia,serif; font-size:1.12rem; color:var(--ink); margin:0; }
+            .gf-act-lead{ font-size:.92rem; color:#43567a; line-height:1.55; margin:-4px 0 14px; max-width:640px; }
+            .gf-more{ flex:0 0 auto; display:inline-flex; align-items:center; gap:5px;
+                font-size:.72rem; font-weight:700; letter-spacing:.02em; color:var(--blue);
+                background:#fff; border:1px solid var(--blue-br); border-radius:999px;
+                padding:4px 9px; transition:background .12s, color .12s; }
+            .gf-more svg{ width:13px; height:13px; transition:transform .15s ease-out; }
+            .gf-node:hover .gf-more{ background:var(--blue); color:#fff; }
+            .gf-item.open > .gf-node .gf-more svg{ transform:rotate(180deg); transition-duration: 0.5;}
+            .gf-node.red .gf-more{ color:var(--red); border-color:var(--red-br); }
+            .gf-node.red:hover .gf-more{ background:var(--red); color:#fff; }
+            .gf-node.green .gf-more{ color:var(--green); border-color:var(--green-br); }
+            .gf-node.green:hover .gf-more{ background:var(--green); color:#fff; }
 
-        @media (max-width:760px){
-            .ramp-scrolly{ flex-direction:column; gap:1rem; }
-            .ramp-figure{ order:-1; top:6vh; height:52vh; flex:none; width:100%; }
-            .ramp-article{ max-width:none; }
-            .ramp-step{ min-height:70vh; }
-        }
-        </style>
-    </head>
-<body>
-<section>
-    <img class="centered-img" src="https://datasci-209-flask-teamscience-verce.vercel.app/static/nih_grant.png" alt="NIH Grant image"/>
-</section>
+            /* ===== These are the styles for the interactive state map ===== */
+            .gf-statemap{ --ink:#12326e; --blue:#1b4fa0; --red:#d12b2b; --green:#1f8a4c;
+                border:1px solid #dbe6f6; border-radius:12px; background:#fbfdff; padding:16px 16px 14px; margin:0 0 8px; height:90%; width:90%;}
+            .gf-statemap .gf-map-eyebrow{ font-size:.74rem; font-weight:700; letter-spacing:.09em;
+                text-transform:uppercase; color:#5b6b85; margin:0 0 2px; }
+            .gf-statemap .gf-map-title{ font-family:'Roboto Slab',Georgia,serif; font-size:1.05rem; color:var(--ink); margin:0 0 10px; }
+            .gf-statemap .gf-hint{ display:inline-flex; align-items:center; gap:8px; margin:0 0 12px;
+                font-size:.8rem; color:var(--purple); background:var(--purple-bg); border:1px solid #cdddf3; border-radius:999px; padding:5px 12px; }
+            .gf-statemap .gf-hint svg{ width:14px; height:14px;}
+            .gf-statemap svg.gf-map{ display:block; width:100%; height:auto;}
+            .gf-statemap .mnode{ cursor:pointer; }
+            .gf-statemap .mnode rect{ transition:fill .12s, stroke-width .12s; }
+            .gf-statemap .mnode:focus{ outline:none; }
+            .gf-statemap .mnode:focus-visible rect{ stroke-width:3; }
+            .gf-statemap .mnode.blue:hover rect,  .gf-statemap .mnode.blue.sel rect { fill:#dcebfb; }
+            .gf-statemap .mnode.red:hover rect,   .gf-statemap .mnode.red.sel rect  { fill:#f9dede; }
+            .gf-statemap .mnode.green:hover rect, .gf-statemap .mnode.green.sel rect{ fill:#d7efe0; }
+            .gf-statemap .mnode.orange:hover rect, .gf-statemap .mnode.orange.sel rect { fill:#fbe4c4; }
+            .gf-statemap .mnode.sel rect{ stroke-width:3; }
+            .gf-map-detail{ margin-top:14px; background:#f7fafe; border:1px solid #dbe6f6;
+                border-left:5px solid var(--blue); border-radius:10px; padding:14px 16px; }
+            .gf-map-detail .gf-md-title{ font-weight:700; margin:0 0 6px; font-size:1rem; color:var(--blue); }
+            .gf-map-detail .gf-md-body{ margin:0; font-size:.94rem; line-height:1.6; color:#2c3a56; }
+            .gf-statemap.gf-anim{ opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease; }
+            .gf-statemap.gf-anim.is-in{ opacity:1; transform:none; }
 
-    <!--  99.4% stat -->
-    <section class="section">
-        <div class="stat-hero">
-            <span class="number">99.4%</span>
-            <span class="label">of drugs approved by the FDA between 2010 and 2019 used NIH funding during development: 354 out of 356.</span>
-        </div>
-    </section>
-
-    <!--  What do NIH grants Do -->
-    <section class="section reveal">
-    <h2 class="centered-heading">What Do NIH Grants Do?</h2>
-        <div class="wrap">
-            <p class="lead">The National Institutes of Health is the largest public funder of biomedical and behavioral research in the world. Its work doesn't stay in the lab. It becomes the treatments people depend on.</p>
-            <p>As part of the U.S. Department of Health and Human Services, the NIH invests tens of billions of dollars annually to support research at universities, hospitals, and research institutions across the country. Its history traces back to 1887 (NIH, 2025a).</p>
-            <p class="impact-intro">Its reach goes well beyond any single breakthrough. Tap any area below to see what the research it funds delivers. Except where noted, every figure comes from the NIH's own public accounting.</p>
-        </div>
-    </section>
-
-    <!--  Impact cards -->
-    <section class="section reveal">
-    <div class="impact-cards">
-        <details class="impact-card">
-                <summary><span class="headline"><span class="topic">Landmark discoveries</span><span class="claim">Decades of NIH-funded science behind treatments people use today.</span></span><span class="toggle" aria-hidden="true">+</span></summary>
-        <div class="detail">
-            <ul>
-            <li>Cracked the genetic code</li>
-            <li>Led the public Human Genome Project (NIH, 2025b)</li>
-            <li>Ran the studies that established fluoride prevents tooth decay (NIH, 2024)</li>
-            <li>Helped discover mRNA vaccine technology</li>
-            <li>Funded the basic science behind gene therapy and gene editing over decades (NIH, 2025b)</li>
-            </ul>
-                    <a href="#" target="_blank">NIH Impact Summary</a>
-        </div>
-        </details>
-
-        <details class="impact-card">
-                <summary><span class="headline"><span class="topic">Cancer</span><span class="claim">Cancer death rates have fallen more than 1.5% a year for 15 years.</span></span><span class="toggle" aria-hidden="true">+</span></summary>
-        <div class="detail">
-                    <p>The NIH puts a dollar value on that progress: each 1% reduction in cancer deaths carries a present value of nearly $500 billion to current and future generations of Americans.</p>
-                    <a href="#" target="_blank">NIH Cancer Research</a>
-        </div>
-        </details>
+            /* ===== FIX: page-wide scroll reveal (safe: hidden only when JS is ready) ===== */
+            .js-reveal .reveal{ opacity:0; transform:translateY(20px); transition:opacity .6s ease, transform .6s ease; }
+            .js-reveal .reveal.is-in{ opacity:1; transform:none; }
+            @media (prefers-reduced-motion: reduce){
+                .gf-statemap .mnode rect{ transition:none; }
+                .gf-statemap.gf-anim{ opacity:1; transform:none; transition:none; }
+                .js-reveal .reveal{ opacity:1; transform:none; transition:none; }
+            }
+            .tableauPlaceholder {
+                margin: 0 auto !important;
+            }
 
         <details class="impact-card">
                 <summary><span class="headline"><span class="topic">Addiction treatment</span><span class="claim">Every $1 spent treating substance use disorder saves $4 in health care and $7 in criminal justice costs.</span></span><span class="toggle" aria-hidden="true">+</span></summary>
@@ -399,13 +1043,46 @@
         </div>
         </details>
 
-        <details class="impact-card">
-                <summary><span class="headline"><span class="topic">Children's health</span><span class="claim">Vaccinating a single year of U.S. newborns is projected to save tens of billions over their lifetimes.</span></span><span class="toggle" aria-hidden="true">+</span></summary>
-        <div class="detail">
-                    <p>For children born in 2009, the CDC estimates childhood vaccination will cut direct health care costs by $13.5 billion and save $68.8 billion in indirect costs over their lifetimes. NIH supported the Hib vaccine alone, estimated to save more than $1.8 billion for that single birth year, and early cochlear implants developed in part from NIH-supported research can save more than $30,000 per child.</p>
-                    <a href="#" target="_blank">Economic Review of Childhood Vaccination</a>
-        </div>
-        </details>
+            iframe[src*="termination_map"] {
+                display: block;
+                margin: 0 auto;
+            }
+                /* ===== I Juliana used AI Claude to help with the formatting of this scrolling section ===== */
+            .ramp-scrolly{ position:relative; display:flex; gap:3rem; align-items:flex-start; width:100%; box-sizing:border-box; margin-top:1.5rem; }
+            .ramp-article{ position:relative; flex:1; max-width:26rem; }
+            .ramp-figure{
+                position:-webkit-sticky; position:sticky; top:16vh; flex:1.25; margin:0; height:66vh;
+                border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,.3);
+                background:#1e293b; padding:1.5rem 1.5rem 1rem; box-sizing:border-box;
+                display:flex; flex-direction:column; z-index:5;
+            }
+            .ramp-label{ text-align:center; color:#94a3b8; font-size:.95rem; letter-spacing:.02em; }
+            .ramp-count{
+                font-family:'Roboto Slab',Georgia,serif; font-weight:900;
+                font-size:clamp(3rem,7vw,5.5rem); line-height:1.05; color:#fff;
+                font-variant-numeric:tabular-nums; text-align:center;
+            }
+            .ramp-sub{ text-align:center; color:#cbd5e1; font-size:1rem; margin:.35rem auto 0; max-width:36ch; min-height:2.8em; }
+            .ramp-canvas{ flex:1; width:100%; display:block; margin-top:.6rem; min-height:0; }
+
+            .ramp-step{ min-height:66vh; display:flex; flex-direction:column; justify-content:center; opacity:.25; transform:scale(.98); transition:opacity .35s ease, transform .35s ease; }
+            .ramp-step.is-active{ opacity:1; transform:scale(1); }
+            .ramp-step p{ font-size:1.6rem; font-weight:800; margin:0; }
+            .ramp-step small{ display:block; font-weight:400; font-size:1rem; opacity:.92; margin-top:.4rem; color:#cbd5e1; }
+
+            /* The magnitude of the scroll can make longer or shorter */
+            .ramp-trigger{ min-height:320vh; opacity:1 !important; transform:none !important; justify-content:flex-start; }
+            .ramp-note{ margin:44vh 0; font-size:1.5rem; font-weight:800; }
+            .ramp-note:first-child{ margin-top:8vh; }
+
+            @media (max-width:760px){
+                .ramp-scrolly{ flex-direction:column; gap:1rem; }
+                .ramp-figure{ order:-1; top:6vh; height:52vh; flex:none; width:100%; }
+                .ramp-article{ max-width:none; }
+                .ramp-step{ min-height:70vh; }
+            }
+        </style>
+    </head>
 
         <details class="impact-card">
                 <summary><span class="headline"><span class="topic">Environment</span><span class="claim">Lead exposure in the U.S. has dropped dramatically over 45 years.</span></span><span class="toggle" aria-hidden="true">+</span></summary>
@@ -436,33 +1113,94 @@
           <small>From 2012 to January 20, 2025, NIH terminated fewer than six active grants midstream.</small>
         </div>
 
-        <div class="ramp-step ramp-trigger">
-          <p class="ramp-note">Then, in 2025, the freezes and terminations began.</p>
-          <p class="ramp-note">Keep scrolling. Each dot is one grant that was frozen or terminated.</p>
-          <p class="ramp-note">The count does not stop at 6 terminations.</p>
-          <p class="ramp-note">It keeps going.</p>
-        </div>
+        <main>
+            <!--  Counter viz originally created by Sean Sjahrial; numbers and current implementation by Juliana Carrillo -->            
 
-        <div class="ramp-step ramp-outro">
-          <p>6,096 grants frozen or terminated.</p>
-          <small>At least 5,362 were frozen. 734 were terminated with complete records. NIH terminated 1,249 grants in total, but only 734 had complete spending and timeline data.</small>
-        </div>
-      </div>
+            <section class = "scrolly-container scrolly-section " id="Intro" data-type = "ramp" data-title = "Intro">
+                <article>                                        
+                    <div class = "step" data-step = "1" style="--step-height:80vh">
+                        <div class="inner-scrolling-card">
+                            <div class="topics-section">
+                                <div class = "centered-heading">
+                                    <h2 class="centered-heading">From 2012 to January 20, 2025, NIH terminated fewer than six active grants midstream.</h2>
+                                    </br>
+                                    <span class="gf-hint" style="display:inline-flex; margin:1vh auto; justify-content: center;">
 
-      <figure class="ramp-figure" aria-label="A counter rising from 6 to 6,096 grants frozen or terminated">
-        <div class="ramp-label">2012 to January 20, 2025</div>
-        <div class="ramp-count">6</div>
-        <div class="ramp-sub">Fewer than 6 grants terminated midstream in 13 years.</div>
-        <canvas class="ramp-canvas"></canvas>
-      </figure>
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="#ecc94b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path 
+                                            stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12l3 0"/><path d="M12 3l0 3"/><path d="M7.8 7.8l-2.2 -2.2"/><path 
+                                            d="M16.2 7.8l2.2 -2.2"/><path d="M7.8 16.2l-2.2 2.2"/><path d="M12 12l9 3l-4 2l-2 4l-3 -9"/></svg>    
+                                            <h4>Scroll Down</h4>
+                                            <svg viewBox="0 0 20 20" fill="none" stroke="#ecc94b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path 
+                                            stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12l3 0"/><path d="M12 3l0 3"/><path d="M7.8 7.8l-2.2 -2.2"/><path 
+                                            d="M16.2 7.8l2.2 -2.2"/><path d="M7.8 16.2l-2.2 2.2"/><path d="M12 12l9 3l-4 2l-2 4l-3 -9"/></svg>  
+                                        <h4>        </h4>
+                                        <h4>        </h4>
+                                    </span> 
+                                </div>            
+                            </div>    
+                        </div>
+                    </div>
+                    <div class = "step" ramp-step = 'ramp-intro' data-step = "2" style="--step-height:40vh">
+                        <div class="inner-scrolling-card">
+                            <div class = "centered-heading">
+                                <h2>For 13 years, terminations almost never happened.</h2> 
+                                <span class="gf-hint" style="display:inline-flex; margin:1vh auto; justify-content: center;">
 
-    </div>
-  </section>
-
-
-    <!--  More flowchart -->
-    <section class="section reveal">
-        <div class="figure" style="max-width:760px">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="#ecc94b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path 
+                                        stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12l3 0"/><path d="M12 3l0 3"/><path d="M7.8 7.8l-2.2 -2.2"/><path 
+                                        d="M16.2 7.8l2.2 -2.2"/><path d="M7.8 16.2l-2.2 2.2"/><path d="M12 12l9 3l-4 2l-2 4l-3 -9"/></svg>    
+                                        <h4>Keep Scrolling</h4>
+                                        <svg viewBox="0 0 20 20" fill="none" stroke="#ecc94b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path 
+                                        stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12l3 0"/><path d="M12 3l0 3"/><path d="M7.8 7.8l-2.2 -2.2"/><path 
+                                        d="M16.2 7.8l2.2 -2.2"/><path d="M7.8 16.2l-2.2 2.2"/><path d="M12 12l9 3l-4 2l-2 4l-3 -9"/></svg>  
+                                    <h4>        </h4>
+                                    <h4>        </h4>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "step" ramp-step = 'ramp-trigger' data-step = "3" style="--step-height:400vh;">
+                        <div class="inner-scrolling-card">                        
+                            <div class="topics-section">
+                                <p class="lead">                        
+                                Then, in 2025, the freezes and terminations began.
+                                 Each dot is one grant that was frozen or terminated.
+                                The count does not stop at 6 terminations.
+                                It keeps going.</p>
+                            </div>
+                        </div>                    
+                    </div>
+                    <div class = "step" ramp-step = 'ramp-outro' data-step = "4">
+                        <div class="inner-scrolling-card">
+                            <h2 class="centered-heading"></h2>
+                            <p class="lead">More than grants 5,362 were frozen.</p>
+                            </br>1,249 were terminated</br>
+                            </br>In total, 6,096 NIH grants were impacted.
+                            </p>
+                        </div>
+                    </div>
+                    <div class = "step"  data-step = "4">
+                        <div class="inner-scrolling-card">
+                            <h2 class="centered-heading"></h2>
+                            <p class="lead">Before we dive into that, we need some background.
+                            </p>
+                        </div>
+                    </div>
+                    
+                </article>
+                <div class = "right-visual-column-wrapper">
+                    <figure data-main-visual = "true" style=" --fig-margin-top:0vh; --fig-height: 80vh; justify-content: center; display: flex; flex-direction: column; align-items: center; box-sizing: border-box;">
+                    
+                        <div class="ramp-label">2012 to January 20, 2025</div>
+                        <div class="ramp-count">6</div>
+                        <div class="ramp-sub">Fewer than 6 grants terminated midstream in 13 years.</div>
+                        <canvas class="ramp-canvas"></canvas>
+                    
+                    </figure>
+                </div>
+                
+            </section>
+                    
 
           <div class="grantflow" id="grantflow">
             <h3>How NIH grant money moves, and where it got cut</h3>
@@ -473,11 +1211,511 @@
               Click "More" to view a dropdown with additional details.
             </span>
 
-            <!-- ACT 1 -->
-            <div class="gf-act">
-              <div class="gf-act-head">
-                <h4 class="gf-act-title">Where the Money Comes From</h4>
-            </div>
+            <section class = "scrolly-container scrolly-section is-sensor-track" id="What do NIH Grants Do?" data-type = "cards" data-title = "What do NIH Grants Do?">
+                <article style = "position: relative;">
+                    <div class = "stationary-text-window">
+                        <section style="padding: 50px 0">
+                            <h2 class="centered-heading">What Do NIH Grants Do?</h2>
+
+                            <div class="topics-section">
+                            <p class="lead">The National Institutes of Health is the largest public funder of
+                                biomedical and behavioral research in the world. Its work doesn't stay in the
+                                lab. It becomes the treatments people depend on.</p>
+
+                            <p>As part of the U.S. Department of Health and Human Services, the NIH invests
+                                tens of billions of dollars annually to support research at universities,
+                                hospitals, and research institutions across the country. Its history traces
+                                back to 1887 (NIH, 2025a).</p>
+
+                            <p class="impact-intro">Its reach goes well beyond any single breakthrough. Tap any
+                                area below to see what the research it funds delivers. Except where noted, every
+                                figure comes from the NIH's own public accounting.</p>
+                        </section>
+                    </div>
+                    <div class = "step" data-step = "1"></div>
+                    <div class = "step" data-step = "2"></div>
+                    <div class = "step" data-step = "3"></div>
+                    <div class = "step" data-step = "4"></div>
+                    <div class = "step" data-step = "5"></div>
+                    <div class = "step" data-step = "6"></div>
+                    <div class = "step" data-step = "7"></div>
+                    <div class = "step" data-step = "8"></div>
+                </article>
+                <div class = "right-visual-column-wrapper">
+                    <figure class =  "intro-figure">
+                        <div class="scrolly-section-spacer" style = "--spacer-height: 100vh"></div>
+                        <section class="split-container" style = "--split-ratio: 30%;">
+                            <div class="stat-hero">
+                                <span class="number">99.4%</span>
+                            </div>
+                            
+                            <div class = "split-side right-side">
+                                <h2 class="centered-heading">% of drugs approved by the FDA between 2010 and 2019 used NIH funding during development.<br><br>Thats 354 out of 356.</h2>
+                                
+                            </div>
+                            
+                        </section>
+                    </figure>
+
+
+                    
+                    <figure data-main-visual = "true" style=" --fig-margin-top:175vh; --fig-height: 80vh;">
+                        <div class="scrolly-section-spacer" style = "--spacer-height: 1vh"></div>
+                        <h2 class="centered-heading">Notable NIH Impacts</h2>
+                        <div class="scrolly-section-spacer" style = "--spacer-height: 1vh"></div>
+                        <div class="impact-cards">                            
+                            <!-- Tile: landmark discoveries (folds the old bullet list in here) -->
+                            <details class="impact-card"  data-card="1">
+                            <summary>
+                                <div class="headline">
+                                    <span class="topic">Landmark discoveries</span>
+                                    <div class="claim">Decades of NIH-funded science behind treatments people use today.</div>
+                                </div>
+                                <span class="toggle">
+                                    <svg viewBox = "0 0 100 100"><use href = "#bold-caret"/></svg>
+                                </span>
+                            </summary>
+                            <div class="detail">
+                                <ul>
+                                <li>Cracked the genetic code</li>
+                                <li>Led the public Human Genome Project (NIH, 2025b)</li>
+                                <li>Ran the studies that established fluoride prevents tooth decay (NIH, 2024)</li>
+                                <li>Helped discover mRNA vaccine technology</li>
+                                <li>Funded the basic science behind gene therapy and gene editing over decades (NIH, 2025b)</li>
+                                </ul>
+                                <a href="https://www.nih.gov/about-nih/impact-nih-research/serving-society/societal-benefits-improved-health" target="_blank">NIH Impact Summary Click to Open</a>
+                            </div>
+                            </details>
+
+                            <!-- Tile: cancer -->
+                            <details class="impact-card"  data-card="2">
+                            <summary>
+                                <span class="headline">
+                                <span class="topic">Cancer</span>
+                                <span class="claim">Cancer death rates have fallen more than 1.5% a year for 15 years.</span>
+                                </span>
+                                <span class="toggle">
+                                    <svg viewBox = "0 0 100 100"><use href = "#bold-caret"/></svg>
+                                </span>
+                            </summary>
+                            <div class="detail">
+                                <p>The NIH puts a dollar value on that progress: each 1% reduction in cancer
+                                deaths carries a present value of nearly $500 billion to current and future
+                                generations of Americans.</p>
+                                <a href="https://www.nih.gov/about-nih/impact-nih-research/improving-health/substance-use" target="_blank">NIH Cancer Research Click to Open in New Tab</a>
+                            </div>
+                            </details>
+
+                            <!-- Tile: addiction treatment -->
+                            <details class="impact-card"  data-card="3">
+                            <summary>
+                                <span class="headline">
+                                <span class="topic">Addiction treatment</span>
+                                <span class="claim">Every $1 spent treating substance use disorder saves $4 in health care and $7 in criminal justice costs.</span>
+                                </span>
+                                <span class="toggle">
+                                    <svg viewBox = "0 0 100 100"><use href = "#bold-caret"/></svg>
+                                </span>
+                            </summary>
+                            <div class="detail">
+                                <p>Broader evidence-based addiction programs can return more than $58 for every
+                                $1 spent, thanks in part to NIH-supported work connecting the science of
+                                treatment to real-world practice. In one example, NIH-supported research
+                                showed that giving medications for opioid use disorder to people in prison
+                                lowers overdose risk after release, and helped drive policy changes such as
+                                Medicaid coverage in the 90 days before release.</p>
+                                <a href="https://www.nih.gov/about-nih/impact-nih-research/improving-health/substance-use" target="_blank">Addiction Treatment Click to Open in New Tab</a>
+                                <a href="https://www.ojp.gov/ncjrs/virtual-library/abstracts/substance-abuse-prevention-dollars-and-cents-cost-benefit-analysis" target="_blank">Cost Benefits of Substance Abuse Prevention, Click to Open in New Tab</a>
+                            </div>
+                            </details>
+
+                            <!-- Tile: children's health -->
+                            <details class="impact-card" data-card="4">
+                            <summary>
+                                <span class="headline">
+                                <span class="topic">Children's health</span>
+                                <span class="claim">Vaccinating a single year of U.S. newborns is projected to save tens of billions over their lifetimes.</span>
+                                </span>
+                                <span class="toggle">
+                                    <svg viewBox = "0 0 100 100"><use href = "#bold-caret"/></svg>
+                                </span>
+                            </summary>
+                            <div class="detail">
+                                <p>For children born in 2009, the CDC estimates childhood vaccination will cut
+                                direct health care costs by $13.5 billion and save $68.8 billion in indirect
+                                costs over their lifetimes. NIH supported the Hib vaccine alone, estimated to
+                                save more than $1.8 billion for that single birth year, and early cochlear
+                                implants developed in part from NIH-supported research can save more than
+                                $30,000 per child.</p>
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/24590750/" target="_blank">Economic Review of Childhood Vaccination, Click Open in New Tab</a>
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/23558665/" target="_blank">Cochlear Impants in Children, Click to Open in New Tab</a>
+                            </div>
+                            </details>
+
+                            <!-- Tile: environment -->
+                            <details class="impact-card"  data-card="5">
+                            <summary>
+                                <span class="headline">
+                                <span class="topic">Environment</span>
+                                <span class="claim">Lead exposure in the U.S. has dropped dramatically over 45 years.</span>
+                                </span>
+                                <span class="toggle">
+                                    <svg viewBox = "0 0 100 100"><use href = "#bold-caret"/></svg>
+                                </span>
+                            </summary>
+                            <div class="detail">
+                                <p>Lead early in life irreversibly disrupts brain development. The decline was
+                                achieved through control of lead sources, emission reductions, federal
+                                regulation, and applied public health work. NIH-funded environmental research
+                                has also produced remediation technologies estimated to save over $100 million
+                                in cleanup costs.</p>
+                                <a href="https://www.niehs.nih.gov/health/topics/agents/lead" target="_blank">NIH Lead Exposure Research Click to Open in New Tab</a>
+                            </div>
+                            </details>
+
+                            <!-- Tile: prevention -->
+                            <details class="impact-card"  data-card="6">
+                            <summary>
+                                <span class="headline">
+                                <span class="topic">Prevention</span>
+                                <span class="claim">School-based prevention programs could save $18 for every $1 invested.</span>
+                                </span>
+                                <span class="toggle">
+                                    <svg viewBox = "0 0 100 100"><use href = "#bold-caret"/></svg>
+                                </span>
+                            </summary>
+                            <div class="detail">
+                                <p>NIH-funded research identified adolescence as a period of increased
+                                vulnerability to the harms of drug use, and a key window for prevention. If
+                                implemented nationwide, school-based substance use prevention programs are
+                                estimated to save $18 per $1 invested, with 1.5 million fewer youth starting
+                                substance use and, on average, a two-year delay for those who do.</p>
+                                <a href="https://www.ojp.gov/ncjrs/virtual-library/abstracts/substance-abuse-prevention-dollars-and-cents-cost-benefit-analysis" target="_blank">Cost Benefits of Substance Abuse Prevention, Click to Open in New Tab</a>
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/20682218/" target="_blank">Research on Drug Use Prevention in Children, Click Open in New Tab</a>
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/27840157/" target="_blank">Research on Adolescent Drug Use Risks, Click to Open in New Tab</a>
+                                
+                            </div>
+                            </details>
+
+                        </div>
+
+                        <p class="impact-source">Source: National Institutes of Health. Figures reflect NIH's
+                            own published estimates of the impact of research it funds.</p>
+
+
+                    </figure>
+                </div>
+            </section>
+
+
+            <!-- ===== SEAN'S/Julianas FUNDING FLOWCHART START JMC EDITS ===== -->
+
+
+            <section class = "scrolly-container scrolly-section is-sensor-track" id="grant flow" data-type = "flow" data-title = "Grant Process Flow">
+                <article style = "position: relative;">
+                    <div class = "stationary-text-window">
+                        <section style="padding: 50px 0">
+                            <h2 class="centered-heading">How does the NIH Grant process work?</h2>
+
+                            <div class="topics-section">
+                                <p class="lead">A grant is public money NIH gives an institution to answer one scientific question over
+                                several years. The money arrives one year at a time, not all at once. That single fact is what makes an
+                                interrupted grant so costly.</p>
+                            
+                                <span class="gf-hint" style="display:inline-flex; margin:1vh auto; justify-content: center;">
+                                    <h4>    </h4>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="#ecc94b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path 
+                                        stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12l3 0"/><path d="M12 3l0 3"/><path d="M7.8 7.8l-2.2 -2.2"/><path 
+                                        d="M16.2 7.8l2.2 -2.2"/><path d="M7.8 16.2l-2.2 2.2"/><path d="M12 12l9 3l-4 2l-2 4l-3 -9"/></svg>    
+                                        <h4>Click on any bubble to see details.</h4>
+                                        <svg viewBox="0 0 20 20" fill="none" stroke="#ecc94b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path 
+                                        stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12l3 0"/><path d="M12 3l0 3"/><path d="M7.8 7.8l-2.2 -2.2"/><path 
+                                        d="M16.2 7.8l2.2 -2.2"/><path d="M7.8 16.2l-2.2 2.2"/><path d="M12 12l9 3l-4 2l-2 4l-3 -9"/></svg>  
+                                </span>
+                            </div>
+                        </section>
+                    </div>
+                    <div class = "step" data-step = "1"></div>
+                    <div class = "step" data-step = "2"></div>
+                    <div class = "step" data-step = "3"></div>
+                    <div class = "step" data-step = "4"></div>
+                    <div class = "step" data-step = "5"></div>
+                    <div class = "step" data-step = "6"></div>
+                    <div class = "step" data-step = "7"></div>
+                    <div class = "step" data-step = "8"></div>
+                </article>
+                <div class = "right-visual-column-wrapper">
+                    
+                    <figure data-main-visual = "true" style="--fig-height:95vh; --fig-margin-top:115vh;">
+                                         <!-- ===== SEAN'S/Julianas FUNDING FLOWCHART START JMC EDITS===== -->                        
+                        <div class="grantflow" id="grantflow">
+                        
+                            <h3 class="centered-heading">How NIH grant money moves and where in the process it got cut</h3>
+
+                        
+
+                        
+
+                            <!-- ============ ACT 1 ============ -->
+                            <div class="gf-act">
+                                
+                                <!-- Step 1 -->
+                                <div class="gf-item" data-flow-step="1">
+                                    <button class="gf-node" aria-expanded="false" style="display: inline-flex; align-items: flex-start; width: 50vw; box-sizing: border-box; padding: 1vw 1.5vw; border: 0.08vw solid #e2e8f0; border-radius: 0.4vw; cursor: pointer; gap: 1vw; font-family: inherit; text-align: left;">
+                                    <span class="ic" style="display: inline-block; width: 1.75vw; height: 1.75vw; flex-shrink: 0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 21l18 0"/><path d="M3 10l18 0"/><path d="M5 6l7 -3l7 3"/><path d="M4 10l0 11"/><path d="M20 10l0 11"/><path d="M8 14l0 3"/><path d="M12 14l0 3"/><path d="M16 14l0 3"/></svg></span>
+                                    <span class="tx" style="display: flex; flex-direction: column; flex-grow: 1; gap: 0.25vw; color: #2d3748;"><b style="font-size: 1vw; line-height: 1.3;">Congress Sets the Budget</b><span style="font-size: 0.7vw; color: #718096; line-height: 1.4;">Congress decides how much NIH gets each year. This is the power of the purse.</span></span>
+                                    <span class="gf-more" style="display: inline-flex; align-items: center; gap: 0.3vw; font-size: 0.7vw; font-weight: 600; color: #4a5568; align-self: center; flex-shrink: 0;">More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="width: 0.8vw; height: 0.8vw;"><path d="m6 9 6 6 6-6"/></svg></span>
+                                    </button>
+                                    <div class="gf-detail"><div class="gf-detail-inner"><p>Once a year, Congress passes a law setting how much money NIH receives.</br> Under the Constitution, only Congress can decide federal spending.</p><p>Once that law is signed, the money is supposed to be spent as written.</p></div></div>
+                                </div>
+
+                                <div class="gf-arrow">↓</div>
+
+                                <!-- Step 2 -->
+                                <div class="gf-item" data-flow-step="2">
+                                    <button class="gf-node" aria-expanded="false" style="display: inline-flex; align-items: flex-start; width: 50vw; box-sizing: border-box; padding: 1vw 1.5vw; border: 0.08vw solid #e2e8f0; border-radius: 0.4vw; cursor: pointer; gap: 1vw; font-family: inherit; text-align: left;">
+                                    <span class="ic" style="display: inline-block; width: 1.75vw; height: 1.75vw; flex-shrink: 0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 11v.01"/><path d="M5.173 8.378a3 3 0 1 1 4.656 -1.377"/><path d="M16 4v3.803a6.019 6.019 0 0 1 2.658 3.197h1.341a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-1.342c-.336 .95 -.907 1.8 -1.658 2.473v1.527a1.5 1.5 0 0 1 -3 0v-.5h-4v.5a1.5 1.5 0 0 1 -3 0v-1.527a6 6 0 0 1 -1 -3.473h-1a1 1 0 0 1 0 -2h1c0 -1.18 .35 -2.276 .95 -3.195l-1.45 -1.455a1 1 0 1 1 1.41 -1.41l1.346 1.34a6.007 6.007 0 0 1 3.744 -1.28h.5v-3.803a1 1 0 0 1 2 0z"/></svg></span>
+                                    <span class="tx" style="display: flex; flex-direction: column; flex-grow: 1; gap: 0.25vw; color: #2d3748;"><b style="font-size: 1vw; line-height: 1.3;">The Money Waits in the Treasury</b><span style="font-size: 0.7vw; color: #718096; line-height: 1.4;">The U.S. Treasury is the government's bank account. It holds the money, it does not decide who gets it.</span></span>
+                                    <span class="gf-more" style="display: inline-flex; align-items: center; gap: 0.3vw; font-size: 0.7vw; font-weight: 600; color: #4a5568; align-self: center; flex-shrink: 0;">More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="width: 0.8vw; height: 0.8vw;"><path d="m6 9 6 6 6-6"/></svg></span>
+                                    </button>
+                                    <div class="gf-detail"><div class="gf-detail-inner"><p>The Treasury holds the nation's money and pays it out as agencies commit it. It is the account, not the decision-maker.</p></div></div>
+                                </div>
+
+                                <div class="gf-arrow">↓</div>
+
+                                <!-- Step 3 -->
+                                <div class="gf-item" data-flow-step="3">
+                                    <button class="gf-node" aria-expanded="false" style="display: inline-flex; align-items: flex-start; width: 50vw; box-sizing: border-box; padding: 1vw 1.5vw; border: 0.08vw solid #e2e8f0; border-radius: 0.4vw; cursor: pointer; gap: 1vw; font-family: inherit; text-align: left;">
+                                    <span class="ic" style="display: inline-block; width: 1.75vw; height: 1.75vw; flex-shrink: 0; "><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M21 17h-8l-3.5 -5h-6.5"/><path d="M21 7h-8l-3.495 5"/><path d="M18 10l3 -3l-3 -3"/><path d="M18 20l3 -3l-3 -3"/></svg></span>
+                                    <span class="tx" style="display: flex; flex-direction: column; flex-grow: 1; gap: 0.25vw; color: #2d3748;"><b style="font-size: 1vw; line-height: 1.3;">NIH Gets Its Share</b><span style="font-size: 0.7vw; color: #718096; line-height: 1.4;">NIH splits its budget across 27 institutes and centers, from cancer to aging to mental health.</span></span>
+                                    <span class="gf-more" style="display: inline-flex; align-items: center; gap: 0.3vw; font-size: 0.7vw; font-weight: 600; color: #4a5568; align-self: center; flex-shrink: 0;">More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="width: 0.8vw; height: 0.8vw;"><path d="m6 9 6 6 6-6"/></svg></span>
+                                    </button>
+                                    <div class="gf-detail"><div class="gf-detail-inner"><p>NIH divides its funding among 27 institutes and centers, each focused on a field of health. Most of that money does not stay inside NIH.</p></div></div>
+                                </div>
+
+                                <div class="gf-arrow">↓</div>
+
+                                <!-- Step 4 -->
+                                <div class="gf-item" data-flow-step="4">
+                                    <button class="gf-node" aria-expanded="false" style="display: inline-flex; align-items: flex-start; width: 50vw; box-sizing: border-box; padding: 1vw 1.5vw; border: 0.08vw solid #e2e8f0; border-radius: 0.4vw; cursor: pointer; gap: 1vw; font-family: inherit; text-align: left;">
+                                    <span class="ic" style="display: inline-block; width: 1.75vw; height: 1.75vw; flex-shrink: 0; "><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;"><path d="M8 9l5 5v7h-5v-4m0 4h-5v-7l5 -5m1 1v-6a1 1 0 0 1 1 -1h10a1 1 0 0 1 1 1v17h-8"/><path d="M13 7l0 .01"/><path d="M17 7l0 .01"/><path d="M17 11l0 .01"/><path d="M17 15l0 .01"/></svg></span>
+                                    <span class="tx" style="display: flex; flex-direction: column; flex-grow: 1; gap: 0.25vw; color: #2d3748;"><b style="font-size: 1vw; line-height: 1.3;">NIH Awards Grants to Research Institutions</b><span style="font-size: 0.7vw; color: #718096; line-height: 1.4;">The money goes to universities and hospitals, not to individuals. A lead scientist runs the work; the institution holds the funds.</span></span>
+                                    <span class="gf-more" style="display: inline-flex; align-items: center; gap: 0.3vw; font-size: 0.7vw; font-weight: 600; color: #4a5568; align-self: center; flex-shrink: 0;">More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="width: 0.8vw; height: 0.8vw;"><path d="m6 9 6 6 6-6"/></svg></span>
+                                    </button>
+                                    <div class="gf-detail"><div class="gf-detail-inner"><p>NIH sends most of its money to institutions such as universities, medical schools, and hospitals. Each grant names a lead scientist, the principal investigator, but the institution holds the funds, hires the staff, and runs the project.</p><p>This is why an interrupted grant strands a whole team, not one person.</p></div></div>
+                                </div>
+                                </div>
+
+                                <!-- ===== Stopping Point 1 ===== -->
+                                <div class="gf-arrow red">↓</div>
+                                <div class="gf-disrupt" style="margin-bottom:6px;">
+                                <div class="gf-item" data-flow-step="5">
+                                    <button class="gf-node red" aria-expanded="false" style="display: inline-flex; align-items: flex-start; width: 50vw; box-sizing: border-box; padding: 1vw 1.5vw; border: 0.08vw solid #fca5a5; border-radius: 0.4vw; cursor: pointer; gap: 1vw; font-family: inherit; text-align: left;">
+                                    <span class="ic" style="display: inline-block; width: 1.75vw; height: 1.75vw; flex-shrink: 0; color: #dc2626;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;"><circle cx="12" cy="12" r="9"/><path d="M18 6L6 18"/></svg></span>
+                                    <span class="tx" style="display: flex; flex-direction: column; flex-grow: 1; gap: 0.25vw; color: #991b1b;"><b style="font-size: 1vw; line-height: 1.3;">Stopping Point: Money Was Held Back Before It Is Spent</b><span style="font-size: 0.7vw; color: #b91c1c; line-height: 1.4;">In 2025 the administration slowed and withheld new NIH awards.</span></span>
+                                    <span class="gf-more" style="display: inline-flex; align-items: center; gap: 0.3vw; font-size: 0.7vw; font-weight: 600; color: #dc2626; align-self: center; flex-shrink: 0;">More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="width: 0.8vw; height: 0.8vw;"><path d="m6 9 6 6 6-6"/></svg></span>
+                                    </button>
+                                <div class="gf-detail"><div class="gf-detail-inner red">
+                                    <p>In early 2025 the Trump administration paused and withheld NIH funding, releasing roughly $8 billion less than in prior years.</p>
+                                    <p>In August 2025 the Government Accountability Office, Congress's nonpartisan watchdog, found this broke the Impoundment Control Act of 1974, the law that says a president cannot refuse to spend money Congress has approved. The Trump administration disputes this, and the case is still in court.</p>
+                                </div></div>
+                                </div>
+                            </div>
+                        </div>    
+                            
+
+                    </figure>
+                </div>
+            </section>
+            <section>
+                <div class="gf-arrow">&#8595;</div>
+                <div style="height: 10px"></div>
+            </section>  
+                            <!-- ============ part 2 ============ -->
+            <section class = "scrolly-container scrolly-section " id="A Grant is Funded" data-type = "counter" data-title = "A Grant is Funded">
+                <article>
+                    <div class = "step" data-step = "1">
+                        <div class="inner-scrolling-card">
+                            <div class="topics-section">
+                            </br>
+                                <h1 class="centered-heading">The Grant is now funded!</h1>
+                            </div>
+                        </div>                            
+                    </div>
+                    <div class = "step" data-step = "2" style="--step-height:150vh">
+                        <div class="inner-scrolling-card">
+                            <div class="topics-section">
+                                <h2 class="centered-heading">A funded grant repeats a yearly cycle:</h2>
+                                <p class="lead"> The team does the work, files a progress report, and receives the next year's installment. It stays here until it finishes, is frozen, or is terminated.'</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <div class = "right-visual-column-wrapper">
+                    
+                    <figure data-main-visual="true" style="--fig-height: 60vh; --fig-margin-top:0vh; justify-content: center; display: flex; flex-direction: column; align-items: center; box-sizing: border-box;">
+                        <div class="gf-statemap" id="gf-statemap">
+                            <div class="scrolly-section-spacer" style = "--spacer-height: 1vh"></div>
+                            <svg class="gf-map" viewBox="0 0 680 340" role="img" xmlns="http://www.w3.org/2000/svg">
+                                <title>Where an NIH grant ends up</title>
+                                <desc>Once funded, a grant is ongoing research. From there it can be frozen, a reversible detour, or terminated, which is permanent, or it can finish and reach completed. Tap a state for detail.</desc>
+                                <defs>
+                                <marker id="ahBlue2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#1b4fa0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+                                <marker id="ahOrange2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#e08a1e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+                                <marker id="ahRed2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#d12b2b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+                                <marker id="ahGreen2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#1f8a4c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+                                </defs>
+
+                                <!-- entry: a grant is funded, blue arrow down into ongoing -->
+                                <text x="340" y="30" text-anchor="middle" font-family="Roboto,sans-serif" font-size="16" fill="#43567a">A Grant is Funded</text>
+                                <line x1="340" y1="42" x2="340" y2="94" stroke="#1b4fa0" stroke-width="1.6" marker-end="url(#ahBlue2)"/>
+
+                                <!-- middle row: frozen (orange) | research is ongoing | terminated (red) -->
+                                <g class="mnode orange" data-key="frozen" tabindex="0" role="button" aria-label="Funding frozen, tap for detail">
+                                <rect x="15" y="100" width="170" height="58" rx="11" fill="#fdf1e0" stroke="#e08a1e" stroke-width="1.5"/>
+                                <text x="100" y="129" text-anchor="middle" font-family="Roboto,sans-serif" font-size="15" font-weight="700" fill="#b45309">Frozen</text>
+                                <text x="100" y="147" text-anchor="middle" font-family="Roboto,sans-serif" font-size="12" fill="#5a6478">funds paused</text>
+                                </g>
+
+                                <g class="mnode blue" data-key="cycle" tabindex="0" role="button" aria-label="Research is ongoing, tap for detail">
+                                <rect x="255" y="100" width="170" height="58" rx="11" fill="#eef4fc" stroke="#1b4fa0" stroke-width="1.5"/>
+                                <text x="340" y="129" text-anchor="middle" font-family="Roboto,sans-serif" font-size="15" font-weight="700" fill="#12326e">Research is Ongoing</text>
+                                <text x="340" y="147" text-anchor="middle" font-family="Roboto,sans-serif" font-size="12" fill="#5a6478">the normal path</text>
+                                </g>
+
+                                <g class="mnode red" data-key="terminated" tabindex="0" role="button" aria-label="Grant terminated, tap for detail">
+                                <rect x="495" y="100" width="170" height="58" rx="11" fill="#fdecec" stroke="#d12b2b" stroke-width="1.5"/>
+                                <text x="580" y="129" text-anchor="middle" font-family="Roboto,sans-serif" font-size="15" font-weight="700" fill="#d12b2b">Terminated</text>
+                                <text x="580" y="147" text-anchor="middle" font-family="Roboto,sans-serif" font-size="12" fill="#5a6478">ended for good</text>
+                                </g>
+
+                                <!-- frozen is reversible: orange two-way arrow -->
+                                <line x1="190" y1="129" x2="250" y2="129" stroke="#e08a1e" stroke-width="1.6" marker-start="url(#ahOrange2)" marker-end="url(#ahOrange2)"/>
+                                <text x="220" y="119" text-anchor="middle" font-family="Roboto,sans-serif" font-size="12" fill="#43567a">freeze</text>
+                                <text x="220" y="152" text-anchor="middle" font-family="Roboto,sans-serif" font-size="12" fill="#43567a">restore</text>
+
+                                <!-- terminated is permanent: red one-way arrow, no return -->
+                                <line x1="430" y1="129" x2="490" y2="129" stroke="#d12b2b" stroke-width="1.6" marker-end="url(#ahRed2)"/>
+                                <text x="460" y="124" text-anchor="middle" font-family="Roboto,sans-serif" font-size="12" fill="#43567a">terminate</text>
+
+                                <!-- one green arrow down to completed, below everything -->
+                                <line x1="340" y1="162" x2="340" y2="216" stroke="#1f8a4c" stroke-width="1.6" marker-end="url(#ahGreen2)"/>
+                                <text x="350" y="192" font-family="Roboto,sans-serif" font-size="12" fill="#43567a">finishes</text>
+
+                                <g class="mnode green" data-key="completed" tabindex="0" role="button" aria-label="Project completed, tap for detail">
+                                <rect x="255" y="220" width="170" height="58" rx="11" fill="#e8f6ee" stroke="#1f8a4c" stroke-width="1.5"/>
+                                <text x="340" y="249" text-anchor="middle" font-family="Roboto,sans-serif" font-size="15" font-weight="700" fill="#1f8a4c">Completed</text>
+                                <text x="340" y="267" text-anchor="middle" font-family="Roboto,sans-serif" font-size="12" fill="#5a6478">the one clean exit</text>
+                                </g>
+
+                                <!-- legend -->
+                                <rect x="62" y="306" width="14" height="14" rx="3" fill="#eef4fc" stroke="#1b4fa0" stroke-width="1.2"/>
+                                <text x="83" y="317" font-family="Roboto,sans-serif" font-size="12" fill="#43567a">normal path</text>
+                                <rect x="165" y="306" width="14" height="14" rx="3" fill="#fdf1e0" stroke="#e08a1e" stroke-width="1.2"/>
+                                <text x="186" y="317" font-family="Roboto,sans-serif" font-size="12" fill="#43567a">frozen (reversible)</text>
+                                <rect x="324" y="306" width="14" height="14" rx="3" fill="#fdecec" stroke="#d12b2b" stroke-width="1.2"/>
+                                <text x="345" y="317" font-family="Roboto,sans-serif" font-size="12" fill="#43567a">terminated (one-way)</text>
+                                <rect x="493" y="306" width="14" height="14" rx="3" fill="#e8f6ee" stroke="#1f8a4c" stroke-width="1.2"/>
+                                <text x="514" y="317" font-family="Roboto,sans-serif" font-size="12" fill="#43567a">the one clean exit</text>
+                            </svg>
+
+                            
+                        </div>
+
+                    </figure>
+                </div>
+            </section>
+                        
+
+                        <script>
+                        (function(){
+                        function initStateMap(){
+                            var wrap = document.getElementById('gf-statemap');
+                            if(!wrap || wrap.dataset.ready) return;
+                            wrap.dataset.ready = '1';
+
+                            var DATA = {
+                            frozen: { color:'#e08a1e', title:'Funding frozen',
+                                body:'Funds are held and no new costs can be charged, so the work usually stops, whether or not the science is sound. A grant can be frozen and unfrozen more than once. When funding resumes, the grant is restored and returns to the yearly cycle. It does not jump straight to completion.' },
+                            terminated: { color:'#d12b2b', title:'Grant terminated',
+                                body:'The award is ended before its planned completion, and the remaining work cannot continue under it. In 2025 NIH terminated more than 1,800 grants that were already underway. Many were challenged in court and reinstated, then in some cases terminated again, so termination was not always final. Because the money is committed year by year, ending a grant mid-stream strands work an institution has already started and staffed.' },
+                            completed: { color:'#1f8a4c', title:'Project completed',
+                                body:'The research concludes and the results are shared with the field. This is the one clean exit from the cycle, and the point every grant is meant to reach.' }
+                            };
+
+                            var detail = document.getElementById('gf-map-detail');
+                            var dTitle = detail.querySelector('.gf-md-title');
+                            var dBody  = detail.querySelector('.gf-md-body');
+                            var nodes  = Array.prototype.slice.call(wrap.querySelectorAll('.mnode'));
+
+                            function select(key){
+                            var d = DATA[key]; if(!d) return;
+                            nodes.forEach(function(n){ n.classList.toggle('sel', n.getAttribute('data-key')===key); });
+                            dTitle.textContent = d.title;
+                            dBody.textContent = d.body;
+                            dTitle.style.color = d.color;
+                            detail.style.borderLeftColor = d.color;
+                            }
+
+                            nodes.forEach(function(n){
+                            var key = n.getAttribute('data-key');
+                            n.addEventListener('click', function(){ select(key); });
+                            n.addEventListener('keydown', function(e){
+                                if(e.key==='Enter' || e.key===' '){ e.preventDefault(); select(key); }
+                            });
+                            });
+
+                            select('cycle');
+
+                            var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                            if(reduce || typeof scrollama === 'undefined') return;
+                            wrap.classList.add('gf-anim');
+                            var scroller = scrollama();
+                            scroller.setup({ step: '#gf-statemap', offset: 0.85, once: true })
+                                    .onStepEnter(function(){ wrap.classList.add('is-in'); });
+                            window.addEventListener('resize', scroller.resize);
+                        }
+
+                        if(document.readyState === 'loading'){
+                            document.addEventListener('DOMContentLoaded', initStateMap);
+                        } else {
+                            initStateMap();
+                        }
+                        })();
+                        </script>
+
+                        <script>
+                        (function(){
+                        var flow = document.getElementById('grantflow');
+                        if(!flow) return;
+                        flow.addEventListener('click', function(e){
+                            var btn = e.target.closest('.gf-node'); if(!btn) return;
+                            var item = btn.closest('.gf-item');
+                            var willOpen = !item.classList.contains('open');
+                            flow.querySelectorAll('.gf-item.open').forEach(function(o){
+                            if(o !== item){
+                                o.classList.remove('open');
+                                o.querySelector('.gf-node').setAttribute('aria-expanded','false');
+                                setMore(o, false);
+                            }
+                            });
+                            item.classList.toggle('open', willOpen);
+                            btn.setAttribute('aria-expanded', String(willOpen));
+                            setMore(item, willOpen);
+                        });
+                        function setMore(item, open){
+                            var pill = item.querySelector('.gf-more');
+                            if(pill && pill.childNodes[0]) pill.childNodes[0].nodeValue = open ? 'Less ' : 'More ';
+                        }
+                        })();
+                        </script>
+                                </div>
+                            </div>
+                            </details>
+
+                        </section>
+            
+            
 
             <div class="gf-item">
             <button class="gf-node" aria-expanded="false">
@@ -491,18 +1729,182 @@
             </div></div>
             </div>
 
-            <div class="gf-arrow">&#8595;</div>
 
-            <div class="gf-item">
-            <button class="gf-node" aria-expanded="false">
-                  <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 11v.01"/><path d="M5.173 8.378a3 3 0 1 1 4.656 -1.377"/><path d="M16 4v3.803a6.019 6.019 0 0 1 2.658 3.197h1.341a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-1.342c-.336 .95 -.907 1.8 -1.658 2.473v1.527a1.5 1.5 0 0 1 -3 0v-.5h-4v.5a1.5 1.5 0 0 1 -3 0v-1.527a6 6 0 0 1 -1 -3.473h-1a1 1 0 0 1 0 -2h1c0 -1.18 .35 -2.276 .95 -3.195l-1.45 -1.455a1 1 0 1 1 1.41 -1.41l1.346 1.34a6.007 6.007 0 0 1 3.744 -1.28h.5v-3.803a1 1 0 0 1 2 0z"/></svg></span>
-                  <span class="tx"><b>The Money Waits in the Treasury</b><span>The U.S. Treasury is the government's bank account. It holds the money, it does not decide who gets it.</span></span>
-                  <span class="gf-more">More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
-            </button>
-            <div class="gf-detail"><div class="gf-detail-inner">
-                  <p>The Treasury holds the nation's money and pays it out as agencies commit it. It is the account, not the decision-maker.</p>
-            </div></div>
-            </div>
+
+            <!-- ===== SEAN'S FUNDING FLOWCHART END ===== --> 
+
+            <!-- ===== SEAN'S HISTORIC BACKGROUND START ===== -->
+
+            <section class = "scrolly-container scrolly-section" id="everything changed when the maga nation attacked" data-type = "counter" data-title = "What changed in 2025?">
+                <article>
+                    <div class = "step" data-step = "1" style="--step-height:150vh">
+                        <div class="inner-scrolling-card">
+
+                            <h2 class="centered-heading">That brings us back to 2025</h2>
+                            
+                        </div>
+                    </div>
+                    <div class = "step" data-step = "2" style="--step-height:100vh">
+                        <div class="inner-scrolling-card">
+                            <h2 class="centered-heading">Historically, </br> NIH Grant Terminations have been rare.</h2>
+                            <p class="lead" style="font-size: 1.5rem";>
+                                Fewer than 6 NIH grants were terminanted from 2012 until 2025.
+                            </p>
+                            
+                        </div>
+                    </div>
+                    <div class = "step" data-step = "3" style="--step-height:100vh">
+                        <div class="inner-scrolling-card">
+
+                            <h2 class="centered-heading">Beginning in 2025:</br> thousands of grant disruption events were recorded within a matter of months.</h2>
+
+                        </div>
+                    </div>
+                    <div class = "step" data-step = "4">
+                        <div class="inner-scrolling-card">
+                            <h2 class="centered-heading">1,249 research grants were terminated and never restored.</h2>
+                        </div>
+                         
+                    </div>
+                </article>
+                <div class = "right-visual-column-wrapper">
+                    
+                    <figure data-main-visual="true" style="--fig-height: 80vh;--fig-margin-top:0vh; background: #ffffff !important; background-color: #ffffff !important; border: 1px solid #dbe6f6; overflow: hidden; display: flex; flex-direction: column; justify-content: center; box-sizing: border-box;">                            
+                        <!-- UPDATED: Re-balanced aspect ratios and structural text colors so they pop cleanly against the new solid white surface -->
+                        <svg
+                            class="historical-shift-svg"
+                            viewBox="0 0 1200 520"
+                            role="img"
+                            aria-labelledby="shift-title shift-description"
+                            style="display: block; width: 100%; height: auto; max-height: 80%; aspect-ratio: 1200 / 520; box-sizing: border-box;"
+                        >
+                            <title id="shift-title">
+                                Contrast between historical NIH grant terminations and 2025 grant disruptions
+                            </title>
+
+                            <desc id="shift-description">
+                                From 2012 through January 20, 2025, fewer than six NIH grants
+                                were terminated midstream. In 2025, 6,096 disruption events
+                                were recorded.
+                            </desc>
+
+                            <!-- Historical period label (UPDATED color for white surface contrast) -->
+                            <text x="80" y="78" class="period-label" fill="#1b4fa0" font-family="'Roboto Slab',Georgia,serif" font-size="1.1rem" font-weight="700" letter-spacing="0.05em">
+                                Historical period
+                            </text>
+
+                            <text x="80" y="112" class="period-range" fill="#43567a" font-size="0.95rem">
+                                2012 – January 20, 2025
+                            </text>
+
+                            <!-- Historical timeline -->
+                            <line
+                                x1="80"
+                                y1="190"
+                                x2="790"
+                                y2="190"
+                                stroke="#1b4fa0"
+                                stroke-width="3"
+                                class="historical-line"
+                            />
+
+                            <!-- Timeline tick marks -->
+                            <line x1="80" y1="178" x2="80" y2="202" stroke="#1b4fa0" stroke-width="2" class="tick-line" />
+                            <line x1="300" y1="178" x2="300" y2="202" stroke="#1b4fa0" stroke-width="2" class="tick-line" />
+                            <line x1="520" y1="178" x2="520" y2="202" stroke="#1b4fa0" stroke-width="2" class="tick-line" />
+                            <line x1="790" y1="178" x2="790" y2="202" stroke="#1b4fa0" stroke-width="2" class="tick-line" />
+
+                            <text x="80" y="230" text-anchor="middle" fill="#43567a" font-weight="600" class="tick-label">
+                                2012
+                            </text>
+
+                            <text x="300" y="230" text-anchor="middle" fill="#43567a" font-weight="600" class="tick-label">
+                                2016
+                            </text>
+
+                            <text x="520" y="230" text-anchor="middle" fill="#43567a" font-weight="600" class="tick-label">
+                                2020
+                            </text>
+
+                            <text x="790" y="230" text-anchor="middle" fill="#43567a" font-weight="600" class="tick-label">
+                                Jan. 2025
+                            </text>
+
+                            <!-- Historical count -->
+                            <circle cx="410" cy="190" r="10" fill="#1b4fa0" class="historical-dot" />
+
+                            <text x="410" y="145" text-anchor="middle" fill="#1b4fa0" font-family="'Roboto Slab',Georgia,serif" font-size="2.2rem" font-weight="900" class="historical-value">
+                                &lt;6
+                            </text>
+
+                            <text x="410" y="270" text-anchor="middle" fill="#43567a" font-size="0.9rem" class="historical-caption">
+                                midstream terminations over approximately 13 years
+                            </text>
+
+                            <!-- Break between eras -->
+                            <line x1="815" y1="173" x2="830" y2="207" stroke="#5b6b85" stroke-width="2" class="break-mark" />
+                            <line x1="837" y1="173" x2="852" y2="207" stroke="#5b6b85" stroke-width="2" class="break-mark" />
+
+                            <!-- 2025 transition -->
+                            <path
+                                d="M875 190 L875 285"
+                                stroke="#d12b2b"
+                                stroke-width="3"
+                                stroke-dasharray="6,4"
+                                class="transition-line"
+                            />
+
+                            <polygon
+                                points="875,300 864,280 886,280"
+                                fill="#d12b2b"
+                                class="transition-arrow"
+                            />
+
+                            <text x="905" y="224" fill="#d12b2b" font-family="'Roboto Slab',Georgia,serif" font-weight="700" class="transition-label">
+                                Beginning in 2025
+                            </text>
+
+                            <!-- 2025 disruption wall -->
+                            <rect
+                                x="720"
+                                y="320"
+                                width="400"
+                                height="92"
+                                rx="8"
+                                fill="rgba(209, 43, 43, 0.08)"
+                                stroke="#d12b2b"
+                                stroke-width="2"
+                                class="disruption-wall"
+                            />
+
+                            <!-- subtle internal lines -->
+                            <line x1="720" y1="343" x2="1120" y2="343" stroke="rgba(209, 43, 43, 0.15)" class="wall-line" />
+                            <line x1="720" y1="366" x2="1120" y2="366" stroke="rgba(209, 43, 43, 0.15)" class="wall-line" />
+                            <line x1="720" y1="389" x2="1120" y2="389" stroke="rgba(209, 43, 43, 0.15)" class="wall-line" />
+
+                            <text x="920" y="378" text-anchor="middle" fill="#d12b2b" font-family="'Roboto Slab',Georgia,serif" font-size="2.6rem" font-weight="900" class="disruption-value">
+                                6,096
+                            </text>
+
+                            <text x="920" y="448" text-anchor="middle" fill="#12326e" font-family="'Roboto Slab',Georgia,serif" font-size="1.1rem" font-weight="700" class="disruption-caption">
+                                grant disruption events recorded
+                            </text>
+
+                            <text x="920" y="480" text-anchor="middle" fill="#5b6b85" font-size="0.82rem" class="disruption-subcaption">
+                                (grant freezes that were restored, and terminations that were never restored)
+                            </text>
+                        </svg>
+
+                        <figcaption style="margin-top: 1.25rem; color: #43567a; font-size: 0.82rem; line-height: 1.45; text-align: left; padding: 0 0.5rem;">
+                            Historical comparison uses the court's finding of
+                            <strong>fewer than six</strong> midstream terminations—not an exact
+                            count of six. The 2025 total represents disruption events and may
+                            include more than one event affecting the same grant.
+                        </figcaption>
+
+                    </figure>
+                </div>
+            </section>
 
             <div class="gf-arrow">&#8595;</div>
 
@@ -517,20 +1919,434 @@
             </div></div>
             </div>
 
-            <div class="gf-arrow">&#8595;</div>
+            <!-- ===== SEAN'S HISTORIC BACKGROUND END ===== -->
 
-            <div class="gf-item">
-            <button class="gf-node" aria-expanded="false">
-                  <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9l5 5v7h-5v-4m0 4h-5v-7l5 -5m1 1v-6a1 1 0 0 1 1 -1h10a1 1 0 0 1 1 1v17h-8"/><path d="M13 7l0 .01"/><path d="M17 7l0 .01"/><path d="M17 11l0 .01"/><path d="M17 15l0 .01"/></svg></span>
-                  <span class="tx"><b>NIH Awards Grants to Research Institutions</b><span>The money goes to universities and hospitals, not to individuals. A lead scientist runs the work; the institution holds the funds.</span></span>
-                  <span class="gf-more">More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
-            </button>
-            <div class="gf-detail"><div class="gf-detail-inner">
-                  <p>NIH sends most of its money to institutions such as universities, medical schools, and hospitals. Each grant names a lead scientist, the principal investigator, but the institution holds the funds, hires the staff, and runs the project.</p>
-                  <p>This is why an interrupted grant strands a whole team, not one person.</p>
-            </div></div>
-              </div>
-            </div>
+           
+
+            <!-- ===== Juliana's Wasted Money FLOWCHART Start ===== -->
+            <section class = "scrolly-container scrolly-section " id="Wasted Money" data-type = "counter" data-title = "What happened to the money?">
+                <article>
+                    <div class = "step" data-step = "1" style="--step-height:150vh">
+                        <div class="inner-scrolling-card">
+                            <h2 class="centered-heading">What happened to the money?</h2>
+
+                            <div class="topics-section">
+                                <p class="lead">And how much was already invested in the projects that were completely terminated?</p>
+                            </div>
+                            
+                            
+                        </div>
+                    </div>
+                    <div class = "step" data-step = "2" style="--step-height:100vh">
+                        <div class="inner-scrolling-card">
+                            <p class="lead">Every dollar NIH commits to a grant ends up in one of three places once the grant is cut:</p>
+                            <ul style="list-style: none; padding: 0; margin: 0; display: block; width: 100%;">
+                                <li style="display: inline-flex; align-items: center; width: 100%; margin-bottom: 0.6rem; gap: 0.5rem;">
+                                    <span style="display: inline-block; width: 8px; height: 8px; background: #08306b; border-radius: 50%; flex-shrink:0;"></span>
+                                    Already spent
+                                </li>
+                                <li style="display: inline-flex; align-items: center; width: 100%; margin-bottom: 0.6rem; gap: 0.5rem;">
+                                    <span style="display: inline-block; width: 8px; height: 8px; background: #4292c6; border-radius: 50%; flex-shrink:0;"></span>
+                                    Still sitting there
+                                    
+
+                                </li>
+                                <li style="display: inline-flex; align-items: center; width: 100%; margin-bottom: 0.6rem; gap: 0.5rem;">
+                                    <span style="display: inline-block; width: 8px; height: 8px; background: #c6dbef; border-radius: 50%; flex-shrink:0;"></span>
+                                    Formally taken back                                  
+                                
+
+                                </li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </article>
+                <div class = "right-visual-column-wrapper">
+                    
+                    <figure data-main-visual="true" style="--fig-height: 80vh;--fig-margin-top:0vh; justify-content: center; display: flex; flex-direction: column; align-items: center; box-sizing: border-box;">
+                        <h3 
+                            class="centered-heading" >Where the money stood when the work stopped (815 grants)
+                        </h3>
+                        <div class="scrolly-section-spacer" style = "--spacer-height: 2vh"></div>
+                        
+                        <iframe
+                        src="{{ url_for('static', filename='5_money.html') }}"
+                        width="100%" height="330" frameborder="0"
+                        title="Fate of committed dollars">
+                        </iframe>
+
+                        <div class="topics-section">
+                            <p><strong>$1.09 billion </strong> was committed to these grants. $620 million
+                            of it had already been paid out for work that then stopped and that money is gone
+                            regardless of what happens next.  The government formally reclaimed $151 million, about
+                            14 cents of every dollar it had committed.</p>
+
+                            <p>These are the 815 grants with spending on record. The 434 without it skew
+                            older and would have spent more, so <strong>$1.09 billion is a floor, not a
+                            ceiling</strong>: the real total is higher, not lower.</p>
+                            <details class="chart-note">
+                            <summary>How the 434 were excluded (click me)</summary>
+                            <div class="note-body">
+                                The 434 excluded grants have no spending figures on record at all. They
+                                aren't a random sample: they had been funded for a median of 5 years,
+                                against 2 years for the grants shown here. Because older grants have spent
+                                more, leaving them out pulls the recorded total down, which is why
+                                $1.09 billion understates the true figure.
+                            </div>
+                            </details>
+                        </div>
+
+                    </figure>
+                </div>
+            </section>
+                    
+            <!-- Julianas Section for Time and Money -->
+            <section class = "scrolly-container scrolly-section " id="Time and Money Costs" data-type = "counter" data-title = "What was the cost?">
+                <article>
+                    <div class = "step" data-step = "1" style="--step-height:150vh">
+                        <div class="inner-scrolling-card">
+                            <h2 class="centered-heading">What was the cost?</h2>
+                             <span class="gf-hint" style="display:inline-flex; margin:1vh auto; justify-content: center;">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="#ecc94b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path 
+                                    stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12l3 0"/><path d="M12 3l0 3"/><path d="M7.8 7.8l-2.2 -2.2"/><path 
+                                    d="M16.2 7.8l2.2 -2.2"/><path d="M7.8 16.2l-2.2 2.2"/><path d="M12 12l9 3l-4 2l-2 4l-3 -9"/></svg>    
+                                    <h4>Use the dropdowns to explore</h4>
+                                    <svg viewBox="0 0 20 20" fill="none" stroke="#ecc94b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path 
+                                    stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12l3 0"/><path d="M12 3l0 3"/><path d="M7.8 7.8l-2.2 -2.2"/><path 
+                                    d="M16.2 7.8l2.2 -2.2"/><path d="M7.8 16.2l-2.2 2.2"/><path d="M12 12l9 3l-4 2l-2 4l-3 -9"/></svg>  
+                            </span>                                   
+                            
+                        </div>
+                    </div>
+                    <div class = "step" data-step = "2" style="--step-height:100vh">
+                        <div class="inner-scrolling-card">
+                            <div class="topics-section">
+                                <p class="lead">Whichever region or institution a grant belonged to, a disruption carried the same underlying cost: 
+                                work already paid for, and work that would now never be finished.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <div class = "right-visual-column-wrapper">
+                    
+                    <figure data-main-visual="true" style="--fig-height: 80vh;--fig-margin-top:0vh; justify-content: center; display: flex; flex-direction: column; align-items: center; box-sizing: border-box;">
+                        <h3 
+                            class="centered-heading">What did the complete terminations cost in time and money?
+                        </h3>
+                        <div class="scrolly-section-spacer" style = "--spacer-height: 2vh"></div>
+                        
+                        <iframe
+                            src="{{ url_for('static', filename='5_readout.html') }}"
+                            width="100%" height="400" frameborder="0" style="min-width:840px"
+                            title="Spending by years funded, with region, institution and research area filters">
+                        </iframe>
+
+                        <div class="topics-section">
+
+                            <p>
+                                Every disrupted grant sits somewhere on a spectrum. Some were frozen only
+                                briefly before funding resumed, others were cut off for good. But even a grant
+                                that is eventually restored can leave real waste behind: salaries already paid,
+                                experiments half-run, and labor lost. The amounts calculated cover the roughly
+                                800 disrupted grants with complete spending records, and should be read as a
+                                floor rather than a full accounting, because the grants missing spending data
+                                tend to be the oldest and most established.
+                            </p>
+
+
+                            <p><strong>The money is concentrated in grants that had been running
+                                for years.</strong>  A first-year grant that gets cut costs the public a few tens of thousands of
+                                dollars; a fifth-year grant costs well over a million.  Whichever group you highlight, the
+                                shape holds: the cuts landed on mature work.
+                            </p>
+                        
+                            <details class="chart-note">
+                            <summary>Notes and limitations</summary>
+                                <div class="note-body">
+                                    Shows 801 of the 1,249 grants, those with both a funding length and a
+                                    spending amount on record. Leaves out one record with a negative spending
+                                    figure (an accounting artifact) and one unusually large $48 million award
+                                    that would flatten everything else. Both are still counted in the dollar
+                                    totals above.
+                                </div>
+                            
+                            </details>
+                        </div>
+                    </figure>
+                </div>
+            </section>
+
+            <!-- Julianas Section for Midstream Terminations -->
+            <section class = "scrolly-container scrolly-section " id="Midstream Cuts" data-type = "counter" data-title = "Midstream Cuts">
+                <article>
+                    <div class = "step" data-step = "1" style="--step-height:150vh">
+                        <div class="inner-scrolling-card">
+                            <h2 class="centered-heading">Most of the grants were cut</br>mid-stream</h2>
+                            <div class="topics-section">
+                                <p class="lead">(More than halfway through</br>their scheduled duration)</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class = "step" data-step = "2" style="--step-height:100vh">
+                        <div class="inner-scrolling-card">
+                            <div class="topics-section">
+                                <p class="lead">A grant has a scheduled start and end. </br></br>The longest running grant that was terminated by the Trump administration was 44 years long.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <div class = "right-visual-column-wrapper">
+                    
+                    <figure data-main-visual="true" style="--fig-height: 80vh;--fig-margin-top:0vh; justify-content: center; display: flex; flex-direction: column; align-items: center; box-sizing: border-box;">
+                        <div class="scrolly-section-spacer" style = "--spacer-height: 2vh"></div>
+                        
+                        <iframe
+                        src="{{ url_for('static', filename='5_maturity.html') }}"
+                        width="600" height="450" frameborder="0"
+                        title="How far along grants were when terminated">
+                        </iframe>
+                        <div class="topics-section">
+                                    <p>Half the grants that were cut were more than 59% of the way
+                            through their scheduled work.  These weren't proposals being declined. They were projects
+                            with staff hired, patients enrolled, and years of work behind them.</p>
+
+                            <details class="chart-note">
+                            <summary>Notes and limitations (click me)</summary>
+                            <div class="note-body">
+                                123 of the 1,249 grants are left out because their recorded dates don't
+                                support the calculation. The largest group, 71 grants, had their project
+                                end date rewritten to the termination date, which makes a grant look 100%
+                                finished no matter how far along it actually was.
+                            </div>
+                            </details>
+                        </div>
+
+                    </figure>
+                </div>
+            </section>
+
+            <!-- ===== Sean's SECTION One Graph START ===== -->
+
+            <section class = "scrolly-container scrolly-section " id="Courts Pushed Back" data-type = "counter" data-title = "Courts Pushed Back">
+                <article>
+                    <div class = "step" data-step = "1" style="--step-height:150vh">
+                        <div class="inner-scrolling-card">
+                            <h2 class="centered-heading">The courts fought back</h2>
+                            <div class="topics-section">
+                                <p class="lead">Most of the grants frozen by the Trump administration were slowly restored. <br><br> But some were not.</p>
+                            </div>
+                        </div>                            
+                    </div>
+                    <div class = "step" data-step = "2" style="--step-height:100vh">
+                        <div class="inner-scrolling-card">
+                            <div class="topics-section">
+                                <h2 class="centered-heading">Unfortunately, damage was already done.</h2>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <div class = "right-visual-column-wrapper">
+                    
+                    <figure data-main-visual="true" style="--fig-height: 90vh;--fig-margin-top:0vh; justify-content: center; display: flex; flex-direction: column; align-items: center; box-sizing: border-box;">
+                        
+                        <div style="width: 50vw; height: 80vh; position: relative; overflow: hidden; margin: 0 auto;">
+
+                            <div class='tableauPlaceholder' id='viz1784616280371' style='position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.84); transform-origin: center; width: 1000px; height: 827px; padding: 0; margin: 0;'>
+                                <noscript>
+                                    <a href='#'>
+                                        <img alt='Overlapping ' src='https://public.tableau.com/static/images/Fi/Final-Researchworkbook-SeanSjahrialLinegraph/Overlapping/1_rss.png' style='border: none' />
+                                    </a>
+                                </noscript>
+                                <object class='tableauViz' style='display:none;'>
+                                    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                                    <param name='embed_code_version' value='3' />
+                                    <param name='site_root' value='' />
+                                    <param name='name' value='Final-Researchworkbook-SeanSjahrialLinegraph/Overlapping' />
+                                    <param name='tabs' value='no' />
+                                    <param name='toolbar' value='yes' />
+                                    <param name='static_image' value='https://public.tableau.com/static/images/Fi/Final-Researchworkbook-SeanSjahrialLinegraph/Overlapping/1.png' />
+                                    <param name='animate_transition' value='yes' />
+                                    <param name='display_static_image' value='yes' />
+                                    <param name='display_spinner' value='yes' />
+                                    <param name='display_overlay' value='yes' />
+                                    <param name='display_count' value='yes' />
+                                    <param name='language' value='en-US' />
+                                </object>
+                            </div>                
+                        </div>
+
+                        <script type='text/javascript'>
+                            var divElement = document.getElementById('viz1784616280371');
+                            var vizElement = divElement.getElementsByTagName('object')[0]; 
+                            
+                            // Force native internal pixel dimensions so Tableau doesn't zoom/crop text
+                            divElement.style.width='1000px';                            
+                            divElement.style.height='827px'; 
+                            vizElement.style.width='1000px';                            
+                            vizElement.style.height='827px'; 
+
+                            var scriptElement = document.createElement('script');
+                            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                            vizElement.parentNode.insertBefore(scriptElement, vizElement);
+                        </script>
+                    
+                        <div class="topics-section">
+                                <p class="subclass">
+                                The graph above shows the number of grants frozen and restored over time.
+                            </p>
+
+                            <p> Beginning in February 2025, the Trump administration began terminating active NIH research grants, cutting off researchers mid-project. 
+                                Over the following months, more than 6,000 grants were <span class="termination-text">disrupted</span>. Some were <span class="restoration-text">restored</span> after courts intervened. Others were not.
+                                After courts ruled the terminations illegal, funding levels slowly recovered
+                            </p>
+                        </div>
+
+                    </figure>
+                </div>
+            </section>
+
+                
+            <!-- ===== Sean's SECTION One Graph END ===== -->
+
+            <!-- ===== Teresa's SECTION START ===== -->
+            <section class = "scrolly-container scrolly-section " id="Geographic Impacts" data-type = "counter" data-title = "Geographic Impacts">
+                <article>
+                    <div class = "step" data-step = "1" style="--step-height:150vh">
+                        
+                        <div class="inner-scrolling-card">
+                            <h2 class="centered-heading">How was it spread?</h2>
+                            <span class="gf-hint" style="display:inline-flex; margin:1vh auto; justify-content: center;">
+                                <h4>        </h4>                   
+                                <h4>        </h4>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="#ecc94b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path 
+                                    stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12l3 0"/><path d="M12 3l0 3"/><path d="M7.8 7.8l-2.2 -2.2"/><path 
+                                    d="M16.2 7.8l2.2 -2.2"/><path d="M7.8 16.2l-2.2 2.2"/><path d="M12 12l9 3l-4 2l-2 4l-3 -9"/></svg>    
+                                    <h4>Use the dropdowns to explore</h4>
+                                    <svg viewBox="0 0 20 20" fill="none" stroke="#ecc94b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path 
+                                    stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12l3 0"/><path d="M12 3l0 3"/><path d="M7.8 7.8l-2.2 -2.2"/><path 
+                                    d="M16.2 7.8l2.2 -2.2"/><path d="M7.8 16.2l-2.2 2.2"/><path d="M12 12l9 3l-4 2l-2 4l-3 -9"/></svg>  
+                            </span> 
+                        </div>                            
+                    </div>
+                    <div class = "step" data-step = "2" style="--step-height:100vh">
+                        <div class="inner-scrolling-card">
+                            <div class="topics-section">
+                                <p class="lead">Many reinstated (restored) grants have come substantially through specific court cases, and litigation eligibility tends to cluster by which states attorneys general or named institutions joined those suits.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <div class = "right-visual-column-wrapper">
+                    
+                    <figure data-main-visual="true" style="--fig-height: 90vh;--fig-margin-top:0vh; justify-content: center; display: flex; flex-direction: column; align-items: center; box-sizing: border-box;">
+                        <h2 class="centered-heading">A geographic recovery divide not just an impact divide.</h2>
+                        <div class="scrolly-section-spacer" style = "--spacer-height: 2vh"></div>
+                        <div style="width: 55vw; height: 35vw; overflow: hidden; position: relative;">
+                            <iframe 
+                                src="{{ url_for('static', filename='metric_switcher.html') }}"
+                                width="100%" height="1000" frameborder="0"
+                                title="Map Overview of Terminations by Region (Version 1)"
+                                style="transform: scale(0.71); transform-origin: top left; width: 200%; height: 200%; position: absolute; top: 0; left: 0;">
+                            </iframe>
+                        </div>
+                        <div class="topics-section">
+                            <p class="subclass">
+                                The map on the left shows the count distribution of terminations. 
+                                The map on the right shows the rate distribution of terminations. <i>Rates are calculated a state/region's basis for detail.
+                            </p>
+                            <p>Gross termination shows that alomst every state got hit, but Still-Terminated and Reinstated, tells a much different story.</p>
+                            <ul>
+                                <li>
+                                    <b>The West (California, Nevada, Arizona, New Mexico, Colorado, Oregon) showa low still-terminated rates/high reinstated.</b></br>
+                                    These states initially got hit, same as everywhere else, but their grants were disproportionately restored.
+                                </li>
+                                <li>
+                                    <b>The South (Georgia, Alabama, Mississippi, the Carolinas, Florida, Arkansas) shows the opposite.</b></br>
+                                    These states are high in still-terminated grants, low-to-near-zero reinstated. Grants that were cut there largely stayed cut.
+                                </li>
+                                <li>
+                                    <b>The Midwest and Northeast sit in between, with more state-to-state variation than either coastal extreme.</b></br>
+                                    A few standouts (Idaho, North Dakota, New Hampshire) show unusually high still-terminated rates even relative to their neighbors.
+                                </li>
+                            </ul>
+                        </div>
+
+                    </figure>
+                </div>
+            </section>
+
+            <!-- ===== Teresa's SECTION END ===== -->
+
+            <!-- ===== Cameron's SECTION START ===== -->
+            <section class = "scrolly-container scrolly-section " id="Public Health Areas Ranked" data-type = "counter" data-title = "Research Areas Ranked">
+                <article>
+                    <div class = "step" data-step = "1" style="--step-height:150vh">
+                        <div class="inner-scrolling-card">
+                            <h2 class="centered-heading">Research Areas Ranked
+                                <span class="gf-hint" style="display:inline-flex; margin:1vh auto; justify-content: center;">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="#ecc94b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path 
+                                        stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12l3 0"/><path d="M12 3l0 3"/><path d="M7.8 7.8l-2.2 -2.2"/><path 
+                                        d="M16.2 7.8l2.2 -2.2"/><path d="M7.8 16.2l-2.2 2.2"/><path d="M12 12l9 3l-4 2l-2 4l-3 -9"/></svg>    
+                                        <h4>Use the dropdowns to explore</h4>
+                                        <svg viewBox="0 0 20 20" fill="none" stroke="#ecc94b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path 
+                                        stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12l3 0"/><path d="M12 3l0 3"/><path d="M7.8 7.8l-2.2 -2.2"/><path 
+                                        d="M16.2 7.8l2.2 -2.2"/><path d="M7.8 16.2l-2.2 2.2"/><path d="M12 12l9 3l-4 2l-2 4l-3 -9"/></svg>  
+                                </span> 
+                            </h2>
+                        </div>                            
+                </article>
+                <div class = "right-visual-column-wrapper">                    
+                    <figure data-main-visual="true" style="--fig-height: 90vh;--fig-margin-top:0vh; justify-content: center; display: flex; flex-direction: column; align-items: center; box-sizing: border-box;">
+                            <iframe
+                                src="{{ url_for('static', filename='new_nih_research_area_termination_rankings_controls_top.html') }}"
+                                    width="100%" height="750" frameborder="0">
+                            </iframe>
+                            <div class="topics-section">
+                                <p class="subclass">
+                                Several public health-related research areas rank among the NIH research areas with the highest grant termination rates.
+                                </p>
+                            </div>
+
+                    </figure>
+                </div>
+            </section>
+            <section class = "scrolly-container scrolly-section " id="Public Health Impacts" data-type = "counter" data-title = "Public Health Impacted">
+                <article>
+                    <div class = "step" data-step = "1">
+                        <div class="inner-scrolling-card">
+                            <h2 class="centered-heading">Public Health Impacted</h2>
+                            <div class="topics-section">
+                                <p class="lead">These trends are even more apparent when compared</br>side-by-side</p>
+                            </div>
+                        </div>                            
+                </article>
+                <div class = "right-visual-column-wrapper">                    
+                    <figure data-main-visual="true" style="--fig-height: 90vh;--fig-margin-top:0vh; justify-content: center; display: flex; flex-direction: column; align-items: center; box-sizing: border-box;">
+                        <div class="scrolly-section-spacer" style = "--spacer-height: 1vh"></div>
+                        <h3 class="centered-heading">
+                            Research area size versus disruption share
+                        </h3>
+                        <div class="scrolly-section-spacer" style = "--spacer-height: 2vh"></div>
+                            <iframe
+                                src="{{ url_for('static', filename='nih_research_group_comparison.html') }}"
+                                width="100%"
+                                height="650"
+                                frameborder="0">
+                            </iframe>
+                            <div class="topics-section">
+                                <p class="subclass">
+                                Among grants flagged in this dataset, public health related research areas consistently saw the largest share end in disruption rather than restoration. The size of a research area was not strongly associated with that share, so the pattern is not simply an artifact of big fields having more grants. Instead, specific topics stand out: health disparities, minority health, rural health, infectious diseases, and vaccine related research were disproportionately affected.
+                                </p>
+                            </div>
+                    </figure>
+                </div>
+            </section>
+
+            
 
             <!-- Stopping Point -->
             <div class="gf-arrow red">&#8595;</div>
@@ -623,241 +2439,117 @@
         </div>
           </div><!-- /.gf-statemap -->
 
-        </div><!-- /.figure -->
-</section>
+            <!-- ===== SEAN'S INTERACTIVE GRAPH 2 SECTION START (Tableau embeds) ===== -->
+            <section class = "scrolly-container scrolly-section " id="Impacts by Research Area" data-type = "counter" data-title = "Impacts by Research Area">
+                <article>
+                    <div class = "step" data-step = "1" style="--step-height:150vh">
+                        <div class="inner-scrolling-card">
+                            <h2 class="centered-heading">Of the grants frozen, who was affected the most?</h2>
+                        </div>                            
+                    </div>
+                    <div class = "step" data-step = "2" style="--step-height:100vh">
+                        <div class="inner-scrolling-card">
+                            <div class="topics-section">
+                                <h2 class="centered-heading">No Research Area was spared, but some areas were hit harder than others.</h2>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <div class = "right-visual-column-wrapper">                    
+                    <figure data-main-visual="true" style="--fig-height: 90vh;--fig-margin-top:0vh; justify-content: center; display: flex; flex-direction: column; align-items: center; box-sizing: border-box;">
+                        <div style="width: 55vw; height: 90vh; position: relative; overflow: hidden; margin: 0 auto;">
+                            <div class='tableauPlaceholder' id='viz1785471877398' style='position: absolute; top: 54%; left: 50%; transform: translate(-50%, -50%) scale(0.75); transform-origin: center; width: 1200px; height: 1000px; padding: 0; margin: 0;'>
+                                <noscript>
+                                    <a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;Final-HeatmapTimeline&#47;Dashboard1&#47;1_rss.png' style='border: none' />
+                                    </a>
+                                </noscript>
+                                <object class='tableauViz'  style='display:none'>
+                                    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                                    <param name='embed_code_version' value='3' />
+                                    <param name='site_root' value='' />
+                                    <param name='name' value='Final-HeatmapTimeline&#47;Dashboard1' />
+                                    <param name='tabs' value='no' />
+                                    <param name='toolbar' value='yes' />
+                                    <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;Final-HeatmapTimeline&#47;Dashboard1&#47;1.png' />
+                                    <param name='animate_transition' value='yes' />
+                                    <param name='display_static_image' value='yes' />
+                                    <param name='display_spinner' value='yes' />
+                                    <param name='display_overlay' value='yes' />
+                                    <param name='display_count' value='yes' />
+                                    <param name='language' value='en-US' />
+                                    <param name='filter' value='publish=yes' />
+                                </object>
+                            </div>
+                            <script type='text/javascript'>
+                                var divElement = document.getElementById('viz1785471877398');
+                                var vizElement = divElement.getElementsByTagName('object')[0];
+                                
+                                // Force native internal pixel dimensions so Tableau doesn't zoom/crop text
+                                divElement.style.width='1200px';                            
+                                divElement.style.height='1200px'; 
+                                vizElement.style.width='1200px';                            
+                                vizElement.style.height='1200px';
+                                
+                                var scriptElement = document.createElement('script');
+                                scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                                vizElement.parentNode.insertBefore(scriptElement, vizElement);
+                            </script>
+                            
+                        </div>
+                        <div class="topics-section">
+                                <p class="subclass">
+                                    This interactive graphic shows the number of grants disrupted in the different research areas. There are fluctuations in disruptions as courts restored funding to the grants.                            
+                                </p>
+                        </div>
+                    </figure>
+                </div>
+            </section>
+            <!-- ===== SEAN'S INTERACTIVE GRAPH 2 SECTION ENDS (Tableau embeds) ===== -->
 
-    <!--  Wasted time and money (intro) -->
-    <section class="section reveal">
-        <div class="wrap">
-        <h2 class="centered-heading">Wasted Time and Money</h2>
-            <p>In 2025, NIH terminated 1,249 research grants and did not restore them. This section asks how much time and money went into projects that were completely terminated. Every chart below describes the same 734 grants: the ones with complete records for both dollars spent and project timeline.</p>
-        </div>
-    </section>
-
-    <!--  Where the money stood -->
-    <section class="section reveal">
-        <div class="wrap">
-        <h3 class="centered-heading">Where the money stood when the work stopped (734 grants)</h3>
-            <p>Every dollar NIH commits to a grant ends up in one of three places once the grant is cut: already spent, still sitting there, or formally taken back.</p>
-    </div>
-        <div class="figure">
-        <iframe
-        src="{{ url_for('static', filename='5_money.html') }}"
-        width="100%" height="330" frameborder="0"
-        title="Fate of committed dollars">
-        </iframe>
-        </div>
-        <div class="wrap">
-            <p><strong>$926 million</strong> was committed to these 734 grants. $520 million had already been paid out for work that then stopped, and that money is gone regardless of what happens next. The government formally reclaimed $142 million, about 15 cents of every dollar it had committed.</p>
-            <p>These 734 are the grants with complete records for both spending and timeline. The other 515 terminated grants are excluded for missing or unreliable records, and they skew older and would have spent more, so <strong>$926 million is a floor, not a ceiling</strong>: the real total is higher, not lower.</p>
-        </div>
-    </section>
-
-    <!--  What the terminations cost -->
-    <section class="section reveal">
-        <div class="wrap">
-            <h3 class="centered-heading">What did the complete terminations cost in time and money?</h3>
-            <p class="subclass">Whichever region or institution a grant belonged to, a disruption carried the same underlying cost: work already paid for, and work that would now never be finished.</p>
-            <p>Every disrupted grant sits somewhere on a spectrum. Some were frozen briefly before funding resumed, others were cut off for good. But even a restored grant can leave real waste behind: salaries already paid, experiments half-run, labor lost. The amounts cover the 734 terminated grants with complete records, and should be read as a floor rather than a full accounting, because the grants missing data tend to be the oldest and most established.</p>
-            <p><strong>The money is concentrated in grants that had been running for years.</strong> A first-year grant that gets cut costs the public a few tens of thousands of dollars; a fifth-year grant costs well over a million. Whichever group you highlight, the shape holds: the cuts landed on mature work.</p>
-        </div>
-        <div class="figure">
-            <div style="overflow-x:auto">
-                <iframe
-                    src="{{ url_for('static', filename='5_readout.html') }}"
-                    width="100%" height="400" frameborder="0" style="min-width:840px"
-                    title="Spending by years funded, with region, institution and research area filters">
-                </iframe>
-            </div>
-        </div>
-        <div class="wrap">
-    </div>
-</section>
-
-    <!--  Cut Midstream -->
-    <section class="section reveal">
-        <div class="wrap">
-            <h3 class="centered-heading">Most grants were cut mid-stream (past the halfway point of their schedule)</h3>
-            <p>A grant has a scheduled start and end. This chart asks how far through that schedule each grant had gotten when it was terminated. The longest-running grant terminated was 44 years long.</p>
-    </div>
-        <div class="figure">
-    <iframe
-      src="{{ url_for('static', filename='5_maturity.html') }}"
-      width="100%" height="450" frameborder="0"
-      title="How far along grants were when terminated">
-    </iframe>
-        </div>
-        <div class="wrap">
-            <p><strong>What it says.</strong> Half the grants that were cut were more than 57% of the way through their scheduled work. These weren't proposals being declined. They were projects with staff hired, patients enrolled, and years of work behind them.</p>
-        <details class="chart-note">
-                <summary>Notes and limitations</summary>
-                <div class="note-body">NIH terminated 1,249 grants in 2025 and did not restore them. Every chart in this section describes the same 734: the grants with complete, reliable records for both dollars spent and project timeline. Of the rest, 448 are missing a spending figure, a usable date, or both, and they tend to be older and larger, so the dollar totals here are a floor rather than a full accounting. Another 67 had their recorded end date overwritten with the termination date, which would make them look 100% complete no matter how far along they really were, so they are left out entirely.</div>
-        </details>
-    </div>
-</section>
-
-    <!--  the courts fought back -->
-    <section class="section reveal">
-        <div class="wrap">
-            <h2 class="centered-heading">The courts fought back: most grants frozen in early 2025 were slowly restored. But some were not.</h2>
-            <p class="subclass">The graph below shows the number of grants frozen and restored over time.</p>
-            <p>Beginning in February 2025, the administration began terminating active NIH research grants, cutting off researchers mid-project. Over the following months, more than 6,000 grants were disrupted. Some were restored after courts intervened. Others were not. After courts ruled the terminations illegal, funding levels slowly recovered.</p>
-    </div>
-        <div class="figure">
-            <div class='tableauPlaceholder' id='viz1784616280371' style='position: relative; text-align: center'><noscript><a href='#'><img alt='Overlapping ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;Final-Researchworkbook-SeanSjahrialLinegraph&#47;Overlapping&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Final-Researchworkbook-SeanSjahrialLinegraph&#47;Overlapping' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;Final-Researchworkbook-SeanSjahrialLinegraph&#47;Overlapping&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1784616280371');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else { vizElement.style.width='100%';vizElement.style.height='827px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-        </div>
-</section>
-
-    <!--  What was never restored map -->
-    <section class="section reveal">
-        <div class="wrap">
-            <h2 class="centered-heading">A geographic recovery divide not just an impact divide.</h2>
-            <p class="subclass">
-                Many reinstated (restored) grants have come substantially through specific court cases, and litigation eligibility tends to cluster by which states attorneys general or named institutions joined those suits.
-            </p>
-            <p>Gross termination shows that alomst every state got hit, but Still-Terminated and Reinstated, tells a much different story.</p>
-            <ul>
-                <li>
-                    <b>The West (California, Nevada, Arizona, New Mexico, Colorado, Oregon) showa low still-terminated rates/high reinstated.</b>
-                    These states initially got hit, same as everywhere else, but their grants were disproportionately restored.
-                </li>
-                <li>
-                    <b>The South (Georgia, Alabama, Mississippi, the Carolinas, Florida, Arkansas) shows the opposite.</b>
-                    These states are high in still-terminated grants, low-to-near-zero reinstated. Grants that were cut there largely stayed cut.
-                </li>
-                <li>
-                    <b>The Midwest and Northeast sit in between, with more state-to-state variation than either coastal extreme.</b>
-                    A few standouts (Idaho, North Dakota, New Hampshire) show unusually high still-terminated rates even relative to their neighbors.
-                </li>
-            </ul>
-            
-            <h3 class="centered-heading" style="margin-top:2rem">Geographical view of termination and reinstation journey of NIH Grants.</h3>
-            <p class="subclass">On the left we have a map showing the impact of terminations on a count level. 
-                The right side map shows the terminated rates for each state/region. <i>Rates are calculated a state/region's basis rather than aggregatieng the data at the national level.</i>
-                <br>
-                Use the drop down on the left-bottom and hover over the map for statistics.
-            </p>
-    </div>
-        <div class="figure" style="max-width:1500px">
-        <iframe 
-                src="{{ url_for('static', filename='metric_switcher.html') }}"
-                width="100%" height="500" frameborder="0"
-                title="Map Overview of Terminations by Region (Version 1)">
-        </iframe>
-        </div>
-        <div class="wrap">
-            <h3 class="centered-heading" style="margin-top:2rem">What could the still-terminated and reinstated patterns mean?</h3>
-            <p>
-                The status (still-terminated and reinstated) of the grants could be futher explained by diving deeper into the grant type (private-vs-public) and demographic patterns (minority-seving-institutions).
-            </p>
-            <p>Termination hit broadly, but recovery was geographically concentrated. What were they working on? The charts below show that public health research areas were hit hardest.</p>
-        </div>
-</section>
-
-    <!--  Research areas (Cameron) -->
-    <section class="section reveal">
-        <div class="wrap">
-            <h2 class="centered-heading">Public health-related research areas experienced disproportionately high grant termination rates</h2>
-            <p class="subclass">This section examines whether public health-related research areas experienced disproportionately higher grant termination rates than other NIH research areas.</p>
-        </div>
-        <div class="figure">
-        
-        </div>
-        <div class="wrap"><h3 class="centered-heading">Figure 1: Research areas ranked by grant termination rate</h3>
-                          <p class="subclass">Several public health-related research areas rank among the NIH research areas with the highest grant termination rates.</p>
-        </div>
-        <div class="figure">
-        <iframe
-            src="{{ url_for('static', filename='new_nih_research_area_termination_rankings_controls_top.html') }}"
-                width="100%" height="750" frameborder="0">
-        </iframe>
-        </div>
-        <div class="wrap">
-            <h3 class="centered-heading">Figure 2: Termination rates across public health versus other NIH research areas </h3>
-            <p class="subclass">Comparing research areas by group shows that public health-related research areas had a higher median grant termination rate than other NIH research areas.</p>
-        </div>
-        <div class="figure">
-        <iframe
-            src="{{ url_for('static', filename='nih_research_group_comparison.html') }}"
-                width="100%" height="650" frameborder="0">
-        </iframe>
-        </div>
-        <div class="wrap">
-            <p>Public health-related research areas consistently experienced some of the highest grant termination rates in the dataset. Figure 1 shows that topics such as rural health, health disparities, minority health, immunization, and coronavirus-related research ranked among the most affected. Figure 2 extends this finding by comparing all public health-related research areas with other NIH research areas, showing that the public health group had a noticeably higher median termination rate overall. Together, these visualizations support the hypothesis that public health-related research areas experienced disproportionately high grant termination rates compared with many other NIH research areas.</p>
-    </div>
-</section>
-
-    <!--  Who was doing the work -->
-    <section class="section reveal">
-        <div class="wrap">
-            <h2 class="centered-heading">Who was doing the work?</h2>
-            <p class="lead">Sorting the same terminations and freezes by the kind of institution that held the grant shows the cuts hit the public and private sectors differently.</p>
-    </div>
-</section>
-
-    <!--  Heatmap timeline (Tableau)  -->
-    <section class="section reveal">
-        <div class="wrap">
-            <h3 class="centered-heading">No research area was spared, but some were hit harder than others</h3>
-            <p>This interactive graphic shows the number of grants disrupted across research areas. Disruptions fluctuate as courts restored funding.</p>
-    </div>  
-        <div class="figure">
-        <div class='tableauPlaceholder' id='viz1785471877398' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;Final-HeatmapTimeline&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Final-HeatmapTimeline&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;Final-HeatmapTimeline&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1785471877398');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1200px';vizElement.style.height='977px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1200px';vizElement.style.height='977px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-        </div>
-</section>
-
-    <!--  Who affected most  -->
-    <section class="section reveal">
-        <div class="wrap">
-            <h2 class="centered-heading">Of the grants not just terminated but also frozen, who was affected the most?</h2>
-            <p class="subclass">Sorting the same disruptions by the kind of institution that held the grant shows the cuts were just as uneven across organizations.</p>
-    </div>
-</section>
-
-    <!-- Roles section -->
-    <section class="section reveal">
-        <div class="wrap">
-            <h2 class="centered-heading">The freezes hit some groups longer than others</h2>
-            <p>Private organizations lost more total dollars, but public institutions' funding tended to stay frozen longer.</p>
-            <p>Funding at minority-serving organizations also stayed frozen longer than funding at other institutions.</p>
-            <h3 class="centered-heading" style="margin-top:2rem">Share of each sector's frozen grant value still withheld over the first disruption</h3>
-        </div>
-        <div class="figure">
-        <iframe
-            src="{{ url_for('static', filename='Sector Disruption Percentages.html') }}"
-                style="width:110%; height:950px; border:none; transform:scale(0.9); transform-origin:top left;"
-                frameborder="0"
-                title="Percent of grant value withheld over disruption duration, by sector">
-        </iframe>
-    </div>
-        <div class="wrap">
-            <p>The public curve stays above the private curve for most of the timeline, meaning public funding stayed frozen longer before it was released.</p>
-            <h3 class="centered-heading" style="margin-top:2rem">Total dollar value frozen at private versus public organizations during the first disruption</h3>
-        </div>
-        <div class="figure" style="text-align:center">
-            <img
-                src="{{ url_for('static', filename=file7) }}"
-                alt="Total grant value withheld over the duration of first disruptions, by sector"
-                style="display:block; margin:0 auto; max-width:100%; max-height:520px; height:auto; width:auto; background:#fff; border-radius:12px; padding:10px;">
-    </div>
-        <div class="wrap">
-            <p>Private organizations account for the large majority of the dollars, reflecting how much more NIH grant money private institutions hold overall.</p>
-            <p>The chart below compares share of frozen grant value still withheld over the first disruption, minority-serving organizations against all others.</p>
-        </div>
-        <div class="figure">
-    <iframe
-        src="{{ url_for('static', filename='Marginalized Group Disruption Percentages.html') }}"
-                style="width:110%; height:950px; border:none; transform:scale(0.9); transform-origin:top left;"
-                frameborder="0"
-                title="Percent of grant value withheld over disruption duration, by minority-serving status">
-    </iframe>
-        </div>
-        <div class="wrap">
-            <p>The minority-serving curve stays higher for most of the timeline, meaning that funding stayed frozen longer.</p>
-    </div>
-</section>
-
-    <!-- Conclusion  -->
+            <!-- ===== ROE's SECTION START ===== -->
+             <section class = "scrolly-container scrolly-section " id="Private Interests and Marginalized Groups" data-type = "counter" data-title = "Private Interests and Marginalized Groups">
+                <article>
+                    <div class = "step" data-step = "1">
+                        <div class="inner-scrolling-card">
+                            <h2 class="centered-heading">The freezes hit some groups longer than others
+                                <span class="gf-hint" style="display:inline-flex; margin:1vh auto; justify-content: center;">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="#ecc94b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path 
+                                        stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12l3 0"/><path d="M12 3l0 3"/><path d="M7.8 7.8l-2.2 -2.2"/><path 
+                                        d="M16.2 7.8l2.2 -2.2"/><path d="M7.8 16.2l-2.2 2.2"/><path d="M12 12l9 3l-4 2l-2 4l-3 -9"/></svg>    
+                                        <h4>Use the toggle to view other categories</h4>
+                                        <svg viewBox="0 0 20 20" fill="none" stroke="#ecc94b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path 
+                                        stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12l3 0"/><path d="M12 3l0 3"/><path d="M7.8 7.8l-2.2 -2.2"/><path 
+                                        d="M16.2 7.8l2.2 -2.2"/><path d="M7.8 16.2l-2.2 2.2"/><path d="M12 12l9 3l-4 2l-2 4l-3 -9"/></svg>  
+                                </span> 
+                            </h2>
+                        </div>                            
+                </article>
+                <div class = "right-visual-column-wrapper">                    
+                    <figure data-main-visual="true" style="--fig-height: 90vh;--fig-margin-top:0vh; justify-content: center; display: flex; flex-direction: column; align-items: center; box-sizing: border-box;">
+                        <h2 class="centered-heading">
+                            Distributed effects on different groups of people
+                        </h2>
+                         <div style="width: 55vw; height: 70vh; overflow: hidden; position: relative;">
+                            <iframe
+                                src="{{ url_for('static', filename='Frozen_Value_over_Time.html') }}"
+                                width="100%"
+                                height="650"
+                                frameborder="0">
+                            </iframe>
+   
+                        </div>
+                        <div class="topics-section">
+                                <p class="subclass">
+                                This chart shows that private sector research institutions had their frozen grant money returned to them much more quickly than their public counterparts.
+                                Similarly, non-minority serving research institutions had their frozen grant money returned to them much more quickly than minority-serving institutions.
+                                </p>
+                        </div>
+                    </figure>
+                </div>
+            </section>
+            <!-- ===== Roe's SECTION END ===== -->
+            <section class = "scrolly-container scrolly-section " id="Conclusion" data-type = "counter" data-title = "Conclusion"></section>
+                <!-- Conclusion  -->
     <section class="section reveal has-bg">
         <div class="bg-layer" style="--bg-opacity:.20; background-image:linear-gradient(200deg,#1b4fa0,#0b1f44);"></div>
         <div class="wrap">
@@ -873,7 +2565,7 @@
     </div>
     </section>
 
-    <section class="section reveal">
+    <section>
         <div class="wrap">
             <h2 class="centered-heading">What the disruptions really cost</h2>
             <p>Beginning in early 2025, thousands of active NIH grants were abruptly frozen or terminated, cutting off research already underway. The courts later forced much of that funding to be restored, but restoration was not the same as prevention: by the time money flowed again, the disruption had already done its damage.</p>
@@ -888,274 +2580,304 @@
 </section>
 
     <!-- References -->
-    <section class="section reveal">
+    <section>
         <div class="wrap">
             <h3>References</h3>
-            <ul class="refs">
-                <li>Galkina Cleary, E., Jackson, M. J., Zhou, E. W., &amp; Ledley, F. D. (2023). Comparison of Research Spending on New Drug Approvals by the National Institutes of Health vs the Pharmaceutical Industry, 2010-2019. JAMA Health Forum, 4(4), e230511.</li>
-                <li>National Institutes of Health. (2024, December). The Story of Fluoridation. National Institute of Dental and Craniofacial Research.</li>
-                <li>National Institutes of Health. (2025b, June 5). Scientific Breakthroughs.</li>
-                <li>National Institutes of Health. (2025a, April 29). History.</li>
-                <li>National Institutes of Health. (2025c, January 21). Nobel Laureates.</li>
+            </body>
+            <ul>
+            <li>Galkina Cleary, E., Jackson, M. J., Zhou, E. W., & Ledley, F. D. (2023). Comparison of Research Spending on New Drug Approvals by the National Institutes of Health vs the Pharmaceutical Industry, 2010-2019. JAMA health forum, 4(4), e230511. https://doi.org/10.1001/jamahealthforum.2023.0511</li>
+            </li>National Institutes of Health. (2024, December). The story of Fluoridation | National Institute of Dental and Craniofacial Research. The Story of Fluoridation. https://www.nidcr.nih.gov/health-info/fluoride/the-story-of-fluoridation</li>
+            <li>National Institutes of Health. (2025b, June 5). Scientific breakthroughs | national institutes of health (NIH). Scientific Breakthroughs. https://www.nih.gov/about-nih/impact-nih-research/revolutionizing-science/scientific-breakthroughs</li>
+            <li>National Institutes of Health. (2025a, April 29). History | National Institutes of Health (NIH). History. https://www.nih.gov/about-nih/organization/history</li>
+            <li>National Institutes of Health. (2025c, January 21). Nobel laureates | national institutes of health (NIH). Nobel Laureates. https://www.nih.gov/about-nih/nih-almanac/nobel-laureates</li>
             </ul>
-            <h3 style="margin-top:2rem">Data sources</h3>
-            <ul class="refs">
-                <li>NIH ExPORTER: report.nih.gov/faqs#exporter</li>
-                <li>Grant Witness: grant-witness.us</li>
+            </body>
+
+            </h3>Data Sources</h3>
+            <ul>
+                <li>
+                    <b>The West (California, Nevada, Arizona, New Mexico, Colorado, Oregon) showa low still-terminated rates/high reinstated.</b>
+                    These states initially got hit, same as everywhere else, but their grants were disproportionately restored.
+                </li>
+                <li>
+                    <b>The South (Georgia, Alabama, Mississippi, the Carolinas, Florida, Arkansas) shows the opposite.</b>
+                    These states are high in still-terminated grants, low-to-near-zero reinstated. Grants that were cut there largely stayed cut.
+                </li>
+                <li>
+                    <b>The Midwest and Northeast sit in between, with more state-to-state variation than either coastal extreme.</b>
+                    A few standouts (Idaho, North Dakota, New Hampshire) show unusually high still-terminated rates even relative to their neighbors.
+                </li>
             </ul>
         </div>
-</section>
+    </section>
+        </main>
 
-</div><!-- /.page -->
+        <script>
+            (function(){
+            var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            var els = document.querySelectorAll('.reveal');
+            if(reduce || typeof scrollama === 'undefined' || !els.length) return; // leave everything visible
+            document.documentElement.classList.add('js-reveal');
+            var scroller = scrollama();
+            scroller.setup({ step: '.reveal', offset: 0.9, once: true })
+                    .onStepEnter(function(res){ res.element.classList.add('is-in'); });
+            window.addEventListener('resize', scroller.resize);
+            })();
+        </script>
 
-<!-- Scrollama: (fade + slide-up reveal on each .section.reveal -->
-<script src="https://cdn.jsdelivr.net/npm/scrollama@3.2.0/build/scrollama.min.js"></script>
-<script>
-(function(){
-    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var els = document.querySelectorAll('.reveal');
-    if(reduce || typeof scrollama === 'undefined' || !els.length) return; // leave everything visible if anything is missing
-    document.documentElement.classList.add('js-reveal');
-    var scroller = scrollama();
-    scroller.setup({ step: '.reveal', offset: 0.85, once: true })
-            .onStepEnter(function(res){ res.element.classList.add('is-in'); });
-    window.addEventListener('resize', scroller.resize);
-})();
+        <!-- Start of Snap View to Top of page on load-->
+
+        <script>
+            // Disable restoring to previous scroll position on reload
+            if (history.scrollRestoration) {
+            history.scrollRestoration = 'manual';
+            }
+
+    <!--  Research areas (Cameron) -->
+    <section class="section reveal">
+        <div class="wrap">
+            <h2 class="centered-heading">Public health-related research areas experienced disproportionately high grant termination rates</h2>
+            <p class="subclass">This section examines whether public health-related research areas experienced disproportionately higher grant termination rates than other NIH research areas.</p>
+        </div>
+        <div class="figure">
+        
+        <script 
+            src = "{{ url_for('static', filename = 'scrollama.min.js')}}">  // Scrollama Source
+        </script>
+        <!-- End of Snap View to Top of page on load -->
+
+
+        <!-- Start of Scrollama Tile Handlers-->
+        <script>
+    if (typeof scrollama !== 'undefined') {
+        const scrollySections = document.querySelectorAll('.scrolly-section');
+        const tocWrapper = document.querySelector('.toc-links-wrapper');
+
+        if(tocWrapper){
+            tocWrapper.innerHTML = '';
+            scrollySections.forEach((section) => {
+                const sectionId = section.getAttribute('id');
+                const sectionTitle = section.getAttribute('data-title') || "Unnamed Section";
+                if (sectionId) {
+                    const anchorNode = document.createElement('a');
+                    anchorNode.href = `#${sectionId}`;
+                    anchorNode.className = 'toc-link';
+                    anchorNode.setAttribute('data-target-id', sectionId);
+                    anchorNode.innerHTML = `
+                        <div class="headline"><span class="title-text">${sectionTitle}</span></div>
+                        <div class="toggle"><svg viewBox="0 0 100 100"><use href="#bold-caret"/></svg></div>
+                    `;
+                    tocWrapper.appendChild(anchorNode);
+                }
+            });
+        }
+
+        const allTocLinks = document.querySelectorAll('.toc-link');
+        function updateTocHighlight(activeSectionId) {
+            allTocLinks.forEach((link) => {
+                link.classList.toggle('active-toc-node', link.getAttribute('data-target-id') === activeSectionId);
+            });
+        }
+
+        scrollySections.forEach((section) => {
+            const steps = section.querySelectorAll('article .step');
+            const sectionType = section.getAttribute('data-type');
+            const currentSectionId = section.getAttribute('id');
+
+            const counterDisplay = section.querySelector('#counter-display');
+            const impactCards = section.querySelectorAll('.impact-card');
+            const flowSteps = section.querySelectorAll('.gf-item');
+            const mainFigure = section.querySelector('figure[data-main-visual="true"]');
+
+            const scroller = scrollama();
+            
+            scroller
+                .setup({
+                    step: steps,
+                    offset: 0.5,
+                    progress: true 
+                })
+                .onStepEnter(function(response) {
+                    steps.forEach((step) => step.classList.remove('is-active'));
+                    response.element.classList.add('is-active');
+                    
+                    const currentStepIndex = response.index;
+                    updateTocHighlight(currentSectionId);
+
+                    if (sectionType === 'counter' && counterDisplay) {
+                        counterDisplay.innerText = currentStepIndex + 1;
+                    }
+                    else if (sectionType === 'cards' && impactCards.length > 0) {
+                        if (mainFigure) {
+                            mainFigure.classList.toggle('is-sticky-center', !(currentStepIndex === 0 || currentStepIndex === 1));
+                        }
+                        impactCards.forEach(card => card.removeAttribute('open'));
+                        setTimeout(() => {
+                            const targetIndex = currentStepIndex - 1;
+                            impactCards.forEach((card) => {
+                                const cardId = parseInt(card.getAttribute('data-card'));                            
+                                card.toggleAttribute('open', cardId === targetIndex);
+                            });
+                        }, 200);
+                    }
+                    else if (sectionType === 'flow' && flowSteps.length > 0) {
+                        if (mainFigure) {
+                            mainFigure.classList.toggle('is-sticky-center', !(currentStepIndex === 0 || currentStepIndex === 1));
+                        }
+                        flowSteps.forEach(flowStep => flowStep.classList.remove('open'));
+                        setTimeout(() => {
+                            const targetIndex = currentStepIndex - 1;
+                            flowSteps.forEach((flowStep) => {
+                                const flowStepId = parseInt(flowStep.getAttribute('data-flow-step'));
+                                flowStep.classList.toggle('open', flowStepId === targetIndex);
+                            });
+                        }, 200);
+                    }
+                    else if (sectionType === 'ramp') {
+                        const rampStep = response.element.getAttribute('ramp-step');
+                        if (typeof window.setRampProgress === 'function') {
+                            if (rampStep === 'ramp-intro') window.setRampProgress(0);
+                            if (rampStep === 'ramp-outro') window.setRampProgress(1);
+                        }
+                    }
+                })
+                .onStepProgress(function(response) {
+                    if (sectionType === 'ramp') {
+                        const rampStep = response.element.getAttribute('ramp-step');
+                        if (rampStep === 'ramp-trigger' && typeof window.setRampProgress === 'function') {
+                            window.setRampProgress(response.progress);
+                        }
+                    }
+                });
+
+            window.addEventListener('resize', () => { scroller.resize(); });
+        });
+    }
 </script>
+        <script>
 
-<!-- Ramping grant visualization-->
-
-<script>
 (function () {
-  var section = document.getElementById('ramp-6096');
-  if (!section) return;
+    var section = document.getElementById('Intro');
+    if (!section) return;
 
-  var canvas   = section.querySelector('.ramp-canvas');
-  var ctx      = canvas.getContext('2d');
-  var countEl  = section.querySelector('.ramp-count');
-  var subEl    = section.querySelector('.ramp-sub');
-  var labelEl  = section.querySelector('.ramp-label');
+    var canvas   = section.querySelector('.ramp-canvas');
+    var ctx      = canvas.getContext('2d');
+    var countEl  = section.querySelector('.ramp-count');
+    var subEl    = section.querySelector('.ramp-sub');
+    var labelEl  = section.querySelector('.ramp-label');
 
-  // ---- Knobs you can tune ----
-  var START        = 6;          // number the counter starts at
-  var END          = 6096;       // total it climbs to
-  var TERMINATED   = 734;        // grants with complete spending and timeline records (734 of 1,249 total terminated)
-  var FROZEN       = END - TERMINATED;   // the rest are frozen (yellow)
-  var FROZEN_COLOR = '#facc15';  // yellow
-  var TERM_COLOR   = '#dc2626'; // red
-  var EASE_POW     = 1.8;        // >1 flooding animation 1 = steady rate
-  // (Ramp LENGTH is the .ramp-trigger min-height in the CSS.)
+    var START        = 6;          
+    var END          = 6096;       
+    var TERMINATED   = 734;        
+    var FROZEN       = END - TERMINATED;   
+    var FROZEN_COLOR = '#facc15';  
+    var TERM_COLOR   = '#dc2626'; 
+    var EASE_POW     = 1.8;        
 
-  var positions = [];
-  var cols = 1, cell = 1, dotR = 2, offX = 0, offY = 0;
-  var dpr = Math.max(1, window.devicePixelRatio || 1);
-  var currentN = START;
-  var showSplit = false;         // true only at the very end, when the orange is revealed
+    var positions = [];
+    var cols = 1, cell = 1, dotR = 2, offX = 0, offY = 0;
+    var dpr = Math.max(1, window.devicePixelRatio || 1);
+    var currentN = START;
+    var showSplit = false;         
 
-  function layout() {
-    var rect = canvas.getBoundingClientRect();
-    var W = rect.width, H = rect.height;
-    if (W < 2 || H < 2) return;
-    canvas.width  = Math.round(W * dpr);
-    canvas.height = Math.round(H * dpr);
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    function layout() {
+        var rect = canvas.getBoundingClientRect();
+        var W = rect.width, H = rect.height;
+        if (W < 2 || H < 2) return;
+        canvas.width  = Math.round(W * dpr);
+        canvas.height = Math.round(H * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-    cols = Math.max(1, Math.round(Math.sqrt(END * (W / H))));
-    var rows = Math.ceil(END / cols);
-    cell = Math.min(W / cols, H / rows);
-    dotR = Math.max(1, cell * 0.34);
-    var gridW = cols * cell, gridH = rows * cell;
-    offX = (W - gridW) / 2;
-    offY = (H - gridH) / 2;
+        cols = Math.max(1, Math.round(Math.sqrt(END * (W / H))));
+        var rows = Math.ceil(END / cols);
+        cell = Math.min(W / cols, H / rows);
+        dotR = Math.max(1, cell * 0.34);
+        var gridW = cols * cell, gridH = rows * cell;
+        offX = (W - gridW) / 2;
+        offY = (H - gridH) / 2;
 
-    positions.length = 0;
-    for (var i = 0; i < END; i++) {
-      var c = i % cols, r = Math.floor(i / cols);
-      positions.push([offX + c * cell + cell / 2, offY + r * cell + cell / 2]);
+        positions.length = 0;
+        for (var i = 0; i < END; i++) {
+            var c = i % cols, r = Math.floor(i / cols);
+            positions.push([offX + c * cell + cell / 2, offY + r * cell + cell / 2]);
+        }
+        draw(currentN);
     }
-    draw(currentN);
-  }
 
-  function arcAt(i) {
-    var p = positions[i];
-    ctx.moveTo(p[0] + dotR, p[1]);
-    ctx.arc(p[0], p[1], dotR, 0, 6.2832);
-  }
-
-  function draw(n) {
-    currentN = n;
-    var rect = canvas.getBoundingClientRect();
-    ctx.clearRect(0, 0, rect.width, rect.height);
-    var count = Math.min(END, Math.max(0, Math.round(n)));
-    var termStart = END - TERMINATED;   // the last TERMINATED dots are the terminated block
-
-    // Pass 1: frozen (yellow)
-    ctx.fillStyle = FROZEN_COLOR;
-    ctx.beginPath();
-    for (var i = 0; i < count; i++) {
-      if (showSplit && i >= termStart) continue;
-      arcAt(i);
+    function arcAt(i) {
+        var p = positions[i];
+        if (!p) return; // Guard clause against calculation overflows
+        ctx.moveTo(p[0] + dotR, p[1]);
+        ctx.arc(p[0], p[1], dotR, 0, 6.2832);
     }
-    ctx.fill();
 
-    // Pass 2: terminated (orange), only once revealed
-    if (showSplit) {
-      ctx.fillStyle = TERM_COLOR;
-      ctx.beginPath();
-      for (var j = termStart; j < count; j++) arcAt(j);
-      ctx.fill();
+    function draw(n) {
+        currentN = n;
+        var rect = canvas.getBoundingClientRect();
+        ctx.clearRect(0, 0, rect.width, rect.height);
+        var count = Math.min(END, Math.max(0, Math.round(n)));
+        var termStart = END - TERMINATED;   
+
+        ctx.fillStyle = FROZEN_COLOR;
+        ctx.beginPath();
+        for (var i = 0; i < count; i++) {
+            if (showSplit && i >= termStart) continue;
+            arcAt(i);
+        }
+        ctx.fill();
+
+        if (showSplit) {
+            ctx.fillStyle = TERM_COLOR;
+            ctx.beginPath();
+            for (var j = termStart; j < count; j++) arcAt(j);
+            ctx.fill();
+        }
     }
-  }
 
-  function ease(p) { return Math.pow(p, EASE_POW); }
+    function ease(p) { return Math.pow(p, EASE_POW); }
 
-  function setProgress(p) {
-    p = Math.min(1, Math.max(0, p));
-    var n  = START + (END - START) * ease(p);
-    var ni = Math.round(n);
-    showSplit = (ni >= END);           // reveal the orange only when the field is full
-    countEl.textContent = ni.toLocaleString('en-US');
-    draw(ni);
+    // Fixed: Mounted directly onto the window object to break through closure insulation
+    window.setRampProgress = function(p) {
+        p = Math.min(1, Math.max(0, p));
+        var n  = START + (END - START) * ease(p);
+        var ni = Math.round(n);
+        showSplit = (ni >= END);           
+        if (countEl) countEl.textContent = ni.toLocaleString('en-US');
+        draw(ni);
 
-    if (p <= 0.001) {
-      labelEl.textContent = '2012 to January 20, 2025';
-      subEl.textContent   = 'Fewer than 6 grants terminated midstream in 13 years.';
-    } else {
-      labelEl.textContent = '2025';
-      if (showSplit) {
-        subEl.innerHTML = 'At least ' + FROZEN.toLocaleString('en-US') +
-          ' grants <b style="color:' + FROZEN_COLOR + '">frozen</b>. ' +
-          TERMINATED.toLocaleString('en-US') +
-          ' <b style="color:' + TERM_COLOR + '">terminated</b>, with no date set to restore them.';
-      } else if (Math.floor(ni / 6) >= 5) {
-        subEl.textContent = 'grants frozen or terminated, already more than ' +
-          Math.floor(ni / 6).toLocaleString('en-US') + ' times the prior 13 years.';
-      } else {
-        subEl.textContent = 'grants frozen or terminated, and climbing.';
-      }
-    }
-  }
+        if (!labelEl || !subEl) return;
 
-  function initScroller() {
-    if (typeof scrollama === 'undefined') return false;
-    var steps = section.querySelectorAll('.ramp-step');
-    var scroller = scrollama();
-    scroller
-      .setup({ step: steps, offset: 0.55, progress: true })
-      .onStepEnter(function (res) {
-        steps.forEach(function (s) { s.classList.remove('is-active'); });
-        res.element.classList.add('is-active');
-        if (res.element.classList.contains('ramp-intro')) setProgress(0);
-        if (res.element.classList.contains('ramp-outro')) setProgress(1);
-      })
-      .onStepProgress(function (res) {
-        if (res.element.classList.contains('ramp-trigger')) setProgress(res.progress);
-      });
-    window.addEventListener('resize', function () {
-      dpr = Math.max(1, window.devicePixelRatio || 1);
-      layout(); scroller.resize();
-    });
-    return true;
-  }
-
-  function boot() {
-    layout();
-    if (!initScroller()) {
-      var tries = 0;
-      var t = setInterval(function () {
-        tries++;
-        if (initScroller() || tries > 40) clearInterval(t);
-      }, 100);
-    }
-  }
-
-  if (document.readyState === 'complete') boot();
-  else window.addEventListener('load', boot);
-})();
-
-</script>
-<!-- end of ramping grant visualization-->
-<!-- Flowchart state-map: click a bubble to show its detail (scrollama already loaded above) -->
-<script>
-(function(){
-  function initStateMap(){
-    var wrap = document.getElementById('gf-statemap');
-    if(!wrap || wrap.dataset.ready) return;
-    wrap.dataset.ready = '1';
-
-    var DATA = {
-      cycle: { color:'#1b4fa0', title:'Research Is Ongoing',
-        body:'A funded grant repeats a yearly cycle: the team does the work, files a progress report, and receives the next year\u2019s installment. It stays here until it finishes, is frozen, or is terminated.' },
-      frozen: { color:'#d12b2b', title:'Funding frozen',
-        body:'Funds are held and no new costs can be charged, so the work usually stops, whether or not the science is sound. A grant can be frozen and unfrozen more than once. When funding resumes, the grant is restored and returns to the yearly cycle. It does not jump straight to completion.' },
-      terminated: { color:'#d12b2b', title:'Grant terminated',
-        body:'The award is ended before its planned completion, and the remaining work cannot continue under it. In 2025 NIH terminated more than 1,800 grants that were already underway. Many were challenged in court and reinstated, then in some cases terminated again, so termination was not always final. Because the money is committed year by year, ending a grant mid-stream strands work an institution has already started and staffed.' },
-      completed: { color:'#1f8a4c', title:'Project completed',
-        body:'The research concludes and the results are shared with the field. This is the one clean exit from the cycle, and the point every grant is meant to reach.' }
+        if (p <= 0.001) {
+            labelEl.textContent = '2012 to January 20, 2025';
+            subEl.textContent   = 'Fewer than 6 grants terminated midstream in 13 years.';
+        } else {
+            labelEl.textContent = '2025';
+            if (showSplit) {
+                subEl.innerHTML = 'At least ' + FROZEN.toLocaleString('en-US') +
+                ' grants <b style="color:' + FROZEN_COLOR + '">frozen</b>. ' +
+                TERMINATED.toLocaleString('en-US') +
+                ' <b style="color:' + TERM_COLOR + '">terminated</b>, with no date set to restore them.';
+            } else if (Math.floor(ni / 6) >= 5) {
+                subEl.textContent = 'grants frozen or terminated, already more than ' +
+                Math.floor(ni / 6).toLocaleString('en-US') + ' times the prior 13 years.';
+            } else {
+                subEl.textContent = 'grants frozen or terminated, and climbing.';
+            }
+        }
     };
 
-    var detail = document.getElementById('gf-map-detail');
-    var dTitle = detail.querySelector('.gf-md-title');
-    var dBody  = detail.querySelector('.gf-md-body');
-    var nodes  = Array.prototype.slice.call(wrap.querySelectorAll('.mnode'));
-
-    function select(key){
-      var d = DATA[key]; if(!d) return;
-      nodes.forEach(function(n){ n.classList.toggle('sel', n.getAttribute('data-key')===key); });
-      dTitle.textContent = d.title;
-      dBody.textContent = d.body;
-      dTitle.style.color = d.color;
-      detail.style.borderLeftColor = d.color;
+    // Fixed: Wrapped logic inside boot structure matching structural execution rules
+    function boot() {
+        layout();
+        window.addEventListener('resize', layout);
+        window.setRampProgress(0); // Establish base state
     }
 
-    nodes.forEach(function(n){
-      var key = n.getAttribute('data-key');
-      n.addEventListener('click', function(){ select(key); });
-      n.addEventListener('keydown', function(e){
-        if(e.key==='Enter' || e.key===' '){ e.preventDefault(); select(key); }
-      });
-    });
-
-    select('cycle');
-
-    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if(reduce || typeof scrollama === 'undefined') return;
-    wrap.classList.add('gf-anim');
-    var scroller = scrollama();
-    scroller.setup({ step: '#gf-statemap', offset: 0.85, once: true })
-            .onStepEnter(function(){ wrap.classList.add('is-in'); });
-    window.addEventListener('resize', scroller.resize);
-  }
-  if(document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', initStateMap); }
-  else { initStateMap(); }
+    if (document.readyState === 'complete') boot();
+    else window.addEventListener('load', boot);
 })();
 </script>
 
-<!-- Flowchart nodes: expand one detail at a time, toggle the More/Less label -->
-<script>
-(function(){
-  var flow = document.getElementById('grantflow');
-  if(!flow) return;
-  flow.addEventListener('click', function(e){
-    var btn = e.target.closest('.gf-node'); if(!btn) return;
-    var item = btn.closest('.gf-item');
-    var willOpen = !item.classList.contains('open');
-    flow.querySelectorAll('.gf-item.open').forEach(function(o){
-      if(o !== item){
-        o.classList.remove('open');
-        o.querySelector('.gf-node').setAttribute('aria-expanded','false');
-        setMore(o, false);
-      }
-    });
-    item.classList.toggle('open', willOpen);
-    btn.setAttribute('aria-expanded', String(willOpen));
-    setMore(item, willOpen);
-  });
-  function setMore(item, open){
-    var pill = item.querySelector('.gf-more');
-    if(pill && pill.childNodes[0]) pill.childNodes[0].nodeValue = open ? 'Less ' : 'More ';
-  }
-})();
-</script>
-</body>
+        <!-- end of ramping grant visualization-->
+    </body>
 </html>
