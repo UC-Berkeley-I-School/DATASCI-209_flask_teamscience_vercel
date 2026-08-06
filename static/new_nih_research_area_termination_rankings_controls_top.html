@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+  body {
+    margin: 0;
+    background: transparent;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  #chart-wrapper {
+    width: 100%;
+    background: white;
+  }
+
+  /* Controls live in their own row above the visualization. */
+  #controls {
+    min-height: 52px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 8px 20px;
+    background: white;
+  }
+
+  #controls .vega-bindings {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    width: 100%;
+    margin: 0;
+  }
+
+  #controls .vega-bind {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #243746;
+  }
+
+  #controls .vega-bind-name {
+    color: #243746;
+    font-weight: 600;
+  }
+
+  #controls select,
+  #controls input[type="search"] {
+    box-sizing: border-box;
+    padding: 6px 9px;
+    color: #243746;
+    background: white;
+    border: 1px solid #cfd8df;
+    border-radius: 4px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  #controls select {
+    width: 210px;
+  }
+
+  #controls input[type="search"] {
+    width: 220px;
+  }
+
+  #vis,
+  #vis.vega-embed {
+    width: 100%;
+  }
+
+  #vis.vega-embed details,
+  #vis.vega-embed details summary {
+    position: relative;
+  }
+</style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="chart-wrapper">
+    <div id="controls"></div>
+    <div id="vis"></div>
+  </div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "stroke": null}, "axis": {"gridColor": "#D9E2E8", "labelColor": "#243746", "labelFontSize": 11, "titleColor": "#183B56", "titleFontSize": 13}, "legend": {"direction": "horizontal", "labelColor": "#243746", "orient": "top", "titleColor": "#183B56"}, "title": {"color": "#183B56"}}, "layer": [{"mark": {"type": "bar", "cornerRadiusEnd": 5}, "encoding": {"color": {"field": "Research Group", "scale": {"domain": ["Public health-related", "Other NIH research area"], "range": ["#009CC6", "#183B56"]}, "title": "Research group", "type": "nominal"}, "opacity": {"condition": {"param": "param_7", "value": 1, "empty": false}, "value": 0.75}, "stroke": {"condition": {"param": "param_7", "value": "#183B56", "empty": false}, "value": null}, "strokeWidth": {"condition": {"param": "param_7", "value": 2, "empty": false}, "value": 0}, "tooltip": [{"field": "Topic", "title": "Research area", "type": "nominal"}, {"field": "Research Group", "title": "Research group", "type": "nominal"}, {"field": "Termination Rate (%)", "format": ".1f", "title": "Termination rate", "type": "quantitative"}, {"field": "Total_Grants", "format": ",", "title": "Total grants", "type": "quantitative"}], "x": {"field": "Termination Rate (%)", "scale": {"domain": [0, 100]}, "title": "Termination Rate (%)", "type": "quantitative"}, "y": {"axis": {"labelLimit": 360, "labelPadding": 8}, "field": "Topic", "sort": {"field": "Termination Rate (%)", "order": "descending"}, "title": null, "type": "nominal"}}, "name": "view_7", "transform": [{"filter": "(Research_Group_Filter == 'All') || (datum['Research Group'] == Research_Group_Filter)"}, {"filter": "(Topic_Search == '') || (indexof(lower(datum.Topic), lower(Topic_Search)) >= 0)"}, {"window": [{"op": "rank", "field": "", "as": "rank"}], "sort": [{"field": "Termination Rate (%)", "order": "descending"}]}, {"filter": "datum.rank <= 20"}]}, {"mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 5, "fontSize": 11}, "encoding": {"color": {"value": "#243746"}, "text": {"field": "Termination Rate (%)", "format": ".1f", "type": "quantitative"}, "x": {"field": "Termination Rate (%)", "type": "quantitative"}, "y": {"field": "Topic", "sort": {"field": "Termination Rate (%)", "order": "descending"}, "type": "nominal"}}, "transform": [{"filter": "(Research_Group_Filter == 'All') || (datum['Research Group'] == Research_Group_Filter)"}, {"filter": "(Topic_Search == '') || (indexof(lower(datum.Topic), lower(Topic_Search)) >= 0)"}, {"window": [{"op": "rank", "field": "", "as": "rank"}], "sort": [{"field": "Termination Rate (%)", "order": "descending"}]}, {"filter": "datum.rank <= 20"}]}], "data": {"name": "data-22f1c91fd3862bbd527cb46a226b0be9"}, "height": 560, "params": [{"name": "Research_Group_Filter", "bind": {"input": "select", "options": ["All", "Public health-related", "Other NIH research area"], "name": "Research group: "}, "value": "All"}, {"name": "Topic_Search", "bind": {"input": "search", "name": "Search research area: "}, "value": ""}, {"name": "param_7", "select": {"type": "point", "fields": ["Topic"], "on": "pointerover"}, "views": ["view_7"]}], "title": {"text": "Which NIH Research Areas Had the Highest Grant Termination Rates?", "anchor": "start", "fontSize": 20, "subtitle": "Filter, search, or hover to explore individual research areas. Public health-related areas are shown in lighter blue.", "subtitleFontSize": 12, "subtitlePadding": 8}, "width": 700, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-22f1c91fd3862bbd527cb46a226b0be9": [{"Topic": "Rural Health", "Total_Grants": 152, "Termination_Rate": 0.8355263157894737, "Termination Rate (%)": 83.55263157894737, "Research Group": "Public health-related"}, {"Topic": "Coronaviruses Disparities and At-Risk Populations", "Total_Grants": 101, "Termination_Rate": 0.8316831683168316, "Termination Rate (%)": 83.16831683168317, "Research Group": "Public health-related"}, {"Topic": "Vaccine Related", "Total_Grants": 159, "Termination_Rate": 0.7861635220125787, "Termination Rate (%)": 78.61635220125787, "Research Group": "Public health-related"}, {"Topic": "Immunization", "Total_Grants": 191, "Termination_Rate": 0.7853403141361257, "Termination Rate (%)": 78.53403141361257, "Research Group": "Public health-related"}, {"Topic": "Coronaviruses", "Total_Grants": 175, "Termination_Rate": 0.7657142857142857, "Termination Rate (%)": 76.57142857142857, "Research Group": "Public health-related"}, {"Topic": "Racial and Ethnic Minority Health Research", "Total_Grants": 627, "Termination_Rate": 0.7623604465709729, "Termination Rate (%)": 76.2360446570973, "Research Group": "Public health-related"}, {"Topic": "Violence Research", "Total_Grants": 105, "Termination_Rate": 0.7428571428571429, "Termination Rate (%)": 74.28571428571429, "Research Group": "Public health-related"}, {"Topic": "Building Research Capacity at Institutions with Limited NIH Funding", "Total_Grants": 567, "Termination_Rate": 0.7372134038800705, "Termination Rate (%)": 73.72134038800705, "Research Group": "Other NIH research area"}, {"Topic": "Social Determinants of Health", "Total_Grants": 1335, "Termination_Rate": 0.7280898876404495, "Termination Rate (%)": 72.80898876404494, "Research Group": "Public health-related"}, {"Topic": "Health Disparities Research", "Total_Grants": 1225, "Termination_Rate": 0.7273469387755102, "Termination Rate (%)": 72.73469387755101, "Research Group": "Public health-related"}, {"Topic": "Drug Abuse (NIDA only)", "Total_Grants": 240, "Termination_Rate": 0.725, "Termination Rate (%)": 72.5, "Research Group": "Other NIH research area"}, {"Topic": "Health Disparities and Racial or Ethnic Minority Health Research", "Total_Grants": 1295, "Termination_Rate": 0.7204633204633205, "Termination Rate (%)": 72.04633204633205, "Research Group": "Public health-related"}, {"Topic": "Sexually Transmitted Infections", "Total_Grants": 110, "Termination_Rate": 0.6909090909090909, "Termination Rate (%)": 69.0909090909091, "Research Group": "Other NIH research area"}, {"Topic": "HIV/AIDS", "Total_Grants": 361, "Termination_Rate": 0.6897506925207756, "Termination Rate (%)": 68.97506925207756, "Research Group": "Other NIH research area"}, {"Topic": "Substance Misuse", "Total_Grants": 368, "Termination_Rate": 0.6875, "Termination Rate (%)": 68.75, "Research Group": "Other NIH research area"}, {"Topic": "Basic Behavioral and Social Science", "Total_Grants": 970, "Termination_Rate": 0.6752577319587629, "Termination Rate (%)": 67.5257731958763, "Research Group": "Other NIH research area"}, {"Topic": "Women's Health Research", "Total_Grants": 387, "Termination_Rate": 0.6718346253229974, "Termination Rate (%)": 67.18346253229974, "Research Group": "Public health-related"}, {"Topic": "Behavioral and Social Science", "Total_Grants": 1933, "Termination_Rate": 0.6627004655975168, "Termination Rate (%)": 66.27004655975168, "Research Group": "Other NIH research area"}, {"Topic": "Emerging Infectious Diseases", "Total_Grants": 432, "Termination_Rate": 0.6574074074074074, "Termination Rate (%)": 65.74074074074075, "Research Group": "Public health-related"}, {"Topic": "Biodefense and Related Countermeasures", "Total_Grants": 361, "Termination_Rate": 0.6537396121883656, "Termination Rate (%)": 65.37396121883657, "Research Group": "Other NIH research area"}, {"Topic": "Infectious Diseases", "Total_Grants": 1003, "Termination_Rate": 0.6520438683948155, "Termination Rate (%)": 65.20438683948156, "Research Group": "Public health-related"}, {"Topic": "Mental Health", "Total_Grants": 985, "Termination_Rate": 0.649746192893401, "Termination Rate (%)": 64.9746192893401, "Research Group": "Public health-related"}, {"Topic": "Primary Health Care", "Total_Grants": 191, "Termination_Rate": 0.6073298429319371, "Termination Rate (%)": 60.73298429319372, "Research Group": "Other NIH research area"}, {"Topic": "Depression", "Total_Grants": 159, "Termination_Rate": 0.6037735849056604, "Termination Rate (%)": 60.37735849056604, "Research Group": "Other NIH research area"}, {"Topic": "Dissemination and Implementation Research", "Total_Grants": 292, "Termination_Rate": 0.6027397260273972, "Termination Rate (%)": 60.273972602739725, "Research Group": "Other NIH research area"}, {"Topic": "Health Services", "Total_Grants": 604, "Termination_Rate": 0.6026490066225165, "Termination Rate (%)": 60.264900662251655, "Research Group": "Other NIH research area"}, {"Topic": "Contraception/Reproduction", "Total_Grants": 148, "Termination_Rate": 0.6013513513513513, "Termination Rate (%)": 60.13513513513513, "Research Group": "Other NIH research area"}, {"Topic": "Pediatric", "Total_Grants": 1088, "Termination_Rate": 0.5965073529411765, "Termination Rate (%)": 59.65073529411765, "Research Group": "Other NIH research area"}, {"Topic": "Mental Illness", "Total_Grants": 301, "Termination_Rate": 0.5946843853820598, "Termination Rate (%)": 59.46843853820598, "Research Group": "Other NIH research area"}, {"Topic": "Prevention", "Total_Grants": 1586, "Termination_Rate": 0.592686002522068, "Termination Rate (%)": 59.2686002522068, "Research Group": "Public health-related"}, {"Topic": "Sleep Research", "Total_Grants": 102, "Termination_Rate": 0.5882352941176471, "Termination Rate (%)": 58.82352941176471, "Research Group": "Other NIH research area"}, {"Topic": "Microbiome", "Total_Grants": 138, "Termination_Rate": 0.5869565217391305, "Termination Rate (%)": 58.69565217391305, "Research Group": "Other NIH research area"}, {"Topic": "Antimicrobial Resistance", "Total_Grants": 113, "Termination_Rate": 0.584070796460177, "Termination Rate (%)": 58.4070796460177, "Research Group": "Other NIH research area"}, {"Topic": "Clinical Research", "Total_Grants": 2109, "Termination_Rate": 0.579895685158843, "Termination Rate (%)": 57.9895685158843, "Research Group": "Other NIH research area"}, {"Topic": "Data Science", "Total_Grants": 194, "Termination_Rate": 0.5721649484536082, "Termination Rate (%)": 57.21649484536082, "Research Group": "Other NIH research area"}, {"Topic": "Nutrition", "Total_Grants": 392, "Termination_Rate": 0.5612244897959183, "Termination Rate (%)": 56.12244897959183, "Research Group": "Other NIH research area"}, {"Topic": "Obesity", "Total_Grants": 207, "Termination_Rate": 0.5603864734299517, "Termination Rate (%)": 56.038647342995176, "Research Group": "Other NIH research area"}, {"Topic": "Liver Disease", "Total_Grants": 101, "Termination_Rate": 0.5544554455445545, "Termination Rate (%)": 55.44554455445545, "Research Group": "Other NIH research area"}, {"Topic": "Digestive Diseases", "Total_Grants": 355, "Termination_Rate": 0.5492957746478874, "Termination Rate (%)": 54.929577464788736, "Research Group": "Other NIH research area"}, {"Topic": "Diabetes", "Total_Grants": 135, "Termination_Rate": 0.5481481481481482, "Termination Rate (%)": 54.81481481481482, "Research Group": "Other NIH research area"}, {"Topic": "Women's Health", "Total_Grants": 618, "Termination_Rate": 0.5436893203883495, "Termination Rate (%)": 54.36893203883495, "Research Group": "Public health-related"}, {"Topic": "Clinical Trials and Supportive Activities", "Total_Grants": 857, "Termination_Rate": 0.5390898483080513, "Termination Rate (%)": 53.90898483080513, "Research Group": "Other NIH research area"}, {"Topic": "Lung", "Total_Grants": 316, "Termination_Rate": 0.5284810126582279, "Termination Rate (%)": 52.84810126582279, "Research Group": "Other NIH research area"}, {"Topic": "Networking and Information Technology R&D (NITRD)", "Total_Grants": 414, "Termination_Rate": 0.5265700483091788, "Termination Rate (%)": 52.65700483091788, "Research Group": "Other NIH research area"}, {"Topic": "Brain Disorders", "Total_Grants": 1207, "Termination_Rate": 0.5252692626346314, "Termination Rate (%)": 52.52692626346314, "Research Group": "Other NIH research area"}, {"Topic": "Immunotherapy", "Total_Grants": 242, "Termination_Rate": 0.5247933884297521, "Termination Rate (%)": 52.47933884297521, "Research Group": "Other NIH research area"}, {"Topic": "Bioengineering", "Total_Grants": 841, "Termination_Rate": 0.5219976218787158, "Termination Rate (%)": 52.19976218787158, "Research Group": "Other NIH research area"}, {"Topic": "Autoimmune Disease", "Total_Grants": 117, "Termination_Rate": 0.5213675213675214, "Termination Rate (%)": 52.13675213675214, "Research Group": "Other NIH research area"}, {"Topic": "Neurosciences", "Total_Grants": 1525, "Termination_Rate": 0.52, "Termination Rate (%)": 52.0, "Research Group": "Other NIH research area"}, {"Topic": "Regenerative Medicine", "Total_Grants": 220, "Termination_Rate": 0.5181818181818182, "Termination Rate (%)": 51.81818181818182, "Research Group": "Other NIH research area"}, {"Topic": "Comparative Effectiveness Research", "Total_Grants": 222, "Termination_Rate": 0.5180180180180181, "Termination Rate (%)": 51.80180180180181, "Research Group": "Other NIH research area"}, {"Topic": "Biotechnology", "Total_Grants": 977, "Termination_Rate": 0.5158648925281474, "Termination Rate (%)": 51.58648925281474, "Research Group": "Other NIH research area"}, {"Topic": "Pregnancy", "Total_Grants": 107, "Termination_Rate": 0.514018691588785, "Termination Rate (%)": 51.4018691588785, "Research Group": "Other NIH research area"}, {"Topic": "Pain Research", "Total_Grants": 113, "Termination_Rate": 0.5132743362831859, "Termination Rate (%)": 51.32743362831859, "Research Group": "Other NIH research area"}, {"Topic": "Perinatal Period - Conditions Originating in Perinatal Period", "Total_Grants": 135, "Termination_Rate": 0.5111111111111111, "Termination Rate (%)": 51.11111111111111, "Research Group": "Other NIH research area"}, {"Topic": "Machine Learning and Artificial Intelligence", "Total_Grants": 317, "Termination_Rate": 0.5110410094637224, "Termination Rate (%)": 51.10410094637224, "Research Group": "Other NIH research area"}, {"Topic": "Nanotechnology", "Total_Grants": 100, "Termination_Rate": 0.51, "Termination Rate (%)": 51.0, "Research Group": "Other NIH research area"}, {"Topic": "Kidney Disease", "Total_Grants": 108, "Termination_Rate": 0.5092592592592593, "Termination Rate (%)": 50.92592592592593, "Research Group": "Other NIH research area"}, {"Topic": "Physical Activity", "Total_Grants": 120, "Termination_Rate": 0.5083333333333333, "Termination Rate (%)": 50.83333333333333, "Research Group": "Other NIH research area"}, {"Topic": "Genetics", "Total_Grants": 1482, "Termination_Rate": 0.50472334682861, "Termination Rate (%)": 50.472334682860996, "Research Group": "Other NIH research area"}, {"Topic": "Maternal Health", "Total_Grants": 115, "Termination_Rate": 0.5043478260869565, "Termination Rate (%)": 50.43478260869565, "Research Group": "Public health-related"}, {"Topic": "Hematology", "Total_Grants": 181, "Termination_Rate": 0.5027624309392266, "Termination Rate (%)": 50.27624309392266, "Research Group": "Other NIH research area"}, {"Topic": "Cancer", "Total_Grants": 663, "Termination_Rate": 0.502262443438914, "Termination Rate (%)": 50.2262443438914, "Research Group": "Other NIH research area"}, {"Topic": "Physical Injury - Accidents and Adverse Effects", "Total_Grants": 142, "Termination_Rate": 0.49295774647887325, "Termination Rate (%)": 49.29577464788733, "Research Group": "Other NIH research area"}, {"Topic": "Eye Disease and Disorders of Vision", "Total_Grants": 157, "Termination_Rate": 0.49044585987261147, "Termination Rate (%)": 49.044585987261144, "Research Group": "Other NIH research area"}, {"Topic": "Stem Cell Research - Nonembryonic - Non-Human", "Total_Grants": 187, "Termination_Rate": 0.48663101604278075, "Termination Rate (%)": 48.663101604278076, "Research Group": "Other NIH research area"}, {"Topic": "Aging", "Total_Grants": 867, "Termination_Rate": 0.4855824682814302, "Termination Rate (%)": 48.55824682814302, "Research Group": "Other NIH research area"}, {"Topic": "Rare Diseases", "Total_Grants": 823, "Termination_Rate": 0.48116646415552855, "Termination Rate (%)": 48.11664641555286, "Research Group": "Other NIH research area"}, {"Topic": "Cancer Genomics", "Total_Grants": 156, "Termination_Rate": 0.4807692307692308, "Termination Rate (%)": 48.07692307692308, "Research Group": "Other NIH research area"}, {"Topic": "Telehealth", "Total_Grants": 111, "Termination_Rate": 0.4774774774774775, "Termination Rate (%)": 47.74774774774775, "Research Group": "Other NIH research area"}, {"Topic": "Stem Cell Research - Nonembryonic - Human", "Total_Grants": 103, "Termination_Rate": 0.47572815533980584, "Termination Rate (%)": 47.57281553398058, "Research Group": "Other NIH research area"}, {"Topic": "Human Genome", "Total_Grants": 688, "Termination_Rate": 0.4694767441860465, "Termination Rate (%)": 46.94767441860465, "Research Group": "Other NIH research area"}, {"Topic": "Precision Medicine", "Total_Grants": 229, "Termination_Rate": 0.4585152838427948, "Termination Rate (%)": 45.851528384279476, "Research Group": "Other NIH research area"}, {"Topic": "Stem Cell Research", "Total_Grants": 393, "Termination_Rate": 0.44783715012722647, "Termination Rate (%)": 44.783715012722645, "Research Group": "Other NIH research area"}, {"Topic": "Alzheimer's Disease", "Total_Grants": 363, "Termination_Rate": 0.4380165289256198, "Termination Rate (%)": 43.80165289256198, "Research Group": "Other NIH research area"}, {"Topic": "Acquired Cognitive Impairment", "Total_Grants": 408, "Termination_Rate": 0.42401960784313725, "Termination Rate (%)": 42.40196078431372, "Research Group": "Other NIH research area"}, {"Topic": "Alzheimer's Disease including Alzheimer's Disease Related Dementias (AD/ADRD)", "Total_Grants": 391, "Termination_Rate": 0.4143222506393862, "Termination Rate (%)": 41.432225063938624, "Research Group": "Other NIH research area"}, {"Topic": "Dementia", "Total_Grants": 394, "Termination_Rate": 0.4137055837563452, "Termination Rate (%)": 41.370558375634516, "Research Group": "Other NIH research area"}, {"Topic": "Patient Safety", "Total_Grants": 216, "Termination_Rate": 0.41203703703703703, "Termination Rate (%)": 41.2037037037037, "Research Group": "Other NIH research area"}, {"Topic": "Neurodegenerative", "Total_Grants": 604, "Termination_Rate": 0.4105960264900662, "Termination Rate (%)": 41.05960264900662, "Research Group": "Other NIH research area"}, {"Topic": "Orphan Drug", "Total_Grants": 302, "Termination_Rate": 0.40728476821192056, "Termination Rate (%)": 40.728476821192054, "Research Group": "Other NIH research area"}, {"Topic": "Rehabilitation", "Total_Grants": 175, "Termination_Rate": 0.4057142857142857, "Termination Rate (%)": 40.57142857142857, "Research Group": "Other NIH research area"}, {"Topic": "Cardiovascular", "Total_Grants": 367, "Termination_Rate": 0.4032697547683924, "Termination Rate (%)": 40.32697547683924, "Research Group": "Other NIH research area"}, {"Topic": "Biomedical Imaging", "Total_Grants": 293, "Termination_Rate": 0.3924914675767918, "Termination Rate (%)": 39.249146757679185, "Research Group": "Other NIH research area"}, {"Topic": "Heart Disease", "Total_Grants": 240, "Termination_Rate": 0.39166666666666666, "Termination Rate (%)": 39.166666666666664, "Research Group": "Other NIH research area"}, {"Topic": "Stem Cell Research - Induced Pluripotent Stem Cell - Human", "Total_Grants": 146, "Termination_Rate": 0.3835616438356164, "Termination Rate (%)": 38.35616438356164, "Research Group": "Other NIH research area"}, {"Topic": "Stem Cell Research - Induced Pluripotent Stem Cell", "Total_Grants": 168, "Termination_Rate": 0.38095238095238093, "Termination Rate (%)": 38.095238095238095, "Research Group": "Other NIH research area"}, {"Topic": "Cerebrovascular", "Total_Grants": 117, "Termination_Rate": 0.3247863247863248, "Termination Rate (%)": 32.47863247863248, "Research Group": "Other NIH research area"}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .then(function() {
+          const bindings = document.querySelector("#vis .vega-bindings");
+          const controls = document.getElementById("controls");
+          if (bindings && controls) {
+            controls.appendChild(bindings);
+          }
+        })
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

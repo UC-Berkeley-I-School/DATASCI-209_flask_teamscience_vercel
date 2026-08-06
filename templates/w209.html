@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+<html lang="en">
     <head>
-        <title>DATASCI-209 Team NIH</title>
-         <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DATASCI-209 Team NIH - layout preview</title>
+
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Slab:wght@500;700&display=swap" rel="stylesheet">
@@ -662,230 +663,240 @@
                 width: 40vh
             }
 
-            /* Bridge sentence that hands off to the next section */
-            .section-bridge {
-                padding: 1rem 1.5rem;
-                border-left: 3px solid rgba(158, 197, 255, 0.35);
-                font-style: italic;
-                color: #b3ccf5;
-                font-size: 1rem;
-                max-width: 640px;
-            }
-            .historical-shift-section {
-                width: 100%;
-                max-width: 1200px;
-                margin: 4rem 0;
-                padding: 0;
+        <style>
+        /* 1. This is the spacing design section */
+        :root{
+            --navy:       #0b1f44;
+            --ink:        #ffffff;
+            --blue:       #9ec5ff;   /* accent / links */
+            --blue-soft:  #cde0ff;   /* lead paragraphs */
+            --blue-mut:   #b3ccf5;   /* captions, notes */
+            --blue-dim:   #96acd0;   /* subclass */
+
+            --maxw-page:  1200px;    /* charts / full-width blocks */
+            --maxw-text:  760px;     /* readable text column       */
+
+            /* SPACING SCALE for more space with everything increase space-section   */
+            --space-section: 7rem;   /* gap between major sections  */
+            --space-heading: 1.25rem;/* heading is first paragraph  */
+            --space-para:    1.1rem; /* paragraph is paragraph      */
+            --space-figure:  2.25rem;/* text is chart and back      */
+        }
+
+        /* 2. Base formatting */
+        html{ scroll-behavior:smooth; }
+        body{
+            margin:0;
+            color:var(--ink);
+            font-family:'Roboto', Arial, Helvetica, sans-serif;
+            font-size:20px;
+            line-height:1.7;
+            /* subtle depth  */
+            background:radial-gradient(1200px 620px at 50% -8%, #14305f 0%, #0b1f44 60%);
+            background-attachment:fixed;
             }
 
-            .historical-shift-heading {
-                margin: 0 auto;
-                max-width: 850px;
-                margin-bottom: 2rem;
-            }
+        h1, h2, h3, h4{
+            color:var(--ink);
+            font-family:'Roboto Slab', Georgia, serif;
+        }
+        h1{ font-size:3.25rem; line-height:1.15; margin:0; }
+        h2{ font-size:2.4rem;  line-height:1.25; margin:0; }
+        h3{ font-size:1.6rem;  line-height:1.3;  margin:0; }
 
-            .historical-shift-heading h2 {
-                margin-bottom: 0.8rem;
-                font-size: clamp(1.65rem, 3vw, 2.35rem);
-                line-height: 1.2;
-            }
+        a{ color:var(--blue); }
 
-            .historical-shift-heading p {
-                margin: 0;
-                font-size: 20px;
-                line-height: 1.7;
-            }
+        p{ margin:0 0 var(--space-para); }
+        p:last-child{ margin-bottom:0; }
 
-            .historical-shift-figure {
-                margin: 0;
-                padding: 1.5rem;
-                overflow: hidden;
-                background: #ffffff;
-                border: 1px solid #d9dee5;
-                border-radius: 12px;
-            }
+         /* 3. this is what makes spacing uniform in the layout */
+        /* One wrapper that centers everything and caps page width. */
+        .page{
+            max-width:var(--maxw-page);
+            margin:0 auto;
+            padding:5rem max(24px, 6vw) 6rem;
+        }
 
-            .historical-shift-svg {
-                display: block;
-                width: 100%;
-                height: auto;
-            }
+        /* Every major block is a .section with identical rhythm.
+           position:relative + z-index:0 gives each section its own
+           stacking context so a background layer can sit behind it. */
+        .section{
+            position:relative;
+            z-index:0;
+            margin-block:var(--space-section);
+        }
+        .section:first-child{ margin-top:0; }
 
-            .topics-section{
-                margin: 0 auto;
-                width: 92%;
-                margin-bottom: 2rem;
-            }
+        /* Readable text column, centered. */
+        .wrap{
+            max-width:var(--maxw-text);
+            margin:0 auto;
+        }
+        .wrap > * + *{ margin-top:0; } /* rely on p margins, no double gap */
 
-            .period-label,
-            .period-range,
-            .historical-value,
-            .historical-caption,
-            .transition-label,
-            .disruption-value,
-            .disruption-caption,
-            .disruption-subcaption,
-            .tick-label {
-                font-family: Arial, Helvetica, sans-serif;
-            }
+        /* Heading-to-body spacing, applied consistently. */
+        .centered-heading{ text-align:center; margin:0 auto; }
+        .section > .centered-heading,
+        .wrap > .centered-heading{ margin-bottom:var(--space-heading); }
 
-            .period-label {
-                font-size: 25px;
-                font-weight: 700;
-                fill: #1f2937;
-            }
+        .lead{ font-size:1.35rem; font-weight:500; color:var(--blue-soft); }
+        .subclass{ text-align:center; color:var(--blue-dim); }
+        .section-note{ color:var(--blue-mut); font-size:.95rem; }
 
-            .period-range {
-                font-size: 18px;
-                fill: #6b7280;
-            }
+        /* Charts and figures have consistent frame + spacing. */
+        .figure{
+            margin:var(--space-figure) auto 0;
+            max-width:var(--maxw-page);
+        }
+        .figure + .wrap{ margin-top:var(--space-figure); }
 
-            .historical-line {
-                stroke: #9ca3af;
-                stroke-width: 5;
-                stroke-linecap: round;
-            }
+           /* 
+           4. Background image filler, this is how we would add a background image behind a section if we wanted to.
+           ------------------------------------------------------------
+           To add an image behind a section later:
+             <section class="section has-bg reveal">
+               <div class="bg-layer" style="background-image:url('/static/xyz.jpg')"></div>
+               ... content ...
+             </section>
+           Adjust --bg-opacity per section if text gets hard to read. */
+        .bg-layer{
+            position:absolute;
+            inset:calc(var(--space-section) * -0.5) -6vw;
+            z-index:-1;
+            background-size:cover;
+            background-position:center;
+            border-radius:28px;
+            opacity:var(--bg-opacity, 0.16);
+            pointer-events:none;
+        }
 
-            .tick-line {
-                stroke: #9ca3af;
-                stroke-width: 3;
-            }
+        /* 5. This is the scrolling reveal effects  (fade + slide up as a section enters)
+           Only hides content once JS confirms scrollama is ready. */
+        .js-reveal .reveal{
+            opacity:0;
+            transform:translateY(22px);
+            transition:opacity .6s ease, transform .6s ease;
+        }
+        .js-reveal .reveal.is-in{ opacity:1; transform:none; }
 
-            .tick-label {
-                font-size: 16px;
-                fill: #6b7280;
-            }
+        @media (prefers-reduced-motion: reduce){
+            html{ scroll-behavior:auto; }
+            .js-reveal .reveal{ opacity:1; transform:none; transition:none; }
+        }
 
-            .historical-dot {
-                fill: #6b7280;
-            }
+         /* 6. These are the hero formatting pieces */
+        .logo-box{
+            display:block;
+            margin:0 auto 1.5rem;
+            width:min(560px, 90%);
+            aspect-ratio: 3 / 1;
+            background:#ffffff;
+            border-radius:12px;
+            box-shadow:0 4px 14px rgba(0,0,0,.35);
+            display:flex; align-items:center; justify-content:center;
+            color:#2a3f6b; font-family:'Roboto Slab',serif; font-weight:700;
+            font-size:1.6rem; letter-spacing:.02em;
+        }
+        .stat-hero{
+            display:flex; align-items:baseline; gap:1.25rem;
+            max-width:640px; margin:0 auto;
+            padding-left:1.5rem; border-left:4px solid var(--blue);
+        }
+        .stat-hero .number{
+            font-family:'Roboto Slab', Georgia, serif;
+            font-size:5rem; font-weight:700; color:var(--blue);
+            line-height:1; flex-shrink:0;
+        }
+        .stat-hero .label{ font-size:1rem; color:var(--blue-soft); line-height:1.5; max-width:320px; }
 
-            .historical-value {
-                font-size: 38px;
-                font-weight: 700;
-                fill: #374151;
-            }
+         /* 7. Impact cards (this is unchanged/ is the same as before) */
+        .impact-intro{ color:var(--blue-soft); margin:0 0 1.25rem; }
+        .impact-cards{ display:flex; flex-direction:column; gap:.75rem; text-align:center; margin:0 auto 1.25rem; max-width:720px; }
+        .impact-card{ background:rgba(255,255,255,.05); border-left:3px solid var(--blue); border-radius:8px; overflow:hidden; transition:background-color .2s ease; }
+        .impact-card[open]{ background:rgba(255,255,255,.08); }
+        .impact-card summary{ list-style:none; cursor:pointer; padding:1.1rem 1.25rem; display:flex; align-items:flex-start; gap:1rem; }
+        .impact-card summary::-webkit-details-marker{ display:none; }
+        .impact-card summary:focus-visible{ outline:2px solid var(--blue); outline-offset:-2px; }
+        .impact-card .headline{ flex:1; text-align:left; }
+        .impact-card .topic{ display:block; text-transform:uppercase; letter-spacing:.1em; font-size:.72rem; font-weight:700; color:var(--blue); margin-bottom:.2rem; }
+        .impact-card .claim{ font-family:'Roboto Slab', Georgia, serif; font-size:1.12rem; font-weight:500; color:#fff; line-height:1.35; }
+        .impact-card .toggle{ flex-shrink:0; width:1.6rem; height:1.6rem; border-radius:50%; border:1.5px solid var(--blue); color:var(--blue); display:flex; align-items:center; justify-content:center; font-size:1.2rem; line-height:1; transition:transform .2s ease; }
+        .impact-card[open] .toggle{ transform:rotate(45deg); }
+        .impact-card .detail{ padding:0 1.25rem 1.2rem; color:var(--blue-soft); font-size:1rem; line-height:1.65; text-align:left; }
+        .impact-card .detail p{ margin:0 0 .6rem; }
+        .impact-card .detail ul{ margin:0 0 .6rem; padding-left:1.2rem; }
+        .impact-card .detail li{ margin-bottom:.35rem; }
+        .impact-card .detail a{ display:inline-block; margin-top:.3rem; }
+        .impact-source{ font-size:.85rem; color:#8ba6cf; font-style:italic; margin:0 auto; max-width:640px; text-align:center; }
 
-            .historical-caption {
-                font-size: 17px;
-                fill: #4b5563;
-            }
+        /* 8. HISTORICAL SVG  (kept from your file) */
+        .historical-shift-figure{ margin:0; padding:1.5rem; overflow:hidden; background:#fff; border:1px solid #d9dee5; border-radius:12px; }
+        .historical-shift-svg{ display:block; width:100%; height:auto; }
+        .period-label{ font:700 25px Arial, sans-serif; fill:#1f2937; }
+        .period-range{ font:18px Arial, sans-serif; fill:#6b7280; }
+        .historical-line{ stroke:#9ca3af; stroke-width:5; stroke-linecap:round; }
+        .tick-line{ stroke:#9ca3af; stroke-width:3; }
+        .tick-label{ font:16px Arial, sans-serif; fill:#6b7280; }
+        .historical-dot{ fill:#6b7280; }
+        .historical-value{ font:700 38px Arial, sans-serif; fill:#374151; }
+        .historical-caption{ font:17px Arial, sans-serif; fill:#4b5563; }
+        .break-mark{ stroke:#6b7280; stroke-width:5; stroke-linecap:round; }
+        .transition-line{ fill:none; stroke:#b42318; stroke-width:4; }
+        .transition-arrow{ fill:#b42318; }
+        .transition-label{ font:700 18px Arial, sans-serif; fill:#b42318; }
+        .disruption-wall{ fill:#b42318; }
+        .wall-line{ stroke:rgba(255,255,255,.28); stroke-width:2; }
+        .disruption-value{ font:700 47px Arial, sans-serif; fill:#fff; }
+        .disruption-caption{ font:700 23px Arial, sans-serif; fill:#7a1a14; }
+        .disruption-subcaption{ font:16px Arial, sans-serif; fill:#6b7280; }
+        .historical-shift-figure figcaption{ max-width:950px; margin:1.2rem auto 0; padding-top:1rem; border-top:1px solid #e5e7eb; font-size:.88rem; line-height:1.55; color:#6b7280; }
 
-            .break-mark {
-                stroke: #6b7280;
-                stroke-width: 5;
-                stroke-linecap: round;
-            }
+         /* 9. chart notes with expand/collapse */
+        .chart-note{ max-width:var(--maxw-text); margin:1.1rem auto 0; font-size:.9rem; }
+        .chart-note summary{ cursor:pointer; color:var(--blue); font-weight:500; list-style:none; padding:.3rem 0; }
+        .chart-note summary::-webkit-details-marker{ display:none; }
+        .chart-note summary::before{ content:"+ "; font-weight:700; }
+        .chart-note[open] summary::before{ content:"\2212 "; }
+        .chart-note .note-body{ color:var(--blue-mut); line-height:1.6; padding:.4rem 0 0 1.1rem; }
 
-            .transition-line {
-                fill: none;
-                stroke: #b42318;
-                stroke-width: 4;
-            }
+        /* 10. This is a chart placeholder  (preview only - swap back to your
+               real iframe / Tableau embed in the Flask template) */
+        .chart-placeholder{
+            height:var(--h, 400px);
+            background:
+                repeating-linear-gradient(135deg, #f4f7fb 0 22px, #eef2f8 22px 44px);
+            border:1px dashed #b9c6da;
+            border-radius:12px;
+            display:flex; align-items:center; justify-content:center; text-align:center;
+            color:#3a4a66;
+        }
+        .cp-inner{ max-width:80%; }
+        .cp-tag{ display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#5b6b85; background:#dbe6f6; border-radius:999px; padding:3px 11px; margin-bottom:.7rem; }
+        .cp-title{ display:block; font-family:'Roboto Slab', serif; font-size:1.15rem; font-weight:700; color:#12326e; line-height:1.3; }
+        .cp-file{ display:block; margin-top:.5rem; font-family:ui-monospace, Menlo, Consolas, monospace; font-size:.82rem; color:#6b7a95; }
 
-            .transition-arrow {
-                fill: #b42318;
-            }
+        /* 11. Lists and sources */
+        .summary-list{ max-width:var(--maxw-text); margin:0 auto; }
+        .refs{ max-width:var(--maxw-text); margin:0 auto; font-size:.9rem; color:var(--blue-mut); }
+        .refs li{ margin-bottom:.6rem; line-height:1.5; }
 
-            .transition-label {
-                font-size: 18px;
-                font-weight: 700;
-                fill: #b42318;
-            }
-
-            .disruption-wall {
-                fill: #b42318;
-            }
-
-            .wall-line {
-                stroke: rgba(255, 255, 255, 0.28);
-                stroke-width: 2;
-            }
-
-            .disruption-value {
-                font-size: 47px;
-                font-weight: 700;
-                fill: #ffffff;
-            }
-
-            .disruption-caption {
-                font-size: 23px;
-                font-weight: 700;
-                fill: #7a1a14;
-            }
-
-            .disruption-subcaption {
-                font-size: 16px;
-                fill: #6b7280;
-            }
-
-            .historical-shift-figure figcaption {
-                max-width: 950px;
-                margin: 1.2rem auto 0;
-                padding-top: 1rem;
-                border-top: 1px solid #e5e7eb;
-                font-size: 0.88rem;
-                line-height: 1.55;
-                color: #6b7280;
-            }
-
-            @media (max-width: 700px) {
-                .historical-shift-section {
-                    margin: 2.75rem auto;
-                    padding: 0 0.75rem;
-                }
-
-                .historical-shift-figure {
-                    padding: 0.75rem;
-                }
-
-                .historical-shift-heading p {
-                    font-size: 1rem;
-                }
-            }
-            .termination-text {
-                color: #e15759;   /* Tableau red */
-                font-weight: bold;
-            }
-
-            .restoration-text {
-                color: #76b7b2;   /* Tableau teal */
-                font-weight: bold;
-            }
-            .Funding-FY2025-text {
-                color: #f6090d;   /* Tableau red */
-                font-weight: bold;
-            }
-            .Funding-FY2026-text {
-                color: #4009f6;   /* Tableau red */
-                font-weight: bold;
-            }
+        @media (max-width:700px){
+            :root{ --space-section:4.5rem; }
+            h1{ font-size:2.3rem; }
+            h2{ font-size:1.8rem; }
+            .page{ padding:3rem 20px 4rem; }
+        }
+        /* 12. The Flowchart made by Sean and Html implemented by Juliana */
             .grantflow{
                 --ink:#12326e; --blue:#1b4fa0; --blue-bg:#eef4fc; --blue-br:#cdddf3; --blue-ic:#dbe8fb;
                 --red:#d12b2b; --red-bg:#fdecec; --red-br:#f4c6c6;
                 --green:#1f8a4c; --green-bg:#e8f6ee; --green-br:#bfe6cd;
-                --gray:#5b6b85; --purple: #7c3aed; --purple-bg: #f5f3ff;
+                --gray:#5b6b85;
                 background:#ffffff; border-radius:16px; padding:28px clamp(16px,3vw,34px);
                 box-shadow:0 6px 22px rgba(0,0,0,.28); color:var(--ink); margin:0 auto; height:80vh; width:auto;
             }
-            .grantflow h3{
-                 font-family:'Roboto Slab',Georgia,serif; 
-                 font-size:1.7rem; 
-                 margin:0 0 4px; 
-                 color:var(--ink); 
-                 text-align: center;
-                }
-            .grantflow .gf-sub{ 
-                text-align: center;
-                margin:0 0 22px;
-                color:#43567a;
-                font-size:1rem;
-                max-width:640px;}
-
-            .gf-stage-label{ font-size:.74rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase;
-                color:var(--gray); margin:6px 0 10px; }
-            .gf-stage-label.red{ color:var(--red); }
-
+        .grantflow h3{ font-family:'Roboto Slab',Georgia,serif; font-size:1.7rem; margin:0 0 4px; color:var(--ink); text-align:center; }
+        .grantflow .gf-sub{ text-align:center; margin:0 auto 22px; color:#43567a; font-size:1rem; max-width:640px; }
             .gf-node{
                 width:100%; text-align:left; background:var(--blue-bg); border:1.5px solid var(--blue-br);
                 border-radius:12px; padding:12px 14px; display:flex; gap:13px; align-items:center;
@@ -895,33 +906,21 @@
             .gf-node:hover{ transform:translateY(-1px); box-shadow:0 4px 12px rgba(27,79,160,.16); }
             .gf-node:focus-visible{ outline:3px solid #9ec5ff; outline-offset:2px; }
             .gf-item.open > .gf-node{ border-color:var(--blue); box-shadow:0 0 0 2px var(--blue) inset; }
-            .gf-node .ic{
-                flex:0 0 auto; width:42px; height:42px; border-radius:50%; background:var(--blue-ic);
-                display:flex; align-items:center; justify-content:center; color:var(--blue);
-            }
+        .gf-node .ic{ flex:0 0 auto; width:42px; height:42px; border-radius:50%; background:var(--blue-ic); display:flex; align-items:center; justify-content:center; color:var(--blue); }
             .gf-node .ic svg{ width:23px; height:23px; }
             .gf-node .tx{ flex:1; }
             .gf-node .tx b{ display:block; font-size:1rem; line-height:1.2; }
             .gf-node .tx span{ display:block; font-size:.82rem; color:#43567a; margin-top:2px; }
-            .gf-caret{ flex:0 0 auto; color:currentColor; opacity:.6; transition:transform .2s ease; }
-            .gf-item.open > .gf-node .gf-caret{ transform:rotate(180deg); opacity:1; }
-
             .gf-node.red{ background:var(--red-bg); border-color:var(--red-br); color:var(--red); }
             .gf-item.open > .gf-node.red{ border-color:var(--red); box-shadow:0 0 0 2px var(--red) inset; }
             .gf-node.red .ic{ background:var(--red); color:#fff; }
             .gf-node.green{ background:var(--green-bg); border-color:var(--green-br); color:var(--green); }
-            .gf-item.open > .gf-node.green{ border-color:var(--green); box-shadow:0 0 0 2px var(--green) inset; }
             .gf-node.green .ic{ background:var(--green); color:#fff; }
             .gf-node.red .tx span, .gf-node.green .tx span{ color:#5a6478; }
-
-            /* inline detail that expands below the node */
-            .gf-detail{ max-height:0; overflow:hidden; opacity:0;
-                transition:max-height .3s ease, opacity .22s ease; }
+        .gf-detail{ max-height:0; overflow:hidden; opacity:0; transition:max-height .3s ease, opacity .22s ease; }
             .gf-item.open > .gf-detail{ max-height:520px; opacity:1; }
-            .gf-detail-inner{ margin:8px 0 2px; background:#f3f7fd; border:1px solid #dbe6f6;
-                border-left:5px solid var(--blue); border-radius:10px; padding:14px 16px; }
+        .gf-detail-inner{ margin:8px 0 2px; background:#f3f7fd; border:1px solid #dbe6f6; border-left:5px solid var(--blue); border-radius:10px; padding:14px 16px; }
             .gf-detail-inner.red{ border-left-color:var(--red); }
-            .gf-detail-inner.green{ border-left-color:var(--green); }
             .gf-detail-inner p{ margin:0 0 8px; font-size:.94rem; line-height:1.6; color:#2c3a56; }
             .gf-detail-inner p:last-child{ margin-bottom:0; }
 
@@ -1036,9 +1035,13 @@
                 margin: 0 auto !important;
             }
 
-            #viz1785471877398 {
-                height: 930px !important;
-            }
+        <details class="impact-card">
+                <summary><span class="headline"><span class="topic">Addiction treatment</span><span class="claim">Every $1 spent treating substance use disorder saves $4 in health care and $7 in criminal justice costs.</span></span><span class="toggle" aria-hidden="true">+</span></summary>
+        <div class="detail">
+                    <p>Broader evidence-based addiction programs can return more than $58 for every $1 spent, thanks in part to NIH-supported work connecting the science of treatment to real-world practice. In one example, NIH-supported research showed that giving medications for opioid use disorder to people in prison lowers overdose risk after release, and helped drive policy changes such as Medicaid coverage in the 90 days before release.</p>
+                    <a href="#" target="_blank">Addiction Treatment</a>
+        </div>
+        </details>
 
             iframe[src*="termination_map"] {
                 display: block;
@@ -1081,24 +1084,34 @@
         </style>
     </head>
 
-    <body>
-        <svg style = "display: none;">
-            <defs>
-                <g id="bold-caret">
-                    <polyline points = "35,15 75,50 35,85" stroke="currentColor" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                </g>
-            </defs>
-        </svg>
-        <nav>
-        <div class="nav-brand">
-            <strong>NIH Grants and Funding</strong>
+        <details class="impact-card">
+                <summary><span class="headline"><span class="topic">Environment</span><span class="claim">Lead exposure in the U.S. has dropped dramatically over 45 years.</span></span><span class="toggle" aria-hidden="true">+</span></summary>
+        <div class="detail">
+                    <p>Lead early in life irreversibly disrupts brain development. The decline was achieved through control of lead sources, emission reductions, federal regulation, and applied public health work. NIH-funded environmental research has also produced remediation technologies estimated to save over $100 million in cleanup costs.</p>
+                    <a href="#" target="_blank">NIH Lead Exposure Research</a>
         </div>
-        <div class = "sticky-toc-navigator">
-            <div class = "toc-header">Table of Contents</div>
-            <div class = "toc-links-wrapper"></div>
+        </details>
 
+        <details class="impact-card">
+                <summary><span class="headline"><span class="topic">Prevention</span><span class="claim">School-based prevention programs could save $18 for every $1 invested.</span></span><span class="toggle" aria-hidden="true">+</span></summary>
+        <div class="detail">
+                    <p>NIH-funded research identified adolescence as a period of increased vulnerability to the harms of drug use, and a key window for prevention. If implemented nationwide, school-based substance use prevention programs are estimated to save $18 per $1 invested, with 1.5 million fewer youth starting substance use and, on average, a two-year delay for those who do.</p>
+                    <a href="#" target="_blank">Cost Benefits of Substance Abuse Prevention</a>
         </div>
-        </nav>
+        </details>
+    </div>
+        <p class="impact-source">Source: National Institutes of Health. Figures reflect NIH's own published estimates of the impact of research it funds.</p>
+</section>
+
+    <!--  Counter viz originally created by Sean Sjahrial; numbers and current implementation by Juliana Carrillo -->
+<section class="ramp-section" id="ramp-6096">
+    <div class="ramp-scrolly">
+
+      <div class="ramp-article">
+        <div class="ramp-step ramp-intro">
+          <p>For 13 years, this almost never happened.</p>
+          <small>From 2012 to January 20, 2025, NIH terminated fewer than six active grants midstream.</small>
+        </div>
 
         <main>
             <!--  Counter viz originally created by Sean Sjahrial; numbers and current implementation by Juliana Carrillo -->            
@@ -1189,9 +1202,14 @@
             </section>
                     
 
-            <div class="scrolly-section-spacer" style = "--spacer-height: 40vh"></div>
-            
+          <div class="grantflow" id="grantflow">
+            <h3>How NIH grant money moves, and where it got cut</h3>
+            <p class="gf-sub">A grant is public money NIH gives an institution to answer one scientific question over several years. The money arrives one year at a time, not all at once. That single fact is what makes an interrupted grant so costly.</p>
 
+            <span class="gf-hint">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12l3 0"/><path d="M12 3l0 3"/><path d="M7.8 7.8l-2.2 -2.2"/><path d="M16.2 7.8l2.2 -2.2"/><path d="M7.8 16.2l-2.2 2.2"/><path d="M12 12l9 3l-4 2l-2 4l-3 -9"/></svg>
+              Click "More" to view a dropdown with additional details.
+            </span>
 
             <section class = "scrolly-container scrolly-section is-sensor-track" id="What do NIH Grants Do?" data-type = "cards" data-title = "What do NIH Grants Do?">
                 <article style = "position: relative;">
@@ -1699,6 +1717,17 @@
             
             
 
+            <div class="gf-item">
+            <button class="gf-node" aria-expanded="false">
+                  <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 21l18 0"/><path d="M3 10l18 0"/><path d="M5 6l7 -3l7 3"/><path d="M4 10l0 11"/><path d="M20 10l0 11"/><path d="M8 14l0 3"/><path d="M12 14l0 3"/><path d="M16 14l0 3"/></svg></span>
+                  <span class="tx"><b>Congress Sets the Budget</b><span>Congress decides how much NIH gets each year. This is the power of the purse.</span></span>
+                  <span class="gf-more">More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+            </button>
+            <div class="gf-detail"><div class="gf-detail-inner">
+                  <p>Once a year, Congress passes a law setting how much money NIH receives. Under the Constitution, only Congress can decide federal spending.</p>
+                  <p>Once that law is signed, the money is supposed to be spent as written.</p>
+            </div></div>
+            </div>
 
 
 
@@ -1877,7 +1906,18 @@
                 </div>
             </section>
 
-            
+            <div class="gf-arrow">&#8595;</div>
+
+            <div class="gf-item">
+            <button class="gf-node" aria-expanded="false">
+                  <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M21 17h-8l-3.5 -5h-6.5"/><path d="M21 7h-8l-3.495 5"/><path d="M18 10l3 -3l-3 -3"/><path d="M18 20l3 -3l-3 -3"/></svg></span>
+                  <span class="tx"><b>NIH Gets Its Share</b><span>NIH splits its budget across 27 institutes and centers, from cancer to aging to mental health.</span></span>
+                  <span class="gf-more">More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+            </button>
+            <div class="gf-detail"><div class="gf-detail-inner">
+                  <p>NIH divides its funding among 27 institutes and centers, each focused on a field of health. Most of that money does not stay inside NIH.</p>
+            </div></div>
+            </div>
 
             <!-- ===== SEAN'S HISTORIC BACKGROUND END ===== -->
 
@@ -2308,8 +2348,96 @@
 
             
 
-            <!-- ===== Cameron's SECTION END ===== -->
-        
+            <!-- Stopping Point -->
+            <div class="gf-arrow red">&#8595;</div>
+            <div class="gf-disrupt" style="margin-bottom:6px;">
+            <div class="gf-item">
+                <button class="gf-node red" aria-expanded="false">
+                  <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M18 6L6 18"/></svg></span>
+                  <span class="tx"><b>Stopping Point: Money Was Held Back Before It Is Spent</b><span>In 2025 the administration slowed and withheld new NIH awards.</span></span>
+                  <span class="gf-more">More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+            </button>
+                <div class="gf-detail"><div class="gf-detail-inner red">
+                  <p>In early 2025 the Trump administration paused and withheld NIH funding, releasing roughly $8 billion less than in prior years.</p>
+                  <p>In August 2025 the Government Accountability Office, Congress's nonpartisan watchdog, found this broke the Impoundment Control Act of 1974, the law that says a president cannot refuse to spend money Congress has approved. The Trump administration disputes this, and the case is still in court.</p>
+            </div></div>
+            </div>
+            </div>
+          </div><!-- /.grantflow -->
+
+            <div class="gf-arrow">&#8595;</div>
+          <div style="height:10px;"></div>
+
+          <div class="gf-statemap" id="gf-statemap">
+            <h4 class="gf-map-title">A Grant Is Funded</h4>
+
+            <span class="gf-hint">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12l3 0"/><path d="M12 3l0 3"/><path d="M7.8 7.8l-2.2 -2.2"/><path d="M16.2 7.8l2.2 -2.2"/><path d="M7.8 16.2l-2.2 2.2"/><path d="M12 12l9 3l-4 2l-2 4l-3 -9"/></svg>
+              Click any bubble for more detail. The arrows show the possible paths a grant can take once it is funded.
+            </span>
+
+            <svg class="gf-map" viewBox="0 0 680 340" role="img" xmlns="http://www.w3.org/2000/svg">
+              <title>Where an NIH grant ends up</title>
+              <desc>Once funded, a grant is ongoing research. From there it can be frozen, a reversible detour, or terminated, which is permanent, or it can finish and reach completed. Tap a state for detail.</desc>
+              <defs>
+                <marker id="ahBlue2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#1b4fa0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+                <marker id="ahOrange2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#e08a1e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+                <marker id="ahRed2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#d12b2b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+                <marker id="ahGreen2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#1f8a4c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+              </defs>
+
+              <text x="340" y="30" text-anchor="middle" font-family="Roboto,sans-serif" font-size="16" fill="#43567a">A Grant is Funded</text>
+              <line x1="340" y1="42" x2="340" y2="94" stroke="#1b4fa0" stroke-width="1.6" marker-end="url(#ahBlue2)"/>
+
+              <g class="mnode orange" data-key="frozen" tabindex="0" role="button" aria-label="Funding frozen, tap for detail">
+                <rect x="15" y="100" width="170" height="58" rx="11" fill="#fdf1e0" stroke="#e08a1e" stroke-width="1.5"/>
+                <text x="100" y="129" text-anchor="middle" font-family="Roboto,sans-serif" font-size="15" font-weight="700" fill="#b45309">Frozen</text>
+                <text x="100" y="147" text-anchor="middle" font-family="Roboto,sans-serif" font-size="12" fill="#5a6478">funds paused</text>
+              </g>
+
+              <g class="mnode blue" data-key="cycle" tabindex="0" role="button" aria-label="Research is ongoing, tap for detail">
+                <rect x="255" y="100" width="170" height="58" rx="11" fill="#eef4fc" stroke="#1b4fa0" stroke-width="1.5"/>
+                <text x="340" y="129" text-anchor="middle" font-family="Roboto,sans-serif" font-size="15" font-weight="700" fill="#12326e">Research is Ongoing</text>
+                <text x="340" y="147" text-anchor="middle" font-family="Roboto,sans-serif" font-size="12" fill="#5a6478">the normal path</text>
+              </g>
+
+              <g class="mnode red" data-key="terminated" tabindex="0" role="button" aria-label="Grant terminated, tap for detail">
+                <rect x="495" y="100" width="170" height="58" rx="11" fill="#fdecec" stroke="#d12b2b" stroke-width="1.5"/>
+                <text x="580" y="129" text-anchor="middle" font-family="Roboto,sans-serif" font-size="15" font-weight="700" fill="#d12b2b">Terminated</text>
+                <text x="580" y="147" text-anchor="middle" font-family="Roboto,sans-serif" font-size="12" fill="#5a6478">ended for good</text>
+              </g>
+
+              <line x1="190" y1="129" x2="250" y2="129" stroke="#e08a1e" stroke-width="1.6" marker-start="url(#ahOrange2)" marker-end="url(#ahOrange2)"/>
+              <text x="220" y="119" text-anchor="middle" font-family="Roboto,sans-serif" font-size="12" fill="#43567a">freeze</text>
+              <text x="220" y="152" text-anchor="middle" font-family="Roboto,sans-serif" font-size="12" fill="#43567a">restore</text>
+
+              <line x1="430" y1="129" x2="490" y2="129" stroke="#d12b2b" stroke-width="1.6" marker-end="url(#ahRed2)"/>
+              <text x="460" y="124" text-anchor="middle" font-family="Roboto,sans-serif" font-size="12" fill="#43567a">terminate</text>
+
+              <line x1="340" y1="162" x2="340" y2="216" stroke="#1f8a4c" stroke-width="1.6" marker-end="url(#ahGreen2)"/>
+              <text x="350" y="192" font-family="Roboto,sans-serif" font-size="12" fill="#43567a">finishes</text>
+
+              <g class="mnode green" data-key="completed" tabindex="0" role="button" aria-label="Project completed, tap for detail">
+                <rect x="255" y="220" width="170" height="58" rx="11" fill="#e8f6ee" stroke="#1f8a4c" stroke-width="1.5"/>
+                <text x="340" y="249" text-anchor="middle" font-family="Roboto,sans-serif" font-size="15" font-weight="700" fill="#1f8a4c">Completed</text>
+                <text x="340" y="267" text-anchor="middle" font-family="Roboto,sans-serif" font-size="12" fill="#5a6478">the one clean exit</text>
+              </g>
+
+              <rect x="62" y="306" width="14" height="14" rx="3" fill="#eef4fc" stroke="#1b4fa0" stroke-width="1.2"/>
+              <text x="83" y="317" font-family="Roboto,sans-serif" font-size="12" fill="#43567a">normal path</text>
+              <rect x="165" y="306" width="14" height="14" rx="3" fill="#fdf1e0" stroke="#e08a1e" stroke-width="1.2"/>
+              <text x="186" y="317" font-family="Roboto,sans-serif" font-size="12" fill="#43567a">frozen (reversible)</text>
+              <rect x="324" y="306" width="14" height="14" rx="3" fill="#fdecec" stroke="#d12b2b" stroke-width="1.2"/>
+              <text x="345" y="317" font-family="Roboto,sans-serif" font-size="12" fill="#43567a">terminated (one-way)</text>
+              <rect x="493" y="306" width="14" height="14" rx="3" fill="#e8f6ee" stroke="#1f8a4c" stroke-width="1.2"/>
+              <text x="514" y="317" font-family="Roboto,sans-serif" font-size="12" fill="#43567a">the one clean exit</text>
+            </svg>
+
+            <div class="gf-map-detail" id="gf-map-detail" aria-live="polite">
+              <p class="gf-md-title"></p>
+              <p class="gf-md-body"></p>
+        </div>
+          </div><!-- /.gf-statemap -->
 
             <!-- ===== SEAN'S INTERACTIVE GRAPH 2 SECTION START (Tableau embeds) ===== -->
             <section class = "scrolly-container scrolly-section " id="Impacts by Research Area" data-type = "counter" data-title = "Impacts by Research Area">
@@ -2467,8 +2595,18 @@
 
             </h3>Data Sources</h3>
             <ul>
-            <li>NIH Exporter: <a href="https://report.nih.gov/faqs#exporter">https://report.nih.gov/faqs#exporter</a></li>
-            <li>Grant Witness: <a href="https://grant-witness.us">https://grant-witness.us</a></li>
+                <li>
+                    <b>The West (California, Nevada, Arizona, New Mexico, Colorado, Oregon) showa low still-terminated rates/high reinstated.</b>
+                    These states initially got hit, same as everywhere else, but their grants were disproportionately restored.
+                </li>
+                <li>
+                    <b>The South (Georgia, Alabama, Mississippi, the Carolinas, Florida, Arkansas) shows the opposite.</b>
+                    These states are high in still-terminated grants, low-to-near-zero reinstated. Grants that were cut there largely stayed cut.
+                </li>
+                <li>
+                    <b>The Midwest and Northeast sit in between, with more state-to-state variation than either coastal extreme.</b>
+                    A few standouts (Idaho, North Dakota, New Hampshire) show unusually high still-terminated rates even relative to their neighbors.
+                </li>
             </ul>
         </div>
     </section>
@@ -2495,11 +2633,13 @@
             history.scrollRestoration = 'manual';
             }
 
-            // Snap window view to top of page on load
-            window.addEventListner('load', function() {
-            window.scrollTo(0,0);
-            });
-        </script>
+    <!--  Research areas (Cameron) -->
+    <section class="section reveal">
+        <div class="wrap">
+            <h2 class="centered-heading">Public health-related research areas experienced disproportionately high grant termination rates</h2>
+            <p class="subclass">This section examines whether public health-related research areas experienced disproportionately higher grant termination rates than other NIH research areas.</p>
+        </div>
+        <div class="figure">
         
         <script 
             src = "{{ url_for('static', filename = 'scrollama.min.js')}}">  // Scrollama Source
