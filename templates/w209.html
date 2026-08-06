@@ -8,8 +8,6 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Slab:wght@500;700&display=swap" rel="stylesheet">
         <style>
-<<<<<<< Updated upstream
-=======
 
             :root{
                 --navy:       #0b1f44;
@@ -29,7 +27,6 @@
                 --space-para:    1.1rem; /* paragraph is paragraph      */
                 --space-figure:  2.25rem;/* text is chart and back      */
             }
->>>>>>> Stashed changes
             html {
                 scroll-behavior: smooth;
                 scroll-padding-top: 22vh;
@@ -56,15 +53,9 @@
 
             .sticky-toc-navigator {
                 position: absolute;
-<<<<<<< Updated upstream
-                left: 6vw;
-                top: 0.75rem;
-                width: 320px;
-=======
                 right: 1vw;
                 top: 1vw;
                 width: 15vw;
->>>>>>> Stashed changes
                 background: #404752;
                 border: 1px solid rgba(158, 197, 255, 0.25);
                 border-radius: 8px;
@@ -160,17 +151,10 @@
                 background-color: #0b1f44;   /* navy blue */
                 color: #ffffff;              /* white text */
                 font-family: 'Roboto', Arial, Helvetica, sans-serif;   /* paragraphs */
-<<<<<<< Updated upstream
-                font-size: 20px;             /* bigger body text (was browser default 16px) */
-                line-height: 1.7;
-                margin: 0 auto;
-                max-width: min(80vw, 1800px);
-=======
                 font-size: 16px;             /* bigger body text (was browser default 16px) */
                 line-height: 1.7;
                 margin: 0;
                 max-width: 84vw;
->>>>>>> Stashed changes
             }
 
             #intro {
@@ -260,13 +244,8 @@
             .scrolly-container{
                 position: relative;
                 display: flex;
-<<<<<<< Updated upstream
-                padding: 2rem;
-                gap: 3rem;
-=======
                 padding: 1rem;
                 gap: 1rem;
->>>>>>> Stashed changes
                 align-items: flex-start;
                 width: 100%;
                 box-sizing: border-box;
@@ -276,12 +255,8 @@
             article{
                 position: relative;
                 flex: 1;
-<<<<<<< Updated upstream
-                max-width: 30rem;
-=======
                 max-width: 25vw;
                 width: 100%;
->>>>>>> Stashed changes
             }
 
 
@@ -289,17 +264,6 @@
             .scrolly-section:not(.is-sensor-track) figure {
                 position: -webkit-sticky;
                 position: sticky;
-<<<<<<< Updated upstream
-                top: calc((100vh - var(--fig-height, 60vh))/2);
-                flex: 1.2;
-                margin: 0;
-                z-index: 5;
-                height: var(--fig-height, 60vh);                
-                border-radius: 12px;
-                box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-                background-color: #404752 !important;
-                padding: 1.5rem;
-=======
                 top: calc((100vh - var(--fig-height, 80vh))/2);
                 flex: 1.2;
                 margin: 0;
@@ -310,28 +274,12 @@
                 box-shadow: 0 4px 20px rgba(0,0,0,0.3);
                 background-color: #404752 !important;
                 padding: 1rem;
->>>>>>> Stashed changes
                 box-sizing: border-box;
                 
             }
 
             /* Right side sticky tile for impact careds*/
             .scrolly-section.is-sensor-track figure {
-<<<<<<< Updated upstream
-                position: relative;
-                flex: 1.2;
-                margin: 0;
-                z-index: 5;
-                height: var(--fig-height, 60vh);
-                margin-top: 170vh;
-                border-radius: 12px;
-                box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-                background-color: #404752 !important;
-                padding: 1.5rem;
-                box-sizing: border-box;
-                transition: top 0.4s ease, margin-top 0.4s ease;
-                transition: opacity 0.5s ease;
-=======
                 position: -webkit-sticky;
                 position: sticky;
                 margin: 0;
@@ -345,7 +293,6 @@
                 padding: 1rem;
                 box-sizing: border-box;
                 transition: top 0.4s ease, margin-top 0.4s ease;
->>>>>>> Stashed changes
             }
 
             .scrolly-section.is-sensor-track figure.is-sticky-center {
@@ -382,14 +329,9 @@
                 position: -webkit-sticky;
                 position: sticky;
                 z-index: 10;
-<<<<<<< Updated upstream
-                top:25vh;
-                width: 100%;
-=======
                 top:calc((100vh - var(--step-height, 80vh))/2);
                 width: 100%;
                 height: var(--step-height, 80vh);
->>>>>>> Stashed changes
                 border: 1px solid rgba(158, 197, 255, 0.2);
                 border-radius: 12px;
                 box-shadow: 0 10px 25px rgba(0,0,0,0.4);
@@ -404,11 +346,7 @@
             }
 
             .scrolly-section.is-sensor-track .step {
-<<<<<<< Updated upstream
-                height: 40vh;
-=======
                 height:60vh;
->>>>>>> Stashed changes
                 margin: 0;
                 opacity: 0 !important;
                 background: transparent !important;
@@ -433,35 +371,17 @@
 
             /* Invididual Step Tile*/
             .step {
-<<<<<<< Updated upstream
-                height:40vh;
-                width: 100%;
-                max-width: 26rem;
-                padding: 2rem 1.5rem;
-                margin: 0 auto 65vh auto;
-                color: #ffffff;
-                background-color: #404752;
-=======
                 height: var(--step-height, 44vh);
                 width: 100%;       
                 color: #ffffff;
                 background-color: transparent;
->>>>>>> Stashed changes
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-<<<<<<< Updated upstream
-                border-radius: 8px;
-                box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-                transform: scale(0.96);
-                transition: all 0.4s ease;
-                opacity: 0.2;
-=======
                 transition: all 0.4s ease;
                 border-radius: 12px;
                 box-sizing: border-box;
->>>>>>> Stashed changes
             }
 
             
@@ -470,16 +390,6 @@
                 margin-bottom:5vh;
             }
 
-<<<<<<< Updated upstream
-
-            .step.is-active {
-                opacity: 1 !important;
-                transform: scale(1.02) !important;
-                box-shadow: 0 10px 25px rgba(0,0,0,0.4) !important;
-            }
-
-=======
->>>>>>> Stashed changes
             .step p {
                 text-align: center;
                 font-size: 2rem;
@@ -508,17 +418,9 @@
 
             .inner-scrolling-card {
                 position: relative;
-<<<<<<< Updated upstream
-                margin: 0 auto;
-                
-                width: 100%;
-                max-width: 25rem;
-                padding: 2.5rem 1.5rem;
-=======
                 margin: 0 auto;                
                 width: 100%;                
                 padding: 2rem;
->>>>>>> Stashed changes
                 color: #ffffff;
                 background-color: #404752;
                 border-radius: 12px !important;
@@ -527,10 +429,7 @@
                 z-index: 5;
                 height: auto !important;
                 opacity: 1;
-<<<<<<< Updated upstream
-=======
                 text-align: center;
->>>>>>> Stashed changes
             }
 
             .scrolly-section[data-type="counter"] article .step.is-active .inner-scrolling-card {
@@ -576,15 +475,9 @@
             .impact-cards {
                 display: flex;
                 flex-direction: column;
-<<<<<<< Updated upstream
-                gap: 0.75rem;
-                margin: 0 0 1.25rem 0;
-                max-width: 100%;
-=======
                 gap: 0.5rem;
                 margin: 0 0 1.25rem 0;
                 width: 100%;
->>>>>>> Stashed changes
                 overflow-anchor: none;
                 width: 100%;
                 text-align: center;
@@ -596,25 +489,16 @@
                 overflow: hidden;
                 transition: background-color 0.2s ease, border-left-color 0.2s ease;
                 width: 100%;
-<<<<<<< Updated upstream
-            }
-            .impact-card[open] { background-color: rgba(255, 255, 255, 0.08); border-left-color: #ecc94b}
-=======
                 height:auto;
             }
             .impact-card[open] {
                 background-color: rgba(255, 255, 255, 0.08);
                 border-left-color: #ecc94b}
->>>>>>> Stashed changes
 
             .impact-card summary {
                 list-style: none;
                 cursor: pointer;
-<<<<<<< Updated upstream
-                padding: 1.1rem 1.25rem;
-=======
                 padding: .6rem .6rem;
->>>>>>> Stashed changes
                 display: flex;
                 align-items: center;
                 gap: 1rem;
@@ -627,22 +511,14 @@
                 display: block;
                 text-transform: uppercase;
                 letter-spacing: 0.1em;
-<<<<<<< Updated upstream
-                font-size: 1.6rem;
-=======
                 font-size: 1.4vh;
->>>>>>> Stashed changes
                 font-weight: 700;
                 color: #9ec5ff;
                 margin-bottom: 0.2rem;
             }
             .impact-card .claim {
                 font-family: 'Roboto Slab', Georgia, serif;
-<<<<<<< Updated upstream
-                font-size: 1.2rem;
-=======
                 font-size: 1.6vh;
->>>>>>> Stashed changes
                 font-weight: 500;
                 color: #ffffff;
                 line-height: 1.35;
@@ -694,11 +570,7 @@
                 opacity: 0;
                 padding: 0 1.25rem;
                 color: #cde0ff;
-<<<<<<< Updated upstream
-                font-size: 1.2rem;
-=======
                 font-size: 1.5vh;
->>>>>>> Stashed changes
                 line-height: 1.65;
                 text-align: left;
             }
@@ -706,11 +578,7 @@
             .impact-card .detail ul { margin: 0; padding-left: 1.2rem; }
             .impact-card .detail li { margin-bottom: 0.35rem; }
             .impact-source { 
-<<<<<<< Updated upstream
-                font-size: 0.85rem; 
-=======
                 font-size: 1.2vh; 
->>>>>>> Stashed changes
                 color: #8ba6cf; 
                 font-style: italic; 
                 margin: 0 auto;
@@ -723,36 +591,22 @@
             /* ===== Intro enhancements (added) ===== */
             /* Bigger, tighter headings */
             h1 {
-<<<<<<< Updated upstream
-                font-size: 3.5rem; 
-=======
                 font-size: 5vh; 
->>>>>>> Stashed changes
                 line-height: 1.15; 
                 margin: 0 auto;
             }
             h2 { 
-<<<<<<< Updated upstream
-                font-size: 2.75rem;
-=======
                 font-size: 3vh;
->>>>>>> Stashed changes
                 margin: 15 auto; 
                 line-height: 1.25;
             }
             
             h3{
-<<<<<<< Updated upstream
-                font-size: 1.7rem;
-=======
                 font-size: 2vh;
->>>>>>> Stashed changes
                 margin: 10 auto;
                 line-height: 1;
             }
 
-<<<<<<< Updated upstream
-=======
             h4{
                 font-size: 2vh;
                 margin: 10 auto;
@@ -760,7 +614,6 @@
                 color: #ecc94b;
             }
 
->>>>>>> Stashed changes
             .centered-heading{
                 text-align: center;
                 margin: 0 auto;
@@ -770,11 +623,7 @@
             /* Opening paragraph: larger, softer blue */
             p.lead {
 
-<<<<<<< Updated upstream
-                font-size: 22px;
-=======
                 font-size: 2vh;
->>>>>>> Stashed changes
                 font-weight: 500;
                 color: #cde0ff;
 
@@ -1017,11 +866,7 @@
                 --green:#1f8a4c; --green-bg:#e8f6ee; --green-br:#bfe6cd;
                 --gray:#5b6b85; --purple: #7c3aed; --purple-bg: #f5f3ff;
                 background:#ffffff; border-radius:16px; padding:28px clamp(16px,3vw,34px);
-<<<<<<< Updated upstream
-                box-shadow:0 6px 22px rgba(0,0,0,.28); color:var(--ink); max-width:760px; margin:0 auto; transform: scale(1.1); transform-origin: center center;
-=======
                 box-shadow:0 6px 22px rgba(0,0,0,.28); color:var(--ink); margin:0 auto; height:80vh; width:auto;
->>>>>>> Stashed changes
             }
             .grantflow h3{
                  font-family:'Roboto Slab',Georgia,serif; 
@@ -1103,11 +948,7 @@
             }
             .chart-note summary {
                 cursor: pointer;
-<<<<<<< Updated upstream
-                color: #9ec5ff;
-=======
                 color: #ecc94b;
->>>>>>> Stashed changes
                 font-weight: 500;
                 list-style: none;
                 padding: 0.3rem 0;
@@ -1117,11 +958,7 @@
             .chart-note[open] summary::before { content: "\2212 "; }  /* minus sign */
             .chart-note summary:focus-visible { outline: 2px solid #9ec5ff; outline-offset: 2px; }
             .chart-note .note-body {
-<<<<<<< Updated upstream
-                color: #b3ccf5;
-=======
                 color: #ecc94b;
->>>>>>> Stashed changes
                 line-height: 1.6;
                 padding: 0.4rem 0 0 1.1rem;
                 
@@ -1163,11 +1000,7 @@
 
             /* ===== These are the styles for the interactive state map ===== */
             .gf-statemap{ --ink:#12326e; --blue:#1b4fa0; --red:#d12b2b; --green:#1f8a4c;
-<<<<<<< Updated upstream
-                border:1px solid #dbe6f6; border-radius:12px; background:#fbfdff; padding:16px 16px 14px; margin:0 0 8px; }
-=======
                 border:1px solid #dbe6f6; border-radius:12px; background:#fbfdff; padding:16px 16px 14px; margin:0 0 8px; height:90%; width:90%;}
->>>>>>> Stashed changes
             .gf-statemap .gf-map-eyebrow{ font-size:.74rem; font-weight:700; letter-spacing:.09em;
                 text-transform:uppercase; color:#5b6b85; margin:0 0 2px; }
             .gf-statemap .gf-map-title{ font-family:'Roboto Slab',Georgia,serif; font-size:1.05rem; color:var(--ink); margin:0 0 10px; }
@@ -1211,8 +1044,6 @@
                 display: block;
                 margin: 0 auto;
             }
-<<<<<<< Updated upstream
-=======
                 /* ===== I Juliana used AI Claude to help with the formatting of this scrolling section ===== */
             .ramp-scrolly{ position:relative; display:flex; gap:3rem; align-items:flex-start; width:100%; box-sizing:border-box; margin-top:1.5rem; }
             .ramp-article{ position:relative; flex:1; max-width:26rem; }
@@ -1247,7 +1078,6 @@
                 .ramp-article{ max-width:none; }
                 .ramp-step{ min-height:70vh; }
             }
->>>>>>> Stashed changes
         </style>
     </head>
 
@@ -1271,35 +1101,6 @@
         </nav>
 
         <main>
-<<<<<<< Updated upstream
-            <br>
-            <section id="intro">
-                <div class="scrolly-section-spacer" style = "--spacer-height: 5vh"></div>
-                
-                <img class="centered-img" src="https://datasci-209-flask-teamscience-verce.vercel.app/static/nih_grant.png"  alt="NIH Grant image"/>
-
-                <div class="scrolly-section-spacer" style = "--spacer-height: 10vh"></div>
-
-                <h1 class="centered-heading">Since 2025, over 5,757 grants have been illegally frozen.</h1>
-                
-                <div class="scrolly-section-spacer" style = "--spacer-height: 10vh"></div>
-                
-                <h1 class="centered-heading">More than 1,249 were terminated or never restored</h1>
-
-                <div class="scrolly-section-spacer" style = "--spacer-height: 10vh"></div>
-
-                <h1 class="centered-heading">But what does that mean?</h1>
-                
-                <div class="scrolly-section-spacer" style = "--spacer-height: 10vh"></div>
-            </section>
-
-            
-            
-
-            <div class="scrolly-section-spacer" style = "--spacer-height: 40vh"></div>
-            
-
-=======
             <!--  Counter viz originally created by Sean Sjahrial; numbers and current implementation by Juliana Carrillo -->            
 
             <section class = "scrolly-container scrolly-section " id="Intro" data-type = "ramp" data-title = "Intro">
@@ -1391,7 +1192,6 @@
             <div class="scrolly-section-spacer" style = "--spacer-height: 40vh"></div>
             
 
->>>>>>> Stashed changes
 
             <section class = "scrolly-container scrolly-section is-sensor-track" id="What do NIH Grants Do?" data-type = "cards" data-title = "What do NIH Grants Do?">
                 <article style = "position: relative;">
@@ -1441,17 +1241,10 @@
 
 
                     
-<<<<<<< Updated upstream
-                    <figure data-main-visual = "true">
-                        <div class="scrolly-section-spacer" style = "--spacer-height: 2vh"></div>
-                        <h2 class="centered-heading">Notable NIH Impacts</h2>
-                        <div class="scrolly-section-spacer" style = "--spacer-height: 2vh"></div>
-=======
                     <figure data-main-visual = "true" style=" --fig-margin-top:175vh; --fig-height: 80vh;">
                         <div class="scrolly-section-spacer" style = "--spacer-height: 1vh"></div>
                         <h2 class="centered-heading">Notable NIH Impacts</h2>
                         <div class="scrolly-section-spacer" style = "--spacer-height: 1vh"></div>
->>>>>>> Stashed changes
                         <div class="impact-cards">                            
                             <!-- Tile: landmark discoveries (folds the old bullet list in here) -->
                             <details class="impact-card"  data-card="1">
@@ -1610,8 +1403,6 @@
                                 <p class="lead">A grant is public money NIH gives an institution to answer one scientific question over
                                 several years. The money arrives one year at a time, not all at once. That single fact is what makes an
                                 interrupted grant so costly.</p>
-<<<<<<< Updated upstream
-=======
                             
                                 <span class="gf-hint" style="display:inline-flex; margin:1vh auto; justify-content: center;">
                                     <h4>    </h4>
@@ -1623,7 +1414,6 @@
                                         stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12l3 0"/><path d="M12 3l0 3"/><path d="M7.8 7.8l-2.2 -2.2"/><path 
                                         d="M16.2 7.8l2.2 -2.2"/><path d="M7.8 16.2l-2.2 2.2"/><path d="M12 12l9 3l-4 2l-2 4l-3 -9"/></svg>  
                                 </span>
->>>>>>> Stashed changes
                             </div>
                         </section>
                     </div>
@@ -1638,115 +1428,16 @@
                 </article>
                 <div class = "right-visual-column-wrapper">
                     
-<<<<<<< Updated upstream
-                    <figure data-main-visual = "true" style="--fig-height:80vh;">
-                                         <!-- ===== SEAN'S/Julianas FUNDING FLOWCHART START JMC EDITS===== -->
-                        <div class="scrolly-section-spacer" style = "--spacer-height: 6vh"></div>
-                        <div class="grantflow" id="grantflow">
-                        <span class="gf-hint" style="display:inline-flex; margin:1.4rem auto; justify-content: center;">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path 
-                                stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12l3 0"/><path d="M12 3l0 3"/><path d="M7.8 7.8l-2.2 -2.2"/><path 
-                                d="M16.2 7.8l2.2 -2.2"/><path d="M7.8 16.2l-2.2 2.2"/><path d="M12 12l9 3l-4 2l-2 4l-3 -9"/></svg>    
-                                Click on any bubble to see additional details.
-                        </span>
-                        
-                        <h3 class="centered-heading">How NIH grant money moves,</br>and where in the process it got cut</h3>
-=======
                     <figure data-main-visual = "true" style="--fig-height:95vh; --fig-margin-top:115vh;">
                                          <!-- ===== SEAN'S/Julianas FUNDING FLOWCHART START JMC EDITS===== -->                        
                         <div class="grantflow" id="grantflow">
                         
                             <h3 class="centered-heading">How NIH grant money moves and where in the process it got cut</h3>
->>>>>>> Stashed changes
 
                         
 
                         
 
-<<<<<<< Updated upstream
-                        <!-- ============ ACT 1 ============ -->
-                        <div class="gf-act">
-                            <div class="scrolly-section-spacer" style = "--spacer-height: 1vh"></div>
-                            <div class="gf-item" data-flow-step="1">
-                            <button class="gf-node" aria-expanded="false">
-                                <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 21l18 0"/><path d="M3 10l18 0"/><path d="M5 6l7 -3l7 3"/><path d="M4 10l0 11"/><path d="M20 10l0 11"/><path d="M8 14l0 3"/><path d="M12 14l0 3"/><path d="M16 14l0 3"/></svg></span>
-                                <span class="tx"><b>Congress Sets the Budget</b><span>Congress decides how much NIH gets each year. This is the power of the purse.</span></span>
-                                <span class="gf-more">More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg> </span>
-                            </button>
-                            <div class="gf-detail"><div class="gf-detail-inner">
-                                <p>Once a year, Congress passes a law setting how much money NIH receives. Under the Constitution, only Congress can decide federal spending.</p>
-                                <p>Once that law is signed, the money is supposed to be spent as written.</p>
-                            </div></div>
-                            </div>
-
-                            <div class="gf-arrow">&#8595;</div>
-
-                            <div class="gf-item" data-flow-step="2">
-                            <button class="gf-node" aria-expanded="false">
-                                <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 11v.01"/><path d="M5.173 8.378a3 3 0 1 1 4.656 -1.377"/><path d="M16 4v3.803a6.019 6.019 0 0 1 2.658 3.197h1.341a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-1.342c-.336 .95 -.907 1.8 -1.658 2.473v1.527a1.5 1.5 0 0 1 -3 0v-.5h-4v.5a1.5 1.5 0 0 1 -3 0v-1.527a6 6 0 0 1 -1 -3.473h-1a1 1 0 0 1 0 -2h1c0 -1.18 .35 -2.276 .95 -3.195l-1.45 -1.455a1 1 0 1 1 1.41 -1.41l1.346 1.34a6.007 6.007 0 0 1 3.744 -1.28h.5v-3.803a1 1 0 0 1 2 0z"/></svg></span>
-                                <span class="tx"><b>The Money Waits in the Treasury</b><span>The U.S. Treasury is the government's bank account. It holds the money, it does not decide who gets it.</span></span>
-                                <span class="gf-more">More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
-                            </button>
-                            <div class="gf-detail"><div class="gf-detail-inner">
-                                <p>The Treasury holds the nation's money and pays it out as agencies commit it. It is the account, not the decision-maker.</p>
-                            </div></div>
-                            </div>
-
-                            <div class="gf-arrow">&#8595;</div>
-
-                            <div class="gf-item" data-flow-step="3">
-                            <button class="gf-node" aria-expanded="false">
-                                <span class="ic"><svg <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M21 17h-8l-3.5 -5h-6.5"/><path d="M21 7h-8l-3.495 5"/><path d="M18 10l3 -3l-3 -3"/><path d="M18 20l3 -3l-3 -3"/></svg></span>
-                                <span class="tx"><b>NIH Gets Its Share</b><span>NIH splits its budget across 27 institutes and centers, from cancer to aging to mental health.</span></span>
-                                <span class="gf-more">More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
-                            </button>
-                            <div class="gf-detail"><div class="gf-detail-inner">
-                                <p>NIH divides its funding among 27 institutes and centers, each focused on a field of health. Most of that money does not stay inside NIH.</p>
-                            </div></div>
-                            </div>
-
-                            <div class="gf-arrow">&#8595;</div>
-
-                            <div class="gf-item" data-flow-step="4">
-                            <button class="gf-node" aria-expanded="false">
-                                <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9l5 5v7h-5v-4m0 4h-5v-7l5 -5m1 1v-6a1 1 0 0 1 1 -1h10a1 1 0 0 1 1 1v17h-8"/><path d="M13 7l0 .01"/><path d="M17 7l0 .01"/><path d="M17 11l0 .01"/><path d="M17 15l0 .01"/></svg></span>
-                                <span class="tx"><b>NIH Awards Grants to Research Institutions</b><span>The money goes to universities and hospitals, not to individuals. A lead scientist runs the work; the institution holds the funds.</span></span>
-                                <span class="gf-more">More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
-                            </button>
-                            <div class="gf-detail"><div class="gf-detail-inner">
-                                <p>NIH sends most of its money to institutions such as universities, medical schools, and hospitals. Each grant names a lead scientist, the principal investigator, but the institution holds the funds, hires the staff, and runs the project.</p>
-                                <p>This is why an interrupted grant strands a whole team, not one person.</p>
-                            </div></div>
-                            </div>
-                        </div>
-
-                        <!-- ===== Stopping Point 1 (keeps the Impoundment Control Act in the narrative) ===== -->
-                        <div class="gf-arrow red">&#8595;</div>
-                        <div class="gf-disrupt" style="margin-bottom:6px;">
-                            <div class="gf-item" data-flow-step="5">
-                            <button class="gf-node red" aria-expanded="false">
-                                <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M18 6L6 18"/></svg></span>
-                                <span class="tx"><b>Stopping Point: Money Was Held Back Before It Is Spent</b><span>In 2025 the administration slowed and withheld new NIH awards.</span></span>
-                                <span class="gf-more">More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
-                            </button>
-                            <div class="gf-detail"><div class="gf-detail-inner red">
-                                <p>In early 2025 the Trump administration paused and withheld NIH funding, releasing roughly $8 billion less than in prior years.</p>
-                                <p>In August 2025 the Government Accountability Office, Congress's nonpartisan watchdog, found this broke the Impoundment Control Act of 1974, the law that says a president cannot refuse to spend money Congress has approved. The Trump administration disputes this, and the case is still in court.</p>
-                            </div></div>
-                            </div>
-                        </div>
-
-                        <section>
-                        <div class="gf-arrow">&#8595;</div>
-                        <div style="height: 10px;"></div>
-                        </section>
-                        
-                        <!-- ============ part 2 ============ -->
-
-                        <div class="gf-statemap" id="gf-statemap">
-                        <h4 class="gf-map-title">A Grant Is Funded</h4>
-
-=======
                             <!-- ============ ACT 1 ============ -->
                             <div class="gf-act">
                                 
@@ -1847,7 +1538,6 @@
                     <figure data-main-visual="true" style="--fig-height: 60vh; --fig-margin-top:0vh; justify-content: center; display: flex; flex-direction: column; align-items: center; box-sizing: border-box;">
                         <div class="gf-statemap" id="gf-statemap">
                             <div class="scrolly-section-spacer" style = "--spacer-height: 1vh"></div>
->>>>>>> Stashed changes
                             <svg class="gf-map" viewBox="0 0 680 340" role="img" xmlns="http://www.w3.org/2000/svg">
                                 <title>Where an NIH grant ends up</title>
                                 <desc>Once funded, a grant is ongoing research. From there it can be frozen, a reversible detour, or terminated, which is permanent, or it can finish and reach completed. Tap a state for detail.</desc>
@@ -1911,14 +1601,6 @@
                                 <text x="514" y="317" font-family="Roboto,sans-serif" font-size="12" fill="#43567a">the one clean exit</text>
                             </svg>
 
-<<<<<<< Updated upstream
-                            <div class="gf-map-detail" id="gf-map-detail" aria-live="polite">
-                                <p class="gf-md-title"></p>
-                                <p class="gf-md-body"></p>
-                            </div>
-                        </div>
-
-=======
                             
                         </div>
 
@@ -1927,7 +1609,6 @@
             </section>
                         
 
->>>>>>> Stashed changes
                         <script>
                         (function(){
                         function initStateMap(){
@@ -1936,11 +1617,6 @@
                             wrap.dataset.ready = '1';
 
                             var DATA = {
-<<<<<<< Updated upstream
-                            cycle: { color:'#1b4fa0', title:'Research Is Ongoing',
-                                body:'A funded grant repeats a yearly cycle: the team does the work, files a progress report, and receives the next year\u2019s installment. It stays here until it finishes, is frozen, or is terminated.' },
-=======
->>>>>>> Stashed changes
                             frozen: { color:'#e08a1e', title:'Funding frozen',
                                 body:'Funds are held and no new costs can be charged, so the work usually stops, whether or not the science is sound. A grant can be frozen and unfrozen more than once. When funding resumes, the grant is restored and returns to the yearly cycle. It does not jump straight to completion.' },
                             terminated: { color:'#d12b2b', title:'Grant terminated',
@@ -2024,13 +1700,7 @@
             
 
 
-<<<<<<< Updated upstream
-                    </figure>
-                </div>
-            </section>
-=======
 
->>>>>>> Stashed changes
 
             <!-- ===== SEAN'S FUNDING FLOWCHART END ===== --> 
 
@@ -2038,16 +1708,6 @@
 
             <section class = "scrolly-container scrolly-section" id="everything changed when the maga nation attacked" data-type = "counter" data-title = "What changed in 2025?">
                 <article>
-<<<<<<< Updated upstream
-                    <div class = "step" data-step = "1">
-                        <div class="inner-scrolling-card">
-
-                            <h2 class="centered-heading">What changed in 2025?</h2>
-                            
-                        </div>
-                    </div>
-                    <div class = "step" data-step = "2">
-=======
                     <div class = "step" data-step = "1" style="--step-height:150vh">
                         <div class="inner-scrolling-card">
 
@@ -2056,7 +1716,6 @@
                         </div>
                     </div>
                     <div class = "step" data-step = "2" style="--step-height:100vh">
->>>>>>> Stashed changes
                         <div class="inner-scrolling-card">
                             <h2 class="centered-heading">Historically, </br> NIH Grant Terminations have been rare.</h2>
                             <p class="lead" style="font-size: 1.5rem";>
@@ -2065,11 +1724,7 @@
                             
                         </div>
                     </div>
-<<<<<<< Updated upstream
-                    <div class = "step" data-step = "3">
-=======
                     <div class = "step" data-step = "3" style="--step-height:100vh">
->>>>>>> Stashed changes
                         <div class="inner-scrolling-card">
 
                             <h2 class="centered-heading">Beginning in 2025:</br> thousands of grant disruption events were recorded within a matter of months.</h2>
@@ -2085,11 +1740,7 @@
                 </article>
                 <div class = "right-visual-column-wrapper">
                     
-<<<<<<< Updated upstream
-                    <figure data-main-visual="true" style="--fig-height: 35vh; background: #ffffff !important; background-color: #ffffff !important; border: 1px solid #dbe6f6; overflow: hidden; display: flex; flex-direction: column; justify-content: center; box-sizing: border-box;">                            
-=======
                     <figure data-main-visual="true" style="--fig-height: 80vh;--fig-margin-top:0vh; background: #ffffff !important; background-color: #ffffff !important; border: 1px solid #dbe6f6; overflow: hidden; display: flex; flex-direction: column; justify-content: center; box-sizing: border-box;">                            
->>>>>>> Stashed changes
                         <!-- UPDATED: Re-balanced aspect ratios and structural text colors so they pop cleanly against the new solid white surface -->
                         <svg
                             class="historical-shift-svg"
@@ -2235,11 +1886,7 @@
             <!-- ===== Juliana's Wasted Money FLOWCHART Start ===== -->
             <section class = "scrolly-container scrolly-section " id="Wasted Money" data-type = "counter" data-title = "What happened to the money?">
                 <article>
-<<<<<<< Updated upstream
-                    <div class = "step" data-step = "1">
-=======
                     <div class = "step" data-step = "1" style="--step-height:150vh">
->>>>>>> Stashed changes
                         <div class="inner-scrolling-card">
                             <h2 class="centered-heading">What happened to the money?</h2>
 
@@ -2250,11 +1897,7 @@
                             
                         </div>
                     </div>
-<<<<<<< Updated upstream
-                    <div class = "step" data-step = "2">
-=======
                     <div class = "step" data-step = "2" style="--step-height:100vh">
->>>>>>> Stashed changes
                         <div class="inner-scrolling-card">
                             <p class="lead">Every dollar NIH commits to a grant ends up in one of three places once the grant is cut:</p>
                             <ul style="list-style: none; padding: 0; margin: 0; display: block; width: 100%;">
@@ -2281,11 +1924,7 @@
                 </article>
                 <div class = "right-visual-column-wrapper">
                     
-<<<<<<< Updated upstream
-                    <figure data-main-visual="true" style="--fig-height: 40vh; justify-content: center; display: flex; flex-direction: column; align-items: center; box-sizing: border-box;">
-=======
                     <figure data-main-visual="true" style="--fig-height: 80vh;--fig-margin-top:0vh; justify-content: center; display: flex; flex-direction: column; align-items: center; box-sizing: border-box;">
->>>>>>> Stashed changes
                         <h3 
                             class="centered-heading" >Where the money stood when the work stopped (815 grants)
                         </h3>
@@ -2325,15 +1964,6 @@
             <!-- Julianas Section for Time and Money -->
             <section class = "scrolly-container scrolly-section " id="Time and Money Costs" data-type = "counter" data-title = "What was the cost?">
                 <article>
-<<<<<<< Updated upstream
-                    <div class = "step" data-step = "1">
-                        <div class="inner-scrolling-card">
-                            <h2 class="centered-heading">What was the cost?</h2>                                        
-                            
-                        </div>
-                    </div>
-                    <div class = "step" data-step = "2">
-=======
                     <div class = "step" data-step = "1" style="--step-height:150vh">
                         <div class="inner-scrolling-card">
                             <h2 class="centered-heading">What was the cost?</h2>
@@ -2350,7 +1980,6 @@
                         </div>
                     </div>
                     <div class = "step" data-step = "2" style="--step-height:100vh">
->>>>>>> Stashed changes
                         <div class="inner-scrolling-card">
                             <div class="topics-section">
                                 <p class="lead">Whichever region or institution a grant belonged to, a disruption carried the same underlying cost: 
@@ -2362,11 +1991,7 @@
                 </article>
                 <div class = "right-visual-column-wrapper">
                     
-<<<<<<< Updated upstream
-                    <figure data-main-visual="true" style="--fig-height: 50vh; justify-content: center; display: flex; flex-direction: column; align-items: center; box-sizing: border-box;">
-=======
                     <figure data-main-visual="true" style="--fig-height: 80vh;--fig-margin-top:0vh; justify-content: center; display: flex; flex-direction: column; align-items: center; box-sizing: border-box;">
->>>>>>> Stashed changes
                         <h3 
                             class="centered-heading">What did the complete terminations cost in time and money?
                         </h3>
@@ -2396,20 +2021,6 @@
                                 dollars; a fifth-year grant costs well over a million.  Whichever group you highlight, the
                                 shape holds: the cuts landed on mature work.
                             </p>
-<<<<<<< Updated upstream
-                        </div>
-                        <details class="chart-note">
-                        <summary>Notes and limitations</summary>
-                            <div class="note-body">
-                                Shows 801 of the 1,249 grants, those with both a funding length and a
-                                spending amount on record. Leaves out one record with a negative spending
-                                figure (an accounting artifact) and one unusually large $48 million award
-                                that would flatten everything else. Both are still counted in the dollar
-                                totals above.
-                            </div>
-                        </details>
-
-=======
                         
                             <details class="chart-note">
                             <summary>Notes and limitations</summary>
@@ -2423,7 +2034,6 @@
                             
                             </details>
                         </div>
->>>>>>> Stashed changes
                     </figure>
                 </div>
             </section>
@@ -2431,28 +2041,16 @@
             <!-- Julianas Section for Midstream Terminations -->
             <section class = "scrolly-container scrolly-section " id="Midstream Cuts" data-type = "counter" data-title = "Midstream Cuts">
                 <article>
-<<<<<<< Updated upstream
-                    <div class = "step" data-step = "1">
-                        <div class="inner-scrolling-card">
-                            <h2 class="centered-heading">Most of the grants were cut mid-stream</h2>
-                            <div class="topics-section">
-                                <p class="lead">(More than halfway through their scheduled duration)</p>
-=======
                     <div class = "step" data-step = "1" style="--step-height:150vh">
                         <div class="inner-scrolling-card">
                             <h2 class="centered-heading">Most of the grants were cut</br>mid-stream</h2>
                             <div class="topics-section">
                                 <p class="lead">(More than halfway through</br>their scheduled duration)</p>
->>>>>>> Stashed changes
                             </div>
                         </div>
                         
                     </div>
-<<<<<<< Updated upstream
-                    <div class = "step" data-step = "2">
-=======
                     <div class = "step" data-step = "2" style="--step-height:100vh">
->>>>>>> Stashed changes
                         <div class="inner-scrolling-card">
                             <div class="topics-section">
                                 <p class="lead">A grant has a scheduled start and end. </br></br>The longest running grant that was terminated by the Trump administration was 44 years long.
@@ -2463,20 +2061,12 @@
                 </article>
                 <div class = "right-visual-column-wrapper">
                     
-<<<<<<< Updated upstream
-                    <figure data-main-visual="true" style="--fig-height: 40vh; justify-content: center; display: flex; flex-direction: column; align-items: center; box-sizing: border-box;">
-=======
                     <figure data-main-visual="true" style="--fig-height: 80vh;--fig-margin-top:0vh; justify-content: center; display: flex; flex-direction: column; align-items: center; box-sizing: border-box;">
->>>>>>> Stashed changes
                         <div class="scrolly-section-spacer" style = "--spacer-height: 2vh"></div>
                         
                         <iframe
                         src="{{ url_for('static', filename='5_maturity.html') }}"
-<<<<<<< Updated upstream
-                        width="100%" height="450" frameborder="0"
-=======
                         width="600" height="450" frameborder="0"
->>>>>>> Stashed changes
                         title="How far along grants were when terminated">
                         </iframe>
                         <div class="topics-section">
@@ -2503,11 +2093,7 @@
 
             <section class = "scrolly-container scrolly-section " id="Courts Pushed Back" data-type = "counter" data-title = "Courts Pushed Back">
                 <article>
-<<<<<<< Updated upstream
-                    <div class = "step" data-step = "1">
-=======
                     <div class = "step" data-step = "1" style="--step-height:150vh">
->>>>>>> Stashed changes
                         <div class="inner-scrolling-card">
                             <h2 class="centered-heading">The courts fought back</h2>
                             <div class="topics-section">
@@ -2515,29 +2101,16 @@
                             </div>
                         </div>                            
                     </div>
-<<<<<<< Updated upstream
-                    <div class = "step" data-step = "2">
-                        <div class="inner-scrolling-card">
-                            <div class="topics-section">
-                                <h2 class="centered-heading">And damage was already done.</h2>
-=======
                     <div class = "step" data-step = "2" style="--step-height:100vh">
                         <div class="inner-scrolling-card">
                             <div class="topics-section">
                                 <h2 class="centered-heading">Unfortunately, damage was already done.</h2>
->>>>>>> Stashed changes
                             </div>
                         </div>
                     </div>
                 </article>
                 <div class = "right-visual-column-wrapper">
                     
-<<<<<<< Updated upstream
-                    <figure data-main-visual="true" style="--fig-height: 60vh; justify-content: center; display: flex; flex-direction: column; align-items: center; box-sizing: border-box;">
-                        <div class="scrolly-section-spacer" style = "--spacer-height: 2vh"></div>
-                        
-                        <div class='tableauPlaceholder' id='viz1784616280371' style='position: relative; text-align: center'><noscript><a href='#'><img alt='Overlapping ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;Final-Researchworkbook-SeanSjahrialLinegraph&#47;Overlapping&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Final-Researchworkbook-SeanSjahrialLinegraph&#47;Overlapping' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;Final-Researchworkbook-SeanSjahrialLinegraph&#47;Overlapping&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1784616280371');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else { vizElement.style.width='100%';vizElement.style.height='827px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-=======
                     <figure data-main-visual="true" style="--fig-height: 90vh;--fig-margin-top:0vh; justify-content: center; display: flex; flex-direction: column; align-items: center; box-sizing: border-box;">
                         
                         <div style="width: 50vw; height: 80vh; position: relative; overflow: hidden; margin: 0 auto;">
@@ -2581,7 +2154,6 @@
                             vizElement.parentNode.insertBefore(scriptElement, vizElement);
                         </script>
                     
->>>>>>> Stashed changes
                         <div class="topics-section">
                                 <p class="subclass">
                                 The graph above shows the number of grants frozen and restored over time.
@@ -2603,17 +2175,6 @@
             <!-- ===== Teresa's SECTION START ===== -->
             <section class = "scrolly-container scrolly-section " id="Geographic Impacts" data-type = "counter" data-title = "Geographic Impacts">
                 <article>
-<<<<<<< Updated upstream
-                    <div class = "step" data-step = "1">
-                        <div class="inner-scrolling-card">
-                            <h2 class="centered-heading">What about the grants that were never restored?</h2>
-                        </div>                            
-                    </div>
-                    <div class = "step" data-step = "2">
-                        <div class="inner-scrolling-card">
-                            <div class="topics-section">
-                                <h2 class="centered-heading">The South saw the highest disruption rates.</h2>
-=======
                     <div class = "step" data-step = "1" style="--step-height:150vh">
                         
                         <div class="inner-scrolling-card">
@@ -2635,36 +2196,12 @@
                         <div class="inner-scrolling-card">
                             <div class="topics-section">
                                 <p class="lead">Many reinstated (restored) grants have come substantially through specific court cases, and litigation eligibility tends to cluster by which states attorneys general or named institutions joined those suits.</p>
->>>>>>> Stashed changes
                             </div>
                         </div>
                     </div>
                 </article>
                 <div class = "right-visual-column-wrapper">
                     
-<<<<<<< Updated upstream
-                    <figure data-main-visual="true" style="--fig-height: 55vh; justify-content: center; display: flex; flex-direction: column; align-items: center; box-sizing: border-box;">
-                        <div class="scrolly-section-spacer" style = "--spacer-height: 2vh"></div>
-                        <h3 class="centered-heading">
-                            Map Overview of Terminated NIH Grants out of All grants frozen and terminated.
-                        </h3>
-                        <div class="scrolly-section-spacer" style = "--spacer-height: 2vh"></div>
-                        <iframe
-                            src="{{ url_for('static',filename='termination_map_v1.html') }}"
-                            width="750" height="650" frameborder="0"
-                            title="Map Overview of Terminations by Region (Version 1)">
-                        </iframe>
-                        <div class="topics-section">
-                            <p class="subclass">
-                                 The graph above shows the number of grants that were terminated and never restored over large geographic regions of the United States.  
-                                 <br/>Hover to see the statistics. (Region, Region Grant Termination Rate, State, State Grant Termination Rates, Count of Grants per State)
-                            </p>
-                            </p>
-
-                            <p> The South was hit the hardest, with the highest number of grants terminated and never restored. Institution type is only part of the picture. These organizations are not
-                        spread evenly across the country, so the disruptions also had a geography.
-                            </p>
-=======
                     <figure data-main-visual="true" style="--fig-height: 90vh;--fig-margin-top:0vh; justify-content: center; display: flex; flex-direction: column; align-items: center; box-sizing: border-box;">
                         <h2 class="centered-heading">A geographic recovery divide not just an impact divide.</h2>
                         <div class="scrolly-section-spacer" style = "--spacer-height: 2vh"></div>
@@ -2696,7 +2233,6 @@
                                     A few standouts (Idaho, North Dakota, New Hampshire) show unusually high still-terminated rates even relative to their neighbors.
                                 </li>
                             </ul>
->>>>>>> Stashed changes
                         </div>
 
                     </figure>
@@ -2706,15 +2242,6 @@
             <!-- ===== Teresa's SECTION END ===== -->
 
             <!-- ===== Cameron's SECTION START ===== -->
-<<<<<<< Updated upstream
-             <section class = "scrolly-container scrolly-section " id="Public Health Impacts" data-type = "counter" data-title = "Public Health Impacts">
-                <article>
-                    <div class = "step" data-step = "1">
-                        <div class="inner-scrolling-card">
-                            <h2 class="centered-heading">Public Health Impacts</h2>
-                            <div class="topics-section">
-                                <p class="lead">Public health research areas were saw much higher Termination Rates</p>
-=======
             <section class = "scrolly-container scrolly-section " id="Public Health Areas Ranked" data-type = "counter" data-title = "Research Areas Ranked">
                 <article>
                     <div class = "step" data-step = "1" style="--step-height:150vh">
@@ -2754,16 +2281,11 @@
                             <h2 class="centered-heading">Public Health Impacted</h2>
                             <div class="topics-section">
                                 <p class="lead">These trends are even more apparent when compared</br>side-by-side</p>
->>>>>>> Stashed changes
                             </div>
                         </div>                            
                 </article>
                 <div class = "right-visual-column-wrapper">                    
-<<<<<<< Updated upstream
-                    <figure data-main-visual="true" style="--fig-height: 45vh; justify-content: center; display: flex; flex-direction: column; align-items: center; box-sizing: border-box;">
-=======
                     <figure data-main-visual="true" style="--fig-height: 90vh;--fig-margin-top:0vh; justify-content: center; display: flex; flex-direction: column; align-items: center; box-sizing: border-box;">
->>>>>>> Stashed changes
                         <div class="scrolly-section-spacer" style = "--spacer-height: 1vh"></div>
                         <h3 class="centered-heading">
                             Research area size versus disruption share
@@ -2783,70 +2305,7 @@
                     </figure>
                 </div>
             </section>
-<<<<<<< Updated upstream
-            <section class = "scrolly-container scrolly-section " id="Public Health Areas Ranked" data-type = "counter" data-title = "Public Health Areas Ranked">
-                <article>
-                    <div class = "step" data-step = "1">
-                        <div class="inner-scrolling-card">
-                            <h2 class="centered-heading">Public Health Areas Ranked</h2>
-                            <div class="topics-section">
-                                <p class="lead">Public health research areas saw the highest share of grants disrupted rather than restored</p>
-                            </div>
-                        </div>                            
-                </article>
-                <div class = "right-visual-column-wrapper">                    
-                    <figure data-main-visual="true" style="--fig-height: 50vh; justify-content: center; display: flex; flex-direction: column; align-items: center; box-sizing: border-box;">
-                        <div class="scrolly-section-spacer" style = "--spacer-height: 1vh"></div>
-                        <h3 class="centered-heading">                            
-                            Ranked termination rates across NIH research areas.
-                        </h3>
-                        <div class="scrolly-section-spacer" style = "--spacer-height: 2vh"></div>
-                            <iframe
-                                src="{{ url_for('static', filename='nih_research_area_termination_rankings.html') }}"
-                                width="100%"
-                                height="850"
-                                frameborder="0">
-                            </iframe>
 
-                    </figure>
-                </div>
-            </section>
-            <section class = "scrolly-container scrolly-section " id="Public Health - Area Size" data-type = "counter" data-title = "Public Health - Area Size">
-                <article>
-                    <div class = "step" data-step = "1">
-                        <div class="inner-scrolling-card">
-                            <h2 class="centered-heading">Public Health - Area Size</h2>
-                            
-                            <div class="topics-section">
-                                <p class="lead">Larger areas were not more likely to be disrupted</p>
-                            </div>
-                        </div>                            
-                    </div>
-                </article>
-                <div class = "right-visual-column-wrapper">                    
-                    <figure data-main-visual="true" style="--fig-height: 54vh; justify-content: center; display: flex; flex-direction: column; align-items: center; box-sizing: border-box;">
-                        <h3 class="centered-heading">
-                            Research areas ranked by their size and Termination Rate.
-                        </h3>
-                        <div class="scrolly-section-spacer" style = "--spacer-height: 2vh"></div>
-                            <iframe
-                                src="{{ url_for('static', filename='nih_research_area_size_vs_termination.html') }}"
-                                width="100%"
-                                height="700"
-                                frameborder="0">
-                            </iframe>
-                            <div class="topics-section">
-                                <p class="subclass">
-                                Among grants flagged in this dataset, public health related research areas consistently saw the largest share end in disruption rather than restoration. The size of a research area was not strongly associated with that share, so the pattern is not simply an artifact of big fields having more grants. Instead, specific topics stand out: health disparities, minority health, rural health, infectious diseases, and vaccine related research were disproportionately affected.
-                                </p>
-                            </div>
-
-                    </figure>
-                </div>
-            </section>
-=======
-
->>>>>>> Stashed changes
             
 
             <!-- ===== Cameron's SECTION END ===== -->
@@ -2855,20 +2314,12 @@
             <!-- ===== SEAN'S INTERACTIVE GRAPH 2 SECTION START (Tableau embeds) ===== -->
             <section class = "scrolly-container scrolly-section " id="Impacts by Research Area" data-type = "counter" data-title = "Impacts by Research Area">
                 <article>
-<<<<<<< Updated upstream
-                    <div class = "step" data-step = "1">
-=======
                     <div class = "step" data-step = "1" style="--step-height:150vh">
->>>>>>> Stashed changes
                         <div class="inner-scrolling-card">
                             <h2 class="centered-heading">Of the grants frozen, who was affected the most?</h2>
                         </div>                            
                     </div>
-<<<<<<< Updated upstream
-                    <div class = "step" data-step = "2">
-=======
                     <div class = "step" data-step = "2" style="--step-height:100vh">
->>>>>>> Stashed changes
                         <div class="inner-scrolling-card">
                             <div class="topics-section">
                                 <h2 class="centered-heading">No Research Area was spared, but some areas were hit harder than others.</h2>
@@ -2877,47 +2328,6 @@
                     </div>
                 </article>
                 <div class = "right-visual-column-wrapper">                    
-<<<<<<< Updated upstream
-                    <figure data-main-visual="true" style="--fig-height: 55vh; justify-content: center; display: flex; flex-direction: column; align-items: center; box-sizing: border-box;">
-                        
-                        <div class='tableauPlaceholder' id='viz1785471877398' style='position: relative; width:100%; height: 100%; display: flex; align-items: center; justify-content: center; box-sizing: border-box; overflow: hidden;'>
-                            <noscript>
-                                <a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;Final-HeatmapTimeline&#47;Dashboard1&#47;1_rss.png' style='border: none' />
-                                </a>
-                            </noscript>
-                            <object class='tableauViz'  style='display:none; width:100%; height: 100%; max-width: 100%; max-height: 100%; box-sizing: border-box;'>
-                                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                                <param name='embed_code_version' value='3' />
-                                <param name='site_root' value='' />
-                                <param name='name' value='Final-HeatmapTimeline&#47;Dashboard1' />
-                                <param name='tabs' value='no' />
-                                <param name='toolbar' value='yes' />
-                                <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;Final-HeatmapTimeline&#47;Dashboard1&#47;1.png' />
-                                <param name='animate_transition' value='yes' />
-                                <param name='display_static_image' value='yes' />
-                                <param name='display_spinner' value='yes' />
-                                <param name='display_overlay' value='yes' />
-                                <param name='display_count' value='yes' />
-                                <param name='language' value='en-US' />
-                                <param name='filter' value='publish=yes' />
-                            </object>
-                        </div>
-                        <script type='text/javascript'>
-                            var divElement = document.getElementById('viz1785471877398');
-                            var vizElement = divElement.getElementsByTagName('object')[0];
-                            
-                            vizElement.style.width = '100%'
-                            vizElement.style.height = '100%'
-                            
-                            var scriptElement = document.createElement('script');
-                            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-                            vizElement.parentNode.insertBefore(scriptElement, vizElement);
-                        </script>
-                        <div class="topics-section">
-                            <p class="subclass">
-                                This interactive graphic shows the number of grants disrupted in the different research areas. There are fluctuations in disruptions as courts restored funding to the grants.                            
-                            </p>
-=======
                     <figure data-main-visual="true" style="--fig-height: 90vh;--fig-margin-top:0vh; justify-content: center; display: flex; flex-direction: column; align-items: center; box-sizing: border-box;">
                         <div style="width: 55vw; height: 90vh; position: relative; overflow: hidden; margin: 0 auto;">
                             <div class='tableauPlaceholder' id='viz1785471877398' style='position: absolute; top: 54%; left: 50%; transform: translate(-50%, -50%) scale(0.75); transform-origin: center; width: 1200px; height: 1000px; padding: 0; margin: 0;'>
@@ -2962,7 +2372,6 @@
                                 <p class="subclass">
                                     This interactive graphic shows the number of grants disrupted in the different research areas. There are fluctuations in disruptions as courts restored funding to the grants.                            
                                 </p>
->>>>>>> Stashed changes
                         </div>
                     </figure>
                 </div>
@@ -2970,145 +2379,6 @@
             <!-- ===== SEAN'S INTERACTIVE GRAPH 2 SECTION ENDS (Tableau embeds) ===== -->
 
             <!-- ===== ROE's SECTION START ===== -->
-<<<<<<< Updated upstream
-                 <section>
-                <div class="topics-section">
-                    <h2 class="centered-heading">
-                         
-                    </h2>
-
-                                        <p class="subclass">
-                        Sorting the same disruptions by the kind of institution that held the
-                        grant shows the cuts were just as uneven across organizations.
-                    </p>
-                </div>
-
-                    <p class="lead">
-                        Sorting the same terminations and freezes by the kind of institution that held the grant shows the cuts were hit the public and private sectors differently.
-                    </p>
-                </div>
-            </section>
-            <section>
-                <div class="topics-section">
-                    <h2 class="centered-heading">
-                        The freezes hit some groups longer than others
-                    </h2>
-                    <div class="topics-section">
-                        <p>Private organizations lost more total dollars, but public
-                        institutions' funding tended to stay frozen longer.</p>
-                        <p>Funding at minority-serving organizations also stayed frozen
-                        longer than funding at other institutions.</p>
-                    </div>
-                    <h3 class="centered-heading">
-                        Share of each sector's frozen grant value that was still withheld over the course of the first disruption. 
-                    </h3>
-                </div>
-
-                    <iframe
-                        src="{{ url_for('static', filename='Sector Disruption Percentages.html') }}"
-                        style="width:110%; height:950px; border: none; transform: scale(0.9);transform-origin: top left;"
-                        frameborder="0">
-                    </iframe>
-                    
-                <div class="topics-section">
-                    <p>
-                    The public curve staysabove the private curve for most of the timeline, meaning public funding
-                    stayed frozen longer before it was released.</p> 
-
-                    <h2>Total dollar value frozen at private versus public organizations during the first disruption. </h2>
-                </div>
-                    <img
-                        src="{{url_for('static',filename=file7)}}"
-                        style="width:110%; height:500px; border: none; transform: scale(0.9);transform-origin: top left;"
-                        frameborder="0">
-                    </img>
-                <div class="topics-section">
-                    <p>
-                    Private organizations account for the large majority of the dollars, reflecting how much more NIH grant
-                    money private institutions hold overall.</p>
-
-                    <p>Share of frozen grant value still withheld over the first disruption, comparing minority-serving organizations with all others.</p>
-                </div>
-
-                <iframe
-                    src="{{ url_for('static', filename='Marginalized Group Disruption Percentages.html') }}"
-                    style="width:110%; height:950px; border: none; transform: scale(0.9);transform-origin: top left;"
-                    frameborder="0">
-                </iframe>
-
-                <div class="topics-section">
-                    <p>
-                    The minority-serving curve stays higher for most of the timeline, meaning
-                    that funding stayed frozen longer.
-                    </p>
-                </div>
-            </section>
-
-            <!-- ===== Roe's SECTION END ===== -->
-            <section class = "scrolly-container scrolly-section " id="Conclusion" data-type = "counter" data-title = "Conclusion"></section>
-            </section>
-                <div class="topics-section">
-                    <h1 class="centered-heading">Public Health Research is Under Fire: The NIH is experiencing a time of unprecedented defunding</h1>
-                        <h2 class="centered-heading"></h2>
-                    
-                        <p>This analysis summarizes key patterns in NIH grant disruptions:</p>
-
-                    <ul>
-                        <li>Time and money wasted in grants that were completely terminated after years of research</li>
-                        <li>Legal time and money wasted even in the process of freezing and unfreezing the grants</li>
-                        <li>Termination rates varied by region</li>
-                        <li>Public health research was disproportionately affected</li>
-                        <li>Private institutions had their funding reinstated faster</li>
-                    </ul>
-
-                    <section>
-                        <h2 class="centered-heading">What the disruptions really cost</h2>
-
-                        <p>Beginning in early 2025, thousands of active NIH grants were abruptly
-                        frozen or terminated, cutting off research already underway. The courts
-                        later forced much of that funding to be restored, but restoration was not
-                        the same as prevention: by the time money flowed again, the disruption had
-                        already done its damage.</p>
-
-                        <p>That damage did not land evenly. Public health research, minority-serving
-                        institutions, and grants containing certain flagged language were disrupted
-                        at higher rates and, once frozen, stayed frozen longer. Whatever the intent
-                        behind the cuts, the burden fell hardest on a specific and identifiable set
-                        of the affected grants rather than being spread across the research
-                        enterprise as a whole.</p>
-
-                        <p>And the disruptions were expensive in a way that a reversal cannot fix.
-                        Grants were not cut at their start, before resources had been committed;
-                        terminated grants had typically passed the 60% mark of their project period.
-                        The government had already paid for most of the work and stood to lose the
-                        payoff of finishing it. Cutting a grant this late is the difference between
-                        canceling a house before construction and abandoning it with the roof half
-                        on: over $600 million had already been spent on work that no termination
-                        can un-spend.</p>
-
-                        <p>Even that figure understates the loss. It captures money, but not the
-                        years of training interrupted, the patient studies halted mid-course, or
-                        the research questions left unanswered. And it is a conservative floor,
-                        drawn only from grants with complete records, with the oldest and most
-                        established grants missing entirely. The full cost of stopping science
-                        midway is larger than any single number in this piece can show.</p>
-                    </section>  
-                </div>
-            </section>
-            </div>
-            </section>
-                <details class="chart-note">
-                <summary>Sources and Denominators</summary>
-                <div class="note-body">
-                    Grant Witness (grant status, award and spending
-                figures, sourced from USAspending) merged with NIH RePORTER (funding history, institution,
-                research area) on core award number: 5,757 grants, of which 1,249 were terminated and not
-                restored.
-                </div>
-                </details>
-            </section>
-            </section>
-=======
              <section class = "scrolly-container scrolly-section " id="Private Interests and Marginalized Groups" data-type = "counter" data-title = "Private Interests and Marginalized Groups">
                 <article>
                     <div class = "step" data-step = "1">
@@ -3184,7 +2454,6 @@
     <!-- References -->
     <section>
         <div class="wrap">
->>>>>>> Stashed changes
             <h3>References</h3>
             </body>
             <ul>
@@ -3201,164 +2470,6 @@
             <li>NIH Exporter: <a href="https://report.nih.gov/faqs#exporter">https://report.nih.gov/faqs#exporter</a></li>
             <li>Grant Witness: <a href="https://grant-witness.us">https://grant-witness.us</a></li>
             </ul>
-<<<<<<< Updated upstream
-            </body>
-            </section>
-        </main>
-        <script>
-        (function(){
-        var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        var els = document.querySelectorAll('.reveal');
-        if(reduce || typeof scrollama === 'undefined' || !els.length) return; // leave everything visible
-        document.documentElement.classList.add('js-reveal');
-        var scroller = scrollama();
-        scroller.setup({ step: '.reveal', offset: 0.9, once: true })
-                .onStepEnter(function(res){ res.element.classList.add('is-in'); });
-        window.addEventListener('resize', scroller.resize);
-        })();
-        </script>
-        <script>
-            // Disable restoring to previous scroll position on reload
-            if (history.scrollRestoration) {
-            history.scrollRestoration = 'manual';
-            }
-
-            // Snap window view to top of page on load
-            window.addEventListner('load', function() {
-            window.scrollTo(0,0);
-            });
-        </script>
-        
-        <script 
-            src = "{{ url_for('static', filename = 'scrollama.min.js')}}">  // Scrollama Source
-        </script>
-
-        <script>
-            //Scrollama Tile Handler
-            if (typeof scrollama !== 'undefined') {
-                
-                const scrollySections = document.querySelectorAll('.scrolly-section');
-                const tocWrapper = document.querySelector('.toc-links-wrapper');
-
-
-                if(tocWrapper){
-                    tocWrapper.innerHTML = '';
-                    
-                    scrollySections.forEach((section) => {
-                        const sectionId = section.getAttribute('id');
-                        const sectionTitle = section.getAttribute('data-title') || "Unamed Section";
-
-                        if (sectionId) {
-                            const anchorNode = document.createElement('a');
-                            anchorNode.href = `#${sectionId}`;
-                            anchorNode.className = 'toc-link';
-                            anchorNode.setAttribute('data-target-id', sectionId);
-
-                            anchorNode.innerHTML = `
-                                <div class = "headline">
-                                    <span class = "title-text">${sectionTitle}</span>
-                                </div>
-                                <div class = "toggle">
-                                        <svg viewBox = "0 0 100 100"><use href = "#bold-caret"/></svg>
-                                </div>
-                            `;
-
-                            tocWrapper.appendChild(anchorNode);
-                        }
-                    });
-                }
-
-                const allTocLinks = document.querySelectorAll('.toc-link');
-
-                function updateTocHighlight(activeSectionId) {
-                    allTocLinks.forEach((link) => {
-                        if (link.getAttribute('data-target-id') === activeSectionId) {
-                            link.classList.add('active-toc-node');
-                        } else {
-                            link.classList.remove('active-toc-node');
-                        }
-                    });
-                }
-
-
-
-                scrollySections.forEach((section) => {
-                    const steps = section.querySelectorAll('article .step');
-                    const sectionType = section.getAttribute('data-type');
-                    const currentSectionId = section.getAttribute('id');
-
-                    const counterDisplay = section.querySelector('#counter-display');
-                    const impactCards = section.querySelectorAll('.impact-card');
-                    const flowSteps = section.querySelectorAll('.gf-item');
-                    const mainFigure = section.querySelector('figure[data-main-visual="true"]');
-
-                    const scroller = scrollama();
-                    
-                    scroller
-                        .setup({
-                            step: steps,
-                            offset: 0.5
-                        })
-                        .onStepEnter(function(response) {
-                        steps.forEach((step) => step.classList.remove('is-active'));
-                        response.element.classList.add('is-active');
-
-                        const currentStepIndex = response.index;
-
-                        updateTocHighlight(currentSectionId);
-
-                        if (sectionType === 'counter' && counterDisplay) {
-                            counterDisplay.innerText = currentStepIndex + 1
-                        }
-
-                        else if (sectionType === 'cards' && impactCards.length > 0) {
-
-                            if (currentStepIndex === 0 || currentStepIndex === 1  ) {
-                                if (mainFigure) mainFigure.classList.remove('is-sticky-center');
-                            } else {
-                                if (mainFigure) mainFigure.classList.add('is-sticky-center');
-                            }                          
-
-
-                            impactCards.forEach((card) => {
-                                const cardId = parseInt(card.getAttribute('data-card'));
-
-                                if (cardId === (currentStepIndex - 1)) {
-                                    card.setAttribute('open', '');
-                                } else {
-                                    card.removeAttribute('open');
-                                }
-                            });
-
-                        }
-
-                        else if (sectionType === 'flow' && flowSteps.length > 0) {
-                            
-                            if (currentStepIndex === 0 || currentStepIndex === 1  ) {
-                                if (mainFigure) mainFigure.classList.remove('is-sticky-center');
-                            } else {
-                                if (mainFigure) mainFigure.classList.add('is-sticky-center');
-                            }
-
-                            flowSteps.forEach((flowStep) => {
-                                const flowStepId = parseInt(flowStep.getAttribute('data-flow-step'));
-                                if (flowStepId === (currentStepIndex - 1)) {
-                                    flowStep.classList.add('open');
-                                } else {
-                                    flowStep.classList.remove('open');
-                                }
-                            });
-                        }
-                    });
-                    window.addEventListener('resize', () => { scroller.resize(); });
-                });
-            }
-
-
-        </script>
-    </body>
-</html>
-=======
         </div>
     </section>
         </main>
@@ -3630,4 +2741,3 @@
         <!-- end of ramping grant visualization-->
     </body>
 </html>
->>>>>>> Stashed changes
