@@ -426,7 +426,7 @@
         <p class="impact-source">Source: National Institutes of Health. Figures reflect NIH's own published estimates of the impact of research it funds.</p>
 </section>
 
-    <!--  Sean did the facts and I Juliana did the animation if there are any problems with it please let that reflect on me -->
+    <!--  Counter viz originally created by Sean Sjahrial; numbers and current implementation by Juliana Carrillo -->
 <section class="ramp-section" id="ramp-6096">
     <div class="ramp-scrolly">
 
@@ -445,7 +445,7 @@
 
         <div class="ramp-step ramp-outro">
           <p>6,096 grants frozen or terminated.</p>
-          <small>At least 5,295 were frozen. 801 were terminated, with no date set to restore them.</small>
+          <small>At least 5,362 were frozen. 734 were terminated with complete records. NIH terminated 1,249 grants in total, but only 734 had complete spending and timeline data.</small>
         </div>
       </div>
 
@@ -939,7 +939,7 @@
   // ---- Knobs you can tune ----
   var START        = 6;          // number the counter starts at
   var END          = 6096;       // total it climbs to
-  var TERMINATED   = 801;        // how many of the total are terminated 
+  var TERMINATED   = 734;        // grants with complete spending and timeline records (734 of 1,249 total terminated)
   var FROZEN       = END - TERMINATED;   // the rest are frozen (yellow)
   var FROZEN_COLOR = '#facc15';  // yellow
   var TERM_COLOR   = '#dc2626'; // red
